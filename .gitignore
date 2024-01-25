@@ -1,0 +1,10 @@
+*.aux
+*.bcf
+*.blg
+*.fls
+*.log
+tutorial_ci_from_ehr.pdf
+*.fdb_latexmk
+*.synctex.gz
+*.out
+*.run.xml

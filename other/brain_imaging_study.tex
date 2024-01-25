@@ -1,0 +1,83 @@
+
+\section{Former study on brain imaging}
+
+
+\subsection{Neuro-imaging for stroke patients}
+\paragraph{Framing the question}
+
+\ts{Problems I see is you might be mixing two populations: A) people being
+  admitted because of a stroke. This stroke is usually severe otherwise the would
+  go to dedicated intermediate care stroke units. As such they receive multiple
+  CTs because they are intubated and cannot communicate -> only way to assess
+  stroke progress is by imaging. B) people being admitted because of something
+  else -> either develop symptoms of a stroke (treated and billed correctly) or
+  maybe even have a incidental finding of a stroke that's being coded for billing
+  reasons.}
+\begin{itemize}
+  \item P: The population of interest is defined as patient aged over 18, hospitalized
+        in ICU with a billing diagnoses of stroke or TIA (ICD9 codes 430-439) as main diagnosis which have
+        at least 24 hours of observation. We hypothesize that there is no missing stroke
+        billing code, at least no missingness associated to the treatment. This assumption
+        is equivalent to say that whereas a patient with stroke has a brain imaging or
+        not, it will be coded with TIA/stroke. \md{Is this reasonnable ? Do we
+          opportunistically discover a stroke by CT-scan ? Or are the symptoms
+          sufficiently clear for the initial diagnosis to be independant.} The 24 hour
+        required survival is an attempt to rule out extremely severe patients that would
+        have require more urgent care than a brain imaging, for example if the
+        circulatory or respiratory is failing at ICU admission.
+        At this step, the cohort comprises 2 801 ICU stays with 2 646 distinct patients.
+  \item T: We search for brain imaging during the first 24 hours (or 12 first hours ?).
+  \item C: No brain imaging during the first 24 hours.
+  \item O: Mortality 28-days after ICU-admission. The followup starts after the
+        first 24 hours of survival.
+\end{itemize}
+
+This gives the following medical question: What is the effect of
+\textcolor{I}{performing neuro-imaging evaluation} vs \textcolor{C}{no
+  neuro-imaging} for patient admitted in critical care on \textcolor{O}{28-day mortality}
+
+\paragraph{Preprocessing}
+
+\paragraph{Variable selection}
+
+\ts{What do I have to do here as a reseracher ? Suggest drawing a DAG -> write down all possible confounders. }
+\begin{itemize}
+  \item 13 baseline measures: We are using the same 17 ICU measured clinical variables as in
+        \citep{harutyunyan2019multitask}: Capillary refill rate (binary), Diastolic blood
+        pressure, Fraction inspired oxygen, Glasgow coma scale eye opening (ordinal, 1
+        to 4), Glasgow coma scale motor response(1 to 6), Glasgow coma scale total (1 to
+        15), Glasgow coma scale verbal response (1 to 5), Glucose, Heart Rate, Height,
+        Mean blood pressure, Oxygen saturation, Respiratory rate, Systolic blood
+        pressure, Temperature, Weight, pH. A summary table of the input features on the
+        target population is given in Appendix B.4.
+  \item Expert set
+  \item All available measures \ts{Why do I need all variables or measures ? How do I handle them ? Any benefit ?}
+\end{itemize}
+
+\paragraph{Variable aggregation}
+
+As a baseline for treatment effect estimation, we consider summary statistics of
+the stays as implemented by \citep{harutyunyan2019multitask}. Their script computes 6
+different statistical features for a given time series (min, max, mean, sd, skew
+and number of measurements) for 7 subsequences of the input sequence (the full
+time series, the first 10, 25, 50\% and the last 50, 25, 10\% of time points).
+This preprocessing of raw features leads to a vector of dimension 714 describing
+each ICU stay. We normalize and impute with Z-score the resulting data.
+
+\ts{Reason to do this ? What happens if I ignore this ?}
+
+\paragraph{Identification}
+
+\paragraph{Estimation}
+
+\paragraph{Sensitivity analysis}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{img/ate_variability_MIMIC-III__variable_baselines.png}
+  \caption{The different choices made in the inference pipeline have significant
+    impact on the treatment effect results, requiring to question each model
+    causal assumptions such as residual confounding or population overlap at the variable representation
+    step, model specification at the estimation step.}
+\end{figure}

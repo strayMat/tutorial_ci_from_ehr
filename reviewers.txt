@@ -1,0 +1,27 @@
+- Andrew Beam, beam.andrew@gmail.com, harvard
+- Rumi Chunara rumi.chunara@nyu.edu, https://rumichunara.github.io/
+- Adler Perotte,ajp2120@columbia.edu https://scholar.google.fr/citations?user=opF6px0AAAAJ&hl=en, medical informatics, prognosis
+- Danielle Belgrave, danielle.belgrave.neurips@gmail.com, Deep mind, https://www.daniellebelgrave.com/
+- [Stephanie L Hyland](Stephanie L Hyland), stephanie.hymand@microsoft.com
+co-author on the paper on leveraging EHR for data science, ML for health.
+
+- Selen Bozkurt, selenb@stanford.edu, Stanford, https://scholar.google.com/citations?user=FXI1cA0AAAAJ&hl=en&oi=ao
+For the lancet: reviewers (not sure it is possible to suggest though):
+
+- Hans-Cristian Thorsen-Meyer, (don't succeed in getting his mail). Main author of
+[an hourly prediction model in the ICU, published in the
+lancet](https://www.thelancet.com/journals/landig/article/PIIS2589-7500(20)30018-2/fulltext#%20).
+Might be interested by our guideline. Hans-Cristian THorsen-Meyer seems [ into
+ML](https://scholar.google.com/citations?user=FL__x7EAAAAJ&hl=fr&oi=ao). 
+
+- His boss might also be a good target, but downside is that he should be very busy: [Søren
+Brunak](https://scholar.google.com/citations?hl=fr&user=eNqd5xEAAAAJ&view_op=list_works&sortby=pubdate),
+soren.brunak@cpr.ku.dk
+
+
+- [Paul WG
+Elbers](https://scholar.google.com/citations?hl=fr&user=jPPoHuAAAAAJ&view_op=list_works&sortby=pubdate), p.elbers@amsterdamumc.nl
+author of the [AmsterdamUMCdb](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8132908/), also close to Leo.
+
+- [Tianxi Cai](https://www.hsph.harvard.edu/profile/tianxi-cai/), close to Isaac
+Kohane but she seems nice and very into prognosis but not causal. We already cite her in the paper.
