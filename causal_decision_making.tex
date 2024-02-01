@@ -148,6 +148,7 @@
 % Header and Footer with logo
 \usepackage{lastpage,fancyhdr,graphicx}
 \usepackage{epstopdf}
+\usepackage{lmodern}
 %\pagestyle{myheadings}
 \pagestyle{fancy}
 \fancyhf{}
@@ -248,48 +249,83 @@
   \\
   \textbf{7} Department of Biostatistics, Harvard T.H. Chan School of Public Health, Boston, MA 02115
   \bigskip
-  
-  
-  
-  
+
+
+
+
   % Insert additional author notes using the symbols described below. Insert symbol callouts after author names as necessary.
   % 
   % Remove or comment out the author notes below if they aren't used.
   %
   % Primary Equal Contribution Note
   %\Yinyang Corresponding author: m.doutreligne@has-sante.fr.
-  
+
   % Additional Equal Contribution Note
   % Also use this double-dagger symbol for special authorship notes, such as senior authorship.
   %\ddag These authors also contributed equally to this work.
-  
+
   % Current address notes
   %\textcurrency Current Address: Dept/Program/Center, Institution Name, City, State, Country % change symbol to "\textcurrency a" if more than one current address note
   % \textcurrency b Insert second current address 
   % \textcurrency c Insert third current address
-  
+
   % Deceased author note
   %\dag Deceased
-  
+
   % Group/Consortium Author Note
   %\textpilcrow Membership list can be found in the Acknowledgments section.
-  
+
   % Use the asterisk to denote corresponding authorship and provide email address in note below.
   * Corresponding author: m.doutreligne@has-sante.fr
-  
+
 \end{flushleft}
 % Please keep the abstract below 300 words --> 235
 \section*{Abstract}
-Causal inference frameworks allow to flexibly estimate treatment effects of medical interventions with machine learning methods from electronic health records (EHRs). However, researchers have to be aware of many pitfalls. We designed a tutorial to showcase common pitfalls and potential solutions by using an example in Medical Information Mart for Intensive Care database (MIMIC-IV) on the effect of albumin on
-mortality in sepsis with outcome data from randomized controlled trials (RCT) as gold-standard. First, we fixed the study design according to the target trial concept and using the PICOT framework (Population (patients with sepsis), Intervention (combination of crystalloids and albumin for fluid resuscitation), Control (crystalloids only), Outcome (28-day mortality), Time(intervention start within 24h of admission)). Second, we selected the confounding variables based on expert knowledge. Third, we fitted multiple models with varying assumptions to asses their influence. Reducing treatment initiation time from 72h to 6h removed immortal time bias. A doubly robust learner (AIPW) with random forests proved to be the most reliable estimator. By increasingly adding confounders the results converged to the RCT results (0\%, 95\% CI -1\% to 1\%, and 0\%, 95\% -5\% to 5\%, respectively).  Subgroup analyses showed that treatment efficacy of albumin was better for patients >60 years old, males, and patients with septic shock.
-In conclusion, we show that these steps are all important to build a valid decision-making, causal inference framework and that misspecifications can drastically skew the results.
+
+Causal inference frameworks allow to flexibly estimate treatment effects of
+medical interventions with machine learning methods from electronic health
+records (EHRs). However, researchers have to be aware of many pitfalls. We
+designed a tutorial to showcase common pitfalls and potential solutions by using
+an example in Medical Information Mart for Intensive Care database (MIMIC-IV) on
+the effect of albumin on mortality in sepsis with outcome data from randomized
+controlled trials (RCT) as gold-standard. First, we fixed the study design
+according to the target trial concept and using the PICOT framework (Population
+(patients with sepsis), Intervention (combination of crystalloids and albumin
+for fluid resuscitation), Control (crystalloids only), Outcome (28-day
+mortality), Time(intervention start within 24h of admission)). Second, we
+selected the confounding variables based on expert knowledge. Third, we fitted
+multiple models with varying assumptions to asses their influence. Reducing
+treatment initiation time from 72h to 6h removed immortal time bias. A doubly
+robust estimator (AIPW) with random forests proved to be the most reliable
+estimator. By increasingly adding confounders the results converged to the RCT
+results (0\%, 95\% CI -1\% to 1\%, and 0\%, 95\% -5\% to 5\%, respectively).
+Subgroup analyses showed that treatment efficacy of albumin was better for
+patients >60 years old, males, and patients with septic shock. In conclusion, we
+show that these steps are all important to build a valid decision-making, causal
+inference framework and that misspecifications can drastically skew the results.
 
 % Please keep the Author Summary between 150 and 200 words
 % Use first person. PLOS ONE authors please skip this step. 
 % Author Summary not valid for PLOS ONE submissions.   
 \section*{Author summary}
-Causal inference frameworks have the potential to inform clinical decision-making using routine care data, especially where randomized controlled trials are not feasible.
-These frameworks use machine learning predictions and readily available EHR or claims data for tailoring individualized care. However, certain rules need to be followed to account for the heterogeneity of effect as  assignment of interventions are confounded by indication, which introduces many pitfalls, particularly in time-varying data. In a tutorial spirit, we make all the code and data openly available. We split our approach into three steps: Step 1) Study design; With the common pitfalls selection bias, i.e. information is not equally collected across treatment and control patients, and immortal time bias, i.e. improper alignment of the inclusion defining event and the intervention time. Step 2) Identification of the causal assumptions and categorization of confounders. Step 3) Estimation of the causal effect of interest by correct aggregation of confounders and selection of an appropriate statistical model. Step 4) Vibration analysis which includes the assessing the analysis' robustness to assumptions, and finally Step 5) Treatment heterogeneity which includes exploring the treatment effect in subgroups. 
+
+Causal inference frameworks have the potential to inform clinical
+decision-making using routine care data, especially where randomized controlled
+trials are not feasible. These frameworks use machine learning predictions and
+readily available EHR or claims data for tailoring individualized care. However,
+certain rules need to be followed to account for the heterogeneity of effect as
+assignment of interventions are confounded by indication, which introduces many
+pitfalls, particularly in time-varying data. In a tutorial spirit, we make all
+the code and data openly available. We split our approach into three steps: Step
+1) Study design; With the common pitfalls selection bias, i.e. information is
+not equally collected across treatment and control patients, and immortal time
+bias, i.e. improper alignment of the inclusion defining event and the
+intervention time. Step 2) Identification of the causal assumptions and
+categorization of confounders. Step 3) Estimation of the causal effect of
+interest by correct aggregation of confounders and selection of an appropriate
+statistical model. Step 4) Vibration analysis which includes the assessing the
+analysis' robustness to assumptions, and finally Step 5) Treatment heterogeneity
+which includes exploring the treatment effect in subgroups.
 
 
 \linenumbers
@@ -324,6 +360,7 @@ well-validated and calibrated cardiovascular risk models have not reduced the
 burden of cardiovascular diseases \cite{eriksen2021effectiveness}, probably because they targeted both
 responders and non-responders  \cite{krska2016implementation}. Addressing treatment heterogeneity should reduce  crucial to
 effective care.
+
 %
 
 \begin{figure*}[t!]
@@ -549,7 +586,14 @@ found that septic-shock patients do benefit from albumin.
 Multiple published RCTs can validate the analysis pipeline before
 investigating sub-population effects for individualized decisions. Using
 MIMIC-IV \cite{johnson2020mimic}, we compare the magnitude of biases introduced by reasonable
-choices in the different analytical steps.
+choices in the different analytical steps recalled in Figure \ref{fig:study_summary}.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\linewidth]{img/applied_inference_flow.pdf}
+  \caption{\textbf{Application of the step-by-step framework on which resuscitation fluid to use.}}\label{fig:study_summary}
+\end{figure}
+
 
 \subsection*{Study design: effect of crystalloids on mortality in sepsis}%
 \label{sec:framing_mimic_iv}
@@ -559,15 +603,15 @@ choices in the different analytical steps.
         according to the sepsis-3 definition. Other inclusion criteria:
         sufficient follow-up of at least 24 hours, and age over 18 years
         described in Appendix \ref{apd:table:albumin_for_sepsis:table1_complete}.
-        
+
   \item \textcolor{I}{Intervention}: Treatment with a combination of
         crystalloids and albumin during the first 24 hours of an ICU stay.
-        
+
   \item \textcolor{C}{Control}: Treatment with crystalloids only in the first 24
         hours of an ICU stay.
-        
+
   \item \textcolor{O}{Outcome}: 28-day mortality.
-        
+
   \item \textcolor{T}{Time}: Follow-up begins after the first administration of
         crystalloids. Thus, we potentially introduce a small immortal time bias
         by allowing a time gap between follow-up and the start of the albumin
@@ -589,7 +633,7 @@ patient characteristics and \nameref{apd:selection_flowchart} details the select
     \input{img/albumin_for_sepsis__obs_1d__table1_24h.tex}%
   }
   \\[.5ex]
-  
+
   \caption{Characteristics of the trial population measured on the first 24
     hours of ICU stay. Appendix \ref{apd:table:albumin_for_sepsis:table1_complete}
     describes all confounders used in the analysis.}\label{table:albumin_for_sepsis:table1_simple}
@@ -742,6 +786,7 @@ RCT  \cite{caironi2014albumin}. It is also beneficial for older patients (age >=
     \includegraphics[width=\linewidth]{img/boxplot_est__DML__nuisances__Forests__final_Ridge.pdf}
   \end{minipage}%
 \end{figure}
+
 
 \section*{Discussion and conclusion}\label{sec:discussion}
 
@@ -1039,7 +1084,7 @@ Figure \ref{fig:causal_variables} illustrates the different types of causal vari
 We searched for causal inference studies in MIMIC using PubMed and Google
 scholar with the following search terms ((MIMIC-III OR MIMIC-IV) AND (causal
 inference OR treatment effect)). We retained eleven treatment effect studies
-clearly following the PICO framework:  
+clearly following the PICO framework:
 
 \begin{itemize}[leftmargin=2ex]
   \item \cite{liu2021effects} studied the effect of \textcolor{I}{High-flow
@@ -1049,7 +1094,7 @@ clearly following the PICO framework:
         used propensity score matching, and found non-negative effects as
         previous RCTs reported --though those were focused on reintubation as the
         main outcome \cite{stephan2015high,hernandez2016effect}.
-        
+
   \item \cite{yarnell2023oxygenation} studied the effect of \textcolor{I}{lower hypoxemia} vs \textcolor{C}{higher
         hypoxemia thresholds for the initiation of invasive ventilation} (defined with saturation-to-inspired oxygen ratio (SF)) for
         \textcolor{P}{3,357 patients from MIMIC receiving inspired oxygen fraction greater than 0.4} on \textcolor{O}{28-day
@@ -1060,14 +1105,14 @@ clearly following the PICO framework:
         they found the highest mortality probability for patients with low hypoxemia.
         Authors concluded that their model was heavily dependent on clinical context
         and baseline characteristics. There might be some starting-time bias in this study since it is really close
-        
+
   \item \cite{hsu2015association} studied the effect of \textcolor{I}{indwelling
           arterial catheters (IACs)} vs \textcolor{C}{non-IAC} for
         \textcolor{P}{1,776 patients who are mechanically ventilated and did
           not require vasopressor support} on \textcolor{O}{28-day mortality}.
         They used propensity score matching and found no effect. A notebook based on google cloud access to MIMIC-IV
         replicating the study is available \href{https://github.com/alistairewj/mimic-iv-aline-study/blob/main/mimic_iv_aline.ipynb}{here}.
-        
+
   \item \cite{feng2018transthoracic} studied the effect of
         \textcolor{I}{transthoracic echocardiography} vs \textcolor{C}{no
           intervention} for \textcolor{P}{6,361 patients with sepsis} on
@@ -1077,7 +1122,7 @@ clearly following the PICO framework:
         found a significant positive reduction of mortality (odd ratio 0.78, 95\% CI 0.68-0.90).
         \href{https://github.com/nus-mornin-lab/echo-mimiciii}{Study code is
           open source}.
-        
+
   \item \cite{gani2023structural} studied the effect of \textcolor{I}{liberal
           --target SpO2 greater than 96\%--} vs \textcolor{C}{conservative
           oxygenation --target SpO2 between 88-95\%--} in \textcolor{P}{4,062
@@ -1085,7 +1130,7 @@ clearly following the PICO framework:
         They found an advantage of the liberal strategy over liberal
         (ATE=0.13) by adjusting on age and apsii. This is not consistent with
         previous RCTs where no effects have been reported \cite{panwar2016conservative, mackle2019conservative}.
-        
+
   \item \cite{shahn2020fluid} studied the effect of \textcolor{I}{fluid-limiting
           treatment --caped between 6 and 10 L--} vs \textcolor{C}{no cap on
           fluid administration} strategies for \textcolor{P}{1,639 sepsis
@@ -1095,7 +1140,7 @@ clearly following the PICO framework:
         concordant with the RIFTS RCT that found no effect of fluid limitation
         \cite{corl2019restrictive} and two previous meta-analyses
         \cite{malbrain2014fluid,meyhoff2020lower}.
-        
+
   \item \cite{chinaeke2021impact} studied the effect of \textcolor{I}{statin use
           prior to ICU admission} vs \textcolor{C}{absence of pre-ICU
           prescription} for \textcolor{P}{8,200 patients with sepsis} on
@@ -1421,50 +1466,50 @@ which makes it hard to install.
   \resizebox{\textwidth}{!}{%
     \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
       \hline
-      \multicolumn{1}{|c|}{\textbf{Packages}}                                                           & 
-      \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Simple \\ installation\end{tabular}}}      & 
-      \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Confidence \\ Intervals\end{tabular}}}     & 
-      \textbf{\begin{tabular}[c]{@{}l@{}}sklearn \\ estimator\end{tabular}}                             & 
-      \textbf{\begin{tabular}[c]{@{}l@{}}sklearn \\ pipeline\end{tabular}}                              & 
-      \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Propensity \\ estimators\end{tabular}}}    & 
-      \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Doubly Robust \\ estimators\end{tabular}}} & 
-      \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}TMLE\\ estimator\end{tabular}}}            & 
+      \multicolumn{1}{|c|}{\textbf{Packages}}                                                           &
+      \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Simple \\ installation\end{tabular}}}      &
+      \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Confidence \\ Intervals\end{tabular}}}     &
+      \textbf{\begin{tabular}[c]{@{}l@{}}sklearn \\ estimator\end{tabular}}                             &
+      \textbf{\begin{tabular}[c]{@{}l@{}}sklearn \\ pipeline\end{tabular}}                              &
+      \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Propensity \\ estimators\end{tabular}}}    &
+      \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Doubly Robust \\ estimators\end{tabular}}} &
+      \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}TMLE\\ estimator\end{tabular}}}            &
       \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Honest splitting \\ (cross validation)\end{tabular}}} \\ \hline
-      \textbf{\href{https://github.com/py-why/dowhy}{dowhy}}                                            & 
-      \ding{51}                                                                                         & 
-      \ding{51}                                                                                         & 
-      \ding{51}                                                                                         & 
-      \ding{51}                                                                                         & 
-      \ding{51}                                                                                         & 
-      \ding{55}                                                                                         & 
-      \ding{55}                                                                                         & 
+      \textbf{\href{https://github.com/py-why/dowhy}{dowhy}}                                            &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{55}                                                                                         &
+      \ding{55}                                                                                         &
       \ding{55}                                                                                                    \\ \hline
-      \textbf{\href{https://github.com/py-why/EconML}{EconML}}                                          & 
-      \ding{51}                                                                                         & 
-      \ding{51}                                                                                         & 
-      \ding{51}                                                                                         & 
-      \begin{tabular}[c]{@{}l@{}}Yes except\\ for imputers\end{tabular}                                 & 
-      \ding{55}                                                                                         & 
-      \ding{51}                                                                                         & 
-      \ding{55}                                                                                         & 
+      \textbf{\href{https://github.com/py-why/EconML}{EconML}}                                          &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \begin{tabular}[c]{@{}l@{}}Yes except\\ for imputers\end{tabular}                                 &
+      \ding{55}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{55}                                                                                         &
       \begin{tabular}[c]{@{}l@{}}Only for doubly \\ robust estimators\end{tabular}                                 \\ \hline
-      \textbf{\href{https://github.com/pzivich/zEpid}{zEpid}}                                           & 
-      \ding{51}                                                                                         & 
-      \ding{51}                                                                                         & 
-      \ding{55}                                                                                         & 
-      \ding{55}                                                                                         & 
-      \ding{51}                                                                                         & 
-      \ding{51}                                                                                         & 
-      \ding{51}                                                                                         & 
+      \textbf{\href{https://github.com/pzivich/zEpid}{zEpid}}                                           &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{55}                                                                                         &
+      \ding{55}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
       Only for TMLE                                                                                                \\ \hline
-      \textbf{\href{https://github.com/uber/causalml}{causalml}}                                        & 
-      \ding{55}                                                                                         & 
-      \ding{51}                                                                                         & 
-      \ding{51}                                                                                         & 
-      \ding{51}                                                                                         & 
-      \ding{51}                                                                                         & 
-      \ding{51}                                                                                         & 
-      \ding{51}                                                                                         & 
+      \textbf{\href{https://github.com/uber/causalml}{causalml}}                                        &
+      \ding{55}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
       \begin{tabular}[c]{@{}l@{}}Only for doubly \\ robust estimators\end{tabular}                                 \\ \hline
     \end{tabular}%
   }\caption{Selection criteria for causal python packages}\label{apd:table:causal_packages}
@@ -1866,7 +1911,7 @@ of social inequities of health checks \cite{krska2016implementation}.
         Having access to sources of heterogeneity would help to optimize
         treatment allocation. The risk score might capture interesting
         heterogeneity directions, but we lack data from RCTs to draw such conclusions.
-        
+
   \item  The second critic points to a treatment allocation bias for risk
         assessment. It seems that mostly socially advantaged patients are
         receiving risk assessment and thus the possibility to be treated with
