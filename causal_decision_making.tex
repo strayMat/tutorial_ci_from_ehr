@@ -334,6 +334,26 @@ which includes exploring the treatment effect in subgroups.
 \section*{Introduction: data-driven decisions require causal inference}
 %\label{introduction}
 
+Much of clinical equipoise goes beyond predicting whether or not an event will occur, but on estimating a treatment effect in populations and especially in subgroups thereof. While randomized controlled trials (RCTs) are the gold standard to address these questions, but face issues of their own. Here, causal inference frameworks offer an ideal tool to answer such question in observational data, but many points need to be addressed to obtain valid inferences.
+
+ \paragraph{Beyond Individualized Predictions: Machine Learning Challenges in Medicine} \cite{rajkomar2018scalable,liu2019comparison,li2020behrt,beaulieu2021machine,aggarwal2021diagnostic}
+ Machine learning plays a pivotal role in individualized medicine, showcasing superior performance over traditional rule-based clinical scores in predicting a patient's readmission risk, mortality, or future comorbidities using Electronic Health Records (EHRs) \cite{rajkomar2018scalable,liu2019comparison,li2020behrt,beaulieu2021machine,aggarwal2021diagnostic}.
+However, mounting evidence suggests that machine-learning models can inadvertently perpetuate and exacerbate biases present in the data \cite{rajkomar2018ensuring}, including gender or racial biases \cite{singh2022generalizability,gichoya2022ai}, and the marginalization of under-served populations \cite{seyyed2021underdiagnosis}. These biases are typically encoded by capturing shortcuts—stereotypical or distorted features in the data \cite{geirhos2020shortcut,winkler2019association,degrave2021ai}.
+
+For instance, numerous machine learning algorithms rely on post-treatment information \cite{badgeley2019deep,obermeyer2019dissecting,yuan2021temporal,wong2021external}, exemplified by a diagnostic model for skin cancer that depends on surgical marks \cite{winkler2019association}. A compelling illustration on Intensive Care Unit data is provided in Figure S1 \ref{apd:fig:motivating_example}.
+
+  \paragraph{The Significance of Causal Reasoning in Data-Driven Decision-Making} \cite{prosperi2020causal}
+ While conventional machine learning relies on retrospective to generate predictions of future effects \cite{plecko2022causal}, truly insightful decision-making support necessitates a comparison of potential outcomes with and without the intervention. This involves estimating a causal effect, mirroring the methodology employed in RCTs \cite{prosperi2020causal}. However, RCTs encounter challenges such as selection biases \cite{travers2007external,averitt2020translating}, difficulties in recruiting diverse populations, and limited sample sizes for exploring treatment heterogeneity across subgroups. Routinely collected data presents a unique opportunity to assess real-life benefit-risk trade-offs associated with a decision \cite{desai2021broadening}, with reduced sampling bias and sufficient data to capture heterogeneity \cite{rekkas2023standardized}. Nevertheless, estimating causal effects from such data is challenging due to the confounding of the intervention by indication. Therefore, dedicated statistical techniques are imperative to emulate a "target trial" \cite{hernan2016specifying} from observational data.
+
+  \paragraph{Integrating Multidisciplinary Perspectives for Informed Clinical Decision-Making}
+ Existing literature has only partially delved into the challenges associated with estimating treatment effects using observational data. While epidemiologic studies underscore the importance of the target trial approach \cite{von2007strengthening,benchimol2015reporting,hernan2020causal,schneeweiss2021conducting,zeng2022uncovering}, the emphasis primarily lies on biases stemming from confounding variables, with comparatively less attention given to issues arising from suboptimal study designs or estimator selection.
+
+ In contrast, machine learning and causal inference literature predominantly concentrate on various estimators \cite{belloni2014high,chernozhukov2018double,shalit2016tutorial,sharma2018tutorial,moraffah2021causal}, often inundated with intricate mathematical details and unverifiable assumptions. Guidelines seldom address time-related biases, which frequently emerge in datasets with temporal dependencies \cite{suissa2008immortal,fu2021timing}.
+
+ In this work, we amalgamate abstract epidemiological concepts with foundational principles from statistical literature, adopting an empirical approach tailored to the practical needs of applied researchers. By establishing a cohesive framework that encompasses the choice of study design, consideration of confounders, and selection of estimators (refer to Section \nameref{sec:inference_flow}), we highlight their equal importance in ensuring the validity of the analysis. To illustrate and compare biases, we investigate the impact of albumin on sepsis mortality using data from a publicly available intensive care database, MIMIC-IV \cite{johnson2020mimic} (section \nameref{sec:application_on_mimic_iv}).
+
+ The primary focus of the main section is on accessibility, with technical details expanded in the appendices.
+
 
 Prevention strategies using
 well-validated and calibrated cardiovascular risk models have not reduced the
@@ -895,12 +915,8 @@ Yet it is important to keep in mind that better prediction is not per se
 a goal in healthcare.
 %
 Establishing strong predictors might be less important than identifying
-moderately strong but modifiable risk factors as established on the Framingham
-cohort \cite{brand1976multivariate}.
-Cardio-vascular risk scores such as the QRISK are used to optimize
-population-wide cost
-effectiveness, but do not inform which patient benefits most from a given
-treatment (\nameref{apd:risk_assessment_scores}).
+moderately strong but modifiable risk factors as established in the Framingham
+cohort \cite{brand1976multivariate}, while others such as the QRISK score are used to optimize population-wide cost-effectiveness, but individual treatment effect.
 
 No sophisticated data-processing tool can safeguard against
 invalid study design or a major missing confounder, loopholes that can
@@ -1911,11 +1927,10 @@ study assumes constant statins effect among different CVD risk groups:
   the results of meta-analysis carried out by the Cholesterol Treatment
   Trialists, which found effectiveness to be broadly similar for those at
   different risk levels.} This hypothesis is supported by the meta-analysis of
-\cite{brugts2009benefits} at least for the important risk factors of sex and
-age. It is also assumed that these risk ratios are constant regardless of
+ at least for the important risk factors of sex and age \cite{brugts2009benefits}. It is also assumed that these risk ratios are constant regardless of
 baseline LDL-cholesterol levels. More recent work showed that risk ratio
 stratified by patient baseline CVD risk levels were not significant, raising
-doubts about the overall efficacy of statins for primary prevention \cite[Table 1]{byrne2019statins}.
+doubts about the overall efficacy of statins for primary prevention \cite{byrne2019statins}.
 
 The updated guidelines from the US Preventive Services Task Force found
 respectively moderate and small net benefice of statins for patients aged 40
@@ -1946,14 +1961,12 @@ of social inequities of health checks \cite{krska2016implementation}.
         (up to 400\% increase for high risk patients), has been associated with
         heterogeneity in statin prescriptions for given risk score levels
         \cite{van2013efficiency}. Low risk patients have been over-prescribed
-        and high risk patient under-prescribed, resulting in dubious overall
-        improvement. That suggests that some patients are responders and
-        others are non-responders. In this case, the constant effect
-        hypothesis of statin taken by NICE cost-effectiveness study is false.
+        and high risk patient under-prescribed, resulting in questionable overall
+        improvement. In this case, the constant effect
+        hypothesis of statin proposed by the NICE cost-effectiveness study is in doubt.
         Having access to sources of heterogeneity would help to optimize
         treatment allocation. The risk score might capture interesting
-        heterogeneity directions but, we lack a RCT conducted on different
-        risk levels to conclude.
+        heterogeneity directions, but we lack data from RCTs to draw such conclusions.
 
   \item  The second critic points to a treatment allocation bias for risk
         assessment. It seems that mostly socially advantaged patients are
