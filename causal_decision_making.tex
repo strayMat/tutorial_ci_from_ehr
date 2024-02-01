@@ -278,39 +278,19 @@
   * Corresponding author: m.doutreligne@has-sante.fr
   
 \end{flushleft}
-% Please keep the abstract below 300 words
+% Please keep the abstract below 300 words --> 235
 \section*{Abstract}
-How to inform clinical decision-making using routine care data? First,
-individualizing care calls for tailored prediction, eg with machine learning.
-Second, predictions must be associated with actionable interventions to avoid
-shortcuts or biases in the data. For a given treatment, a useful model would
-distinguish responders from non-responders. This requires modeling
-heterogeneity in causal inference, which faces many pitfalls, particularly so
-on time-varying data, as in electronic health records (EHRs) or claims. Here,
-we decompose these pitfalls in a three steps retrospective case-control study: choice of study design,
-confounding variables, and estimator. Studying the effect of albumin on
-mortality in sepsis in the Medical Information Mart for Intensive Care
-database (MIMIC-IV), we show that these steps are all important to build valid
-decision-making. In a tutorial spirit, we make all the code and data openly
-available.
+Causal inference frameworks allow to flexibly estimate treatment effects of medical interventions with machine learning methods from electronic health records (EHRs). However, researchers have to be aware of many pitfalls. We designed a tutorial to showcase common pitfalls and potential solutions by using an example in Medical Information Mart for Intensive Care database (MIMIC-IV) on the effect of albumin on
+mortality in sepsis with outcome data from randomized controlled trials (RCT) as gold-standard. First, we fixed the study design according to the target trial concept and using the PICOT framework (Population (patients with sepsis), Intervention (combination of crystalloids and albumin for fluid resuscitation), Control (crystalloids only), Outcome (28-day mortality), Time(intervention start within 24h of admission)). Second, we selected the confounding variables based on expert knowledge. Third, we fitted multiple models with varying assumptions to asses their influence. Reducing treatment initiation time from 72h to 6h removed immortal time bias. A doubly robust learner (AIPW) with random forests proved to be the most reliable estimator. By increasingly adding confounders the results converged to the RCT results (0\%, 95\% CI -1\% to 1\%, and 0\%, 95\% -5\% to 5\%, respectively).  Subgroup analyses showed that treatment efficacy of albumin was better for patients >60 years old, males, and patients with septic shock.
+In conclusion, we show that these steps are all important to build a valid decision-making, causal inference framework and that misspecifications can drastically skew the results.
 
 % Please keep the Author Summary between 150 and 200 words
 % Use first person. PLOS ONE authors please skip this step. 
 % Author Summary not valid for PLOS ONE submissions.   
 \section*{Author summary}
-How to inform clinical decision-making using routine care data? First,
-individualizing care calls for tailored prediction, eg with machine learning.
-Second, predictions must be associated with actionable interventions to avoid
-shortcuts or biases in the data. For a given treatment, a useful model would
-distinguish responders from non-responders. This requires modeling
-heterogeneity in causal inference, which faces many pitfalls, particularly so
-on time-varying data, as in electronic health records (EHRs) or claims. Here,
-we decompose these pitfalls in a three steps retrospective case-control study: choice of study design,
-confounding variables, and estimator. Studying the effect of albumin on
-mortality in sepsis in the Medical Information Mart for Intensive Care
-database (MIMIC-IV), we show that these steps are all important to build valid
-decision-making. In a tutorial spirit, we make all the code and data openly
-available.
+Causal inference frameworks have the potential to inform clinical decision-making using routine care data, especially where randomized controlled trials are not feasible.
+These frameworks use machine learning predictions and readily available EHR or claims data for tailoring individualized care. However, certain rules need to be followed to account for the heterogeneity of effect as  assignment of interventions are confounded by indication, which introduces many pitfalls, particularly in time-varying data. In a tutorial spirit, we make all the code and data openly available. We split our approach into three steps: Step 1) Study design; With the common pitfalls selection bias, i.e. information is not equally collected across treatment and control patients, and immortal time bias, i.e. improper alignment of the inclusion defining event and the intervention time. Step 2) Identification of the causal assumptions and categorization of confounders. Step 3) Estimation of the causal effect of interest by correct aggregation of confounders and selection of an appropriate statistical model. Step 4) Vibration analysis which includes the assessing the analysis' robustness to assumptions, and finally Step 5) Treatment heterogeneity which includes exploring the treatment effect in subgroups. 
+
 
 \linenumbers
 
@@ -319,10 +299,10 @@ available.
 %\label{introduction}
 
 
-How can data lead to useful clinical decisions? Prevention strategies using
+Prevention strategies using
 well-validated and calibrated cardiovascular risk models have not reduced the
 burden of cardiovascular diseases \cite{eriksen2021effectiveness}, probably because they targeted both
-responders and non-responders  \cite{krska2016implementation}. Addressing treatment heterogeneity is crucial to
+responders and non-responders  \cite{krska2016implementation}. Addressing treatment heterogeneity should reduce  crucial to
 effective care.
 
 \paragraph{Individualized predictions are not enough}
@@ -343,7 +323,7 @@ For instance, many machine learning algorithms use post-treatment information
 \cite{badgeley2019deep,obermeyer2019dissecting,yuan2021temporal,wong2021external};
 a paradigmatic example being a diagnostic model for skin cancer relying on
 surgical marks \cite{winkler2019association}. A motivating example on Intense Care
-Unit data is provided in \nameref{apd:fig:motivating_example}.
+Unit data is provided in S1 \ref{apd:fig:motivating_example}.
 
 
 \paragraph{Causal thinking is key to data-driven decision-making} \cite{prosperi2020causal}
@@ -365,14 +345,15 @@ observational data.
 % Position of our paper
 \paragraph{Grounding clinical decisions on data requires considerations scattered across different fields.}
 
+Related works focus only partially into the pitfalls of treament effect estimation with observational data. 
 Epidemiologic literature emphasizes the target trial approach
 \cite{von2007strengthening,benchimol2015reporting,hernan2020causal,schneeweiss2021conducting, zeng2022uncovering}, but focuses on biases due to
 confounding variables and less so on those due to poor designs or estimator
-selection. Machine learning and causal inference literature focuses on
+selection.  Machine learning and causal inference literature focuses on
 estimators \cite{belloni2014high, chernozhukov2018double,shalit2016tutorial,
-  sharma2018tutorial,moraffah2021causal}. Guidelines seldom mention time-related
+  sharma2018tutorial,moraffah2021causal}, often with a wealth of mathematical details and unverifiable assumptions. Guidelines seldom mention time-related
 biases, frequent loopholes when data have temporal dependencies
-\cite{suissa2008immortal,fu2021timing}. Here, putting all steps --choice of
+\cite{suissa2008immortal,fu2021timing}. Here, blending together epidemiological abstract concepts and mathematical foundations from the statistical literature, we adopt an empirical approach oriented towards the interest of applied researchers. Putting all three steps --choice of
 study design, confounders, estimator-- in a consistent framework (section
 \nameref{sec:inference_flow}), we show they are equally important to ensure validity
 of the analysis. We compare the corresponding biases by studying the effect of
@@ -634,9 +615,9 @@ choices in the different analytical steps.
 \end{itemize}
 
 In MIMIC-IV, these inclusion criteria yield 18,121 patients of which 3,559 were
-treated with a combination of crystalloids and albumin
-(Table \ref{table:albumin_for_sepsis:table1_simple} details
-patient characteristics and \nameref{apd:selection_flowchart} details the selection flowchart).
+treated with a combination of crystalloids and albumin. Glycopeptide antibiotherapy was similar between both groups 51.8 for treated \% vs 51.5 \% for controls. Vasopressors (80.2\% vs 41.7\%) and ventilation (96.8\% vs 87.0\%) were more prevalent in the treated populations, underlying the overall higher severity of patients receiving albumin.
+Table \ref{table:albumin_for_sepsis:table1_simple} details
+patient characteristics and \nameref{apd:selection_flowchart} details the selection flowchart.
 
 
 \begin{table}[h!]
@@ -913,6 +894,7 @@ TS, JA, CM, LAC, GV reviewed and edited the manuscript.
 % \section*{Competing interests}
 
 % All authors declare no financial or non-financial competing interests.
+\clearpage
 
 \section*{Supporting information}
 
@@ -988,6 +970,7 @@ statins at screening time.
     (Pre-treatment only). The all-stay model performance markedly decreases in
     the pre-treatment only dataset.}\label{apd:fig:motivating_example}
 \end{figure}
+\clearpage
 
 
 \paragraph*{S2 Fig.}
@@ -1009,6 +992,7 @@ screening programs  \cite{bretthauer2013principles}.
   % \begin{minipage}{.7\linewidth}
   % \end{minipage}
 \end{figure}
+\clearpage
 
 
 \paragraph*{S3 Fig.}
@@ -1028,6 +1012,7 @@ prevent time-related biases.
     compared to the occurrence of the outcome to limit immortal time bias: 6.7 hours vs 40
     days for mortality.\label{fig:cohort_timeline_albumin}}
 \end{figure}
+\clearpage
 
 
 \paragraph*{S4 Fig.}
@@ -1084,6 +1069,7 @@ Figure \ref{fig:causal_variables} illustrates the different types of causal vari
     Treatment, X: Confounder, IV: Instrumental variable, M: mediator, Y:
     Outcome, C: Collider, E: Effect modifier.}\label{fig:causal_variables}
 \end{figure}
+\clearpage
 
 
 
@@ -1202,6 +1188,7 @@ either the outcome or the treatment model. None of them performed a vibration
 analysis on confounder selection or feature transformations. They have a
 strong focus on patients with sepsis. Only four of them found concordant results with
 previous RCTs \cite{liu2021effects,shahn2020fluid,adibuzzaman2019323}.
+\clearpage
 
 
 \paragraph*{S2 Appendix.}
@@ -1258,6 +1245,7 @@ could lead to arbitrarily small propensity scores.
   estimation are drawn from the same distribution, also known as
   the ``no covariate shift'' assumption \cite{jesson2020identifying}.
 \end{assumption}
+\clearpage
 
 
 
@@ -1377,6 +1365,7 @@ the population.
 This estimator has also the doubly robust proprieties described for AIPW. it
 should have less variance than AIPW since it does not use the propensity score
 in the denominator.
+\clearpage
 
 
 \paragraph*{S4 Appendix.}
@@ -1562,6 +1551,7 @@ the random search.
   \caption{Hyper-parameter grid used during random search
     optimization.}\label{apd:table:hyper_parameter_search}
 \end{table}
+\clearpage
 
 \paragraph*{S7 Appendix.}
 \label{apd:computing_resources}
@@ -1569,6 +1559,7 @@ the random search.
 
 The whole project was run on a laptop running Ubuntu 22.04.2 LTS with the following hardware:
 CPU 12th Gen Intel(R) Core(TM) i7-1270P with 16 threads and 15 GB of RAM.
+\clearpage
 
 \paragraph*{S5 Fig.}
 \label{apd:selection_flowchart}
@@ -1579,6 +1570,8 @@ CPU 12th Gen Intel(R) Core(TM) i7-1270P with 16 threads and 15 GB of RAM.
   \includegraphics[width=0.7\linewidth]{img/albumin_for_sepsis__obs_1d__flowchart_albumin_for_sepsis.pdf}
   \caption{Selection flowchart on MIMIC-IV for the emulated trial.}\label{fig:selection_flowchart}
 \end{figure}
+\clearpage
+
 
 \paragraph*{S1 Table.}
 \label{apd:albumin_for_sepsis:table1_complete}
@@ -1594,6 +1587,7 @@ CPU 12th Gen Intel(R) Core(TM) i7-1270P with 16 threads and 15 GB of RAM.
     been computed. Other variables have been aggregated by taking mean during
     the 24 hour period.}\label{apd:table:albumin_for_sepsis:table1_complete}
 \end{table}
+\clearpage
 
 \paragraph*{S6 Fig.}
 \label{apd:causal_diagram_albumin}
@@ -1613,6 +1607,7 @@ variables.
     expert point of view. All white nodes correspond to variables included in
     our study.}\label{fig:causal_diagram_albumin}
 \end{figure}
+\clearpage
 
 
 \paragraph*{S7 Fig.}
@@ -1635,10 +1630,12 @@ estimators and other choices of feature aggregation (first and last).
     intervals obtained by 50 bootstrap
     repetitions.}\label{apd:fig:detailed_results}
 \end{figure}
+\clearpage
 
 \paragraph*{S8 Fig.}
 \label{apd:detailed_results_itb}
 {\bf Complete results for the Immortal time bias.}
+\clearpage
 
 
 Compared to Figure \ref{fig:vibration:itb}, we also report in Figure
@@ -1657,6 +1654,7 @@ Feature aggregation was concatenation of first and last for all estimates.
     95\% confidence intervals obtained by 50 bootstrap
     repetitions.}\label{apd:fig:detailed_results_itb}
 \end{figure}
+\clearpage
 
 \paragraph*{S8 Appendix.}
 \label{apd:vibration_analysis_for_confounders}
@@ -1682,6 +1680,7 @@ important confounders on the patient health state. This stability of the
 treatment effect estimator once sufficient confounders have been included has
 already been described and suggested as a confounder selection method
 \cite{loh2021confounder}.
+\clearpage
 
 \paragraph*{S9 Fig.}
 \label{apd:vibration_analysis_for_aggregation}
@@ -1741,6 +1740,7 @@ of first and last feature observed before inclusion time.
     the bar are the 95\% confidence intervals obtained by 50 bootstrap
     repetitions.}\label{apd:fig:albumin_for_sepsis:vibration_analysis_for_aggregation}
 \end{figure}
+\clearpage
 
 
 \paragraph*{S8 Appendix.}
@@ -1834,6 +1834,7 @@ random forest model only for patients aged between 55 and 80.
     large effect sizes, suggesting data underfitting.
   }\label{apd:fig:albumin_for_sepsis:cate_failure}
 \end{figure}
+\clearpage
 
 \paragraph*{S9 Appendix.}
 \label{apd:risk_assessment_scores}
@@ -1938,6 +1939,7 @@ those effects are used for the cost-effectiveness.
         years and stage 1 or 2 hypertension with at least 1 additional CHD risk
         factor.
 \end{itemize}
+\clearpage
 
 
 
