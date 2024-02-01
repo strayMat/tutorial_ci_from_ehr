@@ -324,63 +324,6 @@ well-validated and calibrated cardiovascular risk models have not reduced the
 burden of cardiovascular diseases \cite{eriksen2021effectiveness}, probably because they targeted both
 responders and non-responders  \cite{krska2016implementation}. Addressing treatment heterogeneity should reduce  crucial to
 effective care.
-
-\paragraph{Individualized predictions are not enough}
-Machine learning is central to individualized medicine. Machine learning models
-recently outperformed traditional rule-based clinical scores to predict a
-patient's readmission risk, mortality, or future comorbidities using Electronic
-Health Records (EHRs) \cite{rajkomar2018scalable,
-  liu2019comparison,li2020behrt,beaulieu2021machine, aggarwal2021diagnostic}.
-%
-But there is growing evidence that machine-learning models can reproduce and
-amplify biases in the data \cite{rajkomar2018ensuring}, such as gender or
-racial biases \cite{singh2022generalizability,gichoya2022ai}, or marginalization of
-under-served populations \cite{seyyed2021underdiagnosis}. The models
-typically encode these biases by capturing shortcuts: stereotypical or
-distorted features in the data \cite{geirhos2020shortcut,winkler2019association,degrave2021ai}.
-%
-For instance, many machine learning algorithms use post-treatment information
-\cite{badgeley2019deep,obermeyer2019dissecting,yuan2021temporal,wong2021external};
-a paradigmatic example being a diagnostic model for skin cancer relying on
-surgical marks \cite{winkler2019association}. A motivating example on Intense Care
-Unit data is provided in S1 \ref{apd:fig:motivating_example}.
-
-
-\paragraph{Causal thinking is key to data-driven decision-making} \cite{prosperi2020causal}
-While traditional machine learning relies on data
-resulting from prior interventions \cite{plecko2022causal}, truly insightful decision-making
-support needs to contrast the potential outcomes with and without the
-intervention, estimating a causal effect as in Randomized Control Trials (RCTs)
-\cite{prosperi2020causal}.
-Yet, RCTs face selection biases \cite{travers2007external,averitt2020translating}, failure to
-recruit minorities, or limited sample size for exploring treatment heterogeneity
-across subgroups. Routinely collected data naturally provides a unique
-opportunity to assess real-life benefit-risk trade-offs associated with a
-decision \cite{desai2021broadening}, with less sampling bias, and sufficient data to capture
-heterogeneity \cite{rekkas2023standardized}. Estimating causal effects from this data is challenging
-however, as the intervention is confounded by indication. Hence, dedicated
-statistical techniques are needed to emulate a "target trial" \cite{hernan2016specifying} from
-observational data.
-
-% Position of our paper
-\paragraph{Grounding clinical decisions on data requires considerations scattered across different fields.}
-
-Related works focus only partially into the pitfalls of treament effect estimation with observational data. 
-Epidemiologic literature emphasizes the target trial approach
-\cite{von2007strengthening,benchimol2015reporting,hernan2020causal,schneeweiss2021conducting, zeng2022uncovering}, but focuses on biases due to
-confounding variables and less so on those due to poor designs or estimator
-selection.  Machine learning and causal inference literature focuses on
-estimators \cite{belloni2014high, chernozhukov2018double,shalit2016tutorial,
-  sharma2018tutorial,moraffah2021causal}, often with a wealth of mathematical details and unverifiable assumptions. Guidelines seldom mention time-related
-biases, frequent loopholes when data have temporal dependencies
-\cite{suissa2008immortal,fu2021timing}. Here, blending together epidemiological abstract concepts and mathematical foundations from the statistical literature, we adopt an empirical approach oriented towards the interest of applied researchers. Putting all three steps --choice of
-study design, confounders, estimator-- in a consistent framework (section
-\nameref{sec:inference_flow}), we show they are equally important to ensure validity
-of the analysis. We compare the corresponding biases by studying the effect of
-albumin on sepsis mortality in a publicly available intensive care database
-(MIMIC-IV) \cite{johnson2020mimic} (section \nameref{sec:application_on_mimic_iv}).
-The main section's focus is on being accessible, while the appendices expand
-technical details.
 %
 
 \begin{figure*}[t!]
