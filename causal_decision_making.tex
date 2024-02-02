@@ -362,9 +362,9 @@ studies underscore the importance of the target trial approach
 \cite{von2007strengthening,benchimol2015reporting,hernan2020causal,schneeweiss2021conducting,zeng2022uncovering},
 the emphasis primarily lies on biases stemming from confounding variables, with
 comparatively less attention given to issues arising from estimator selection.
-Relating variables to known causal types \cite{greenland1999causal,vanderweele2007four} is sometimes
-a speculative exercise for medical practitioners facing the complexity of an
-EHR.
+Recent replications of RCTs using observational data did not explore the impact
+of modern machine learning methods on the robustness of the results
+\cite{schneeweiss2021conducting,wang2023emulation}.
 
 In contrast, machine learning and causal inference literature predominantly
 concentrate on various estimators
@@ -376,7 +376,10 @@ robust methods \cite{chernozhukov2018double} or deep learning based models
 intricate mathematical details and unverifiable assumptions. Guidelines seldom
 address time-related biases, or covariates aggregation at the stay level which
 frequently emerge in datasets with temporal dependencies
-\cite{suissa2008immortal,fu2021timing}.
+\cite{suissa2008immortal,fu2021timing}. Recent tendencies from this community
+departed from EHR data to focus on simulated data, which may not capture the
+complexities of real-world data \cite{schuler2017targeted,dorie2019automated,
+  alaa2019validating, curth2021really}.
 
 In this work, we amalgamate abstract epidemiological concepts with foundational
 principles from statistical literature, adopting an empirical approach tailored

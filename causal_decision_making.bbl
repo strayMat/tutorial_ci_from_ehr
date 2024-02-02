@@ -253,16 +253,11 @@ Zeng J, Gensheimer MF, Rubin DL, Athey S, Shachter RD.
   records.
 \newblock Nature Communications. 2022;13(1):1014.
 
-\bibitem{greenland1999causal}
-Greenland S, Pearl J, Robins JM.
-\newblock Causal diagrams for epidemiologic research.
-\newblock Epidemiology. 1999; p. 37--48.
-
-\bibitem{vanderweele2007four}
-VanderWeele TJ, Robins JM.
-\newblock Four types of effect modification: a classification based on directed
-  acyclic graphs.
-\newblock Epidemiology. 2007; p. 561--568.
+\bibitem{wang2023emulation}
+Wang SV, Schneeweiss S, Franklin JM, Desai RJ, Feldman W, Garry EM, et~al.
+\newblock Emulation of randomized clinical trials with nonrandomized database
+  analyses: results of 32 clinical trials.
+\newblock JAMA. 2023;329(16):1376--1385.
 
 \bibitem{belloni2014high}
 Belloni A, Chernozhukov V, Hansen C.
@@ -327,6 +322,30 @@ Fu EL, Evans M, Carrero JJ, Putter H, Clase CM, Caskey FJ, et~al.
   events in advanced chronic kidney disease: nationwide cohort study.
 \newblock bmj. 2021;375.
 
+\bibitem{schuler2017targeted}
+Schuler MS, Rose S.
+\newblock Targeted maximum likelihood estimation for causal inference in
+  observational studies.
+\newblock American journal of epidemiology. 2017;185(1):65--73.
+
+\bibitem{dorie2019automated}
+Dorie V, Hill J, Shalit U, Scott M, Cervone D.
+\newblock Automated versus Do-It-Yourself Methods for Causal Inference.
+\newblock Statistical Science. 2019;34(1):43--68.
+
+\bibitem{alaa2019validating}
+Alaa A, Van Der~Schaar M.
+\newblock Validating causal inference models via influence functions.
+\newblock In: International Conference on Machine Learning. PMLR; 2019. p.
+  191--201.
+
+\bibitem{curth2021really}
+Curth A, Svensson D, Weatherall J, van~der Schaar M.
+\newblock Really doing great at estimating CATE? a critical look at ML
+  benchmarking practices in treatment effect estimation.
+\newblock In: Thirty-fifth conference on neural information processing systems
+  datasets and benchmarks track (round 2); 2021.
+
 \bibitem{johnson2020mimic}
 Johnson A, Bulgarelli L, Pollard T, Horng S, Celi LA, Mark R.
 \newblock Mimic-iv.
@@ -355,12 +374,6 @@ Hernán MA, Robins JM.
 \newblock Using {Big} {Data} to {Emulate} a {Target} {Trial} {When} a
   {Randomized} {Trial} {Is} {Not} {Available}.
 \newblock American Journal of Epidemiology. 2016;183(8).
-
-\bibitem{wang2023emulation}
-Wang SV, Schneeweiss S, Franklin JM, Desai RJ, Feldman W, Garry EM, et~al.
-\newblock Emulation of randomized clinical trials with nonrandomized database
-  analyses: results of 32 clinical trials.
-\newblock JAMA. 2023;329(16):1376--1385.
 
 \bibitem{catalogofbias}
 Catalogue of Bias Collaboration; 2023.
@@ -419,6 +432,11 @@ VanderWeele TJ.
 \newblock Principles of confounder selection.
 \newblock European journal of epidemiology. 2019;34:211--219.
 
+\bibitem{greenland1999causal}
+Greenland S, Pearl J, Robins JM.
+\newblock Causal diagrams for epidemiologic research.
+\newblock Epidemiology. 1999; p. 37--48.
+
 \bibitem{textor2011dagitty}
 Textor J, Hardt J, Kn{\"u}ppel S.
 \newblock DAGitty: a graphical tool for analyzing causal diagrams.
@@ -461,11 +479,6 @@ Wendling T, Jung K, Callahan A, Schuler A, Shah NH, Gallego B.
 \newblock Comparing methods for estimation of heterogeneous treatment effects
   using observational data from health care databases.
 \newblock Statistics in medicine. 2018;37(23):3309--3324.
-
-\bibitem{dorie2019automated}
-Dorie V, Hill J, Shalit U, Scott M, Cervone D.
-\newblock Automated versus Do-It-Yourself Methods for Causal Inference.
-\newblock Statistical Science. 2019;34(1):43--68.
 
 \bibitem{van2007super}
 Van~der Laan MJ, Polley EC, Hubbard AE.
