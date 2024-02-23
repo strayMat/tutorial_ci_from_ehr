@@ -253,16 +253,56 @@ Zeng J, Gensheimer MF, Rubin DL, Athey S, Shachter RD.
   records.
 \newblock Nature Communications. 2022;13(1):1014.
 
+\bibitem{suissa2008immortal}
+Suissa S.
+\newblock Immortal time bias in pharmacoepidemiology.
+\newblock American journal of epidemiology. 2008;167(4):492--499.
+
+\bibitem{Oke2021leadtimebias}
+Oke J, Fanshawe T, Nunan D. Lead time bias, Catalogue of Bias Collaboration.;
+  2021.
+\newblock Available from:
+  \url{https://catalogofbias.org/biases/lead-time-bias/}.
+
+\bibitem{fu2021timing}
+Fu EL, Evans M, Carrero JJ, Putter H, Clase CM, Caskey FJ, et~al.
+\newblock Timing of dialysis initiation to reduce mortality and cardiovascular
+  events in advanced chronic kidney disease: nationwide cohort study.
+\newblock bmj. 2021;375.
+
+\bibitem{wang2022understanding}
+Wang SV, Sreedhara SK, Bessette LG, Schneeweiss S.
+\newblock Understanding variation in the results of real-world evidence studies
+  that seem to address the same question.
+\newblock Journal of Clinical Epidemiology. 2022;151:161--170.
+
+\bibitem{Bankhead2017attritionbias}
+Bankhead~C ND Aronson~JK. Attrition bias, Catalogue of Bias Collaboration.;
+  2017.
+\newblock Available from:
+  \url{https://catalogofbias.org/biases/attrition-bias/}.
+
 \bibitem{greenland1999causal}
 Greenland S, Pearl J, Robins JM.
 \newblock Causal diagrams for epidemiologic research.
 \newblock Epidemiology. 1999; p. 37--48.
 
-\bibitem{vanderweele2007four}
-VanderWeele TJ, Robins JM.
-\newblock Four types of effect modification: a classification based on directed
-  acyclic graphs.
-\newblock Epidemiology. 2007; p. 561--568.
+\bibitem{vanderweele2019principles}
+VanderWeele TJ.
+\newblock Principles of confounder selection.
+\newblock European journal of epidemiology. 2019;34:211--219.
+
+\bibitem{loh2021confounder}
+Loh WW, Vansteelandt S.
+\newblock Confounder selection strategies targeting stable treatment effect
+  estimators.
+\newblock Statistics in Medicine. 2021;40(3):607--630.
+
+\bibitem{wang2023emulation}
+Wang SV, Schneeweiss S, Franklin JM, Desai RJ, Feldman W, Garry EM, et~al.
+\newblock Emulation of randomized clinical trials with nonrandomized database
+  analyses: results of 32 clinical trials.
+\newblock JAMA. 2023;329(16):1376--1385.
 
 \bibitem{belloni2014high}
 Belloni A, Chernozhukov V, Hansen C.
@@ -316,16 +356,29 @@ Johansson FD, Shalit U, Kallus N, Sontag D.
   potential outcomes and causal effects.
 \newblock The Journal of Machine Learning Research. 2022;23(1):7489--7538.
 
-\bibitem{suissa2008immortal}
-Suissa S.
-\newblock Immortal time bias in pharmacoepidemiology.
-\newblock American journal of epidemiology. 2008;167(4):492--499.
+\bibitem{schuler2017targeted}
+Schuler MS, Rose S.
+\newblock Targeted maximum likelihood estimation for causal inference in
+  observational studies.
+\newblock American journal of epidemiology. 2017;185(1):65--73.
 
-\bibitem{fu2021timing}
-Fu EL, Evans M, Carrero JJ, Putter H, Clase CM, Caskey FJ, et~al.
-\newblock Timing of dialysis initiation to reduce mortality and cardiovascular
-  events in advanced chronic kidney disease: nationwide cohort study.
-\newblock bmj. 2021;375.
+\bibitem{dorie2019automated}
+Dorie V, Hill J, Shalit U, Scott M, Cervone D.
+\newblock Automated versus Do-It-Yourself Methods for Causal Inference.
+\newblock Statistical Science. 2019;34(1):43--68.
+
+\bibitem{alaa2019validating}
+Alaa A, Van Der~Schaar M.
+\newblock Validating causal inference models via influence functions.
+\newblock In: International Conference on Machine Learning. PMLR; 2019. p.
+  191--201.
+
+\bibitem{curth2021really}
+Curth A, Svensson D, Weatherall J, van~der Schaar M.
+\newblock Really doing great at estimating CATE? a critical look at ML
+  benchmarking practices in treatment effect estimation.
+\newblock In: Thirty-fifth conference on neural information processing systems
+  datasets and benchmarks track (round 2); 2021.
 
 \bibitem{johnson2020mimic}
 Johnson A, Bulgarelli L, Pollard T, Horng S, Celi LA, Mark R.
@@ -356,12 +409,6 @@ Hernán MA, Robins JM.
   {Randomized} {Trial} {Is} {Not} {Available}.
 \newblock American Journal of Epidemiology. 2016;183(8).
 
-\bibitem{wang2023emulation}
-Wang SV, Schneeweiss S, Franklin JM, Desai RJ, Feldman W, Garry EM, et~al.
-\newblock Emulation of randomized clinical trials with nonrandomized database
-  analyses: results of 32 clinical trials.
-\newblock JAMA. 2023;329(16):1376--1385.
-
 \bibitem{catalogofbias}
 Catalogue of Bias Collaboration; 2023.
 \newblock Available from: \url{https://catalogofbias.org/biases/}.
@@ -372,24 +419,6 @@ Weiskopf NG, Dorr DA, Jackson C, Lehmann HP, Thompson CA.
   bias in EHR data reuse.
 \newblock Journal of the American Medical Informatics Association. 2023; p.
   ocad013.
-
-\bibitem{wang2022understanding}
-Wang SV, Sreedhara SK, Bessette LG, Schneeweiss S.
-\newblock Understanding variation in the results of real-world evidence studies
-  that seem to address the same question.
-\newblock Journal of Clinical Epidemiology. 2022;151:161--170.
-
-\bibitem{Oke2021leadtimebias}
-Oke J, Fanshawe T, Nunan D. Lead time bias, Catalogue of Bias Collaboration.;
-  2021.
-\newblock Available from:
-  \url{https://catalogofbias.org/biases/lead-time-bias/}.
-
-\bibitem{Bankhead2017attritionbias}
-Bankhead~C ND Aronson~JK. Attrition bias, Catalogue of Bias Collaboration.;
-  2017.
-\newblock Available from:
-  \url{https://catalogofbias.org/biases/attrition-bias/}.
 
 \bibitem{ohdsi2019book}
 OHDSI.
@@ -413,11 +442,6 @@ Rubin DB.
 \bibitem{attia2022proposal}
 Attia J, Holliday E, Oldmeadow C. A proposal for capturing interaction and
   effect modification using DAGs; 2022.
-
-\bibitem{vanderweele2019principles}
-VanderWeele TJ.
-\newblock Principles of confounder selection.
-\newblock European journal of epidemiology. 2019;34:211--219.
 
 \bibitem{textor2011dagitty}
 Textor J, Hardt J, Kn{\"u}ppel S.
@@ -461,11 +485,6 @@ Wendling T, Jung K, Callahan A, Schuler A, Shah NH, Gallego B.
 \newblock Comparing methods for estimation of heterogeneous treatment effects
   using observational data from health care databases.
 \newblock Statistics in medicine. 2018;37(23):3309--3324.
-
-\bibitem{dorie2019automated}
-Dorie V, Hill J, Shalit U, Scott M, Cervone D.
-\newblock Automated versus Do-It-Yourself Methods for Causal Inference.
-\newblock Statistical Science. 2019;34(1):43--68.
 
 \bibitem{van2007super}
 Van~der Laan MJ, Polley EC, Hubbard AE.
@@ -813,12 +832,6 @@ Sharma A, Kiciman E.
 Bouthillier X, Delaunay P, Bronzi M, Trofimov A, Nichyporuk B, Szeto J, et~al.
 \newblock Accounting for variance in machine learning benchmarks.
 \newblock Proceedings of Machine Learning and Systems. 2021;3:747--769.
-
-\bibitem{loh2021confounder}
-Loh WW, Vansteelandt S.
-\newblock Confounder selection strategies targeting stable treatment effect
-  estimators.
-\newblock Statistics in Medicine. 2021;40(3):607--630.
 
 \bibitem{safe2007saline}
 Investigators SS.

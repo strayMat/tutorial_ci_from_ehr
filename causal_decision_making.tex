@@ -283,7 +283,7 @@
 % Please keep the abstract below 300 words --> 235
 \section*{Abstract}
 
-Causal inference enables machine learning methods to estimate 
+Causal inference enables machine learning methods to estimate
 treatment effects of medical interventions from electronic health
 records (EHRs). However, researchers should be wary of many pitfalls.
 Here we explain and study common pitfalls and potential solutions,
@@ -293,12 +293,12 @@ controlled trials (RCT) as gold-standard. The first step is study design,
 using the target trial concept and the PICOT framework: Population
 (patients with sepsis), Intervention (combination of crystalloids and albumin
 for fluid resuscitation), Control (crystalloids only), Outcome (28-day
-mortality), Time (intervention start within 24h of admission). 
-We show that a too large treatment-initiation time induces immortal time bias. 
+mortality), Time (intervention start within 24h of admission).
+We show that a too large treatment-initiation time induces immortal time bias.
 The second step is
-selection of the confounding variables based on expert knowledge. 
+selection of the confounding variables based on expert knowledge.
 Increasingly adding confounders enables to recover the RCT results from
-observational data (0\%, 95\% CI -1\% to 1\%, and 0\%, 95\% -5\% to 5\%, 
+observational data (0\%, 95\% CI -1\% to 1\%, and 0\%, 95\% -5\% to 5\%,
 respectively).
 The third step is fitting outcome models, and we assess the influence of
 multiple models with varying assumptions. A doubly
@@ -307,7 +307,7 @@ estimator. Results show that these steps are all important for valid
 causal estimates. A valid causal model can then be used to individualize
 decision making:
 subgroup analyses showed that treatment efficacy of albumin was better for
-patients >60 years old, males, and patients with septic shock. 
+patients >60 years old, males, and patients with septic shock.
 
 % Please keep the Author Summary between 150 and 200 words
 % Use first person. PLOS ONE authors please skip this step. 
@@ -322,7 +322,7 @@ intervention, leading to many analytical pitfalls, particularly in
 time-varying data. We study these in a tutorial spirit, making
 the code and data openly available. We give 5 analytical steps for
 data-driven individualized interventions: Step
-1) Study design, where common pitfalls are selection bias, with information 
+1) Study design, where common pitfalls are selection bias, with information
 unequally collected across treatment and control patients, and immortal time
 bias, where the inclusion-defining event interacts with the
 intervention time. Step 2) Identification of the causal assumptions and
@@ -345,7 +345,7 @@ Informing a care option extends beyond merely predicting the occurrence
 of an event; it involves estimating the effect of the corresponding
 treatment effects. Routine-care data comes naturally to mind to guide
 routine decisions, but they require care to estimate treatment effects as
-they are observational, unlike Randomized controlled trials (RCTs). This 
+they are observational, unlike Randomized controlled trials (RCTs). This
 context calls for causal inference statistical frameworks.
 But merely applying these tools to the data does suffice to ensure the
 validity of the inferences; numerous considerations must be carefully addressed.
@@ -397,7 +397,7 @@ complexities of real-world data \cite{schuler2017targeted,dorie2019automated,
 
 In this work, we bring together epidemiological concepts and
 principles from statistical and machine learning literature. We adopt
-an empirical perspective to answer practical needs of applied researchers. 
+an empirical perspective to answer practical needs of applied researchers.
 A study of choices spread out across the analysis
 --study design, consideration of
 confounders, and selection of estimators (refer to Section
@@ -908,7 +908,7 @@ a goal in healthcare.
 %
 Establishing strong predictors might be less important than identifying
 moderately strong but modifiable risk factors as established in the Framingham
-cohort \cite{brand1976multivariate}, while others such as the QRISK score are used to optimize population-wide cost-effectiveness, but individual treatment effect.
+cohort \cite{brand1976multivariate}, while others such as the QRISK score are used to optimize population-wide cost-effectiveness, but not individual treatment effect.
 
 No sophisticated data-processing tool can safeguard against
 invalid study design or a major missing confounder, loopholes that can
