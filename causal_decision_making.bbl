@@ -253,6 +253,51 @@ Zeng J, Gensheimer MF, Rubin DL, Athey S, Shachter RD.
   records.
 \newblock Nature Communications. 2022;13(1):1014.
 
+\bibitem{suissa2008immortal}
+Suissa S.
+\newblock Immortal time bias in pharmacoepidemiology.
+\newblock American journal of epidemiology. 2008;167(4):492--499.
+
+\bibitem{Oke2021leadtimebias}
+Oke J, Fanshawe T, Nunan D. Lead time bias, Catalogue of Bias Collaboration.;
+  2021.
+\newblock Available from:
+  \url{https://catalogofbias.org/biases/lead-time-bias/}.
+
+\bibitem{fu2021timing}
+Fu EL, Evans M, Carrero JJ, Putter H, Clase CM, Caskey FJ, et~al.
+\newblock Timing of dialysis initiation to reduce mortality and cardiovascular
+  events in advanced chronic kidney disease: nationwide cohort study.
+\newblock bmj. 2021;375.
+
+\bibitem{wang2022understanding}
+Wang SV, Sreedhara SK, Bessette LG, Schneeweiss S.
+\newblock Understanding variation in the results of real-world evidence studies
+  that seem to address the same question.
+\newblock Journal of Clinical Epidemiology. 2022;151:161--170.
+
+\bibitem{Bankhead2017attritionbias}
+Bankhead~C ND Aronson~JK. Attrition bias, Catalogue of Bias Collaboration.;
+  2017.
+\newblock Available from:
+  \url{https://catalogofbias.org/biases/attrition-bias/}.
+
+\bibitem{greenland1999causal}
+Greenland S, Pearl J, Robins JM.
+\newblock Causal diagrams for epidemiologic research.
+\newblock Epidemiology. 1999; p. 37--48.
+
+\bibitem{vanderweele2019principles}
+VanderWeele TJ.
+\newblock Principles of confounder selection.
+\newblock European journal of epidemiology. 2019;34:211--219.
+
+\bibitem{loh2021confounder}
+Loh WW, Vansteelandt S.
+\newblock Confounder selection strategies targeting stable treatment effect
+  estimators.
+\newblock Statistics in Medicine. 2021;40(3):607--630.
+
 \bibitem{wang2023emulation}
 Wang SV, Schneeweiss S, Franklin JM, Desai RJ, Feldman W, Garry EM, et~al.
 \newblock Emulation of randomized clinical trials with nonrandomized database
@@ -310,17 +355,6 @@ Johansson FD, Shalit U, Kallus N, Sontag D.
 \newblock Generalization bounds and representation learning for estimation of
   potential outcomes and causal effects.
 \newblock The Journal of Machine Learning Research. 2022;23(1):7489--7538.
-
-\bibitem{suissa2008immortal}
-Suissa S.
-\newblock Immortal time bias in pharmacoepidemiology.
-\newblock American journal of epidemiology. 2008;167(4):492--499.
-
-\bibitem{fu2021timing}
-Fu EL, Evans M, Carrero JJ, Putter H, Clase CM, Caskey FJ, et~al.
-\newblock Timing of dialysis initiation to reduce mortality and cardiovascular
-  events in advanced chronic kidney disease: nationwide cohort study.
-\newblock bmj. 2021;375.
 
 \bibitem{schuler2017targeted}
 Schuler MS, Rose S.
@@ -386,24 +420,6 @@ Weiskopf NG, Dorr DA, Jackson C, Lehmann HP, Thompson CA.
 \newblock Journal of the American Medical Informatics Association. 2023; p.
   ocad013.
 
-\bibitem{wang2022understanding}
-Wang SV, Sreedhara SK, Bessette LG, Schneeweiss S.
-\newblock Understanding variation in the results of real-world evidence studies
-  that seem to address the same question.
-\newblock Journal of Clinical Epidemiology. 2022;151:161--170.
-
-\bibitem{Oke2021leadtimebias}
-Oke J, Fanshawe T, Nunan D. Lead time bias, Catalogue of Bias Collaboration.;
-  2021.
-\newblock Available from:
-  \url{https://catalogofbias.org/biases/lead-time-bias/}.
-
-\bibitem{Bankhead2017attritionbias}
-Bankhead~C ND Aronson~JK. Attrition bias, Catalogue of Bias Collaboration.;
-  2017.
-\newblock Available from:
-  \url{https://catalogofbias.org/biases/attrition-bias/}.
-
 \bibitem{ohdsi2019book}
 OHDSI.
 \newblock The Book of OHDSI: Observational Health Data Sciences and
@@ -426,16 +442,6 @@ Rubin DB.
 \bibitem{attia2022proposal}
 Attia J, Holliday E, Oldmeadow C. A proposal for capturing interaction and
   effect modification using DAGs; 2022.
-
-\bibitem{vanderweele2019principles}
-VanderWeele TJ.
-\newblock Principles of confounder selection.
-\newblock European journal of epidemiology. 2019;34:211--219.
-
-\bibitem{greenland1999causal}
-Greenland S, Pearl J, Robins JM.
-\newblock Causal diagrams for epidemiologic research.
-\newblock Epidemiology. 1999; p. 37--48.
 
 \bibitem{textor2011dagitty}
 Textor J, Hardt J, Kn{\"u}ppel S.
@@ -826,12 +832,6 @@ Sharma A, Kiciman E.
 Bouthillier X, Delaunay P, Bronzi M, Trofimov A, Nichyporuk B, Szeto J, et~al.
 \newblock Accounting for variance in machine learning benchmarks.
 \newblock Proceedings of Machine Learning and Systems. 2021;3:747--769.
-
-\bibitem{loh2021confounder}
-Loh WW, Vansteelandt S.
-\newblock Confounder selection strategies targeting stable treatment effect
-  estimators.
-\newblock Statistics in Medicine. 2021;40(3):607--630.
 
 \bibitem{safe2007saline}
 Investigators SS.

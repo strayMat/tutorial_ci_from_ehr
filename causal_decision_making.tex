@@ -278,54 +278,61 @@
   % Use the asterisk to denote corresponding authorship and provide email address in note below.
   * Corresponding author: m.doutreligne@has-sante.fr
 
+
 \end{flushleft}
 % Please keep the abstract below 300 words --> 235
 \section*{Abstract}
 
-Causal inference frameworks allow to flexibly estimate treatment effects of
-medical interventions with machine learning methods from electronic health
-records (EHRs). However, researchers have to be aware of many pitfalls. We
-designed a tutorial to showcase common pitfalls and potential solutions by using
-an example in Medical Information Mart for Intensive Care database (MIMIC-IV) on
-the effect of albumin on mortality in sepsis with outcome data from randomized
-controlled trials (RCT) as gold-standard. First, we fixed the study design
-according to the target trial concept and using the PICOT framework (Population
+Causal inference enables machine learning methods to estimate 
+treatment effects of medical interventions from electronic health
+records (EHRs). However, researchers should be wary of many pitfalls.
+Here we explain and study common pitfalls and potential solutions,
+estimating the effect of albumin on mortality in sepsis using an
+Intensive Care database (MIMIC-IV) and comparing to outcome data from randomized
+controlled trials (RCT) as gold-standard. The first step is study design,
+using the target trial concept and the PICOT framework: Population
 (patients with sepsis), Intervention (combination of crystalloids and albumin
 for fluid resuscitation), Control (crystalloids only), Outcome (28-day
-mortality), Time(intervention start within 24h of admission)). Second, we
-selected the confounding variables based on expert knowledge. Third, we fitted
-multiple models with varying assumptions to asses their influence. Reducing
-treatment initiation time from 72h to 6h removed immortal time bias. A doubly
+mortality), Time (intervention start within 24h of admission). 
+We show that a too large treatment-initiation time induces immortal time bias. 
+The second step is
+selection of the confounding variables based on expert knowledge. 
+Increasingly adding confounders enables to recover the RCT results from
+observational data (0\%, 95\% CI -1\% to 1\%, and 0\%, 95\% -5\% to 5\%, 
+respectively).
+The third step is fitting outcome models, and we assess the influence of
+multiple models with varying assumptions. A doubly
 robust estimator (AIPW) with random forests proved to be the most reliable
-estimator. By increasingly adding confounders the results converged to the RCT
-results (0\%, 95\% CI -1\% to 1\%, and 0\%, 95\% -5\% to 5\%, respectively).
-Subgroup analyses showed that treatment efficacy of albumin was better for
-patients >60 years old, males, and patients with septic shock. In conclusion, we
-show that these steps are all important to build a valid decision-making, causal
-inference framework and that misspecifications can drastically skew the results.
+estimator. Results show that these steps are all important for valid
+causal estimates. A valid causal model can then be used to individualize
+decision making:
+subgroup analyses showed that treatment efficacy of albumin was better for
+patients >60 years old, males, and patients with septic shock. 
 
 % Please keep the Author Summary between 150 and 200 words
 % Use first person. PLOS ONE authors please skip this step. 
 % Author Summary not valid for PLOS ONE submissions.   
 \section*{Author summary}
 
-Causal inference frameworks have the potential to inform clinical
-decision-making using routine care data, especially where randomized controlled
-trials are not feasible. These frameworks use machine learning predictions and
-readily available EHR or claims data for tailoring individualized care. However,
-certain rules need to be followed to account for the heterogeneity of effect as
-assignment of interventions are confounded by indication, which introduces many
-pitfalls, particularly in time-varying data. In a tutorial spirit, we make all
-the code and data openly available. We split our approach into three steps: Step
-1) Study design; With the common pitfalls selection bias, i.e. information is
-not equally collected across treatment and control patients, and immortal time
-bias, i.e. improper alignment of the inclusion defining event and the
+Rich routine-care data, as EHR or claims, is useful to individualize decision
+making using machine learning; but guiding interventions requires
+causal inference. Unlike with an RCT, interventions in routine data do
+not easily enable an apple-to-apple measure of the effect of an
+intervention, leading to many analytical pitfalls, particularly in
+time-varying data. We study these in a tutorial spirit, making
+the code and data openly available. We give 5 analytical steps for
+data-driven individualized interventions: Step
+1) Study design, where common pitfalls are selection bias, with information 
+unequally collected across treatment and control patients, and immortal time
+bias, where the inclusion-defining event interacts with the
 intervention time. Step 2) Identification of the causal assumptions and
 categorization of confounders. Step 3) Estimation of the causal effect of
 interest by correct aggregation of confounders and selection of an appropriate
-statistical model. Step 4) Vibration analysis which includes the assessing the
-analysis' robustness to assumptions, and finally Step 5) Treatment heterogeneity
-which includes exploring the treatment effect in subgroups.
+statistical model. Step 4) Assessing the
+analysis' robustness to assumptions, and finally Step 5) Individualizing
+treatment decision, by exploring treatment heterogeneity, eg across subgroups.
+Studying choice of fluid resuscitation in sepsis, we show that common
+mistakes in steps 1, 2, and 3 equally compromise causal validity.
 
 
 \linenumbers
@@ -334,20 +341,28 @@ which includes exploring the treatment effect in subgroups.
 \section*{Introduction: data-driven decisions require causal inference}
 %\label{introduction}
 
-Clinical equipoise extends beyond merely predicting the occurrence of an event;it involves estimating treatment effects in populations, particularly within subgroups. Randomized controlled trials (RCTs) are the gold standard to address these questions, but face issues of their own. In this context, causal inference frameworks emerge as an ideal tool to tackle such questions in observational data. However, numerous considerations must be carefully addressed to ensure the validity of the inferences obtained from these frameworks.
+Informing a care option extends beyond merely predicting the occurrence
+of an event; it involves estimating the effect of the corresponding
+treatment effects. Routine-care data comes naturally to mind to guide
+routine decisions, but they require care to estimate treatment effects as
+they are observational, unlike Randomized controlled trials (RCTs). This 
+context calls for causal inference statistical frameworks.
+But merely applying these tools to the data does suffice to ensure the
+validity of the inferences; numerous considerations must be carefully addressed.
 
-\paragraph{Beyond Individualized Predictions: Machine Learning Challenges in Medicine} \cite{rajkomar2018scalable,liu2019comparison,li2020behrt,beaulieu2021machine,aggarwal2021diagnostic}
-Machine learning plays a pivotal role in individualized medicine, showcasing superior performance over traditional rule-based clinical scores in predicting a patient's readmission risk, mortality, or future comorbidities using Electronic Health Records (EHRs) \cite{rajkomar2018scalable,liu2019comparison,li2020behrt,beaulieu2021machine,aggarwal2021diagnostic}.
+\paragraph{Individualized Medicine and Machine Learning Challenges}
+Machine learning plays a pivotal role in individualized medicine  \cite{rajkomar2018scalable,liu2019comparison,li2020behrt,beaulieu2021machine,aggarwal2021diagnostic}. It
+demonstrated superior performance over traditional rule-based clinical scores in predicting a patient's readmission risk, mortality, or future comorbidities using Electronic Health Records (EHRs) \cite{rajkomar2018scalable,liu2019comparison,li2020behrt,beaulieu2021machine,aggarwal2021diagnostic}.
 However, mounting evidence suggests that machine-learning models can inadvertently perpetuate and exacerbate biases present in the data \cite{rajkomar2018ensuring}, including gender or racial biases \cite{singh2022generalizability,gichoya2022ai}, and the marginalization of under-served populations \cite{seyyed2021underdiagnosis}. These biases are typically encoded by capturing shortcuts—stereotypical or distorted features in the data \cite{geirhos2020shortcut,winkler2019association,degrave2021ai}.
+%
+For instance, numerous machine learning algorithms rely on post-treatment information \cite{badgeley2019deep,obermeyer2019dissecting,yuan2021temporal,wong2021external}, exemplified by a diagnostic model for skin cancer that depends on surgical marks \cite{winkler2019association}. For Intensive Care Unit data, focus of our study, such information markedly improves mortality prediction (Figure S1 \ref{apd:fig:motivating_example}), but cannot inform decisions.
 
-For instance, numerous machine learning algorithms rely on post-treatment information \cite{badgeley2019deep,obermeyer2019dissecting,yuan2021temporal,wong2021external}, exemplified by a diagnostic model for skin cancer that depends on surgical marks \cite{winkler2019association}. A compelling illustration on Intensive Care Unit data is provided in Figure S1 \ref{apd:fig:motivating_example}.
+\paragraph{The Importance of Causal Reasoning in Data-Driven Decision-Making} \cite{prosperi2020causal}
+While conventional machine learning relies on retrospective to generate predictions of future effects \cite{plecko2022causal}, truly informing decision-making needs a comparison of potential outcomes with and without the intervention. This involves estimating a causal effect, mirroring the methodology employed in RCTs \cite{prosperi2020causal}. However, RCTs encounter challenges such as selection biases \cite{travers2007external,averitt2020translating}, difficulties in recruiting diverse populations, and limited sample sizes for exploring treatment heterogeneity across subgroups. Routinely collected data presents a unique opportunity to assess real-life benefit-risk trade-offs associated with a decision \cite{desai2021broadening}, with reduced sampling bias and sufficient data to capture heterogeneity \cite{rekkas2023standardized}. Nevertheless, estimating causal effects from such data is challenging due to the confounding of the intervention by indication. Therefore, dedicated statistical techniques are imperative to emulate a "target trial" \cite{hernan2016specifying} from observational data.
 
-\paragraph{The Significance of Causal Reasoning in Data-Driven Decision-Making} \cite{prosperi2020causal}
-While conventional machine learning relies on retrospective to generate predictions of future effects \cite{plecko2022causal}, truly insightful decision-making support necessitates a comparison of potential outcomes with and without the intervention. This involves estimating a causal effect, mirroring the methodology employed in RCTs \cite{prosperi2020causal}. However, RCTs encounter challenges such as selection biases \cite{travers2007external,averitt2020translating}, difficulties in recruiting diverse populations, and limited sample sizes for exploring treatment heterogeneity across subgroups. Routinely collected data presents a unique opportunity to assess real-life benefit-risk trade-offs associated with a decision \cite{desai2021broadening}, with reduced sampling bias and sufficient data to capture heterogeneity \cite{rekkas2023standardized}. Nevertheless, estimating causal effects from such data is challenging due to the confounding of the intervention by indication. Therefore, dedicated statistical techniques are imperative to emulate a "target trial" \cite{hernan2016specifying} from observational data.
-
-\paragraph{Population effect vs. individual treatment effect: QRISK cardiovascular risk tool }
-The QRISK is a risk score widely used in the UK to assess 10-year and lifetime cardio-vascular risk \cite{hippisley2017development}. It is well calibrated, recommended by the national regulatory agency \cite{guideline2023cardiovascular}, and the National Institute for Health and Care Excellence (NICE) argues in favor of systematic screening of cardio-vascular disease (CVD) risks to increase the number of people receiving statins \cite{guideline2023cardiovascular}, especially if 10-year CVD risk exceeds 10\% \cite{rabar2014lipid}.
-These suggestions found on a cost-effectiveness analysis selecting the 10\% threshold to optimize quality-adjusted life years at the population level \cite{guthrie2023competing}. However, three trials in the NICE analysis weight for more than 70\% of the effect (LIPID \cite{long1998prevention} (32\% of the effect), PROSPER \cite{shepherd2002pravastatin} (22\% of the effect), ALLHAT-LLT \cite{antihypertensive2002major} (23\% of the effect)). All focus on high-risk patients and secondary prevention. All studies operate under the assumption of a consistent statin effect (risk ratios constant) across different CVD risk groups, irrespective of the baseline CVD risk and LDL-cholesterol levels. This aligns with the outcomes of two meta-analyses which observed broadly similar effectiveness across risk levels \cite{brugts2009benefits}, but is challenged by another study in primary prevention \cite{byrne2019statins}. Meanwhile the US Preventive Services Task Force concluded that the evidence is insufficient to determine the balance of benefits and harms of statin use for the primary prevention of CVD events and mortality in adults 76 years and older \cite{chou2022statin}.
+\paragraph{How lack of individual treatment model limits a cardiovascular risk score}
+The QRISK is a risk score widely used in the UK to assess 10-year and lifetime cardio-vascular risk \cite{hippisley2017development}. It is well calibrated, recommended by the national regulatory agency \cite{guideline2023cardiovascular}, and the National Institute for Health and Care Excellence (NICE) argues to use such a score to systematically screen cardio-vascular disease (CVD) risks and treat with statins individuals at risk \cite{guideline2023cardiovascular}, especially if 10-year CVD risk exceeds 10\% \cite{rabar2014lipid}.
+A cost-effectiveness analysis guided the choice of the 10\% threshold to optimize quality-adjusted life years at the population level \cite{guthrie2023competing}. The NICE analysis is based on evidence mostly from three trials, accounting for more than 70\% of the effect: LIPID \cite{long1998prevention} (32\% of the effect), PROSPER \cite{shepherd2002pravastatin} (22\% of the effect), ALLHAT-LLT \cite{antihypertensive2002major} (23\% of the effect). All these trials focused on high-risk patients and secondary prevention. All studies operate under the assumption of a consistent statin effect (risk ratios constant) across different CVD risk groups, irrespective of the baseline CVD risk and LDL-cholesterol levels. This aligns with the outcomes of two meta-analyses which observed broadly similar effectiveness across risk levels \cite{brugts2009benefits}, but is challenged by another study in primary prevention \cite{byrne2019statins}. Meanwhile the US Preventive Services Task Force concluded that the evidence is insufficient to determine the balance of benefits and harms of statin use for the primary prevention of CVD events and mortality in adults 76 years and older \cite{chou2022statin}.
 
 \paragraph{Critics on the efficiency of systematic screening and treatment heterogeneity}
 Conversely, the World Health Organization (WHO) published a systematic review on screening for CVD risk in 2019 \cite{eriksen2021effectiveness} asserting the limited effectiveness of such screenings, aligning with a Cochrane review that also reported poor effectiveness \cite{krogsboll2012general} resulting in over-treatment. The surge in statin prescriptions has been linked to a divergence in statin prescriptions at specified risk score levels \cite{van2013efficiency}. This leads to over-prescription for low-risk patients and under-prescription for high-risk patients, casting doubt on the overall efficacy as the constancy assumption of the statin treatment effect might be violated. Accounting for sources of heterogeneity in patient profiles would be instrumental in optimizing treatment allocation.
@@ -355,25 +370,24 @@ Conversely, the World Health Organization (WHO) published a systematic review on
 Moreover, the WHO report critiques suboptimal adoption leading to social biases in the screened populations. In the UK, there are instances of treatment heterogeneity at a given risk level \cite{van2013efficiency} and documented evidence of social inequities in health checks \cite{krska2016implementation}. Evidence suggests that predominantly socially advantaged patients undergo screening, consequently being offered statin treatment. This critique further emphasizes the presence of treatment heterogeneity.
 
 
-\paragraph{Integrating Multidisciplinary Perspectives for Informed Clinical Decision-Making:}
-Existing literature has only partially delved into the challenges associated
+\paragraph{Multiple Perspectives on Evidence-based Decision Making}
+Across different fields, existing literature has emphasized different challenges associated
 with estimating treatment effects using observational data. While epidemiologic
 studies underscore the importance of the target trial approach
 \cite{von2007strengthening,benchimol2015reporting,hernan2020causal,schneeweiss2021conducting,zeng2022uncovering},
-there, emphasis primarily lies on biases stemming from confounding variables, with
+there emphasis primarily lies on biases that arise from temporal effects \cite{suissa2008immortal,Oke2021leadtimebias,fu2021timing,hernan2016specifying,wang2022understanding,Bankhead2017attritionbias} or confounding variables \cite{greenland1999causal,vanderweele2019principles,loh2021confounder}, with
 relatively less attention to issues arising from estimator selection.
 Recent replications of RCTs using observational data did not explore the impact
 of modern machine learning methods on the robustness of the results
 \cite{schneeweiss2021conducting,wang2023emulation}.
 
 In contrast, machine learning and causal inference literature predominantly
-concentrates on estimators
+studies estimators
 \cite{belloni2014high,chernozhukov2018double,shalit2016tutorial,sharma2018tutorial,moraffah2021causal}
 : propensity score matching \cite{stuart2010matching}, inverse probability
 weighting \cite{austin2015moving}, outcome models \cite{robins1986role}, doubly
 robust methods, \cite{chernozhukov2018double} or deep learning based models
-\cite{johansson2022generalization}. This literature is often inundated with
-intricate mathematical details and unverifiable assumptions. Guidelines seldom
+\cite{johansson2022generalization}. This literature may be opaque for some due to intricate mathematical details and unverifiable assumptions. Guidelines seldom
 address time-related biases, or covariate aggregation which
 frequently emerge in datasets with temporal dependencies
 \cite{suissa2008immortal,fu2021timing}. Recently, the machine learning community
@@ -381,13 +395,14 @@ shifted its focus from EHR data to simulated data, which may not capture the
 complexities of real-world data \cite{schuler2017targeted,dorie2019automated,
   alaa2019validating, curth2021really}.
 
-In this work, we amalgamate abstract epidemiological concepts with foundational
-principles from statistical literature, adopting an empirical approach tailored
-to the practical needs of applied researchers. By establishing a cohesive
-framework that encompasses the choice of study design, consideration of
+In this work, we bring together epidemiological concepts and
+principles from statistical and machine learning literature. We adopt
+an empirical perspective to answer practical needs of applied researchers. 
+A study of choices spread out across the analysis
+--study design, consideration of
 confounders, and selection of estimators (refer to Section
-\nameref{sec:inference_flow}), we highlight their equal importance in ensuring
-the validity of the analysis. To illustrate and compare biases, we investigate
+\nameref{sec:inference_flow})-- highlights their equal importance in ensuring
+the validity of results. To illustrate and compare biases, we investigate
 the impact of albumin on sepsis mortality using data from a publicly available
 intensive care database, MIMIC-IV \cite{johnson2020mimic} (section
 \nameref{sec:application_on_mimic_iv}).
@@ -396,6 +411,7 @@ The primary focus of the main section is on accessibility, with technical
 details expanded in the appendices.
 
 %
+\section*{Step-by-step framework for robust decision-making from EHR data}\label{sec:inference_flow}
 
 \begin{figure*}[t!]
   \centering
@@ -408,7 +424,6 @@ details expanded in the appendices.
 \end{figure*}
 
 
-\section*{Step-by-step framework for robust decision-making from EHR data}\label{sec:inference_flow}
 
 Whether or not using machine learning, many pitfalls threaten an analysis'
 value for decision-making. To avoid these pitfalls, we outline a simple
@@ -422,7 +437,7 @@ achieve.
 \subsection*{Step 1: study design -- Frame the question to avoid biases}\label{sec:framing}
 
 
-\begin{table*}[h!]
+\begin{table*}[b!]
   \resizebox{\linewidth}{!}{%
     \begin{tabular}{|l|l|l|l|}
       \hline
