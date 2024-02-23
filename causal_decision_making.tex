@@ -415,7 +415,7 @@ details expanded in the appendices.
 
 \begin{figure*}[t!]
   \centering
-  \includegraphics[width=0.9\linewidth]{img/complete_inference_flow.pdf}
+  \includegraphics[width=0.9\linewidth]{img_final/complete_inference_flow.pdf}
   \caption{\textbf{Step-by-step analytic framework} -- The complete
     inference pipeline confronts the analyst with
     many choices, some guided by domain knowledge, others
@@ -639,7 +639,7 @@ choices in the different analytical steps recalled in Figure \ref{fig:study_summ
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\linewidth]{img/applied_inference_flow.pdf}
+  \includegraphics[width=\linewidth]{img_final/applied_inference_flow.pdf}
   \caption{\textbf{Application of the step-by-step framework on which resuscitation fluid to use.}}\label{fig:study_summary}
 \end{figure}
 
@@ -678,7 +678,7 @@ patient characteristics and \nameref{apd:selection_flowchart} details the select
 \begin{table}[h!]
   \centering\small
   \resizebox{\columnwidth}{!}{
-    \input{img/albumin_for_sepsis__obs_1d__table1_24h.tex}%
+    \input{img_final/albumin_for_sepsis__obs_1d__table1_24h.tex}%
   }
   \\[.5ex]
 
@@ -747,19 +747,19 @@ periods lead to albumin being markedly more efficient.
 \begin{figure*}[h!]
   \begin{subfigure}[b]{\linewidth}
     \caption{\bfseries Framing -- Immortal Time Bias}\label{fig:vibration:itb}
-    \includegraphics[width=0.765\linewidth, right]{img/itb__dr_forest_agg_first_last__bs_30_shared_x_axis.pdf}
+    \includegraphics[width=0.765\linewidth, right]{img_final/itb__dr_forest_agg_first_last__bs_30_shared_x_axis.pdf}
   \end{subfigure}
   \vfill
   \begin{subfigure}[b]{\linewidth}
     \centering
     \caption{\bfseries Identification -- confounders choice}\label{fig:vibration:confounders}
-    \includegraphics[width=.9\linewidth, right]{img/sensitivity_confounders_main_shared_x_axis.pdf}
+    \includegraphics[width=.9\linewidth, right]{img_final/sensitivity_confounders_main_shared_x_axis.pdf}
   \end{subfigure}
   \vfill
   \begin{subfigure}[b]{\linewidth}
     \centering
     \caption{\bfseries Model selection}\label{fig:vibration:models}
-    \includegraphics[width=0.891\linewidth, right]{img/estimates_20230712__est_lr_rf__bs_50_shared_x_axis.pdf}
+    \includegraphics[width=0.891\linewidth, right]{img_final/estimates_20230712__est_lr_rf__bs_50_shared_x_axis.pdf}
   \end{subfigure}
   \vfill
   \caption{\textbf{The effect of choices on the three
@@ -831,7 +831,7 @@ RCT  \cite{caironi2014albumin}. It is also beneficial for older patients (age >=
   \end{minipage}%
   \hfill%
   \begin{minipage}{.6\linewidth}
-    \includegraphics[width=\linewidth]{img/boxplot_est__DML__nuisances__Forests__final_Ridge.pdf}
+    \includegraphics[width=\linewidth]{img_final/boxplot_est__DML__nuisances__Forests__final_Ridge.pdf}
   \end{minipage}%
 \end{figure}
 
@@ -1006,13 +1006,13 @@ statins at screening time.
 \begin{figure}[!h]
   \begin{subfigure}{\linewidth}
     \centering
-    \includegraphics[width=0.8\linewidth]{img/predictive_failure__pr_auc.pdf}
+    \includegraphics[width=0.8\linewidth]{img_final/predictive_failure__pr_auc.pdf}
     \caption{Area under the Precision-Recall curve (PR\_AUC)}\label{apd:fig:motivating_example_pr_auc}
   \end{subfigure}
   \hfill
   \begin{subfigure}{\linewidth}
     \centering
-    \includegraphics[width=0.8\linewidth]{img/predictive_failure__roc_auc.pdf}
+    \includegraphics[width=0.8\linewidth]{img_final/predictive_failure__roc_auc.pdf}
     \caption{Area under the Receiving Operator Characteristic (ROC\_AUC)}\label{apd:fig:motivating_example_roc_auc}
   \end{subfigure}
   \caption{Failure to predict 28-day mortality from a model fitted on
@@ -1035,7 +1035,7 @@ screening programs  \cite{bretthauer2013principles}.
 
 \begin{figure}[!h]
   % \begin{minipage}{.25\linewidth}
-  \includegraphics[width=0.7\linewidth]{img/catalog_of_bias_immortal_time_bias.png}
+  \includegraphics[width=0.7\linewidth]{img_final/catalog_of_bias_immortal_time_bias.png}
   \caption{Poor experimental design can introduce Immortal time bias, which
     leads to a treated group with falsely longer longevity
     \cite{lee2020immortaltimebias}.}\label{apd:fig:immortal_time_bias}
@@ -1056,7 +1056,7 @@ prevent time-related biases.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\linewidth]{img/timeline_albumin_for_sepsis.pdf}
+  \includegraphics[width=\linewidth]{img_final/timeline_albumin_for_sepsis.pdf}
   \caption{Defining the inclusion event, the starting time T0 for follow-up, the
     intervention's assignment time and the observation window for confounders is
     crucial to avoid time and selection biases. In our study, the gap
@@ -1076,32 +1076,32 @@ Figure \ref{fig:causal_variables} illustrates the different types of causal vari
 \begin{figure}[h!]
   \begin{minipage}[t]{0.32\linewidth}
     \centering
-    \includegraphics[width=0.72\linewidth]{img/confounder.pdf}
+    \includegraphics[width=0.72\linewidth]{img_final/confounder.pdf}
     \small\sffamily Confounder
   \end{minipage}
   \hfill
   \begin{minipage}[t]{0.32\linewidth}
     \centering
-    \includegraphics[width=0.72\linewidth]{img/collider.pdf}
+    \includegraphics[width=0.72\linewidth]{img_final/collider.pdf}
     \small\sffamily Collider
   \end{minipage}
   \hfill
   \begin{minipage}[t]{0.32\linewidth}
     \centering
-    \includegraphics[width=0.72\linewidth]{img/instrumental_variable.pdf}
+    \includegraphics[width=0.72\linewidth]{img_final/instrumental_variable.pdf}
     \small\sffamily Instrumental \\variable
   \end{minipage}
   \vfill
   \begin{minipage}[t]{0.4\linewidth}
     \centering
-    \includegraphics[width=.9\linewidth]{img/mediator.pdf}%
+    \includegraphics[width=.9\linewidth]{img_final/mediator.pdf}%
     \\
     \small\sffamily Mediator
   \end{minipage}
   \hfill
   \begin{minipage}[t]{0.4\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{img/effect_modifier.pdf}%
+    \includegraphics[width=\linewidth]{img_final/effect_modifier.pdf}%
     % \llap{%
     %   \raisebox{.555\linewidth}{\colorbox{black!10}{\parbox{1.9\linewidth}{%
     %         \sffamily\small\hspace*{-1.3ex}%
@@ -1469,7 +1469,7 @@ estimator). See Table \ref{apd:table:compute_times} for details.
 \begin{table}[]
   % \resizebox{\textwidth}{!}{%
   \centering\small
-  \input{img/compute_time_estimates_est_lr_rf_b_50.tex}
+  \input{img_final/compute_time_estimates_est_lr_rf_b_50.tex}
   % }
   \\
   \caption{Compute times for the different estimation methods with 50 bootstrap replicates.}\label{apd:table:compute_times}
@@ -1574,7 +1574,7 @@ which makes it hard to install.
   \end{minipage}%
   \hfill
   \begin{minipage}{.6\linewidth}
-    \includegraphics[width=\linewidth]{img/hp_search_procedure.pdf}
+    \includegraphics[width=\linewidth]{img_final/hp_search_procedure.pdf}
   \end{minipage}%
 \end{figure}
 We followed a two-step procedure to train the nuisance models (eg. ($\hat e,
@@ -1598,7 +1598,7 @@ the random search.
 
 \begin{table}[]
   \resizebox{\textwidth}{!}{%
-    \input{img/gridsearch.tex}
+    \input{img_final/gridsearch.tex}
   }\\
   \caption{Hyper-parameter grid used during random search
     optimization.}\label{apd:table:hyper_parameter_search}
@@ -1619,7 +1619,7 @@ CPU 12th Gen Intel(R) Core(TM) i7-1270P with 16 threads and 15 GB of RAM.
 
 \begin{figure}[!htb]
   \centering
-  \includegraphics[width=0.7\linewidth]{img/albumin_for_sepsis__obs_1d__flowchart_albumin_for_sepsis.pdf}
+  \includegraphics[width=0.7\linewidth]{img_final/albumin_for_sepsis__obs_1d__flowchart_albumin_for_sepsis.pdf}
   \caption{Selection flowchart on MIMIC-IV for the emulated trial.}\label{fig:selection_flowchart}
 \end{figure}
 \clearpage
@@ -1630,7 +1630,7 @@ CPU 12th Gen Intel(R) Core(TM) i7-1270P with 16 threads and 15 GB of RAM.
 {\bf Complete description of the confounders for the main analysis.}
 \begin{table}[h!]
   \resizebox{\textwidth}{!}{%
-    \input{img/albumin_for_sepsis__obs_1d__table1_24h_supplementary.tex}
+    \input{img_final/albumin_for_sepsis__obs_1d__table1_24h_supplementary.tex}
   }\\
   \caption{Characteristics of the trial population measured on the first 24
     hours of ICU stay. \\
@@ -1650,7 +1650,7 @@ variables.
 
 \begin{figure}[h!]
   \centering%
-  \includegraphics[width=\linewidth]{img/dagitty_graph.pdf}
+  \includegraphics[width=\linewidth]{img_final/dagitty_graph.pdf}
   \caption{\textbf{Causal graph for the Albumin vs crystalloids emulated
       trial} -- The
     green arrow indicates the effect studied. Black arrows show causal links
@@ -1671,7 +1671,7 @@ Figure \ref{apd:fig:detailed_results} the estimates for Causal forest
 estimators and other choices of feature aggregation (first and last).
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\linewidth]{img/main_vibration_analysis_supp.pdf}
+  \includegraphics[width=\linewidth]{img_final/main_vibration_analysis_supp.pdf}
   \caption{Full sensitivity analysis: The estimators with forest nuisances
     point to no effect for almost every causal estimator consistently with the
     RCT gold standard. Only matching with forest yields an unconvincingly high
@@ -1697,7 +1697,7 @@ Feature aggregation was concatenation of first and last for all estimates.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\linewidth]{img/itb__dr_forest_agg_first_last__bs_30_supp.pdf}
+  \includegraphics[width=\linewidth]{img_final/itb__dr_forest_agg_first_last__bs_30_supp.pdf}
   \caption{Sensitivity analysis for immortal time bias: Every choice of
     estimates show an improvement of the albumin treatment when increasing the
     observation period, thus increasing the blank period between inclusion and
@@ -1755,13 +1755,13 @@ when plotting graphically the distribution of the estimated propensity score.
   \centering
   \begin{subfigure}[b]{0.45\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{img/sensitivity__ps_distribution__first_last_median__Forests.pdf}
+    \includegraphics[width=\linewidth]{img_final/sensitivity__ps_distribution__first_last_median__Forests.pdf}
     \caption{}\label{apd:fig:albumin_for_sepsis:overlap_measure_first_last_median}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.45\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{img/sensitivity__ps_distribution__first__Forests.pdf}
+    \includegraphics[width=\linewidth]{img_final/sensitivity__ps_distribution__first__Forests.pdf}
     \caption{}\label{apd:fig:albumin_for_sepsis:overlap_measure_first}
   \end{subfigure}
   \caption{Different choices of aggregation yield qualitatively close
@@ -1784,7 +1784,7 @@ of first and last feature observed before inclusion time.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=1.0\linewidth]{img/sensitivity_feature_aggregation_albumin_for_sepsis__bs_50.pdf}
+  \includegraphics[width=1.0\linewidth]{img_final/sensitivity_feature_aggregation_albumin_for_sepsis__bs_50.pdf}
   \caption{Vibration analysis dedicated to the aggregation choices. The
     choices of aggregation only marginally modify the results. When assessed
     with Normalized Total Variation, the overlap assumption is respected for all
@@ -1853,7 +1853,7 @@ random forest model only for patients aged between 55 and 80.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.8\linewidth]{img/boxplot_est__DML__nuisances__Forests__final_RF.pdf}
+  \includegraphics[width=0.8\linewidth]{img_final/boxplot_est__DML__nuisances__Forests__final_RF.pdf}
   \caption{Distribution of Conditional Average Treatment effects on sex, age,
     race and pre-treatment septic shock estimated with a final forest
     estimator. The CATE are positive for each subgroups, which is not
@@ -1866,7 +1866,7 @@ random forest model only for patients aged between 55 and 80.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{img/cate_all_category_random_forest.pdf}
+  \includegraphics[width=\linewidth]{img_final/cate_all_category_random_forest.pdf}
   \caption{Distribution of Conditional Average Treatment effects on sex, age,
     race and pre-treatment septic shock plotted for different ages. On the top
     the final estimator is a linear model; on the bottom, it is a random
@@ -1877,7 +1877,7 @@ random forest model only for patients aged between 55 and 80.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{img/cate_shock_random_forest.pdf}
+  \includegraphics[width=\linewidth]{img_final/cate_shock_random_forest.pdf}
   \caption{Figure \ref{apd:fig:albumin_for_sepsis:cate_age_forest_failure} on
     the subpopulation of white male patients without septic shock. Contrary to
     the ridge regression (on top) inducing a nicely interpretable trend, using
