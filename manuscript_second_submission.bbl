@@ -115,6 +115,56 @@ Hernan MA, Sauer BC, Hernandez-Diaz S, Platt R, Shrier I.
 \newblock Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses.
 \newblock Journal of clinical epidemiology. 2016;79:70--75.
 
+\bibitem{hippisley2017development}
+Hippisley-Cox J, Coupland C, Brindle P.
+\newblock Development and validation of QRISK3 risk prediction algorithms to estimate future risk of cardiovascular disease: prospective cohort study.
+\newblock bmj. 2017;357.
+
+\bibitem{guideline2023cardiovascular}
+NICE gC.
+\newblock Cardiovascular disease: risk assessment and reduction, including lipid modification.
+\newblock Methods. 2023;.
+
+\bibitem{rabar2014lipid}
+Rabar S, Harker M, O’Flynn N, Wierzbicki AS.
+\newblock Lipid modification and cardiovascular risk assessment for the primary and secondary prevention of cardiovascular disease: summary of updated NICE guidance.
+\newblock Bmj. 2014;349.
+
+\bibitem{guthrie2023competing}
+Guthrie B.
+\newblock Competing risks and direct treatment disutility: implications for risk prediction and cost-effectiveness analyses in cardiovascular disease and osteoporotic fracture prevention.
+\newblock Available at SSRN 4319295. 2023;.
+
+\bibitem{long1998prevention}
+with Pravastatin~in Ischaemic Disease (LIPID) Study~Group LTI.
+\newblock Prevention of cardiovascular events and death with pravastatin in patients with coronary heart disease and a broad range of initial cholesterol levels.
+\newblock New England Journal of Medicine. 1998;339(19):1349--1357.
+
+\bibitem{shepherd2002pravastatin}
+Shepherd J, Blauw GJ, Murphy MB, Bollen EL, Buckley BM, Cobbe SM, et~al.
+\newblock Pravastatin in elderly individuals at risk of vascular disease (PROSPER): a randomised controlled trial.
+\newblock The Lancet. 2002;360(9346):1623--1630.
+
+\bibitem{antihypertensive2002major}
+Antihypertensive T, for~the ALLHAT Collaborative Research~Group C, et~al.
+\newblock Major outcomes in moderately hypercholesterolemic, hypertensive patients randomized to pravastatin vs usual care: the Antihypertensive and Lipid-Lowering Treatment to Prevent Heart Attack Trial (ALLHAT-LLT).
+\newblock Jama. 2002;288(23):2998--3007.
+
+\bibitem{brugts2009benefits}
+Brugts J, Yetgin T, Hoeks S, Gotto A, Shepherd J, Westendorp R, et~al.
+\newblock The benefits of statins in people without established cardiovascular disease but with cardiovascular risk factors: meta-analysis of randomised controlled trials.
+\newblock Bmj. 2009;338.
+
+\bibitem{byrne2019statins}
+Byrne P, Cullinan J, Smith SM.
+\newblock Statins for primary prevention of cardiovascular disease.
+\newblock Bmj. 2019;367.
+
+\bibitem{chou2022statin}
+Chou R, Cantor A, Dana T, Wagner J, Ahmed AY, Fu R, et~al.
+\newblock Statin use for the primary prevention of cardiovascular disease in adults: updated evidence report and systematic review for the US Preventive Services Task Force.
+\newblock Jama. 2022;328(8):754--771.
+
 \bibitem{eriksen2021effectiveness}
 Eriksen CU, Rotar O, Toft U, J{\o}rgensen T.
 \newblock What is the effectiveness of systematic population-level screening programmes for reducing the burden of cardiovascular diseases?
@@ -331,9 +381,6 @@ Colnet B, Josse J, Varoquaux G, Scornet E.
 \newblock Risk ratio, odds ratio, risk difference... Which causal measure is easier to generalize?
 \newblock arXiv preprint arXiv:230316008. 2023;.
 
-\bibitem{wager2020stats}
-Wager S. Stats 361: Causal inference; 2020.
-
 \bibitem{damour2020overlap}
 D'Amour A, Ding P, Feller A, Lei L, Sekhon J.
 \newblock Overlap in observational studies with high-dimensional covariates.
@@ -348,6 +395,9 @@ Horng S, Sontag DA, Halpern Y, Jernite Y, Shapiro NI, Nathanson LA.
 Jiang LY, Liu XC, Nejatian NP, Nasir-Moin M, Wang D, Abidin A, et~al.
 \newblock Health system-scale language models are all-purpose prediction engines.
 \newblock Nature. 2023; p. 1--6.
+
+\bibitem{wager2020stats}
+Wager S. Stats 361: Causal inference; 2020.
 
 \bibitem{wendling2018comparing}
 Wendling T, Jung K, Callahan A, Schuler A, Shah NH, Gallego B.
@@ -651,20 +701,5 @@ Investigators SS.
 Diao D, Wright JM, Cundiff DK, Gueyffier F.
 \newblock Pharmacotherapy for mild hypertension.
 \newblock Cochrane database of systematic reviews. 2012;(8).
-
-\bibitem{long1998prevention}
-with Pravastatin~in Ischaemic Disease (LIPID) Study~Group LTI.
-\newblock Prevention of cardiovascular events and death with pravastatin in patients with coronary heart disease and a broad range of initial cholesterol levels.
-\newblock New England Journal of Medicine. 1998;339(19):1349--1357.
-
-\bibitem{shepherd2002pravastatin}
-Shepherd J, Blauw GJ, Murphy MB, Bollen EL, Buckley BM, Cobbe SM, et~al.
-\newblock Pravastatin in elderly individuals at risk of vascular disease (PROSPER): a randomised controlled trial.
-\newblock The Lancet. 2002;360(9346):1623--1630.
-
-\bibitem{antihypertensive2002major}
-Antihypertensive T, for~the ALLHAT Collaborative Research~Group C, et~al.
-\newblock Major outcomes in moderately hypercholesterolemic, hypertensive patients randomized to pravastatin vs usual care: the Antihypertensive and Lipid-Lowering Treatment to Prevent Heart Attack Trial (ALLHAT-LLT).
-\newblock Jama. 2002;288(23):2998--3007.
 
 \end{thebibliography}

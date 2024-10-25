@@ -360,9 +360,9 @@ For instance, numerous machine learning algorithms rely on post-treatment inform
 \paragraph{The Importance of Causal Reasoning in Data-Driven Decision-Making} \cite{prosperi2020causal}
 While conventional machine learning relies on retrospective to generate predictions of future effects \cite{plecko2022causal}, truly informing decision-making needs a comparison of potential outcomes with and without the intervention. This involves estimating a causal effect, mirroring the methodology employed in RCTs \cite{prosperi2020causal}. However, RCTs encounter challenges such as selection biases \cite{travers2007external,averitt2020translating}, difficulties in recruiting diverse populations, and limited sample sizes for exploring treatment heterogeneity across subgroups. Routinely collected data presents a unique opportunity to assess real-life benefit-risk trade-offs associated with a decision \cite{desai2021broadening}, with reduced sampling bias and sufficient data to capture heterogeneity \cite{rekkas2023standardized}. Nevertheless, estimating causal effects from such data is challenging due to the confounding of the intervention by indication. Therefore, dedicated statistical techniques are imperative to emulate a "target trial" \cite{hernan2016specifying} from observational data.
 
-% \paragraph{How lack of individual treatment model limits a cardiovascular risk score}
-% The QRISK is a risk score widely used in the UK to assess 10-year and lifetime cardio-vascular risk \cite{hippisley2017development}. It is well calibrated, recommended by the national regulatory agency \cite{guideline2023cardiovascular}, and the National Institute for Health and Care Excellence (NICE) argues to use such a score to systematically screen cardio-vascular disease (CVD) risks and treat with statins individuals at risk \cite{guideline2023cardiovascular}, especially if 10-year CVD risk exceeds 10\% \cite{rabar2014lipid}.
-% A cost-effectiveness analysis guided the choice of the 10\% threshold to optimize quality-adjusted life years at the population level \cite{guthrie2023competing}. The NICE analysis is based on evidence mostly from three trials, accounting for more than 70\% of the effect: LIPID \cite{long1998prevention} (32\% of the effect), PROSPER \cite{shepherd2002pravastatin} (22\% of the effect), ALLHAT-LLT \cite{antihypertensive2002major} (23\% of the effect). All these trials focused on high-risk patients and secondary prevention. All studies operate under the assumption of a consistent statin effect (risk ratios constant) across different CVD risk groups, irrespective of the baseline CVD risk and LDL-cholesterol levels. This aligns with the outcomes of two meta-analyses which observed broadly similar effectiveness across risk levels \cite{brugts2009benefits}, but is challenged by another study in primary prevention \cite{byrne2019statins}. Meanwhile the US Preventive Services Task Force concluded that the evidence is insufficient to determine the balance of benefits and harms of statin use for the primary prevention of CVD events and mortality in adults 76 years and older \cite{chou2022statin}.
+\paragraph{How lack of individual treatment model limits a cardiovascular risk score}
+The QRISK is a risk score widely used in the UK to assess 10-year and lifetime cardio-vascular risk \cite{hippisley2017development}. It is well calibrated, recommended by the national regulatory agency \cite{guideline2023cardiovascular}, and the National Institute for Health and Care Excellence (NICE) argues to use such a score to systematically screen cardio-vascular disease (CVD) risks and treat with statins individuals at risk \cite{guideline2023cardiovascular}, especially if 10-year CVD risk exceeds 10\% \cite{rabar2014lipid}.
+A cost-effectiveness analysis guided the choice of the 10\% threshold to optimize quality-adjusted life years at the population level \cite{guthrie2023competing}. The NICE analysis is based on evidence mostly from three trials, accounting for more than 70\% of the effect: LIPID \cite{long1998prevention} (32\% of the effect), PROSPER \cite{shepherd2002pravastatin} (22\% of the effect), ALLHAT-LLT \cite{antihypertensive2002major} (23\% of the effect). All these trials focused on high-risk patients and secondary prevention. All studies operate under the assumption of a consistent statin effect (risk ratios constant) across different CVD risk groups, irrespective of the baseline CVD risk and LDL-cholesterol levels. This aligns with the outcomes of two meta-analyses which observed broadly similar effectiveness across risk levels \cite{brugts2009benefits}, but is challenged by another study in primary prevention \cite{byrne2019statins}. Meanwhile the US Preventive Services Task Force concluded that the evidence is insufficient to determine the balance of benefits and harms of statin use for the primary prevention of CVD events and mortality in adults 76 years and older \cite{chou2022statin}.
 
 \paragraph{Critics on the efficiency of systematic screening and treatment heterogeneity}
 Conversely, the World Health Organization (WHO) published a systematic review on screening for CVD risk in 2019 \cite{eriksen2021effectiveness} asserting the limited effectiveness of such screenings, aligning with a Cochrane review that also reported poor effectiveness \cite{krogsboll2012general} resulting in over-treatment. The surge in statin prescriptions has been linked to a divergence in statin prescriptions at specified risk score levels \cite{van2013efficiency}. This leads to over-prescription for low-risk patients and under-prescription for high-risk patients, casting doubt on the overall efficacy as the constancy assumption of the statin treatment effect might be violated. Accounting for sources of heterogeneity in patient profiles would be instrumental in optimizing treatment allocation.
@@ -455,19 +455,15 @@ achieve.
 
 
 Grounding decisions on evidence needs well-framed questions, defined by their
-PICO(T) components. Population, Intervention, Control, and Outcome
-\cite{richardson1995well,riva2012your}, and in case of EHRs or claims data an
-additional time component, are necessary to concord with a (hypothetical) target
-randomized clinical trial \cite{hernan_using_2016,wang2023emulation} -- Table
-\ref{table:picot}. A selection flowchart such as in
-\nameref{apd:selection_flowchart} makes the inclusion and exclusion for the PICOT
-choices explicit.
+PICO(T) components. Population, Intervention, Control, and Outcome \cite{richardson1995well,riva2012your}, and
+in case of EHRs or claims data an additional time component, are necessary to
+concord with a (hypothetical) target randomized clinical trial \cite{hernan_using_2016,wang2023emulation} -- Table
+\ref{table:picot}.
 
 Without care in defining these PICO(T) components, non-causal associations
-between treatment and outcomes can easily be introduced into an analysis
-\cite{catalogofbias}. The time-varying nature of EHR calls for checking
-systematically of the Population and Time components by addressing two commonly
-encountered types of bias.
+between treatment and outcomes can easily be introduced into an analysis \cite{catalogofbias}. The
+time-varying nature of EHR calls for checking systematically of the Population
+and Time components by addressing two commonly encountered types of bias.
 
 
 \paragraph{Selection Bias:} In EHRs, outcomes and treatments are often not
@@ -546,19 +542,7 @@ informative at the population level, e.g. for medico-economic decision-making,
 the risk ratio and the hazard ratio are more informative at the level of
 sub-groups or individuals \cite{colnet2023risk}.
 
-\paragraph{Causal estimators}
-
-A given estimand can be estimated through different methods. One can model the
-outcome with regression models also known as
-G-formula, \cite{robins1986role} and use it as a predictive counterfactual model
-for all possible treatments for a given patient. Alternatively, one can model
-the propensity of being treated use it for matching or Inverse Propensity
-Weighting (IPW) \cite{austin2015moving}. Finally, doubly robust methods model
-both the outcome and the treatment, benefiting from the convergence of both
-models \cite{wager2020stats}. There is a variety of doubly robust models,
-reviewed in \nameref{apd:causal_estimators}.
-
-\subsection*{Step 3: Statistical estimation -- Compute the causal effect of interest}\label{sec:estimation}
+\subsection*{Step 3: Estimation -- Compute the causal effect of interest}\label{sec:estimation}
 
 %\paragraph{Confounder extraction}
 %
@@ -586,13 +570,19 @@ However, high-dimensional
 confounder space such as text may break the positivity assumption just as hourly
 aggregation choices for measurements.
 
-Missing covariate values might also be a source of confounding. Some statistical
-estimators (such as forests) can directly incorporate them as supplementary
-covariates. Others, such as linear models, require imputations.
-\nameref{apd:statistical_considerations} details general sanity check for
-imputation strategies when using statistical estimators.
+\paragraph{Causal estimators or statistical modeling}
 
-\paragraph{Statistical estimation models of outcome and treatment}
+A given estimand can be estimated through different methods. One can model the
+outcome with regression models also known as
+G-formula, \cite{robins1986role} and use it as a predictive counterfactual model
+for all possible treatments for a given patient. Alternatively, one can model
+the propensity of being treated use it for matching or Inverse Propensity
+Weighting (IPW) \cite{austin2015moving}. Finally, doubly robust methods model
+both the outcome and the treatment, benefiting from the convergence of both
+models \cite{wager2020stats}. There is a variety of doubly robust models,
+reviewed in \nameref{apd:causal_estimators}.
+
+\paragraph{Estimation models of outcome and treatment}
 
 The causal estimators use models of the outcome or the treatment --called
 nuisances. There is currently no clear best practice to choose the corresponding
@@ -658,12 +648,10 @@ choices in the different analytical steps recalled in Figure \ref{fig:study_summ
 \label{sec:framing_mimic_iv}
 
 \begin{itemize}[leftmargin=2ex]
-  \item \textcolor{P}{Population}: Patients with sepsis in an ICU stay according
-        to the sepsis-3 definition. Other inclusion criteria: sufficient
-        follow-up of at least 24 hours, and age over 18 years.
-        \nameref{apd:selection_flowchart} details the selection flowchart and
-        \nameref{apd:albumin_for_sepsis:table1_complete} the population
-        characteristics.
+  \item \textcolor{P}{Population}: Patients with sepsis in an ICU stay
+        according to the sepsis-3 definition. Other inclusion criteria:
+        sufficient follow-up of at least 24 hours, and age over 18 years
+        described in Appendix \ref{apd:table:albumin_for_sepsis:table1_complete}.
 
   \item \textcolor{I}{Intervention}: Treatment with a combination of
         crystalloids and albumin during the first 24 hours of an ICU stay.
@@ -684,7 +672,7 @@ choices in the different analytical steps recalled in Figure \ref{fig:study_summ
 
 In MIMIC-IV, these inclusion criteria yield 18,121 patients of which 3,559 were treated with a combination of crystalloids and albumin. While glycopeptide antibiotic therapy   was similar between both groups (51.8\% crystalloid vs 51.5\% crystalloids + albumin), aminoglycosides, carbapenems, and beta-lactams were more frequent in the crystalloid only group (2.0\% vs. 0.7\%, 4.3\% vs. 2.6\%, and 35.5\% vs. 13.8\%, respectively). The crystalloid only group was more frequently admitted as an emergency (57.3\% vs. 30.7\%). Vasopressors (80.2\% vs 41.7\%) and ventilation (96.8\% vs 87.0\%) were more prevalent in the treated populations, underlying the overall higher severity of patients receiving albumin (mean SOFA at admission 6.9 vs. 5.7).
 Table \ref{table:albumin_for_sepsis:table1_simple} details
-patient characteristics.
+patient characteristics and \nameref{apd:selection_flowchart} details the selection flowchart.
 
 
 \begin{table}[h!]
@@ -711,6 +699,14 @@ variables (eg. race, gender, age, weight).
 \nameref{apd:albumin_for_sepsis:table1_complete} details confounders
 summary statistics for treated and controls.
 
+\subsection*{Estimation}\label{sec:estimation_mimic_iv}
+
+
+\paragraph{Confounder aggregation:}
+
+We tested multiple aggregations such as the last value before the start of the
+follow-up period, the first observed value, and both the first and last values as
+separated features.
 
 \paragraph{Causal estimators:}
 
@@ -723,17 +719,6 @@ Confidence intervals were estimated by bootstrap (50 repetitions).
 \nameref{apd:causal_estimators} and
 \nameref{apd:packages} detail the estimators and the available Python
 implementations.
-
-\subsection*{Estimation}\label{sec:estimation_mimic_iv}
-
-
-\paragraph{Confounder aggregation:}
-
-We tested multiple aggregations such as the last value before the start of the
-follow-up period, the first observed value, and both the first and last values
-as separated features. Missing values were median imputed for numerical
-features, categorical variables were one-hot encoded (thus discarded missing values).
-
 
 \paragraph{Outcome and treatment estimators:}
 
@@ -799,11 +784,10 @@ periods lead to albumin being markedly more efficient.
 
 \paragraph{Confounder choice} We consider other choice of confounding variables
 (\nameref{apd:vibration_analysis_for_confounders}). Figure
-\ref{fig:vibration:confounders} shows that a less thorough choice, neglecting
-the administrated drugs, makes little to no difference. Major errors, such as
+\ref{fig:vibration:confounders} shows that a less thorough choice, neglecting the
+administrated drugs, makes little to no difference. Major errors, such as
 omitting the biological measurements or using only socio-demographical
-variables, lead to sizeable bias. This is consistent with the literature
-enhancing the importance of a clinically valid DAG \cite{greenland1999causal}.
+variables, lead to sizeable bias.
 
 \paragraph{Estimation choices -- Confounder aggregation, causal and nuisance estimators:}
 
@@ -924,9 +908,7 @@ a goal in healthcare.
 %
 Establishing strong predictors might be less important than identifying
 moderately strong but modifiable risk factors as established in the Framingham
-cohort \cite{brand1976multivariate}, while others such as predictive score are
-used to optimize population-wide cost-effectiveness, but not individual
-treatment effect.
+cohort \cite{brand1976multivariate}, while others such as the QRISK score are used to optimize population-wide cost-effectiveness, but not individual treatment effect.
 
 No sophisticated data-processing tool can safeguard against
 invalid study design or a major missing confounder, loopholes that can
@@ -1911,44 +1893,44 @@ random forest model only for patients aged between 55 and 80.
 {\bf Risk assessment tools for prevention.}
 
 
-% \textbf{An example of nationally deployed cardiovascular prevention tool: QRISK}
+\textbf{An example of nationally deployed cardiovascular prevention tool: QRISK}
 
-% The QRISK is a risk score widely used in the UK to assess 10-year
-% cardio-vascular risk \cite{hippisley2017development}. It is well calibrated
-% and have satisfactory discriminative performances. As such, it is recommended
-% by the national regulatory agency to engage the patient into various
-% preventive interventions such as physical activity, cardio-protective diet,
-% statins initiation \cite{guideline2023cardiovascular}. The NICE argues in favor
-% of systematic screening of cardio-vascular risks to increase the number of
-% people receiving statins \cite{guideline2023cardiovascular}.
+The QRISK is a risk score widely used in the UK to assess 10-year
+cardio-vascular risk \cite{hippisley2017development}. It is well calibrated
+and have satisfactory discriminative performances. As such, it is recommended
+by the national regulatory agency to engage the patient into various
+preventive interventions such as physical activity, cardio-protective diet,
+statins initiation \cite{guideline2023cardiovascular}. The NICE argues in favor
+of systematic screening of cardio-vascular risks to increase the number of
+people receiving statins \cite{guideline2023cardiovascular}.
 
-% The QRISK seems to mostly inform the initiation of statins for patients
-% exceeding 10\% 10-year CVD risk (as measured with QRISK) following the 2014
-% NICE guidelines \cite{rabar2014lipid}.
+The QRISK seems to mostly inform the initiation of statins for patients
+exceeding 10\% 10-year CVD risk (as measured with QRISK) following the 2014
+NICE guidelines \cite{rabar2014lipid}.
 
-% They base their evidence on a cost-effectiveness analysis choosing the 10\%
-% threshold to optimize quality-adjusted life year at the population level based
-% on the cost of life-long statin treatments \cite{guthrie2023competing}. This
-% study assumes constant statins effect among different CVD risk groups:
-% \emph{It is assumed that the risk ratios given for treatment with each class
-%   of statins are constant regardless of the baseline CV risk --that is, someone
-%   with low CV risk will receive the same proportional reduction in that risk as
-%   would someone with a high CV risk. This is unproven, but is consistent with
-%   the results of meta-analysis carried out by the Cholesterol Treatment
-%   Trialists, which found effectiveness to be broadly similar for those at
-%   different risk levels.} This hypothesis is supported by the meta-analysis of
-% at least for the important risk factors of sex and age \cite{brugts2009benefits}. It is also assumed that these risk ratios are constant regardless of
-% baseline LDL-cholesterol levels. More recent work showed that risk ratio
-% stratified by patient baseline CVD risk levels were not significant, raising
-% doubts about the overall efficacy of statins for primary prevention \cite{byrne2019statins}.
+They base their evidence on a cost-effectiveness analysis choosing the 10\%
+threshold to optimize quality-adjusted life year at the population level based
+on the cost of life-long statin treatments \cite{guthrie2023competing}. This
+study assumes constant statins effect among different CVD risk groups:
+\emph{It is assumed that the risk ratios given for treatment with each class
+  of statins are constant regardless of the baseline CV risk --that is, someone
+  with low CV risk will receive the same proportional reduction in that risk as
+  would someone with a high CV risk. This is unproven, but is consistent with
+  the results of meta-analysis carried out by the Cholesterol Treatment
+  Trialists, which found effectiveness to be broadly similar for those at
+  different risk levels.} This hypothesis is supported by the meta-analysis of
+at least for the important risk factors of sex and age \cite{brugts2009benefits}. It is also assumed that these risk ratios are constant regardless of
+baseline LDL-cholesterol levels. More recent work showed that risk ratio
+stratified by patient baseline CVD risk levels were not significant, raising
+doubts about the overall efficacy of statins for primary prevention \cite{byrne2019statins}.
 
-% The updated guidelines from the US Preventive Services Task Force found
-% respectively moderate and small net benefice of statins for patients aged 40
-% to 75 with above 10\% CVD risk and from 7.5 to 10\% without history of CVD
-% \cite{chou2022statin}. They conclude that the evidence is insufficient to
-% determine the balance of benefits and harms of statin use for the primary
-% prevention of CVD events and mortality in adults 76 years or older with no
-% history of CVD.
+The updated guidelines from the US Preventive Services Task Force found
+respectively moderate and small net benefice of statins for patients aged 40
+to 75 with above 10\% CVD risk and from 7.5 to 10\% without history of CVD
+\cite{chou2022statin}. They conclude that the evidence is insufficient to
+determine the balance of benefits and harms of statin use for the primary
+prevention of CVD events and mortality in adults 76 years or older with no
+history of CVD.
 
 
 \textbf{Critics on the efficiency of systematic screening points to treatment heterogeneity}
