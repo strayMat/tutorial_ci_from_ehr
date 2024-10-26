@@ -321,6 +321,19 @@ Textor J, Hardt J, Kn{\"u}ppel S.
 \newblock DAGitty: a graphical tool for analyzing causal diagrams.
 \newblock Epidemiology. 2011;22(5):745.
 
+\bibitem{cinelli2020making}
+Cinelli C, Hazlett C.
+\newblock Making sense of sensitivity: Extending omitted variable bias.
+\newblock Journal of the Royal Statistical Society Series B: Statistical Methodology. 2020;82(1):39--67.
+
+\bibitem{tchetgen2024introduction}
+Tchetgen~Tchetgen EJ, Ying A, Cui Y, Shi X, Miao W.
+\newblock An introduction to proximal causal inference.
+\newblock Statistical Science. 2024;39(3):375--390.
+
+\bibitem{wager2020stats}
+Wager S. Stats 361: Causal inference; 2020.
+
 \bibitem{imbens_nonparametric_2004}
 Imbens GW.
 \newblock Nonparametric {Estimation} of {Average} {Treatment} {Effects} {Under} {Exogeneity}: {A} {Review}.
@@ -330,9 +343,6 @@ Imbens GW.
 Colnet B, Josse J, Varoquaux G, Scornet E.
 \newblock Risk ratio, odds ratio, risk difference... Which causal measure is easier to generalize?
 \newblock arXiv preprint arXiv:230316008. 2023;.
-
-\bibitem{wager2020stats}
-Wager S. Stats 361: Causal inference; 2020.
 
 \bibitem{damour2020overlap}
 D'Amour A, Ding P, Feller A, Lei L, Sekhon J.
@@ -477,125 +487,15 @@ Bretthauer M, Kalager M.
 Lee H, Nunan D. Immortal time bias, Catalogue of Bias Collaboration.; 2020.
 \newblock Available from: \url{https://catalogofbias.org/biases/immortaltimebias/}.
 
-\bibitem{liu2021effects}
-Liu T, Zhao Q, Du B.
-\newblock Effects of high-flow oxygen therapy on patients with hypoxemia after extubation and predictors of reintubation: a retrospective study based on the MIMIC-IV database.
-\newblock BMC Pulmonary Medicine. 2021;21(1):1--15.
-
-\bibitem{stephan2015high}
-Stéphan F, Barrucand B, Petit P, Rézaiguia-Delclaux S, Médard A, Delannoy B, et~al.
-\newblock High-flow nasal oxygen vs noninvasive positive airway pressure in hypoxemic patients after cardiothoracic surgery: a randomized clinical trial.
-\newblock Jama. 2015;313(23):2331--2339.
-
-\bibitem{hernandez2016effect}
-Hernandez G, Vaquero C, Colinas L, Cuena R, Gonzalez P, Canabal A, et~al.
-\newblock Effect of postextubation high-flow nasal cannula vs noninvasive ventilation on reintubation and postextubation respiratory failure in high-risk patients: a randomized clinical trial.
-\newblock Jama. 2016;316(15):1565--1574.
-
-\bibitem{yarnell2023oxygenation}
-Yarnell CJ, Angriman F, Ferreyro BL, Liu K, De~Grooth HJ, Burry L, et~al.
-\newblock Oxygenation thresholds for invasive ventilation in hypoxemic respiratory failure: a target trial emulation in two cohorts.
-\newblock Critical Care. 2023;27(1):1--13.
-
-\bibitem{hsu2015association}
-Hsu DJ, Feng M, Kothari R, Zhou H, Chen KP, Celi LA.
-\newblock The association between indwelling arterial catheters and mortality in hemodynamically stable patients with respiratory failure: a propensity score analysis.
-\newblock Chest. 2015;148(6):1470--1476.
-
-\bibitem{feng2018transthoracic}
-Feng M, McSparron JI, Kien DT, Stone DJ, Roberts DH, Schwartzstein RM, et~al.
-\newblock Transthoracic echocardiography and mortality in sepsis: analysis of the MIMIC-III database.
-\newblock Intensive care medicine. 2018;44:884--892.
-
-\bibitem{gani2023structural}
-Gani MO, Kethireddy S, Adib R, Hasan U, Griffin P, Adibuzzaman M.
-\newblock Structural causal model with expert augmented knowledge to estimate the effect of oxygen therapy on mortality in the icu.
-\newblock Artificial Intelligence in Medicine. 2023;137:102493.
-
-\bibitem{panwar2016conservative}
-Panwar R, Hardie M, Bellomo R, Barrot L, Eastwood GM, Young PJ, et~al.
-\newblock Conservative versus liberal oxygenation targets for mechanically ventilated patients. A pilot multicenter randomized controlled trial.
-\newblock American journal of respiratory and critical care medicine. 2016;193(1):43--51.
-
-\bibitem{mackle2019conservative}
-Mackle D, Bellomo R, Bailey M, Beasley R, Deane A, Eastwood G, et~al.
-\newblock Conservative oxygen therapy during mechanical ventilation in the ICU.
-\newblock The New England journal of medicine. 2019;382(11):989--998.
-
-\bibitem{shahn2020fluid}
-Shahn Z, Shapiro NI, Tyler PD, Talmor D, Lehman LwH.
-\newblock Fluid-limiting treatment strategies among sepsis patients in the ICU: a retrospective causal analysis.
-\newblock Critical Care. 2020;24(1):1--9.
-
-\bibitem{corl2019restrictive}
-Corl KA, Prodromou M, Merchant RC, Gareen I, Marks S, Banerjee D, et~al.
-\newblock The Restrictive Intravenous Fluid Trial in Severe Sepsis and Septic Shock (RIFTS): a Randomized Pilot Study.
-\newblock Critical care medicine. 2019;47(7):951.
-
-\bibitem{malbrain2014fluid}
-Malbrain ML, Marik PE, Witters I, Cordemans C, Kirkpatrick AW, Roberts DJ, et~al.
-\newblock Fluid overload, de-resuscitation, and outcomes in critically ill or injured patients: a systematic review with suggestions for clinical practice.
-\newblock Anaesthesiology intensive therapy. 2014;46(5):361--380.
-
-\bibitem{meyhoff2020lower}
-Meyhoff TS, Moller MH, Hjortrup PB, Cronhjort M, Perner A, Wetterslev J.
-\newblock Lower vs higher fluid volumes during initial management of sepsis: a systematic review with meta-analysis and trial sequential analysis.
-\newblock Chest. 2020;157(6):1478--1496.
-
-\bibitem{chinaeke2021impact}
-Chinaeke EE, Love BL, Magagnoli J, Yunusa I, Reeder G.
-\newblock The impact of statin use prior to intensive care unit admission on critically ill patients with sepsis.
-\newblock Pharmacotherapy: The Journal of Human Pharmacology and Drug Therapy. 2021;41(2):162--171.
-
-\bibitem{lee2017preadmission}
-Lee M, Lee C, Lai C, Hsu T, Porta L, Lee M, et~al.
-\newblock Preadmission statin use improves the outcome of less severe sepsis patients-a population-based propensity score matched cohort study.
-\newblock BJA: British Journal of Anaesthesia. 2017;119(4):645--654.
-
-\bibitem{kyu2019preadmission}
-Kyu~Oh T, Song IA, Lee JH, Lim C, Jeon YT, Bae HJ, et~al.
-\newblock Preadmission statin use and 90-day mortality in the critically ill: a retrospective association study.
-\newblock Anesthesiology. 2019;131(2):315--327.
-
-\bibitem{national2014rosuvastatin}
-{National Heart, Lung, and Blood Institute ARDS Clinical Trials Network}.
-\newblock Rosuvastatin for sepsis-associated acute respiratory distress syndrome.
-\newblock New England Journal of Medicine. 2014;370(23):2191--2200.
-
-\bibitem{singh2017effects}
-Singh RK, Agarwal V, Baronia AK, Kumar S, Poddar B, Azim A.
-\newblock The effects of atorvastatin on inflammatory responses and mortality in septic shock: a single-center, randomized controlled trial.
-\newblock Indian Journal of Critical Care Medicine: Peer-reviewed, Official Publication of Indian Society of Critical Care Medicine. 2017;21(10):646.
-
-\bibitem{wan2014effect}
-Wan YD, Sun TW, Kan QC, Guan FX, Zhang SG.
-\newblock Effect of statin therapy on mortality from infection and sepsis: a meta-analysis of randomized and observational studies.
-\newblock Critical care. 2014;18:1--13.
-
-\bibitem{adibuzzaman2019323}
-Adibuzzaman M, Jung Y, Bareinboim E, Griffin P, Kethireddy S, Bikak M, et~al.
-\newblock Methods for quantifying efficacy-effectiveness gap of randomized controlled trials: examples in ards.
-\newblock Critical Care Medicine. 2019;47(1):143.
-
-\bibitem{national2004higher}
-{National Heart, Lung, and Blood Institute ARDS Clinical Trials Network}.
-\newblock Higher versus lower positive end-expiratory pressures in patients with the acute respiratory distress syndrome.
-\newblock New England Journal of Medicine. 2004;351(4):327--336.
-
-\bibitem{papazian2010neuromuscular}
-Papazian L, Forel JM, Gacouin A, Penot-Ragon C, Perrin G, Loundou A, et~al.
-\newblock Neuromuscular blockers in early acute respiratory distress syndrome.
-\newblock New England Journal of Medicine. 2010;363(12):1107--1116.
-
-\bibitem{wang2023early}
-Wang J, Jiang L, Ding S, He SY, Liu SB, Lu ZJ, et~al.
-\newblock Early Enteral Nutrition and Sepsis-Associated Acute Kidney Injury: A Propensity Score Matched Cohort Study Based on the MIMIC-III Database.
-\newblock Yonsei Medical Journal. 2023;64(4):259--268.
-
 \bibitem{rosenbaum1983central}
 Rosenbaum PR, Rubin DB.
 \newblock The central role of the propensity score in observational studies for causal effects.
 \newblock Biometrika;70:41--55.
+
+\bibitem{chernozhukov2022long}
+Chernozhukov V, Cinelli C, Newey W, Sharma A, Syrgkanis V.
+\newblock Long story short: Omitted variable bias in causal machine learning.
+\newblock National Bureau of Economic Research; 2022.
 
 \bibitem{jesson2020identifying}
 Jesson A, Mindermann S, Shalit U, Gal Y.
@@ -646,25 +546,5 @@ Bouthillier X, Delaunay P, Bronzi M, Trofimov A, Nichyporuk B, Szeto J, et~al.
 Investigators SS.
 \newblock Saline or albumin for fluid resuscitation in patients with traumatic brain injury.
 \newblock New England Journal of Medicine. 2007;357(9):874--884.
-
-\bibitem{diao2012pharmacotherapy}
-Diao D, Wright JM, Cundiff DK, Gueyffier F.
-\newblock Pharmacotherapy for mild hypertension.
-\newblock Cochrane database of systematic reviews. 2012;(8).
-
-\bibitem{long1998prevention}
-with Pravastatin~in Ischaemic Disease (LIPID) Study~Group LTI.
-\newblock Prevention of cardiovascular events and death with pravastatin in patients with coronary heart disease and a broad range of initial cholesterol levels.
-\newblock New England Journal of Medicine. 1998;339(19):1349--1357.
-
-\bibitem{shepherd2002pravastatin}
-Shepherd J, Blauw GJ, Murphy MB, Bollen EL, Buckley BM, Cobbe SM, et~al.
-\newblock Pravastatin in elderly individuals at risk of vascular disease (PROSPER): a randomised controlled trial.
-\newblock The Lancet. 2002;360(9346):1623--1630.
-
-\bibitem{antihypertensive2002major}
-Antihypertensive T, for~the ALLHAT Collaborative Research~Group C, et~al.
-\newblock Major outcomes in moderately hypercholesterolemic, hypertensive patients randomized to pravastatin vs usual care: the Antihypertensive and Lipid-Lowering Treatment to Prevent Heart Attack Trial (ALLHAT-LLT).
-\newblock Jama. 2002;288(23):2998--3007.
 
 \end{thebibliography}

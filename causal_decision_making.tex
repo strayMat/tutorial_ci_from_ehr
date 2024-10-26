@@ -536,8 +536,11 @@ Regressing the outcome on instrumental and post-treatment variables (colliders
 and mediators) will lead to biased causal estimates
 \cite{vanderweele2019principles}. Drawing causal Directed Acyclic Graphs
 (DAGs) \cite{greenland1999causal}, \emph{eg} with a webtool such as DAGitty \cite{textor2011dagitty}, helps capturing the relevant
-variables and defining a suitable estimand or effect measure. The
-\emph{estimand} is the final statistical quantity estimated from the data.
+variables and defining a suitable estimand or effect measure. Unconfoundedness --inclusion of all confounders in the analysis--
+is a strong hypothesis that can be hard to obtain in real applications. In these cases, sensitivity analyses for omited variable bias allow to test the robustness of the results to missing confounders \cite{cinelli2020making}, proximal inference can be used to leverage proxy of unobserved confounders \cite{tchetgen2024introduction}, and the presence of natural experiment might identify the desired causal effect without unconfoundedness \cite[Chapter 5, 9]{wager2020stats}.
+
+The
+\emph{estimand} is the final causal quantity estimated from the data.
 Depending on the question, different estimands are better suited to contrast
 the two potential outcomes E[Y(1)] and E[Y(0)] \cite{imbens_nonparametric_2004,colnet2023risk}. For continuous outcomes, risk
 difference is a natural estimand, while for binary outcomes (e.g. events) the
@@ -703,7 +706,7 @@ patient characteristics.
 \subsection*{Identification: listing confounders}\label{sec:identification_mimic_iv}
 
 For confounders selection we use a causal DAG shown in Figure
-\ref{fig:causal_diagram_albumin}. Gray confounders are not controlled for since
+\nameref{apd:causal_diagram_albumin}. Gray confounders are not controlled for since
 they are not available in the data. However, resulting confounding biases are
 captured by proxies such as comorbidity scores (SOFA or SAPS II) or other
 variables (eg. race, gender, age, weight).
@@ -722,7 +725,7 @@ EconML \cite{battocchi2019econml} for all other estimation strategies.
 Confidence intervals were estimated by bootstrap (50 repetitions).
 \nameref{apd:causal_estimators} and
 \nameref{apd:packages} detail the estimators and the available Python
-implementations.
+implementations. \nameref{apd:statistical_considerations} details statistical considerations that we identify as important but missing in these packages, namely lack of cross fitting estimators, bad practices for imputation, lack of closed form confidence intervals.
 
 \subsection*{Estimation}\label{sec:estimation_mimic_iv}
 
@@ -757,7 +760,7 @@ explained in \autoref{sec:framing}, a longer eligibility period means that
 patients are more likely to be treated if they survived up to the intervention
 and hence the study is biased to overestimate the beneficial effect of the
 intervention. Figure \ref{fig:vibration:itb} shows that longer eligibility
-periods lead to albumin being markedly more efficient.
+periods lead to albumin being markedly more efficient (detailed results with causal forest and other choices of aggregation in \nameref{apd:detailed_results_itb}).
 
 \begin{figure*}[h!]
   \begin{subfigure}[b]{\linewidth}
@@ -813,7 +816,7 @@ whereas the outcome-regression methods have the largest CI. The estimates of the
 forest models are closer to the consensus across prior studies (no effect) than
 the logistic regression indicating a better fit of non-linear relationships. We
 only report the first and last pre-treatment feature aggregation strategy, since
-detailed analysis showed little differences for other aggregations (\nameref{apd:detailed_results}). Both methodological studies \cite{naimi2023challenges} and
+detailed analysis showed little differences for other aggregations (\nameref{apd:detailed_results} for complete results, and \nameref{apd:vibration_analysis_for_aggregation} for a detailed study on aggregation choices). Both methodological studies \cite{naimi2023challenges} and
 consistency with published RCTs suggest to prefer doubly-robust approaches.
 
 \subsection*{Treatment heterogeneity: Which treatment for a sub-population?}%
@@ -832,7 +835,7 @@ decision-making. We explore
 heterogeneity along four binary patient characteristics, displayed in Figure
 \ref{fig:albumin_for_sepsis:cate_results}. We find that albumin is beneficial
 with patient with septic shock consistent with one
-RCT  \cite{caironi2014albumin}. It is also beneficial for older patients (age >=60) and males.
+RCT  \cite{caironi2014albumin}. It is also beneficial for older patients (age >=60) and males. \nameref{apd:hte} details the heterogeneity analysis.
 
 \begin{figure}[h!]
   \begin{minipage}{.4\linewidth}
@@ -949,6 +952,7 @@ The datasets are available on PhysioNet (
 \url{https://doi.org/10.13026/6mm1-ek67}). We used MIMIC-IV.v2.2 The code for
 data preprocessing and analyses are available on github
 \url{https://github.com/soda-inria/causal_ehr_mimic/}.
+The project was run on a laptop running Ubuntu 22.04.2 LTS with the following hardware: CPU 12th Gen Intel(R) Core(TM) i7-1270P with 16 threads and 15 GB of RAM.
 
 % \section*{Fundings}
 % This study was supported by an unrestricted educational grants to TS (Swiss
@@ -961,7 +965,14 @@ data preprocessing and analyses are available on github
 MD and TS designed the study, MD performed the analysis and wrote the manuscript.
 TS, JA, CM, LAC, GV reviewed and edited the manuscript.
 
-% \section*{Competing interests}
+\section*{Acknowledgments}
+
+We thank all the PhysioNet team for their encouragements and support. In
+particular: Fredrik Willumsen Haug, João Matos, Luis Nakayama, Sicheng Hao, Alistair Johnson.
+
+\nolinenumbers
+
+\bibliography{references}
 
 % All authors declare no financial or non-financial competing interests.
 \clearpage
@@ -1143,125 +1154,125 @@ Figure \ref{fig:causal_variables} illustrates the different types of causal vari
 
 
 
+% \paragraph*{S1 Appendix.}
+% \label{apd:ate_on_mimic}
+% {\bf Estimation of Treatment effect with MIMIC data.}
+
+% We searched for causal inference studies in MIMIC using PubMed and Google
+% scholar with the following search terms ((MIMIC-III OR MIMIC-IV) AND (causal
+% inference OR treatment effect)). We retained eleven treatment effect studies
+% clearly following the PICO framework:
+
+% \begin{itemize}[leftmargin=2ex]
+%   \item \cite{liu2021effects} studied the effect of \textcolor{I}{High-flow
+%           nasal cannula oxygen (HFNC)} against \textcolor{C}{noninvasive
+%           mechanical ventilation} on \textcolor{P}{801 patients with hypoxemia
+%           during ventilator weaning} on \textcolor{O}{28-day mortality}. They
+%         used propensity score matching, and found non-negative effects as
+%         previous RCTs reported --though those were focused on reintubation as the
+%         main outcome \cite{stephan2015high,hernandez2016effect}.
+
+%   \item \cite{yarnell2023oxygenation} studied the effect of \textcolor{I}{lower hypoxemia} vs \textcolor{C}{higher
+%         hypoxemia thresholds for the initiation of invasive ventilation} (defined with saturation-to-inspired oxygen ratio (SF)) for
+%         \textcolor{P}{3,357 patients from MIMIC receiving inspired oxygen fraction greater than 0.4} on \textcolor{O}{28-day
+%           mortality}. Using bayesian G-computation (time-varying treatment model with
+%         gaussian process and outcome-model with BART, taking the treatment model as
+%         entry), they found protective effects for initialization at low hypoxemia.
+%         However, when externally validation their findings in the AmsterdamUMCdb dataset,
+%         they found the highest mortality probability for patients with low hypoxemia.
+%         Authors concluded that their model was heavily dependent on clinical context
+%         and baseline characteristics. There might be some starting-time bias in this study since it is really close
+
+%   \item \cite{hsu2015association} studied the effect of \textcolor{I}{indwelling
+%           arterial catheters (IACs)} vs \textcolor{C}{non-IAC} for
+%         \textcolor{P}{1,776 patients who are mechanically ventilated and did
+%           not require vasopressor support} on \textcolor{O}{28-day mortality}.
+%         They used propensity score matching and found no effect. A notebook based on google cloud access to MIMIC-IV
+%         replicating the study is available \href{https://github.com/alistairewj/mimic-iv-aline-study/blob/main/mimic_iv_aline.ipynb}{here}.
+
+%   \item \cite{feng2018transthoracic} studied the effect of
+%         \textcolor{I}{transthoracic echocardiography} vs \textcolor{C}{no
+%           intervention} for \textcolor{P}{6,361 patients with sepsis} on
+%         \textcolor{O}{28-day mortality}. They used IPW, PSM, g-formula and a
+%         doubly robust estimation. The propensity score was modeled with boosting
+%         and the outcome model with a logistic regression. They
+%         found a significant positive reduction of mortality (odd ratio 0.78, 95\% CI 0.68-0.90).
+%         \href{https://github.com/nus-mornin-lab/echo-mimiciii}{Study code is
+%           open source}.
+
+%   \item \cite{gani2023structural} studied the effect of \textcolor{I}{liberal
+%           --target SpO2 greater than 96\%--} vs \textcolor{C}{conservative
+%           oxygenation --target SpO2 between 88-95\%--} in \textcolor{P}{4,062
+%           mechanically ventilated patients} on \textcolor{O}{90-day mortality}.
+%         They found an advantage of the liberal strategy over liberal
+%         (ATE=0.13) by adjusting on age and apsii. This is not consistent with
+%         previous RCTs where no effects have been reported \cite{panwar2016conservative, mackle2019conservative}.
+
+%   \item \cite{shahn2020fluid} studied the effect of \textcolor{I}{fluid-limiting
+%           treatment --caped between 6 and 10 L--} vs \textcolor{C}{no cap on
+%           fluid administration} strategies for \textcolor{P}{1,639 sepsis
+%           patients} on \textcolor{O}{30 day-mortality}. Using a dynamic Marginal
+%         Structural Model with IPW, they found a protective effect of
+%         fluid-limitation on ATE -0.01 (95\%CI -0.016, -0.03). This is somehow
+%         concordant with the RIFTS RCT that found no effect of fluid limitation
+%         \cite{corl2019restrictive} and two previous meta-analyses
+%         \cite{malbrain2014fluid,meyhoff2020lower}.
+
+%   \item \cite{chinaeke2021impact} studied the effect of \textcolor{I}{statin use
+%           prior to ICU admission} vs \textcolor{C}{absence of pre-ICU
+%           prescription} for \textcolor{P}{8,200 patients with sepsis} on
+%         \textcolor{O}{30-day mortality}. Using AIPW (no estimator reported)
+%         and PSM (logistic regression), they found a decrease on mortality (ATE
+%         -0.039, 95\%CI -0.084, -0.026). This partly supports previous
+%         findings in Propensity Matching bases observational studies
+%         \cite{lee2017preadmission,kyu2019preadmission}. But all RCTs
+%         \cite{national2014rosuvastatin,singh2017effects} found no improvement for sepsis (not
+%         pre-admission administration though). The \cite{wan2014effect}
+%         meta-analysis concludes that there is lack of evidence for the use of
+%         statins in sepsis with inconsistent results between RCTs (no effect)
+%         and observational studies (protective effect).
+%   \item \cite{adibuzzaman2019323} studied the effect of \textcolor{I}{higher} vs
+%         \textcolor{C}{lower positive end-expiratory pressures (PEEP)} in
+%         \textcolor{P}{1,411 patients with Acute Respiratory Distress Syndrome
+%           (ARDS) syndrome} on \textcolor{O}{30 day mortality}. Very few details on
+%         the methods were reported, but they found a protective effect for higher PEEP
+%         consistent results from a target trial \cite{national2004higher}.
+%   \item \cite{adibuzzaman2019323} also studied the effect of \textcolor{I}{early
+%           use of a neuromuscular blocking agent } vs \textcolor{C}{placebo} in
+%         \textcolor{P}{752 patients moderate-severe ARDS} on \textcolor{O}{30
+%           day mortality}. Very few details on the methods were reported, but they found a
+%         protective effect for the use of a neuromuscular blocking agent,
+%         consistent with the results from a target trial
+%         \cite{papazian2010neuromuscular}.
+%   \item \cite{zhou2021early} studied the administration of \textcolor{I}{a
+%           combination of albumin within the first 24-h after crystalloids} vs
+%         \textcolor{C}{crystalloids alone} for \textcolor{P}{6,641 patients
+%           with sepsis} on \textcolor{O}{28-day mortality}. Using PSM, they found
+%         protective effect of combination on mortality, but insist on the
+%         importance of initialization timing. This is consistent with \cite{xu2014comparison}, who
+%         found a non-significant trend
+%         in favor of albumin used for severe sepsis patients and a significant
+%         reduction for septic shock patients, both on 90-day mortality. These
+%         results are aligned with \cite{caironi2014albumin} that found no effect
+%         for severe sepsis patient but positive effect for septic shock patients.
+%   \item \cite{wang2023early} studied \textcolor{I}{early enteral nutrition (EN)
+%           --<=53 ICU admission hours--} vs \textcolor{C}{delayed EN} for
+%         \textcolor{P}{2,364 patients with sepsis and EN} on
+%         \textcolor{O}{acute kidney injury}. With PSM, IPW and g-formula
+%         (logistic estimator each time), they found a protective effect
+%         (OR 0.319, 95\%CI 0.245, 0.413) of EEN.
+% \end{itemize}
+
+% These eleven studies mainly used propensity score matching (6) and IPW (4), two of
+% them used doubly robust methods, and only one included a non-linear estimator in
+% either the outcome or the treatment model. None of them performed a vibration
+% analysis on confounder selection or feature transformations. They have a
+% strong focus on patients with sepsis. Only four of them found concordant results with
+% previous RCTs \cite{liu2021effects,shahn2020fluid,adibuzzaman2019323}.
+% \clearpage
+
+
 \paragraph*{S1 Appendix.}
-\label{apd:ate_on_mimic}
-{\bf Estimation of Treatment effect with MIMIC data.}
-
-We searched for causal inference studies in MIMIC using PubMed and Google
-scholar with the following search terms ((MIMIC-III OR MIMIC-IV) AND (causal
-inference OR treatment effect)). We retained eleven treatment effect studies
-clearly following the PICO framework:
-
-\begin{itemize}[leftmargin=2ex]
-  \item \cite{liu2021effects} studied the effect of \textcolor{I}{High-flow
-          nasal cannula oxygen (HFNC)} against \textcolor{C}{noninvasive
-          mechanical ventilation} on \textcolor{P}{801 patients with hypoxemia
-          during ventilator weaning} on \textcolor{O}{28-day mortality}. They
-        used propensity score matching, and found non-negative effects as
-        previous RCTs reported --though those were focused on reintubation as the
-        main outcome \cite{stephan2015high,hernandez2016effect}.
-
-  \item \cite{yarnell2023oxygenation} studied the effect of \textcolor{I}{lower hypoxemia} vs \textcolor{C}{higher
-        hypoxemia thresholds for the initiation of invasive ventilation} (defined with saturation-to-inspired oxygen ratio (SF)) for
-        \textcolor{P}{3,357 patients from MIMIC receiving inspired oxygen fraction greater than 0.4} on \textcolor{O}{28-day
-          mortality}. Using bayesian G-computation (time-varying treatment model with
-        gaussian process and outcome-model with BART, taking the treatment model as
-        entry), they found protective effects for initialization at low hypoxemia.
-        However, when externally validation their findings in the AmsterdamUMCdb dataset,
-        they found the highest mortality probability for patients with low hypoxemia.
-        Authors concluded that their model was heavily dependent on clinical context
-        and baseline characteristics. There might be some starting-time bias in this study since it is really close
-
-  \item \cite{hsu2015association} studied the effect of \textcolor{I}{indwelling
-          arterial catheters (IACs)} vs \textcolor{C}{non-IAC} for
-        \textcolor{P}{1,776 patients who are mechanically ventilated and did
-          not require vasopressor support} on \textcolor{O}{28-day mortality}.
-        They used propensity score matching and found no effect. A notebook based on google cloud access to MIMIC-IV
-        replicating the study is available \href{https://github.com/alistairewj/mimic-iv-aline-study/blob/main/mimic_iv_aline.ipynb}{here}.
-
-  \item \cite{feng2018transthoracic} studied the effect of
-        \textcolor{I}{transthoracic echocardiography} vs \textcolor{C}{no
-          intervention} for \textcolor{P}{6,361 patients with sepsis} on
-        \textcolor{O}{28-day mortality}. They used IPW, PSM, g-formula and a
-        doubly robust estimation. The propensity score was modeled with boosting
-        and the outcome model with a logistic regression. They
-        found a significant positive reduction of mortality (odd ratio 0.78, 95\% CI 0.68-0.90).
-        \href{https://github.com/nus-mornin-lab/echo-mimiciii}{Study code is
-          open source}.
-
-  \item \cite{gani2023structural} studied the effect of \textcolor{I}{liberal
-          --target SpO2 greater than 96\%--} vs \textcolor{C}{conservative
-          oxygenation --target SpO2 between 88-95\%--} in \textcolor{P}{4,062
-          mechanically ventilated patients} on \textcolor{O}{90-day mortality}.
-        They found an advantage of the liberal strategy over liberal
-        (ATE=0.13) by adjusting on age and apsii. This is not consistent with
-        previous RCTs where no effects have been reported \cite{panwar2016conservative, mackle2019conservative}.
-
-  \item \cite{shahn2020fluid} studied the effect of \textcolor{I}{fluid-limiting
-          treatment --caped between 6 and 10 L--} vs \textcolor{C}{no cap on
-          fluid administration} strategies for \textcolor{P}{1,639 sepsis
-          patients} on \textcolor{O}{30 day-mortality}. Using a dynamic Marginal
-        Structural Model with IPW, they found a protective effect of
-        fluid-limitation on ATE -0.01 (95\%CI -0.016, -0.03). This is somehow
-        concordant with the RIFTS RCT that found no effect of fluid limitation
-        \cite{corl2019restrictive} and two previous meta-analyses
-        \cite{malbrain2014fluid,meyhoff2020lower}.
-
-  \item \cite{chinaeke2021impact} studied the effect of \textcolor{I}{statin use
-          prior to ICU admission} vs \textcolor{C}{absence of pre-ICU
-          prescription} for \textcolor{P}{8,200 patients with sepsis} on
-        \textcolor{O}{30-day mortality}. Using AIPW (no estimator reported)
-        and PSM (logistic regression), they found a decrease on mortality (ATE
-        -0.039, 95\%CI -0.084, -0.026). This partly supports previous
-        findings in Propensity Matching bases observational studies
-        \cite{lee2017preadmission,kyu2019preadmission}. But all RCTs
-        \cite{national2014rosuvastatin,singh2017effects} found no improvement for sepsis (not
-        pre-admission administration though). The \cite{wan2014effect}
-        meta-analysis concludes that there is lack of evidence for the use of
-        statins in sepsis with inconsistent results between RCTs (no effect)
-        and observational studies (protective effect).
-  \item \cite{adibuzzaman2019323} studied the effect of \textcolor{I}{higher} vs
-        \textcolor{C}{lower positive end-expiratory pressures (PEEP)} in
-        \textcolor{P}{1,411 patients with Acute Respiratory Distress Syndrome
-          (ARDS) syndrome} on \textcolor{O}{30 day mortality}. Very few details on
-        the methods were reported, but they found a protective effect for higher PEEP
-        consistent results from a target trial \cite{national2004higher}.
-  \item \cite{adibuzzaman2019323} also studied the effect of \textcolor{I}{early
-          use of a neuromuscular blocking agent } vs \textcolor{C}{placebo} in
-        \textcolor{P}{752 patients moderate-severe ARDS} on \textcolor{O}{30
-          day mortality}. Very few details on the methods were reported, but they found a
-        protective effect for the use of a neuromuscular blocking agent,
-        consistent with the results from a target trial
-        \cite{papazian2010neuromuscular}.
-  \item \cite{zhou2021early} studied the administration of \textcolor{I}{a
-          combination of albumin within the first 24-h after crystalloids} vs
-        \textcolor{C}{crystalloids alone} for \textcolor{P}{6,641 patients
-          with sepsis} on \textcolor{O}{28-day mortality}. Using PSM, they found
-        protective effect of combination on mortality, but insist on the
-        importance of initialization timing. This is consistent with \cite{xu2014comparison}, who
-        found a non-significant trend
-        in favor of albumin used for severe sepsis patients and a significant
-        reduction for septic shock patients, both on 90-day mortality. These
-        results are aligned with \cite{caironi2014albumin} that found no effect
-        for severe sepsis patient but positive effect for septic shock patients.
-  \item \cite{wang2023early} studied \textcolor{I}{early enteral nutrition (EN)
-          --<=53 ICU admission hours--} vs \textcolor{C}{delayed EN} for
-        \textcolor{P}{2,364 patients with sepsis and EN} on
-        \textcolor{O}{acute kidney injury}. With PSM, IPW and g-formula
-        (logistic estimator each time), they found a protective effect
-        (OR 0.319, 95\%CI 0.245, 0.413) of EEN.
-\end{itemize}
-
-These eleven studies mainly used propensity score matching (6) and IPW (4), two of
-them used doubly robust methods, and only one included a non-linear estimator in
-either the outcome or the treatment model. None of them performed a vibration
-analysis on confounder selection or feature transformations. They have a
-strong focus on patients with sepsis. Only four of them found concordant results with
-previous RCTs \cite{liu2021effects,shahn2020fluid,adibuzzaman2019323}.
-\clearpage
-
-
-\paragraph*{S2 Appendix.}
 \label{apd:causal_assumptions}
 {\bf Assumptions: what is needed for causal inference from observational studies.}
 
@@ -1279,6 +1290,7 @@ particular these we use:
   independence on the propensity score $e(X)=\mathbb P(A=1|X)$ \cite{rosenbaum1983central}: $\{Y(0), Y(1) \}\indep  A | e(X)$.
 \end{assumption}
 
+Unconfoundedness is a strong assumption that might be violated in practice. The existance of residual bias trough unobserved confounders can be mitigated with different strategies. The \textit{omitted variable bias} framework encourages sensitivity analyses allowing to derive bounds on the causal estimate by making assumptions on the strengh of association of the omitted variable with both the treatment and the outcome. We refer to \cite{cinelli2020making} for a clear introduction under linear assumption and to \cite{chernozhukov2022long} for an extension to general non-linear settings. In case of strong unobserved confounders for which proxy variables can be measured, \textit{proximal inference} can be used to obtain identifiability \cite{tchetgen2024introduction}. These methods require expert knowledge to classify the proxy between treatment and outcome proxy, then run two-stage regression to recover the causal effect. Lastly, natural exeperiments, when available, should be exploited to estimate causal effects without the need of unconfoundedness. Instrumental variable methods exploit randomness influancing the treatment but unrelated to the outcome to simulate a randomized experiment \cite[chapter 9]{wager2020stats}. Regression discontinuity designs leverage discontinuous treatment assignment mechanisms with the assumption of a continuous outcome \cite[chapter 5]{wager2020stats}.
 
 \begin{assumption}[Overlap, also known as Positivity]\label{assumption:overlap}
   \begin{equation}\label{eq:overlap}
@@ -1295,6 +1307,7 @@ covariate set generally reinforces the ignorability assumption. In the
 contrary, overlap can be weakened by large $\mathcal{X}$ because of the
 potential inclusion of instrumental variables: variables only linked to the treatment which
 could lead to arbitrarily small propensity scores.
+
 
 % remark: There is a major counter example to these colliders (variables which
 % are caused by both the outcome and the treatment),
@@ -1319,7 +1332,7 @@ could lead to arbitrarily small propensity scores.
 
 
 
-\paragraph*{S3 Appendix.}
+\paragraph*{S2 Appendix.}
 \label{apd:causal_estimators}
 {\bf Major causal-inference methods: When to use which estimator?}
 
@@ -1438,7 +1451,7 @@ in the denominator.
 \clearpage
 
 
-\paragraph*{S4 Appendix.}
+\paragraph*{S3 Appendix.}
 \label{apd:statistical_considerations}
 {\bf Statistical considerations when implementing
   estimation.}
@@ -1495,7 +1508,7 @@ estimator). See Table \ref{apd:table:compute_times} for details.
 \clearpage
 
 
-\paragraph*{S5 Appendix.}
+\paragraph*{S4 Appendix.}
 \label{apd:packages}
 {\bf Packages for causal estimation in the python ecosystem.}
 We searched for causal inference packages in the python ecosystem. The focus
@@ -1583,7 +1596,7 @@ which makes it hard to install.
 
 
 
-\paragraph*{S6 Appendix.}
+\paragraph*{S5 Appendix.}
 \label{apd:hyper_parameter_search}
 {\bf Hyper-parameter search for the nuisance models.}
 \begin{figure}[!b]
@@ -1621,14 +1634,6 @@ the random search.
   \caption{Hyper-parameter grid used during random search
     optimization.}\label{apd:table:hyper_parameter_search}
 \end{table}
-\clearpage
-
-\paragraph*{S7 Appendix.}
-\label{apd:computing_resources}
-{\bf Computing resources.}
-
-The whole project was run on a laptop running Ubuntu 22.04.2 LTS with the following hardware:
-CPU 12th Gen Intel(R) Core(TM) i7-1270P with 16 threads and 15 GB of RAM.
 \clearpage
 
 \paragraph*{S5 Fig.}
@@ -1705,8 +1710,6 @@ estimators and other choices of feature aggregation (first and last).
 \paragraph*{S8 Fig.}
 \label{apd:detailed_results_itb}
 {\bf Complete results for the Immortal time bias.}
-\clearpage
-
 
 Compared to Figure \ref{fig:vibration:itb}, we also report in Figure
 \ref{apd:fig:detailed_results_itb} the estimates for Double Machine Learning,
@@ -1726,7 +1729,7 @@ Feature aggregation was concatenation of first and last for all estimates.
 \end{figure}
 \clearpage
 
-\paragraph*{S8 Appendix.}
+\paragraph*{S6 Appendix.}
 \label{apd:vibration_analysis_for_confounders}
 {\bf Deviating from expert ignorability -- Impact of smaller confounders sets.}
 
@@ -1743,7 +1746,7 @@ insurance--medicare, race).
 Figure \ref{fig:vibration:confounders} shows that small
 deviation from the ignorability assumptions is tolerable: for example, removing
 antibiotics does not impact the estimate. However, the larger the
-deviation from graph \ref{fig:causal_diagram_albumin}, the larger the bias
+deviation from graph \nameref{apd:causal_diagram_albumin}, the larger the bias
 compared to the gold-standard. Adjusting only for socio-demographics features
 is the closest from an unadjusted risk difference, indicating that we lack
 important confounders on the patient health state. This stability of the
@@ -1813,7 +1816,7 @@ of first and last feature observed before inclusion time.
 \clearpage
 
 
-\paragraph*{S8 Appendix.}
+\paragraph*{S7 Appendix.}
 \label{apd:hte}
 {\bf Details on treatment heterogeneity analysis.}
 \textbf{Detailed estimation procedure}
@@ -1906,9 +1909,9 @@ random forest model only for patients aged between 55 and 80.
 \end{figure}
 \clearpage
 
-\paragraph*{S9 Appendix.}
-\label{apd:risk_assessment_scores}
-{\bf Risk assessment tools for prevention.}
+% \paragraph*{S9 Appendix.}
+% \label{apd:risk_assessment_scores}
+% {\bf Risk assessment tools for prevention.}
 
 
 % \textbf{An example of nationally deployed cardiovascular prevention tool: QRISK}
@@ -1951,71 +1954,66 @@ random forest model only for patients aged between 55 and 80.
 % history of CVD.
 
 
-\textbf{Critics on the efficiency of systematic screening points to treatment heterogeneity}
+% \textbf{Critics on the efficiency of systematic screening points to treatment heterogeneity}
 
-On the other side, the WHO systematic review on systematic screening for
-cardio-vascular risks from 2019 \cite{eriksen2021effectiveness} is
-categorical on the poor effectiveness of systematic cardiovascular risk
-screening, consistently with the Cochrane review on poor effectiveness
-\cite{krogsboll2012general}. For the WHO, systematic screening leads to
-over-diagnosis and over-treatment. They mention in their argumentation no
-positive effect of statins and even adverse effect for mild hypertension
-\cite{diao2012pharmacotherapy}. They also mention critics against poor
-uptake of the systematic screening in UK or Albany leading to documented
-social bias in the screened population: for example, in the UK, treatment
-heterogeneity at a given risk level \cite{van2013efficiency} or documentation
-of social inequities of health checks \cite{krska2016implementation}.
+% On the other side, the WHO systematic review on systematic screening for
+% cardio-vascular risks from 2019 \cite{eriksen2021effectiveness} is
+% categorical on the poor effectiveness of systematic cardiovascular risk
+% screening, consistently with the Cochrane review on poor effectiveness
+% \cite{krogsboll2012general}. For the WHO, systematic screening leads to
+% over-diagnosis and over-treatment. They mention in their argumentation no
+% positive effect of statins and even adverse effect for mild hypertension
+% \cite{diao2012pharmacotherapy}. They also mention critics against poor
+% uptake of the systematic screening in UK or Albany leading to documented
+% social bias in the screened population: for example, in the UK, treatment
+% heterogeneity at a given risk level \cite{van2013efficiency} or documentation
+% of social inequities of health checks \cite{krska2016implementation}.
 
-\begin{itemize}
-  \item The first critic shows that the augmentation of statin prescriptions
-        (up to 400\% increase for high risk patients), has been associated with
-        heterogeneity in statin prescriptions for given risk score levels
-        \cite{van2013efficiency}. Low risk patients have been over-prescribed
-        and high risk patient under-prescribed, resulting in questionable overall
-        improvement. In this case, the constant effect
-        hypothesis of statin proposed by the NICE cost-effectiveness study is in doubt.
-        Having access to sources of heterogeneity would help to optimize
-        treatment allocation. The risk score might capture interesting
-        heterogeneity directions, but we lack data from RCTs to draw such conclusions.
+% \begin{itemize}
+%   \item The first critic shows that the augmentation of statin prescriptions
+%         (up to 400\% increase for high risk patients), has been associated with
+%         heterogeneity in statin prescriptions for given risk score levels
+%         \cite{van2013efficiency}. Low risk patients have been over-prescribed
+%         and high risk patient under-prescribed, resulting in questionable overall
+%         improvement. In this case, the constant effect
+%         hypothesis of statin proposed by the NICE cost-effectiveness study is in doubt.
+%         Having access to sources of heterogeneity would help to optimize
+%         treatment allocation. The risk score might capture interesting
+%         heterogeneity directions, but we lack data from RCTs to draw such conclusions.
 
-  \item  The second critic points to a treatment allocation bias for risk
-        assessment. It seems that mostly socially advantaged patients are
-        receiving risk assessment and thus the possibility to be treated with
-        statins. This critic also points to treatment heterogeneity.
-        Suppose that every patient benefits the same from statins, then even a
-        small part of the population --such as the socially advantaged at more
-        than 10\% risk-- would benefit from it and make the intervention
-        effective at the population level.
-\end{itemize}
+%   \item  The second critic points to a treatment allocation bias for risk
+%         assessment. It seems that mostly socially advantaged patients are
+%         receiving risk assessment and thus the possibility to be treated with
+%         statins. This critic also points to treatment heterogeneity.
+%         Suppose that every patient benefits the same from statins, then even a
+%         small part of the population --such as the socially advantaged at more
+%         than 10\% risk-- would benefit from it and make the intervention
+%         effective at the population level.
+% \end{itemize}
 
 
 
-\textbf{NICE evidence for statin efficacy}
+% \textbf{NICE evidence for statin efficacy}
 
-In the NICE analysis, three trials weight for more than 70\% of the effect. All
-focus on high risk patients and secondary prevention. It is not clear if
-those effects are used for the cost-effectiveness.
+% In the NICE analysis, three trials weight for more than 70\% of the effect. All
+% focus on high risk patients and secondary prevention. It is not clear if
+% those effects are used for the cost-effectiveness.
 
-\begin{itemize}
-  \item LIPID \cite{long1998prevention} (32\% of the effect): 9,014 patients with a history of
-        myocardial infraction or hospitalization ie. secondary prevention.
-  \item PROSPER \cite{shepherd2002pravastatin} (22\% of the effect): an elderly cohort of
-        5,804 men and women with, or at high risk of developing, cardiovascular
-        disease and stroke.
-  \item ALLHAT-LLT \cite{antihypertensive2002major} (23\% of the effect): 10,355 patients age more than 55
-        years and stage 1 or 2 hypertension with at least 1 additional CHD risk
-        factor.
-\end{itemize}
+% \begin{itemize}
+%   \item LIPID \cite{long1998prevention} (32\% of the effect): 9,014 patients with a history of
+%         myocardial infraction or hospitalization ie. secondary prevention.
+%   \item PROSPER \cite{shepherd2002pravastatin} (22\% of the effect): an elderly cohort of
+%         5,804 men and women with, or at high risk of developing, cardiovascular
+%         disease and stroke.
+%   \item ALLHAT-LLT \cite{antihypertensive2002major} (23\% of the effect): 10,355 patients age more than 55
+%         years and stage 1 or 2 hypertension with at least 1 additional CHD risk
+%         factor.
+% \end{itemize}
+
 \clearpage
 
 
 
-\section*{Acknowledgments}
-
-We thank all the PhysioNet team for their encouragements and support. In
-particular: Fredrik Willumsen Haug, João Matos, Luis Nakayama, Sicheng Hao, Alistair Johnson.
-
-\nolinenumbers
 
 % Either type in your references using
 % \begin{thebibliography}{}
@@ -2031,7 +2029,6 @@ particular: Fredrik Willumsen Haug, João Matos, Luis Nakayama, Sicheng Hao, Ali
 % step-by-step instructions.
 % 
 %%% TODO: copy the content of .bst once all manuscript is ok
-\bibliography{references}
 % \begin{thebibliography}{10}
 
 %   \bibitem{bib1}
