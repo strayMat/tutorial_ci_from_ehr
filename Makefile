@@ -55,3 +55,7 @@ zip-sources:
 
 .PHONY: all clean watch count
 
+
+supp-main:
+	pdftk causal_decision_making.pdf cat 1-22 output main.pdf
+	pdftk causal_decision_making.pdf cat 23-50 output supplementary_materials.pdf
