@@ -283,31 +283,38 @@
 % Please keep the abstract below 300 words --> 235
 \section*{Abstract}
 
-Causal inference enables machine learning methods to estimate
-treatment effects of medical interventions from electronic health
-records (EHRs). However, researchers should be wary of many pitfalls.
-Here we explain and study common pitfalls and potential solutions,
-estimating the effect of albumin on mortality in sepsis using an
-Intensive Care database (MIMIC-IV) and comparing to outcome data from randomized
-controlled trials (RCT) as gold-standard. The first step is study design,
-using the target trial concept and the PICOT framework: Population
-(patients with sepsis), Intervention (combination of crystalloids and albumin
-for fluid resuscitation), Control (crystalloids only), Outcome (28-day
-mortality), Time (intervention start within 24h of admission).
-We show that a too large treatment-initiation time induces immortal time bias.
-The second step is
-selection of the confounding variables based on expert knowledge.
-Increasingly adding confounders enables to recover the RCT results from
-observational data (0\%, 95\% CI -1\% to 1\%, and 0\%, 95\% -5\% to 5\%,
-respectively).
-The third step is fitting outcome models, and we assess the influence of
-multiple models with varying assumptions. A doubly
-robust estimator (AIPW) with random forests proved to be the most reliable
-estimator. Results show that these steps are all important for valid
-causal estimates. A valid causal model can then be used to individualize
-decision making:
-subgroup analyses showed that treatment efficacy of albumin was better for
-patients >60 years old, males, and patients with septic shock.
+Causal inference enables machine learning methods to estimate treatment effects
+of medical interventions from electronic health records (EHRs). The prevalence
+of such observational data and the difficulty for randomized trial to cover all
+population/treatment relationships make these methods increasingly attractive
+for the study of causal effects.
+
+Here we explain and study common methodological pitfalls and potential
+solutions. We illustrate our framework for causal inference estimating the
+effect of albumin on mortality in sepsis using an Intensive Care database
+(MIMIC-IV) and comparing credible analyses variations to results from randomized
+controlled trials (RCT) as gold-standard.
+
+The first step is study design, using the target trial concept and the PICOT
+framework: Population (patients with sepsis), Intervention (combination of
+crystalloids and albumin for fluid resuscitation), Control (crystalloids only),
+Outcome (28-day mortality), Time (intervention start within 24h of admission).
+We show that too large treatment-initiation time induces immortal time bias.
+The second step is selection of the confounding variables based on expert
+knowledge. Increasingly adding confounders enables to recover the RCT results
+from observational data (0\%, 95\% CI -1\% to 1\%, and 0\%, 95\% -5\% to 5\%,
+respectively). As the third step, we assess the influence
+of multiple models with varying assumptions, showing that a doubly robust estimator (AIPW)
+with random forests proved to be the most reliable estimator. Results show that
+these steps are all important for valid causal estimates. A valid causal model
+can then be used to individualize decision making: subgroup analyses showed that
+treatment efficacy of albumin was better for patients >60 years old, males, and
+patients with septic shock.
+
+Without causal thinking, machine learning is not enough for optimal clinical
+decision making for each patient. Our step-by-step analytic framework helps the
+analyst avoid the many pitfalls of applying machine learning to EHR data and
+build models that avoid shortcuts and extract the best decision-making evidence.
 
 % Please keep the Author Summary between 150 and 200 words
 % Use first person. PLOS ONE authors please skip this step. 

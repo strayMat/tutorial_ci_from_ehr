@@ -1,17 +1,5 @@
 \begin{thebibliography}{100}
 
-\bibitem{eriksen2021effectiveness}
-Eriksen CU, Rotar O, Toft U, J{\o}rgensen T.
-\newblock What is the effectiveness of systematic population-level screening
-  programmes for reducing the burden of cardiovascular diseases?
-\newblock World Health Organization. Regional Office for Europe; 2021.
-
-\bibitem{krska2016implementation}
-Krska J, du~Plessis R, Chellaswamy H.
-\newblock Implementation of NHS Health Checks in general practice: variation in
-  delivery between practices and practitioners.
-\newblock Primary health care research \& development. 2016;17(4):385--392.
-
 \bibitem{rajkomar2018scalable}
 Rajkomar A, Oren E, Chen K, Dai AM, Hajaj N, Hardt M, et~al.
 \newblock Scalable and accurate deep learning with electronic health records.
@@ -19,9 +7,7 @@ Rajkomar A, Oren E, Chen K, Dai AM, Hajaj N, Hardt M, et~al.
 
 \bibitem{liu2019comparison}
 Liu X, Faes L, Kale AU, Wagner SK, Fu DJ, Bruynseels A, et~al.
-\newblock A comparison of deep learning performance against health-care
-  professionals in detecting diseases from medical imaging: a systematic review
-  and meta-analysis.
+\newblock A comparison of deep learning performance against health-care professionals in detecting diseases from medical imaging: a systematic review and meta-analysis.
 \newblock The lancet digital health. 2019;1(6):e271--e297.
 
 \bibitem{li2020behrt}
@@ -31,15 +17,12 @@ Li Y, Rao S, Solares JRA, Hassaine A, Ramakrishnan R, Canoy D, et~al.
 
 \bibitem{beaulieu2021machine}
 Beaulieu-Jones BK, Yuan W, Brat GA, Beam AL, Weber G, Ruffin M, et~al.
-\newblock Machine learning for patient risk stratification: standing on, or
-  looking over, the shoulders of clinicians?
+\newblock Machine learning for patient risk stratification: standing on, or looking over, the shoulders of clinicians?
 \newblock NPJ digital medicine. 2021;4(1):62.
 
 \bibitem{aggarwal2021diagnostic}
-Aggarwal R, Sounderajah V, Martin G, Ting DS, Karthikesalingam A, King D,
-  et~al.
-\newblock Diagnostic accuracy of deep learning in medical imaging: a systematic
-  review and meta-analysis.
+Aggarwal R, Sounderajah V, Martin G, Ting DS, Karthikesalingam A, King D, et~al.
+\newblock Diagnostic accuracy of deep learning in medical imaging: a systematic review and meta-analysis.
 \newblock NPJ digital medicine. 2021;4(1):65.
 
 \bibitem{rajkomar2018ensuring}
@@ -49,8 +32,7 @@ Rajkomar A, Hardt M, Howell MD, Corrado G, Chin MH.
 
 \bibitem{singh2022generalizability}
 Singh H, Mhasawade V, Chunara R.
-\newblock Generalizability challenges of mortality risk prediction models: A
-  retrospective analysis on a multi-center database.
+\newblock Generalizability challenges of mortality risk prediction models: A retrospective analysis on a multi-center database.
 \newblock PLOS Digital Health. 2022;1(4):e0000023.
 
 \bibitem{gichoya2022ai}
@@ -60,8 +42,7 @@ Gichoya JW, Banerjee I, Bhimireddy AR, Burns JL, Celi LA, Chen LC, et~al.
 
 \bibitem{seyyed2021underdiagnosis}
 Seyyed-Kalantari L, Zhang H, McDermott MB, Chen IY, Ghassemi M.
-\newblock Underdiagnosis bias of artificial intelligence algorithms applied to
-  chest radiographs in under-served patient populations.
+\newblock Underdiagnosis bias of artificial intelligence algorithms applied to chest radiographs in under-served patient populations.
 \newblock Nature medicine. 2021;27(12):2176--2182.
 
 \bibitem{geirhos2020shortcut}
@@ -71,9 +52,7 @@ Geirhos R, Jacobsen JH, Michaelis C, Zemel R, Brendel W, Bethge M, et~al.
 
 \bibitem{winkler2019association}
 Winkler JK, Fink C, Toberer F, Enk A, Deinlein T, Hofmann-Wellenhof R, et~al.
-\newblock Association between surgical skin markings in dermoscopic images and
-  diagnostic performance of a deep learning convolutional neural network for
-  melanoma recognition.
+\newblock Association between surgical skin markings in dermoscopic images and diagnostic performance of a deep learning convolutional neural network for melanoma recognition.
 \newblock JAMA dermatology. 2019;155(10):1135--1141.
 
 \bibitem{degrave2021ai}
@@ -83,32 +62,27 @@ DeGrave AJ, Janizek JD, Lee SI.
 
 \bibitem{badgeley2019deep}
 Badgeley MA, Zech JR, Oakden-Rayner L, Glicksberg BS, Liu M, Gale W, et~al.
-\newblock Deep learning predicts hip fracture using confounding patient and
-  healthcare variables.
+\newblock Deep learning predicts hip fracture using confounding patient and healthcare variables.
 \newblock NPJ digital medicine. 2019;2(1):31.
 
 \bibitem{obermeyer2019dissecting}
 Obermeyer Z, Powers B, Vogeli C, Mullainathan S.
-\newblock Dissecting racial bias in an algorithm used to manage the health of
-  populations.
+\newblock Dissecting racial bias in an algorithm used to manage the health of populations.
 \newblock Science. 2019;366(6464):447--453.
 
 \bibitem{yuan2021temporal}
 Yuan W, Beaulieu-Jones BK, Yu KH, Lipnick SL, Palmer N, Loscalzo J, et~al.
-\newblock Temporal bias in case-control design: preventing reliable predictions
-  of the future.
+\newblock Temporal bias in case-control design: preventing reliable predictions of the future.
 \newblock Nature communications. 2021;12(1):1107.
 
 \bibitem{wong2021external}
 Wong A, Otles E, Donnelly JP, Krumm A, McCullough J, DeTroyer-Cooley O, et~al.
-\newblock External validation of a widely implemented proprietary sepsis
-  prediction model in hospitalized patients.
+\newblock External validation of a widely implemented proprietary sepsis prediction model in hospitalized patients.
 \newblock JAMA Internal Medicine. 2021;181(8):1065--1070.
 
 \bibitem{prosperi2020causal}
 Prosperi M, Guo Y, Sperrin M, Koopman JS, Min JS, He X, et~al.
-\newblock Causal inference and counterfactual prediction in machine learning
-  for actionable healthcare.
+\newblock Causal inference and counterfactual prediction in machine learning for actionable healthcare.
 \newblock Nature Machine Intelligence. 2020;2(7):369--375.
 
 \bibitem{plecko2022causal}
@@ -118,86 +92,67 @@ Plecko D, Bareinboim E.
 
 \bibitem{travers2007external}
 Travers J, Marsh S, Williams M, Weatherall M, Caldwell B, Shirtcliffe P, et~al.
-\newblock External validity of randomised controlled trials in asthma: to whom
-  do the results of the trials apply?
+\newblock External validity of randomised controlled trials in asthma: to whom do the results of the trials apply?
 \newblock Thorax. 2007;62(3):219--223.
 
 \bibitem{averitt2020translating}
 Averitt AJ, Weng C, Ryan P, Perotte A.
-\newblock Translating evidence into practice: eligibility criteria fail to
-  eliminate clinically significant differences between real-world and study
-  populations.
+\newblock Translating evidence into practice: eligibility criteria fail to eliminate clinically significant differences between real-world and study populations.
 \newblock NPJ digital medicine. 2020;3(1):67.
 
 \bibitem{desai2021broadening}
 Desai RJ, Matheny ME, Johnson K, Marsolo K, Curtis LH, Nelson JC, et~al.
-\newblock Broadening the reach of the FDA Sentinel System: a roadmap for
-  integrating electronic health record data in a causal analysis framework.
+\newblock Broadening the reach of the FDA Sentinel System: a roadmap for integrating electronic health record data in a causal analysis framework.
 \newblock NPJ digital medicine. 2021;4(1):170.
 
 \bibitem{rekkas2023standardized}
 Rekkas A, van Klaveren D, Ryan PB, Steyerberg EW, Kent DM, Rijnbeek PR.
-\newblock A standardized framework for risk-based assessment of treatment
-  effect heterogeneity in observational healthcare databases.
+\newblock A standardized framework for risk-based assessment of treatment effect heterogeneity in observational healthcare databases.
 \newblock npj Digital Medicine. 2023;6(1):58.
 
 \bibitem{hernan2016specifying}
 Hernan MA, Sauer BC, Hernandez-Diaz S, Platt R, Shrier I.
-\newblock Specifying a target trial prevents immortal time bias and other
-  self-inflicted injuries in observational analyses.
+\newblock Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses.
 \newblock Journal of clinical epidemiology. 2016;79:70--75.
 
 \bibitem{hippisley2017development}
 Hippisley-Cox J, Coupland C, Brindle P.
-\newblock Development and validation of QRISK3 risk prediction algorithms to
-  estimate future risk of cardiovascular disease: prospective cohort study.
+\newblock Development and validation of QRISK3 risk prediction algorithms to estimate future risk of cardiovascular disease: prospective cohort study.
 \newblock bmj. 2017;357.
 
 \bibitem{guideline2023cardiovascular}
 NICE gC.
-\newblock Cardiovascular disease: risk assessment and reduction, including
-  lipid modification.
+\newblock Cardiovascular disease: risk assessment and reduction, including lipid modification.
 \newblock Methods. 2023;.
 
 \bibitem{rabar2014lipid}
 Rabar S, Harker M, O’Flynn N, Wierzbicki AS.
-\newblock Lipid modification and cardiovascular risk assessment for the primary
-  and secondary prevention of cardiovascular disease: summary of updated NICE
-  guidance.
+\newblock Lipid modification and cardiovascular risk assessment for the primary and secondary prevention of cardiovascular disease: summary of updated NICE guidance.
 \newblock Bmj. 2014;349.
 
 \bibitem{guthrie2023competing}
 Guthrie B.
-\newblock Competing risks and direct treatment disutility: implications for
-  risk prediction and cost-effectiveness analyses in cardiovascular disease and
-  osteoporotic fracture prevention.
+\newblock Competing risks and direct treatment disutility: implications for risk prediction and cost-effectiveness analyses in cardiovascular disease and osteoporotic fracture prevention.
 \newblock Available at SSRN 4319295. 2023;.
 
 \bibitem{long1998prevention}
 with Pravastatin~in Ischaemic Disease (LIPID) Study~Group LTI.
-\newblock Prevention of cardiovascular events and death with pravastatin in
-  patients with coronary heart disease and a broad range of initial cholesterol
-  levels.
+\newblock Prevention of cardiovascular events and death with pravastatin in patients with coronary heart disease and a broad range of initial cholesterol levels.
 \newblock New England Journal of Medicine. 1998;339(19):1349--1357.
 
 \bibitem{shepherd2002pravastatin}
 Shepherd J, Blauw GJ, Murphy MB, Bollen EL, Buckley BM, Cobbe SM, et~al.
-\newblock Pravastatin in elderly individuals at risk of vascular disease
-  (PROSPER): a randomised controlled trial.
+\newblock Pravastatin in elderly individuals at risk of vascular disease (PROSPER): a randomised controlled trial.
 \newblock The Lancet. 2002;360(9346):1623--1630.
 
 \bibitem{antihypertensive2002major}
 Antihypertensive T, for~the ALLHAT Collaborative Research~Group C, et~al.
-\newblock Major outcomes in moderately hypercholesterolemic, hypertensive
-  patients randomized to pravastatin vs usual care: the Antihypertensive and
-  Lipid-Lowering Treatment to Prevent Heart Attack Trial (ALLHAT-LLT).
+\newblock Major outcomes in moderately hypercholesterolemic, hypertensive patients randomized to pravastatin vs usual care: the Antihypertensive and Lipid-Lowering Treatment to Prevent Heart Attack Trial (ALLHAT-LLT).
 \newblock Jama. 2002;288(23):2998--3007.
 
 \bibitem{brugts2009benefits}
 Brugts J, Yetgin T, Hoeks S, Gotto A, Shepherd J, Westendorp R, et~al.
-\newblock The benefits of statins in people without established cardiovascular
-  disease but with cardiovascular risk factors: meta-analysis of randomised
-  controlled trials.
+\newblock The benefits of statins in people without established cardiovascular disease but with cardiovascular risk factors: meta-analysis of randomised controlled trials.
 \newblock Bmj. 2009;338.
 
 \bibitem{byrne2019statins}
@@ -207,34 +162,37 @@ Byrne P, Cullinan J, Smith SM.
 
 \bibitem{chou2022statin}
 Chou R, Cantor A, Dana T, Wagner J, Ahmed AY, Fu R, et~al.
-\newblock Statin use for the primary prevention of cardiovascular disease in
-  adults: updated evidence report and systematic review for the US Preventive
-  Services Task Force.
+\newblock Statin use for the primary prevention of cardiovascular disease in adults: updated evidence report and systematic review for the US Preventive Services Task Force.
 \newblock Jama. 2022;328(8):754--771.
+
+\bibitem{eriksen2021effectiveness}
+Eriksen CU, Rotar O, Toft U, J{\o}rgensen T.
+\newblock What is the effectiveness of systematic population-level screening programmes for reducing the burden of cardiovascular diseases?
+\newblock World Health Organization. Regional Office for Europe; 2021.
 
 \bibitem{krogsboll2012general}
 Krogsb{\o}ll LT, J{\o}rgensen KJ, Larsen CG, G{\o}tzsche PC.
-\newblock General health checks in adults for reducing morbidity and mortality
-  from disease: Cochrane systematic review and meta-analysis.
+\newblock General health checks in adults for reducing morbidity and mortality from disease: Cochrane systematic review and meta-analysis.
 \newblock Bmj. 2012;345.
 
 \bibitem{van2013efficiency}
 van Staa TP, Smeeth L, Ng ES, Goldacre B, Gulliford M.
-\newblock The efficiency of cardiovascular risk assessment: do the right
-  patients get statin treatment?
+\newblock The efficiency of cardiovascular risk assessment: do the right patients get statin treatment?
 \newblock Heart. 2013;99(21):1597--1602.
+
+\bibitem{krska2016implementation}
+Krska J, du~Plessis R, Chellaswamy H.
+\newblock Implementation of NHS Health Checks in general practice: variation in delivery between practices and practitioners.
+\newblock Primary health care research \& development. 2016;17(4):385--392.
 
 \bibitem{von2007strengthening}
 Von~Elm E, Altman DG, Egger M, Pocock SJ, G{\o}tzsche PC, Vandenbroucke JP.
-\newblock The Strengthening the Reporting of Observational Studies in
-  Epidemiology (STROBE) statement: guidelines for reporting observational
-  studies.
+\newblock The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) statement: guidelines for reporting observational studies.
 \newblock The Lancet. 2007;370(9596):1453--1457.
 
 \bibitem{benchimol2015reporting}
 Benchimol EI, Smeeth L, Guttmann A, Harron K, Moher D, Petersen I, et~al.
-\newblock The REporting of studies Conducted using Observational
-  Routinely-collected health Data (RECORD) statement.
+\newblock The REporting of studies Conducted using Observational Routinely-collected health Data (RECORD) statement.
 \newblock PLoS medicine. 2015;12(10):e1001885.
 
 \bibitem{hernan2020causal}
@@ -243,14 +201,12 @@ Hernàn MA, Robins JM.
 
 \bibitem{schneeweiss2021conducting}
 Schneeweiss S, Patorno E.
-\newblock Conducting real-world evidence studies on the clinical outcomes of
-  diabetes treatments.
+\newblock Conducting real-world evidence studies on the clinical outcomes of diabetes treatments.
 \newblock Endocrine Reviews. 2021;42(5):658--690.
 
 \bibitem{zeng2022uncovering}
 Zeng J, Gensheimer MF, Rubin DL, Athey S, Shachter RD.
-\newblock Uncovering interpretable potential confounders in electronic medical
-  records.
+\newblock Uncovering interpretable potential confounders in electronic medical records.
 \newblock Nature Communications. 2022;13(1):1014.
 
 \bibitem{suissa2008immortal}
@@ -259,28 +215,22 @@ Suissa S.
 \newblock American journal of epidemiology. 2008;167(4):492--499.
 
 \bibitem{Oke2021leadtimebias}
-Oke J, Fanshawe T, Nunan D. Lead time bias, Catalogue of Bias Collaboration.;
-  2021.
-\newblock Available from:
-  \url{https://catalogofbias.org/biases/lead-time-bias/}.
+Oke J, Fanshawe T, Nunan D. Lead time bias, Catalogue of Bias Collaboration.; 2021.
+\newblock Available from: \url{https://catalogofbias.org/biases/lead-time-bias/}.
 
 \bibitem{fu2021timing}
 Fu EL, Evans M, Carrero JJ, Putter H, Clase CM, Caskey FJ, et~al.
-\newblock Timing of dialysis initiation to reduce mortality and cardiovascular
-  events in advanced chronic kidney disease: nationwide cohort study.
+\newblock Timing of dialysis initiation to reduce mortality and cardiovascular events in advanced chronic kidney disease: nationwide cohort study.
 \newblock bmj. 2021;375.
 
 \bibitem{wang2022understanding}
 Wang SV, Sreedhara SK, Bessette LG, Schneeweiss S.
-\newblock Understanding variation in the results of real-world evidence studies
-  that seem to address the same question.
+\newblock Understanding variation in the results of real-world evidence studies that seem to address the same question.
 \newblock Journal of Clinical Epidemiology. 2022;151:161--170.
 
 \bibitem{Bankhead2017attritionbias}
-Bankhead~C ND Aronson~JK. Attrition bias, Catalogue of Bias Collaboration.;
-  2017.
-\newblock Available from:
-  \url{https://catalogofbias.org/biases/attrition-bias/}.
+Bankhead~C ND Aronson~JK. Attrition bias, Catalogue of Bias Collaboration.; 2017.
+\newblock Available from: \url{https://catalogofbias.org/biases/attrition-bias/}.
 
 \bibitem{greenland1999causal}
 Greenland S, Pearl J, Robins JM.
@@ -294,72 +244,58 @@ VanderWeele TJ.
 
 \bibitem{loh2021confounder}
 Loh WW, Vansteelandt S.
-\newblock Confounder selection strategies targeting stable treatment effect
-  estimators.
+\newblock Confounder selection strategies targeting stable treatment effect estimators.
 \newblock Statistics in Medicine. 2021;40(3):607--630.
 
 \bibitem{wang2023emulation}
 Wang SV, Schneeweiss S, Franklin JM, Desai RJ, Feldman W, Garry EM, et~al.
-\newblock Emulation of randomized clinical trials with nonrandomized database
-  analyses: results of 32 clinical trials.
+\newblock Emulation of randomized clinical trials with nonrandomized database analyses: results of 32 clinical trials.
 \newblock JAMA. 2023;329(16):1376--1385.
 
 \bibitem{belloni2014high}
 Belloni A, Chernozhukov V, Hansen C.
-\newblock High-dimensional methods and inference on structural and treatment
-  effects.
+\newblock High-dimensional methods and inference on structural and treatment effects.
 \newblock Journal of Economic Perspectives. 2014;28(2):29--50.
 
 \bibitem{chernozhukov2018double}
-Chernozhukov V, Chetverikov D, Demirer M, Duflo E, Hansen C, Newey W, et~al..
-  Double/debiased machine learning for treatment and structural parameters;
-  2018.
+Chernozhukov V, Chetverikov D, Demirer M, Duflo E, Hansen C, Newey W, et~al.. Double/debiased machine learning for treatment and structural parameters; 2018.
 
 \bibitem{shalit2016tutorial}
 Shalit U, Sontag D. Causal Inference for Observational studies: Tutorial; 2016.
-\newblock Available from:
-  \url{https://docplayer.net/64797211-Causal-inference-for-observational-studies.html}.
+\newblock Available from: \url{https://docplayer.net/64797211-Causal-inference-for-observational-studies.html}.
 
 \bibitem{sharma2018tutorial}
 Sharma A. Tutorial on causal inference and counterfactual reasoning; 2018.
-\newblock Available from:
-  \url{https://causalinference.gitlab.io/kdd-tutorial/}.
+\newblock Available from: \url{https://causalinference.gitlab.io/kdd-tutorial/}.
 
 \bibitem{moraffah2021causal}
 Moraffah R, Sheth P, Karami M, Bhattacharya A, Wang Q, Tahir A, et~al.
-\newblock Causal inference for time series analysis: Problems, methods and
-  evaluation.
+\newblock Causal inference for time series analysis: Problems, methods and evaluation.
 \newblock Knowledge and Information Systems. 2021;63:3041--3085.
 
 \bibitem{stuart2010matching}
 Stuart EA.
 \newblock Matching methods for causal inference: A review and a look forward.
-\newblock Statistical science: a review journal of the Institute of
-  Mathematical Statistics. 2010;25(1):1.
+\newblock Statistical science: a review journal of the Institute of Mathematical Statistics. 2010;25(1):1.
 
 \bibitem{austin2015moving}
 Austin PC, Stuart EA.
-\newblock Moving towards best practice when using inverse probability of
-  treatment weighting (IPTW) using the propensity score to estimate causal
-  treatment effects in observational studies.
+\newblock Moving towards best practice when using inverse probability of treatment weighting (IPTW) using the propensity score to estimate causal treatment effects in observational studies.
 \newblock Statistics in medicine. 2015;34(28):3661--3679.
 
 \bibitem{robins1986role}
 Robins JM, Greenland S.
-\newblock The role of model selection in causal inference from nonexperimental
-  data.
+\newblock The role of model selection in causal inference from nonexperimental data.
 \newblock American Journal of Epidemiology. 1986;123(3):392--402.
 
 \bibitem{johansson2022generalization}
 Johansson FD, Shalit U, Kallus N, Sontag D.
-\newblock Generalization bounds and representation learning for estimation of
-  potential outcomes and causal effects.
+\newblock Generalization bounds and representation learning for estimation of potential outcomes and causal effects.
 \newblock The Journal of Machine Learning Research. 2022;23(1):7489--7538.
 
 \bibitem{schuler2017targeted}
 Schuler MS, Rose S.
-\newblock Targeted maximum likelihood estimation for causal inference in
-  observational studies.
+\newblock Targeted maximum likelihood estimation for causal inference in observational studies.
 \newblock American journal of epidemiology. 2017;185(1):65--73.
 
 \bibitem{dorie2019automated}
@@ -370,26 +306,21 @@ Dorie V, Hill J, Shalit U, Scott M, Cervone D.
 \bibitem{alaa2019validating}
 Alaa A, Van Der~Schaar M.
 \newblock Validating causal inference models via influence functions.
-\newblock In: International Conference on Machine Learning. PMLR; 2019. p.
-  191--201.
+\newblock In: International Conference on Machine Learning. PMLR; 2019. p. 191--201.
 
 \bibitem{curth2021really}
 Curth A, Svensson D, Weatherall J, van~der Schaar M.
-\newblock Really doing great at estimating CATE? a critical look at ML
-  benchmarking practices in treatment effect estimation.
-\newblock In: Thirty-fifth conference on neural information processing systems
-  datasets and benchmarks track (round 2); 2021.
+\newblock Really doing great at estimating CATE? a critical look at ML benchmarking practices in treatment effect estimation.
+\newblock In: Thirty-fifth conference on neural information processing systems datasets and benchmarks track (round 2); 2021.
 
 \bibitem{johnson2020mimic}
 Johnson A, Bulgarelli L, Pollard T, Horng S, Celi LA, Mark R.
 \newblock Mimic-iv.
-\newblock PhysioNet Available online at: https://physionet
-  org/content/mimiciv/10/(accessed August 23, 2021). 2020;.
+\newblock PhysioNet Available online at: https://physionet org/content/mimiciv/10/(accessed August 23, 2021). 2020;.
 
 \bibitem{hernan2021methods}
 Hernan MA.
-\newblock Methods of public health research--strengthening causal inference
-  from observational data.
+\newblock Methods of public health research--strengthening causal inference from observational data.
 \newblock New England Journal of Medicine. 2021;385(15):1345--1348.
 
 \bibitem{richardson1995well}
@@ -399,14 +330,12 @@ Richardson WS, Wilson MC, Nishikawa J, Hayward RS, et~al.
 
 \bibitem{riva2012your}
 Riva JJ, Malik KM, Burnie SJ, Endicott AR, Busse JW.
-\newblock What is your research question? An introduction to the PICOT format
-  for clinicians.
+\newblock What is your research question? An introduction to the PICOT format for clinicians.
 \newblock The Journal of the Canadian Chiropractic Association. 2012;56(3):167.
 
 \bibitem{hernan_using_2016}
 Hernán MA, Robins JM.
-\newblock Using {Big} {Data} to {Emulate} a {Target} {Trial} {When} a
-  {Randomized} {Trial} {Is} {Not} {Available}.
+\newblock Using {Big} {Data} to {Emulate} a {Target} {Trial} {When} a {Randomized} {Trial} {Is} {Not} {Available}.
 \newblock American Journal of Epidemiology. 2016;183(8).
 
 \bibitem{catalogofbias}
@@ -415,15 +344,12 @@ Catalogue of Bias Collaboration; 2023.
 
 \bibitem{weiskopf2023healthcare}
 Weiskopf NG, Dorr DA, Jackson C, Lehmann HP, Thompson CA.
-\newblock Healthcare utilization is a collider: an introduction to collider
-  bias in EHR data reuse.
-\newblock Journal of the American Medical Informatics Association. 2023; p.
-  ocad013.
+\newblock Healthcare utilization is a collider: an introduction to collider bias in EHR data reuse.
+\newblock Journal of the American Medical Informatics Association. 2023; p. ocad013.
 
 \bibitem{ohdsi2019book}
 OHDSI.
-\newblock The Book of OHDSI: Observational Health Data Sciences and
-  Informatics.
+\newblock The Book of OHDSI: Observational Health Data Sciences and Informatics.
 \newblock OHDSI; 2021.
 \newblock Available from: \url{https://ohdsi.github.io/TheBookOfOhdsi/}.
 
@@ -434,30 +360,38 @@ Pearl J, Mackenzie D.
 
 \bibitem{rubin2005causal}
 Rubin DB.
-\newblock Causal inference using potential outcomes: Design, modeling,
-  decisions.
-\newblock Journal of the American Statistical Association.
-  2005;100(469):322--331.
+\newblock Causal inference using potential outcomes: Design, modeling, decisions.
+\newblock Journal of the American Statistical Association. 2005;100(469):322--331.
 
 \bibitem{attia2022proposal}
-Attia J, Holliday E, Oldmeadow C. A proposal for capturing interaction and
-  effect modification using DAGs; 2022.
+Attia J, Holliday E, Oldmeadow C. A proposal for capturing interaction and effect modification using DAGs; 2022.
 
 \bibitem{textor2011dagitty}
 Textor J, Hardt J, Kn{\"u}ppel S.
 \newblock DAGitty: a graphical tool for analyzing causal diagrams.
 \newblock Epidemiology. 2011;22(5):745.
 
+\bibitem{cinelli2020making}
+Cinelli C, Hazlett C.
+\newblock Making sense of sensitivity: Extending omitted variable bias.
+\newblock Journal of the Royal Statistical Society Series B: Statistical Methodology. 2020;82(1):39--67.
+
+\bibitem{tchetgen2024introduction}
+Tchetgen~Tchetgen EJ, Ying A, Cui Y, Shi X, Miao W.
+\newblock An introduction to proximal causal inference.
+\newblock Statistical Science. 2024;39(3):375--390.
+
+\bibitem{wager2020stats}
+Wager S. Stats 361: Causal inference; 2020.
+
 \bibitem{imbens_nonparametric_2004}
 Imbens GW.
-\newblock Nonparametric {Estimation} of {Average} {Treatment} {Effects} {Under}
-  {Exogeneity}: {A} {Review}.
+\newblock Nonparametric {Estimation} of {Average} {Treatment} {Effects} {Under} {Exogeneity}: {A} {Review}.
 \newblock The Review of Economics and Statistics. 2004;86(1):4--29.
 
 \bibitem{colnet2023risk}
 Colnet B, Josse J, Varoquaux G, Scornet E.
-\newblock Risk ratio, odds ratio, risk difference... Which causal measure is
-  easier to generalize?
+\newblock Risk ratio, odds ratio, risk difference... Which causal measure is easier to generalize?
 \newblock arXiv preprint arXiv:230316008. 2023;.
 
 \bibitem{damour2020overlap}
@@ -467,30 +401,23 @@ D'Amour A, Ding P, Feller A, Lei L, Sekhon J.
 
 \bibitem{horng2017creating}
 Horng S, Sontag DA, Halpern Y, Jernite Y, Shapiro NI, Nathanson LA.
-\newblock Creating an automated trigger for sepsis clinical decision support at
-  emergency department triage using machine learning.
+\newblock Creating an automated trigger for sepsis clinical decision support at emergency department triage using machine learning.
 \newblock PloS one. 2017;12(4):e0174708.
 
 \bibitem{jiang2023health}
 Jiang LY, Liu XC, Nejatian NP, Nasir-Moin M, Wang D, Abidin A, et~al.
-\newblock Health system-scale language models are all-purpose prediction
-  engines.
+\newblock Health system-scale language models are all-purpose prediction engines.
 \newblock Nature. 2023; p. 1--6.
-
-\bibitem{wager2020stats}
-Wager S. Stats 361: Causal inference; 2020.
 
 \bibitem{wendling2018comparing}
 Wendling T, Jung K, Callahan A, Schuler A, Shah NH, Gallego B.
-\newblock Comparing methods for estimation of heterogeneous treatment effects
-  using observational data from health care databases.
+\newblock Comparing methods for estimation of heterogeneous treatment effects using observational data from health care databases.
 \newblock Statistics in medicine. 2018;37(23):3309--3324.
 
 \bibitem{van2007super}
 Van~der Laan MJ, Polley EC, Hubbard AE.
 \newblock Super learner.
-\newblock Statistical applications in genetics and molecular biology.
-  2007;6(1).
+\newblock Statistical applications in genetics and molecular biology. 2007;6(1).
 
 \bibitem{doutreligne2023select}
 Doutreligne M, Varoquaux G.
@@ -499,52 +426,42 @@ Doutreligne M, Varoquaux G.
 
 \bibitem{schneeweiss2006sensitivity}
 Schneeweiss S.
-\newblock Sensitivity analysis and external adjustment for unmeasured
-  confounders in epidemiologic database studies of therapeutics.
+\newblock Sensitivity analysis and external adjustment for unmeasured confounders in epidemiologic database studies of therapeutics.
 \newblock Pharmacoepidemiology and drug safety. 2006;15(5):291--303.
 
 \bibitem{thabane2013tutorial}
 Thabane L, Mbuagbaw L, Zhang S, Samaan Z, Marcucci M, Ye C, et~al.
-\newblock A tutorial on sensitivity analyses in clinical trials: the what, why,
-  when and how.
+\newblock A tutorial on sensitivity analyses in clinical trials: the what, why, when and how.
 \newblock BMC medical research methodology. 2013;13(1):1--12.
 
 \bibitem{fda_statistical_2021}
 FDA.
-\newblock Statistical Principles for Clinical Trials: Addendum: Estimands and
-  Sensitivity Analysis in Clinical Trials.
+\newblock Statistical Principles for Clinical Trials: Addendum: Estimands and Sensitivity Analysis in Clinical Trials.
 \newblock FDA; 2021.
 
 \bibitem{patel2015assessment}
 Patel CJ, Burford B, Ioannidis JP.
-\newblock Assessment of vibration of effects due to model specification can
-  demonstrate the instability of observational associations.
+\newblock Assessment of vibration of effects due to model specification can demonstrate the instability of observational associations.
 \newblock Journal of clinical epidemiology. 2015;68(9):1046--1058.
 
 \bibitem{robertson2021assessing}
 Robertson SE, Leith A, Schmid CH, Dahabreh IJ.
-\newblock Assessing heterogeneity of treatment effects in observational
-  studies.
+\newblock Assessing heterogeneity of treatment effects in observational studies.
 \newblock American Journal of Epidemiology. 2021;190(6):1088--1100.
 
 \bibitem{annane2013effects}
 Annane D, Siami S, Jaber S, Martin C, Elatrous S, Declere AD, et~al.
-\newblock Effects of fluid resuscitation with colloids vs crystalloids on
-  mortality in critically ill patients presenting with hypovolemic shock: the
-  CRISTAL randomized trial.
+\newblock Effects of fluid resuscitation with colloids vs crystalloids on mortality in critically ill patients presenting with hypovolemic shock: the CRISTAL randomized trial.
 \newblock Jama. 2013;310(17):1809--1817.
 
 \bibitem{xu2014comparison}
 Xu JY, Chen QH, Xie JF, Pan C, Liu SQ, Huang LW, et~al.
-\newblock Comparison of the effects of albumin and crystalloid on mortality in
-  adult patients with severe sepsis and septic shock: a meta-analysis of
-  randomized clinical trials.
+\newblock Comparison of the effects of albumin and crystalloid on mortality in adult patients with severe sepsis and septic shock: a meta-analysis of randomized clinical trials.
 \newblock Critical Care. 2014;18(6):1--8.
 
 \bibitem{li2020resuscitation}
 Li B, Zhao H, Zhang J, Yan Q, Li T, Liu L.
-\newblock Resuscitation fluids in septic shock: a network meta-analysis of
-  randomized controlled trials.
+\newblock Resuscitation fluids in septic shock: a network meta-analysis of randomized controlled trials.
 \newblock Shock. 2020;53(6):679--685.
 
 \bibitem{caironi2014albumin}
@@ -554,15 +471,11 @@ Caironi P, Tognoni G, Masson S, Fumagalli R, Pesenti A, Romero M, et~al.
 
 \bibitem{zhou2021early}
 Zhou S, Zeng Z, Wei H, Sha T, An S.
-\newblock Early combination of albumin with crystalloids administration might
-  be beneficial for the survival of septic patients: a retrospective analysis
-  from MIMIC-IV database.
+\newblock Early combination of albumin with crystalloids administration might be beneficial for the survival of septic patients: a retrospective analysis from MIMIC-IV database.
 \newblock Annals of intensive care. 2021;11:1--10.
 
 \bibitem{battocchi2019econml}
-Battocchi K, Dillon E, Hei M, Lewis G, Oka P, Oprescu M, et~al.. {EconML}: {A
-  Python Package for ML-Based Heterogeneous Treatment Effects Estimation};
-  2019.
+Battocchi K, Dillon E, Hei M, Lewis G, Oka P, Oprescu M, et~al.. {EconML}: {A Python Package for ML-Based Heterogeneous Treatment Effects Estimation}; 2019.
 \newblock Available from: \url{https://github.com/py-why/EconML}.
 
 \bibitem{pedregosa2011scikit}
@@ -572,21 +485,17 @@ Pedregosa F, Varoquaux G, Gramfort A, Michel V, Thirion B, Grisel O, et~al.
 
 \bibitem{naimi2023challenges}
 Naimi AI, Mishler AE, Kennedy EH.
-\newblock Challenges in obtaining valid causal effect estimates with machine
-  learning algorithms.
+\newblock Challenges in obtaining valid causal effect estimates with machine learning algorithms.
 \newblock American Journal of Epidemiology. 2023;192(9):1536--1544.
 
 \bibitem{kennedy2015literature}
 Kennedy-Martin T, Curtis S, Faries D, Robinson S, Johnston J.
-\newblock A literature review on the representativeness of randomized
-  controlled trial samples and implications for the external validity of trial
-  results.
+\newblock A literature review on the representativeness of randomized controlled trial samples and implications for the external validity of trial results.
 \newblock Trials. 2015;16:1--14.
 
 \bibitem{kent2018personalized}
 Kent DM, Steyerberg E, van Klaveren D.
-\newblock Personalized evidence based medicine: predictive approaches to
-  heterogeneous treatment effects.
+\newblock Personalized evidence based medicine: predictive approaches to heterogeneous treatment effects.
 \newblock Bmj. 2018;363.
 
 \bibitem{scholkopf2021toward}
@@ -596,14 +505,12 @@ Schölkopf B, Locatello F, Bauer S, Ke NR, Kalchbrenner N, Goyal A, et~al.
 
 \bibitem{richens2020improving}
 Richens JG, Lee CM, Johri S.
-\newblock Improving the accuracy of medical diagnosis with causal machine
-  learning.
+\newblock Improving the accuracy of medical diagnosis with causal machine learning.
 \newblock Nature communications. 2020;11(1):3923.
 
 \bibitem{brand1976multivariate}
 Brand RJ, Rosenman RH, Sholtz RI, Friedman M.
-\newblock Multivariate prediction of coronary heart disease in the Western
-  Collaborative Group Study compared to the findings of the Framingham study.
+\newblock Multivariate prediction of coronary heart disease in the Western Collaborative Group Study compared to the findings of the Framingham study.
 \newblock Circulation. 1976;53(2):348--355.
 
 \bibitem{mitra2022future}
@@ -613,14 +520,12 @@ Mitra N, Roy J, Small D.
 
 \bibitem{ehrmann2023making}
 Ehrmann DE, Joshi S, Goodfellow SD, Mazwi ML, Eytan D.
-\newblock Making machine learning matter to clinicians: model actionability in
-  medical decision-making.
+\newblock Making machine learning matter to clinicians: model actionability in medical decision-making.
 \newblock NPJ Digital Medicine. 2023;6(1):7.
 
 \bibitem{score22021score2}
 working group S.
-\newblock SCORE2 risk prediction algorithms: new models to estimate 10-year
-  risk of cardiovascular disease in Europe.
+\newblock SCORE2 risk prediction algorithms: new models to estimate 10-year risk of cardiovascular disease in Europe.
 \newblock European heart journal. 2021;42(25):2439--2454.
 
 \bibitem{bretthauer2013principles}
@@ -630,61 +535,47 @@ Bretthauer M, Kalager M.
 
 \bibitem{lee2020immortaltimebias}
 Lee H, Nunan D. Immortal time bias, Catalogue of Bias Collaboration.; 2020.
-\newblock Available from:
-  \url{https://catalogofbias.org/biases/immortaltimebias/}.
+\newblock Available from: \url{https://catalogofbias.org/biases/immortaltimebias/}.
 
 \bibitem{liu2021effects}
 Liu T, Zhao Q, Du B.
-\newblock Effects of high-flow oxygen therapy on patients with hypoxemia after
-  extubation and predictors of reintubation: a retrospective study based on the
-  MIMIC-IV database.
+\newblock Effects of high-flow oxygen therapy on patients with hypoxemia after extubation and predictors of reintubation: a retrospective study based on the MIMIC-IV database.
 \newblock BMC Pulmonary Medicine. 2021;21(1):1--15.
 
 \bibitem{stephan2015high}
-Stéphan F, Barrucand B, Petit P, Rézaiguia-Delclaux S, Médard A, Delannoy B,
-  et~al.
-\newblock High-flow nasal oxygen vs noninvasive positive airway pressure in
-  hypoxemic patients after cardiothoracic surgery: a randomized clinical trial.
+Stéphan F, Barrucand B, Petit P, Rézaiguia-Delclaux S, Médard A, Delannoy B, et~al.
+\newblock High-flow nasal oxygen vs noninvasive positive airway pressure in hypoxemic patients after cardiothoracic surgery: a randomized clinical trial.
 \newblock Jama. 2015;313(23):2331--2339.
 
 \bibitem{hernandez2016effect}
 Hernandez G, Vaquero C, Colinas L, Cuena R, Gonzalez P, Canabal A, et~al.
-\newblock Effect of postextubation high-flow nasal cannula vs noninvasive
-  ventilation on reintubation and postextubation respiratory failure in
-  high-risk patients: a randomized clinical trial.
+\newblock Effect of postextubation high-flow nasal cannula vs noninvasive ventilation on reintubation and postextubation respiratory failure in high-risk patients: a randomized clinical trial.
 \newblock Jama. 2016;316(15):1565--1574.
 
 \bibitem{yarnell2023oxygenation}
 Yarnell CJ, Angriman F, Ferreyro BL, Liu K, De~Grooth HJ, Burry L, et~al.
-\newblock Oxygenation thresholds for invasive ventilation in hypoxemic
-  respiratory failure: a target trial emulation in two cohorts.
+\newblock Oxygenation thresholds for invasive ventilation in hypoxemic respiratory failure: a target trial emulation in two cohorts.
 \newblock Critical Care. 2023;27(1):1--13.
 
 \bibitem{hsu2015association}
 Hsu DJ, Feng M, Kothari R, Zhou H, Chen KP, Celi LA.
-\newblock The association between indwelling arterial catheters and mortality
-  in hemodynamically stable patients with respiratory failure: a propensity
-  score analysis.
+\newblock The association between indwelling arterial catheters and mortality in hemodynamically stable patients with respiratory failure: a propensity score analysis.
 \newblock Chest. 2015;148(6):1470--1476.
 
 \bibitem{feng2018transthoracic}
 Feng M, McSparron JI, Kien DT, Stone DJ, Roberts DH, Schwartzstein RM, et~al.
-\newblock Transthoracic echocardiography and mortality in sepsis: analysis of
-  the MIMIC-III database.
+\newblock Transthoracic echocardiography and mortality in sepsis: analysis of the MIMIC-III database.
 \newblock Intensive care medicine. 2018;44:884--892.
 
 \bibitem{gani2023structural}
 Gani MO, Kethireddy S, Adib R, Hasan U, Griffin P, Adibuzzaman M.
-\newblock Structural causal model with expert augmented knowledge to estimate
-  the effect of oxygen therapy on mortality in the icu.
+\newblock Structural causal model with expert augmented knowledge to estimate the effect of oxygen therapy on mortality in the icu.
 \newblock Artificial Intelligence in Medicine. 2023;137:102493.
 
 \bibitem{panwar2016conservative}
 Panwar R, Hardie M, Bellomo R, Barrot L, Eastwood GM, Young PJ, et~al.
-\newblock Conservative versus liberal oxygenation targets for mechanically
-  ventilated patients. A pilot multicenter randomized controlled trial.
-\newblock American journal of respiratory and critical care medicine.
-  2016;193(1):43--51.
+\newblock Conservative versus liberal oxygenation targets for mechanically ventilated patients. A pilot multicenter randomized controlled trial.
+\newblock American journal of respiratory and critical care medicine. 2016;193(1):43--51.
 
 \bibitem{mackle2019conservative}
 Mackle D, Bellomo R, Bailey M, Beasley R, Deane A, Eastwood G, et~al.
@@ -693,77 +584,62 @@ Mackle D, Bellomo R, Bailey M, Beasley R, Deane A, Eastwood G, et~al.
 
 \bibitem{shahn2020fluid}
 Shahn Z, Shapiro NI, Tyler PD, Talmor D, Lehman LwH.
-\newblock Fluid-limiting treatment strategies among sepsis patients in the ICU:
-  a retrospective causal analysis.
+\newblock Fluid-limiting treatment strategies among sepsis patients in the ICU: a retrospective causal analysis.
 \newblock Critical Care. 2020;24(1):1--9.
 
 \bibitem{corl2019restrictive}
 Corl KA, Prodromou M, Merchant RC, Gareen I, Marks S, Banerjee D, et~al.
-\newblock The Restrictive Intravenous Fluid Trial in Severe Sepsis and Septic
-  Shock (RIFTS): a Randomized Pilot Study.
+\newblock The Restrictive Intravenous Fluid Trial in Severe Sepsis and Septic Shock (RIFTS): a Randomized Pilot Study.
 \newblock Critical care medicine. 2019;47(7):951.
 
 \bibitem{malbrain2014fluid}
-Malbrain ML, Marik PE, Witters I, Cordemans C, Kirkpatrick AW, Roberts DJ,
-  et~al.
-\newblock Fluid overload, de-resuscitation, and outcomes in critically ill or
-  injured patients: a systematic review with suggestions for clinical practice.
+Malbrain ML, Marik PE, Witters I, Cordemans C, Kirkpatrick AW, Roberts DJ, et~al.
+\newblock Fluid overload, de-resuscitation, and outcomes in critically ill or injured patients: a systematic review with suggestions for clinical practice.
 \newblock Anaesthesiology intensive therapy. 2014;46(5):361--380.
 
 \bibitem{meyhoff2020lower}
 Meyhoff TS, Moller MH, Hjortrup PB, Cronhjort M, Perner A, Wetterslev J.
-\newblock Lower vs higher fluid volumes during initial management of sepsis: a
-  systematic review with meta-analysis and trial sequential analysis.
+\newblock Lower vs higher fluid volumes during initial management of sepsis: a systematic review with meta-analysis and trial sequential analysis.
 \newblock Chest. 2020;157(6):1478--1496.
 
 \bibitem{chinaeke2021impact}
 Chinaeke EE, Love BL, Magagnoli J, Yunusa I, Reeder G.
-\newblock The impact of statin use prior to intensive care unit admission on
-  critically ill patients with sepsis.
-\newblock Pharmacotherapy: The Journal of Human Pharmacology and Drug Therapy.
-  2021;41(2):162--171.
+\newblock The impact of statin use prior to intensive care unit admission on critically ill patients with sepsis.
+\newblock Pharmacotherapy: The Journal of Human Pharmacology and Drug Therapy. 2021;41(2):162--171.
 
 \bibitem{lee2017preadmission}
 Lee M, Lee C, Lai C, Hsu T, Porta L, Lee M, et~al.
-\newblock Preadmission statin use improves the outcome of less severe sepsis
-  patients-a population-based propensity score matched cohort study.
+\newblock Preadmission statin use improves the outcome of less severe sepsis patients-a population-based propensity score matched cohort study.
 \newblock BJA: British Journal of Anaesthesia. 2017;119(4):645--654.
 
 \bibitem{kyu2019preadmission}
 Kyu~Oh T, Song IA, Lee JH, Lim C, Jeon YT, Bae HJ, et~al.
-\newblock Preadmission statin use and 90-day mortality in the critically ill: a
-  retrospective association study.
+\newblock Preadmission statin use and 90-day mortality in the critically ill: a retrospective association study.
 \newblock Anesthesiology. 2019;131(2):315--327.
 
 \bibitem{national2014rosuvastatin}
 {National Heart, Lung, and Blood Institute ARDS Clinical Trials Network}.
-\newblock Rosuvastatin for sepsis-associated acute respiratory distress
-  syndrome.
+\newblock Rosuvastatin for sepsis-associated acute respiratory distress syndrome.
 \newblock New England Journal of Medicine. 2014;370(23):2191--2200.
 
 \bibitem{singh2017effects}
 Singh RK, Agarwal V, Baronia AK, Kumar S, Poddar B, Azim A.
-\newblock The effects of atorvastatin on inflammatory responses and mortality
-  in septic shock: a single-center, randomized controlled trial.
-\newblock Indian Journal of Critical Care Medicine: Peer-reviewed, Official
-  Publication of Indian Society of Critical Care Medicine. 2017;21(10):646.
+\newblock The effects of atorvastatin on inflammatory responses and mortality in septic shock: a single-center, randomized controlled trial.
+\newblock Indian Journal of Critical Care Medicine: Peer-reviewed, Official Publication of Indian Society of Critical Care Medicine. 2017;21(10):646.
 
 \bibitem{wan2014effect}
 Wan YD, Sun TW, Kan QC, Guan FX, Zhang SG.
-\newblock Effect of statin therapy on mortality from infection and sepsis: a
-  meta-analysis of randomized and observational studies.
+\newblock Effect of statin therapy on mortality from infection and sepsis: a meta-analysis of randomized and observational studies.
 \newblock Critical care. 2014;18:1--13.
 
 \bibitem{adibuzzaman2019323}
 Adibuzzaman M, Jung Y, Bareinboim E, Griffin P, Kethireddy S, Bikak M, et~al.
-\newblock Methods for quantifying efficacy-effectiveness gap of randomized
-  controlled trials: examples in ards.
+\newblock Methods for quantifying efficacy-effectiveness gap of randomized controlled trials: examples in ards.
 \newblock Critical Care Medicine. 2019;47(1):143.
 
 \bibitem{national2004higher}
 {National Heart, Lung, and Blood Institute ARDS Clinical Trials Network}.
-\newblock Higher versus lower positive end-expiratory pressures in patients
-  with the acute respiratory distress syndrome.
+\newblock Higher versus lower positive end-expiratory pressures in patients with the acute respiratory distress syndrome.
 \newblock New England Journal of Medicine. 2004;351(4):327--336.
 
 \bibitem{papazian2010neuromuscular}
@@ -773,27 +649,27 @@ Papazian L, Forel JM, Gacouin A, Penot-Ragon C, Perrin G, Loundou A, et~al.
 
 \bibitem{wang2023early}
 Wang J, Jiang L, Ding S, He SY, Liu SB, Lu ZJ, et~al.
-\newblock Early Enteral Nutrition and Sepsis-Associated Acute Kidney Injury: A
-  Propensity Score Matched Cohort Study Based on the MIMIC-III Database.
+\newblock Early Enteral Nutrition and Sepsis-Associated Acute Kidney Injury: A Propensity Score Matched Cohort Study Based on the MIMIC-III Database.
 \newblock Yonsei Medical Journal. 2023;64(4):259--268.
 
 \bibitem{rosenbaum1983central}
 Rosenbaum PR, Rubin DB.
-\newblock The central role of the propensity score in observational studies for
-  causal effects.
+\newblock The central role of the propensity score in observational studies for causal effects.
 \newblock Biometrika;70:41--55.
+
+\bibitem{chernozhukov2022long}
+Chernozhukov V, Cinelli C, Newey W, Sharma A, Syrgkanis V.
+\newblock Long story short: Omitted variable bias in causal machine learning.
+\newblock National Bureau of Economic Research; 2022.
 
 \bibitem{jesson2020identifying}
 Jesson A, Mindermann S, Shalit U, Gal Y.
-\newblock Identifying causal-effect inference failure with uncertainty-aware
-  models.
-\newblock Advances in Neural Information Processing Systems.
-  2020;33:11637--11649.
+\newblock Identifying causal-effect inference failure with uncertainty-aware models.
+\newblock Advances in Neural Information Processing Systems. 2020;33:11637--11649.
 
 \bibitem{snowden2011implementation}
 Snowden JM, Rose S, Mortimer KM.
-\newblock Implementation of G-computation on a simulated data set:
-  demonstration of a causal inference technique.
+\newblock Implementation of G-computation on a simulated data set: demonstration of a causal inference technique.
 \newblock American journal of epidemiology. 2011;173(7):731--738.
 
 \bibitem{abadie2008failure}
@@ -803,10 +679,8 @@ Abadie A, Imbens GW.
 
 \bibitem{robins1994estimation}
 Robins JM, Rotnitzky A, Zhao LP.
-\newblock Estimation of regression coefficients when some regressors are not
-  always observed.
-\newblock Journal of the American statistical Association.
-  1994;89(427):846--866.
+\newblock Estimation of regression coefficients when some regressors are not always observed.
+\newblock Journal of the American statistical Association. 1994;89(427):846--866.
 
 \bibitem{foster2019orthogonal}
 Foster DJ, Syrgkanis V.
@@ -835,8 +709,7 @@ Bouthillier X, Delaunay P, Bronzi M, Trofimov A, Nichyporuk B, Szeto J, et~al.
 
 \bibitem{safe2007saline}
 Investigators SS.
-\newblock Saline or albumin for fluid resuscitation in patients with traumatic
-  brain injury.
+\newblock Saline or albumin for fluid resuscitation in patients with traumatic brain injury.
 \newblock New England Journal of Medicine. 2007;357(9):874--884.
 
 \bibitem{diao2012pharmacotherapy}

@@ -48,7 +48,7 @@ count:
 	texcount $(MAIN).tex
 
 simple-diff:
-	latexdiff original_manuscript.tex causal_decision_making.tex  > diff.tex
+	latexdiff manuscript_second_submission.tex causal_decision_making.tex  > diff.tex
 
 zip-sources:
 	zip -r latex-sources.zip causal_decision_making.tex causal_decision_making.bbl causal_decision_making.pdf references.bib img_main/* img_supp/*

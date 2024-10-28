@@ -1,7 +1,7 @@
 % Template for PLoS
 %DIF LATEXDIFF DIFFERENCE FILE
-%DIF DEL original_manuscript.tex      Fri Feb  2 16:19:46 2024
-%DIF ADD causal_decision_making.tex   Fri Feb 23 10:00:55 2024
+%DIF DEL manuscript_second_submission.tex   Fri Oct 25 18:45:38 2024
+%DIF ADD causal_decision_making.tex         Mon Oct 28 16:50:52 2024
 % Version 3.6 Aug 2022
 %
 % % % % % % % % % % % % % % % % % % % % % %
@@ -152,9 +152,6 @@
 \usepackage{lastpage,fancyhdr,graphicx}
 \usepackage{epstopdf}
 \usepackage{lmodern}
-%DIF 152d152
-%DIF < 
-%DIF -------
 %\pagestyle{myheadings}
 \pagestyle{fancy}
 \fancyhf{}
@@ -284,7 +281,7 @@
 \DeclareRobustCommand{\DIFaddendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
 \DeclareRobustCommand{\DIFdelbeginFL}{\DIFOdelbeginFL \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
 \DeclareRobustCommand{\DIFdelendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
-%DIF LISTINGS PREAMBLE %DIF PREAMBLE
+%DIF COLORLISTINGS PREAMBLE %DIF PREAMBLE
 \RequirePackage{listings} %DIF PREAMBLE
 \RequirePackage{color} %DIF PREAMBLE
 \lstdefinelanguage{DIFcode}{ %DIF PREAMBLE
@@ -365,82 +362,71 @@
 
 
 \end{flushleft}
-%DIF <  Please keep the abstract below 300 words
-%DIF >  Please keep the abstract below 300 words --> 235
+% Please keep the abstract below 300 words --> 235
 \section*{Abstract}
-\DIFdelbegin \DIFdel{How to inform clinical decision-making using routine care data? First,
-  individualizing care calls for tailored prediction, eg with machine learning .
-  Second, predictions must be associated with actionable interventions to avoid
-  shortcuts or biases in the data. For a given treatment , a useful model would
-  distinguish responders from non-responders. This requires modeling
-  heterogeneity in causal inference, which faces many pitfalls, particularly so
-  on time-varying data, as in }\DIFdelend \DIFaddbegin
 
-\DIFadd{Causal inference enables machine learning methods to estimate
-  treatment effects of medical interventions from }\DIFaddend electronic health
-records (EHRs)\DIFdelbegin \DIFdel{or claims. Here, we decompose these pitfalls in a three steps retrospective case-control study: choice of study design,
-  confounding variables, and estimator. Studying }\DIFdelend \DIFaddbegin \DIFadd{. However, researchers should be wary of many pitfalls.
-  Here we explain and study common pitfalls and potential solutions,
-  estimating }\DIFaddend the effect of albumin on mortality in sepsis \DIFdelbegin \DIFdel{in the Medical Information Mart for }\DIFdelend \DIFaddbegin \DIFadd{using an
-}\DIFaddend Intensive Care database (MIMIC-IV) \DIFdelbegin \DIFdel{, we }\DIFdelend \DIFaddbegin \DIFadd{and comparing to outcome data from randomized
-  controlled trials (RCT) as gold-standard. The first step is study design,
-  using the target trial concept and the PICOT framework: Population
-  (patients with sepsis), Intervention (combination of crystalloids and albumin
-  for fluid resuscitation), Control (crystalloids only), Outcome (28-day
-  mortality), Time (intervention start within 24h of admission).
-  We show that a too large treatment-initiation time induces immortal time bias.
-  The second step is
-  selection of the confounding variables based on expert knowledge.
-  Increasingly adding confounders enables to recover the RCT results from
-  observational data (0\%, 95\% CI -1\% to 1\%, and 0\%, 95\% -5\% to 5\%,
-  respectively).
-  The third step is fitting outcome models, and we assess the influence of
-  multiple models with varying assumptions. A doubly
-  robust estimator (AIPW) with random forests proved to be the most reliable
-  estimator. Results }\DIFaddend show that these steps are all important \DIFdelbegin \DIFdel{to build valid
-  decision-making. In a tutorial spirit, we make all the code and data openly
-  available}\DIFdelend \DIFaddbegin \DIFadd{for valid
-  causal estimates. A valid causal model can then be used to individualize
-  decision making:
-  subgroup analyses showed that treatment efficacy of albumin was better for
-  patients >60 years old, males, and patients with septic shock}\DIFaddend .
+Causal inference enables machine learning methods to estimate treatment effects
+of medical interventions from electronic health records (EHRs). \DIFdelbegin \DIFdel{However, researchers should be wary of many pitfalls.
+}\DIFdelend \DIFaddbegin \DIFadd{The prevalence
+  of such observational data and the difficulty for randomized trial to cover all
+  population/treatment relationships make these methods increasingly attractive
+  for the study of causal effects.
+}
 
-% Please keep the Author Summary between 150 and 200 words
+\DIFaddend Here we explain and study common \DIFaddbegin \DIFadd{methodological }\DIFaddend pitfalls and potential
+solutions\DIFdelbegin \DIFdel{,
+}\DIFdelend \DIFaddbegin \DIFadd{. We illustrate our framework for causal inference }\DIFaddend estimating the
+effect of albumin on mortality in sepsis using an Intensive Care database
+(MIMIC-IV) and comparing \DIFdelbegin \DIFdel{to outcome data }\DIFdelend \DIFaddbegin \DIFadd{credible analyses variations to results }\DIFaddend from randomized
+controlled trials (RCT) as gold-standard.
+\DIFaddbegin
+
+\DIFaddend The first step is study design, using the target trial concept and the PICOT
+framework: Population (patients with sepsis), Intervention (combination of
+crystalloids and albumin for fluid resuscitation), Control (crystalloids only),
+Outcome (28-day mortality), Time (intervention start within 24h of admission).
+We show that \DIFdelbegin \DIFdel{a }\DIFdelend too large treatment-initiation time induces immortal time bias.
+The second step is selection of the confounding variables based on expert
+knowledge. Increasingly adding confounders enables to recover the RCT results
+from observational data (0\%, 95\% CI -1\% to 1\%, and 0\%, 95\% -5\% to 5\%,
+respectively). \DIFdelbegin \DIFdel{The third stepis fitting outcome models, and }\DIFdelend \DIFaddbegin \DIFadd{As the third step, }\DIFaddend we assess the influence
+of multiple models with varying assumptions\DIFdelbegin \DIFdel{. A }\DIFdelend \DIFaddbegin \DIFadd{, showing that a }\DIFaddend doubly robust estimator (AIPW)
+with random forests proved to be the most reliable estimator. Results show that
+these steps are all important for valid causal estimates. A valid causal model
+can then be used to individualize decision making: subgroup analyses showed that
+treatment efficacy of albumin was better for patients >60 years old, males, and
+patients with septic shock.
+
+\DIFaddbegin \DIFadd{Without causal thinking, machine learning is not enough for optimal clinical
+  decision making for each patient. Our step-by-step analytic framework helps the
+  analyst avoid the many pitfalls of applying machine learning to EHR data and
+  build models that avoid shortcuts and extract the best decision-making evidence.
+}
+
+\DIFaddend % Please keep the Author Summary between 150 and 200 words
 % Use first person. PLOS ONE authors please skip this step. 
 % Author Summary not valid for PLOS ONE submissions.   
 \section*{Author summary}
-\DIFdelbegin \DIFdel{How to inform clinical decision-making using routine care data? First, individualizing care calls for tailored prediction, eg with machine learning.
-  Second, predictions must be associated with actionable interventions to avoid
-  shortcuts or biases in the data . For a given treatment, a useful model would
-  distinguish responders from non-responders. This requires modeling
-  heterogeneity in causal inference, which faces many }\DIFdelend \DIFaddbegin
 
-\DIFadd{Rich routine-care data, as EHR or claims, is useful to individualize decision
-  making using machine learning; but guiding interventions requires
-  causal inference. Unlike with an RCT, interventions in routine data do
-  not easily enable an apple-to-apple measure of the effect of an
-  intervention, leading to many analytical }\DIFaddend pitfalls, particularly \DIFdelbegin \DIFdel{so
-  on }\DIFdelend \DIFaddbegin \DIFadd{in
-}\DIFaddend time-varying data\DIFdelbegin \DIFdel{, as in electronic health records (EHRs) or claims. Here,
-  we decompose these pitfalls in a three steps retrospective case-control study: choice of study design, confounding variables, and estimator. Studying the effect of albumin on
-  mortality in sepsis in the
-  Medical Information Mart for Intensive Care
-  database (MIMIC-IV) }\DIFdelend \DIFaddbegin \DIFadd{. We study these in a tutorial spirit, making
-  the code and data openly available. We give 5 analytical steps for
-  data-driven individualized interventions: Step
-  1) Study design, where common pitfalls are selection bias, with information
-  unequally collected across treatment and control patients, and immortal time
-  bias, where the inclusion-defining event interacts with the
-  intervention time. Step 2) Identification of the causal assumptions and
-  categorization of confounders. Step 3) Estimation of the causal effect of
-  interest by correct aggregation of confounders and selection of an appropriate
-  statistical model. Step 4) Assessing the
-  analysis' robustness to assumptions, and finally Step 5) Individualizing
-  treatment decision, by exploring treatment heterogeneity, eg across subgroups.
-  Studying choice of fluid resuscitation in sepsis}\DIFaddend , we show that \DIFdelbegin \DIFdel{these steps are all important to build valid
-  decision-making. In a tutorial spirit, we make all the code and data openly
-  available}\DIFdelend \DIFaddbegin \DIFadd{common
-  mistakes in steps 1, 2, and 3 equally compromise causal validity}\DIFaddend .
+Rich routine-care data, as EHR or claims, is useful to individualize decision
+making using machine learning; but guiding interventions requires
+causal inference. Unlike with an RCT, interventions in routine data do
+not easily enable an apple-to-apple measure of the effect of an
+intervention, leading to many analytical pitfalls, particularly in
+time-varying data. We study these in a tutorial spirit, making
+the code and data openly available. We give 5 analytical steps for
+data-driven individualized interventions: Step
+1) Study design, where common pitfalls are selection bias, with information
+unequally collected across treatment and control patients, and immortal time
+bias, where the inclusion-defining event interacts with the
+intervention time. Step 2) Identification of the causal assumptions and
+categorization of confounders. Step 3) Estimation of the causal effect of
+interest by correct aggregation of confounders and selection of an appropriate
+statistical model. Step 4) Assessing the
+analysis' robustness to assumptions, and finally Step 5) Individualizing
+treatment decision, by exploring treatment heterogeneity, eg across subgroups.
+Studying choice of fluid resuscitation in sepsis, we show that common
+mistakes in steps 1, 2, and 3 equally compromise causal validity.
 
 
 \linenumbers
@@ -449,184 +435,108 @@ records (EHRs)\DIFdelbegin \DIFdel{or claims. Here, we decompose these pitfalls 
 \section*{Introduction: data-driven decisions require causal inference}
 %\label{introduction}
 
-\DIFdelbegin \DIFdel{How can data lead to useful clinical decisions? Prevention strategies using
-  well-validated and calibrated cardiovascular risk models have not reduced the
-  burden of cardiovascular diseases \mbox{%DIFAUXCMD
-    \cite{eriksen2021effectiveness}}\hspace{0pt}%DIFAUXCMD
-  , probably because they targeted both
-  responders and non-responders  \mbox{%DIFAUXCMD
-    \cite{krska2016implementation}}\hspace{0pt}%DIFAUXCMD
-  . Addressing treatment heterogeneity is crucial to effective care}\DIFdelend \DIFaddbegin \DIFadd{Informing a care option extends beyond merely predicting the occurrence
-  of an event; it involves estimating the effect of the corresponding
-  treatment effects. Routine-care data comes naturally to mind to guide
-  routine decisions, but they require care to estimate treatment effects as
-  they are observational, unlike Randomized controlled trials (RCTs). This
-  context calls for causal inference statistical frameworks.
-  But merely applying these tools to the data does suffice to ensure the
-  validity of the inferences; numerous considerations must be carefully addressed}\DIFaddend .
+Informing a care option extends beyond merely predicting the occurrence
+of an event; it involves estimating the effect of the corresponding
+treatment effects. Routine-care data comes naturally to mind to guide
+routine decisions, but they require care to estimate treatment effects as
+they are observational, unlike Randomized controlled trials (RCTs). This
+context calls for causal inference statistical frameworks.
+But merely applying these tools to the data does suffice to ensure the
+validity of the inferences; numerous considerations must be carefully addressed.
 
-\paragraph{Individualized \DIFdelbegin \DIFdel{predictions are not enough}\DIFdelend \DIFaddbegin \DIFadd{Medicine and Machine Learning Challenges}\DIFaddend }
-Machine learning \DIFdelbegin \DIFdel{is central to individualized medicine  . Machine learning models
-  recently outperformed }\DIFdelend \DIFaddbegin \DIFadd{plays a pivotal role in individualized medicine  \mbox{%DIFAUXCMD
-    \cite{rajkomar2018scalable,liu2019comparison,li2020behrt,beaulieu2021machine,aggarwal2021diagnostic}}\hspace{0pt}%DIFAUXCMD
-  . It
-  demonstrated superior performance over }\DIFaddend traditional rule-based clinical scores \DIFdelbegin \DIFdel{to predict }\DIFdelend \DIFaddbegin \DIFadd{in predicting }\DIFaddend a patient's readmission risk, mortality, or future comorbidities using Electronic Health Records (EHRs) \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
-    \cite{rajkomar2018scalable,
-      liu2019comparison,li2020behrt,beaulieu2021machine, aggarwal2021diagnostic}}\hspace{0pt}%DIFAUXCMD
-  .
-  %DIF < 
-  But there is growing evidence }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
-    \cite{rajkomar2018scalable,liu2019comparison,li2020behrt,beaulieu2021machine,aggarwal2021diagnostic}}\hspace{0pt}%DIFAUXCMD
-  .
-  However, mounting evidence suggests }\DIFaddend that machine-learning models can \DIFdelbegin \DIFdel{reproduce and amplify biases }\DIFdelend \DIFaddbegin \DIFadd{inadvertently perpetuate and exacerbate biases present }\DIFaddend in the data \cite{rajkomar2018ensuring}, \DIFdelbegin \DIFdel{such as }\DIFdelend \DIFaddbegin \DIFadd{including }\DIFaddend gender or racial biases \cite{singh2022generalizability,gichoya2022ai}, \DIFdelbegin \DIFdel{or }\DIFdelend \DIFaddbegin \DIFadd{and the }\DIFaddend marginalization of under-served populations \cite{seyyed2021underdiagnosis}. \DIFdelbegin \DIFdel{The models
-  typically encode these biases }\DIFdelend \DIFaddbegin \DIFadd{These biases are typically encoded }\DIFaddend by capturing shortcuts\DIFdelbegin \DIFdel{: }\DIFdelend \DIFaddbegin \DIFadd{—}\DIFaddend stereotypical or distorted features in the data \cite{geirhos2020shortcut,winkler2019association,degrave2021ai}.
+\paragraph{Individualized Medicine and Machine Learning Challenges}
+Machine learning plays a pivotal role in individualized medicine  \cite{rajkomar2018scalable,liu2019comparison,li2020behrt,beaulieu2021machine,aggarwal2021diagnostic}. It
+demonstrated superior performance over traditional rule-based clinical scores in predicting a patient's readmission risk, mortality, or future comorbidities using Electronic Health Records (EHRs) \cite{rajkomar2018scalable,liu2019comparison,li2020behrt,beaulieu2021machine,aggarwal2021diagnostic}.
+However, mounting evidence suggests that machine-learning models can inadvertently perpetuate and exacerbate biases present in the data \cite{rajkomar2018ensuring}, including gender or racial biases \cite{singh2022generalizability,gichoya2022ai}, and the marginalization of under-served populations \cite{seyyed2021underdiagnosis}. These biases are typically encoded by capturing shortcuts—stereotypical or distorted features in the data \cite{geirhos2020shortcut,winkler2019association,degrave2021ai}.
 %
-For instance, \DIFdelbegin \DIFdel{many }\DIFdelend \DIFaddbegin \DIFadd{numerous }\DIFaddend machine learning algorithms \DIFdelbegin \DIFdel{use }\DIFdelend \DIFaddbegin \DIFadd{rely on }\DIFaddend post-treatment information \cite{badgeley2019deep,obermeyer2019dissecting,yuan2021temporal,wong2021external}\DIFdelbegin \DIFdel{;
-  a paradigmatic example being }\DIFdelend \DIFaddbegin \DIFadd{, exemplified by }\DIFaddend a diagnostic model for skin cancer \DIFdelbegin \DIFdel{relying }\DIFdelend \DIFaddbegin \DIFadd{that depends }\DIFaddend on surgical marks \cite{winkler2019association}. \DIFdelbegin \DIFdel{A motivating example on Intense }\DIFdelend \DIFaddbegin \DIFadd{For Intensive }\DIFaddend Care Unit data\DIFdelbegin \DIFdel{is provided in }%DIFDELCMD < \nameref{apd:fig:motivating_example}%%%
-\DIFdelend \DIFaddbegin \DIFadd{, focus of our study, such information markedly improves mortality prediction (Figure S1 \ref{apd:fig:motivating_example}), but cannot inform decisions}\DIFaddend .
+For instance, numerous machine learning algorithms rely on post-treatment information \cite{badgeley2019deep,obermeyer2019dissecting,yuan2021temporal,wong2021external}, exemplified by a diagnostic model for skin cancer that depends on surgical marks \cite{winkler2019association}. For Intensive Care Unit data, focus of our study, such information markedly improves mortality prediction (Figure S1 \ref{apd:fig:motivating_example}), but cannot inform decisions.
 
-\paragraph{\DIFaddbegin \DIFadd{The Importance of }\DIFaddend Causal \DIFdelbegin \DIFdel{thinking is key to data-driven decision-making}\DIFdelend \DIFaddbegin \DIFadd{Reasoning in Data-Driven Decision-Making}\DIFaddend } \cite{prosperi2020causal}
-While \DIFdelbegin \DIFdel{traditional }\DIFdelend \DIFaddbegin \DIFadd{conventional }\DIFaddend machine learning relies on \DIFdelbegin \DIFdel{data
-  resulting from prior interventions }\DIFdelend \DIFaddbegin \DIFadd{retrospective to generate predictions of future effects }\DIFaddend \cite{plecko2022causal}, truly \DIFdelbegin \DIFdel{insightful }\DIFdelend \DIFaddbegin \DIFadd{informing }\DIFaddend decision-making \DIFdelbegin \DIFdel{support needs to contrast the }\DIFdelend \DIFaddbegin \DIFadd{needs a comparison of }\DIFaddend potential outcomes with and without the intervention\DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{. This involves }\DIFaddend estimating a causal effect\DIFdelbegin \DIFdel{as in Randomized Control Trials (RCTs )
-  \mbox{%DIFAUXCMD
-    \cite{prosperi2020causal}}\hspace{0pt}%DIFAUXCMD
-  . Yet, RCTs face }\DIFdelend \DIFaddbegin \DIFadd{, mirroring the methodology employed in RCTs \mbox{%DIFAUXCMD
-    \cite{prosperi2020causal}}\hspace{0pt}%DIFAUXCMD
-  . However, RCTs encounter challenges such as }\DIFaddend selection biases \cite{travers2007external,averitt2020translating}, \DIFdelbegin \DIFdel{failure to
-  recruit minorities, or limited sample size }\DIFdelend \DIFaddbegin \DIFadd{difficulties in recruiting diverse populations, and limited sample sizes }\DIFaddend for exploring treatment heterogeneity across subgroups. Routinely collected data \DIFdelbegin \DIFdel{naturally provides }\DIFdelend \DIFaddbegin \DIFadd{presents }\DIFaddend a unique opportunity to assess real-life benefit-risk trade-offs associated with a decision \cite{desai2021broadening}, with \DIFdelbegin \DIFdel{less sampling bias , }\DIFdelend \DIFaddbegin \DIFadd{reduced sampling bias }\DIFaddend and sufficient data to capture heterogeneity \cite{rekkas2023standardized}. \DIFdelbegin \DIFdel{Estimating }\DIFdelend \DIFaddbegin \DIFadd{Nevertheless, estimating }\DIFaddend causal effects from \DIFdelbegin \DIFdel{this }\DIFdelend \DIFaddbegin \DIFadd{such }\DIFaddend data is challenging \DIFdelbegin \DIFdel{however, as the intervention is confounded }\DIFdelend \DIFaddbegin \DIFadd{due to the confounding of the intervention }\DIFaddend by indication. \DIFdelbegin \DIFdel{Hence}\DIFdelend \DIFaddbegin \DIFadd{Therefore}\DIFaddend , dedicated statistical techniques are \DIFdelbegin \DIFdel{needed }\DIFdelend \DIFaddbegin \DIFadd{imperative }\DIFaddend to emulate a "target trial" \cite{hernan2016specifying} from observational data.
+\paragraph{The Importance of Causal Reasoning in Data-Driven Decision-Making} \cite{prosperi2020causal}
+While conventional machine learning relies on retrospective to generate predictions of future effects \cite{plecko2022causal}, truly informing decision-making needs a comparison of potential outcomes with and without the intervention. This involves estimating a causal effect, mirroring the methodology employed in RCTs \cite{prosperi2020causal}. However, RCTs encounter challenges such as selection biases \cite{travers2007external,averitt2020translating}, difficulties in recruiting diverse populations, and limited sample sizes for exploring treatment heterogeneity across subgroups. Routinely collected data presents a unique opportunity to assess real-life benefit-risk trade-offs associated with a decision \cite{desai2021broadening}, with reduced sampling bias and sufficient data to capture heterogeneity \cite{rekkas2023standardized}. Nevertheless, estimating causal effects from such data is challenging due to the confounding of the intervention by indication. Therefore, dedicated statistical techniques are imperative to emulate a "target trial" \cite{hernan2016specifying} from observational data.
 
-%DIF <  Position of our paper
-\paragraph{\DIFdelbegin \DIFdel{Grounding clinical decisions on data requires considerations scattered across different fields.}\DIFdelend \DIFaddbegin \DIFadd{How lack of individual treatment model limits a cardiovascular risk score}\DIFaddend }
-\DIFaddbegin \DIFadd{The QRISK is a risk score widely used in the UK to assess 10-year and lifetime cardio-vascular risk \mbox{%DIFAUXCMD
-    \cite{hippisley2017development}}\hspace{0pt}%DIFAUXCMD
+\DIFdelbegin \paragraph{\DIFdel{How lack of individual treatment model limits a cardiovascular risk score}}
+%DIFAUXCMD
+\addtocounter{paragraph}{-1}%DIFAUXCMD
+\DIFdel{The QRISK is a risk score widely used in the UK to assess 10-year and lifetime cardio-vascular risk \mbox{%DIFAUXCMD
+    \cite{hippisley2017development}}\hskip0pt%DIFAUXCMD
   . It is well calibrated, recommended by the national regulatory agency \mbox{%DIFAUXCMD
-    \cite{guideline2023cardiovascular}}\hspace{0pt}%DIFAUXCMD
+    \cite{guideline2023cardiovascular}}\hskip0pt%DIFAUXCMD
   , and the National Institute for Health and Care Excellence (NICE) argues to use such a score to systematically screen cardio-vascular disease (CVD) risks and treat with statins individuals at risk \mbox{%DIFAUXCMD
-    \cite{guideline2023cardiovascular}}\hspace{0pt}%DIFAUXCMD
+    \cite{guideline2023cardiovascular}}\hskip0pt%DIFAUXCMD
   , especially if 10-year CVD risk exceeds 10\% \mbox{%DIFAUXCMD
-    \cite{rabar2014lipid}}\hspace{0pt}%DIFAUXCMD
+    \cite{rabar2014lipid}}\hskip0pt%DIFAUXCMD
   .
   A cost-effectiveness analysis guided the choice of the 10\% threshold to optimize quality-adjusted life years at the population level \mbox{%DIFAUXCMD
-    \cite{guthrie2023competing}}\hspace{0pt}%DIFAUXCMD
+    \cite{guthrie2023competing}}\hskip0pt%DIFAUXCMD
   . The NICE analysis is based on evidence mostly from three trials, accounting for more than 70\% of the effect: LIPID \mbox{%DIFAUXCMD
-    \cite{long1998prevention} }\hspace{0pt}%DIFAUXCMD
+    \cite{long1998prevention} }\hskip0pt%DIFAUXCMD
   (32\% of the effect), PROSPER \mbox{%DIFAUXCMD
-    \cite{shepherd2002pravastatin} }\hspace{0pt}%DIFAUXCMD
+    \cite{shepherd2002pravastatin} }\hskip0pt%DIFAUXCMD
   (22\% of the effect), ALLHAT-LLT \mbox{%DIFAUXCMD
-    \cite{antihypertensive2002major} }\hspace{0pt}%DIFAUXCMD
+    \cite{antihypertensive2002major} }\hskip0pt%DIFAUXCMD
   (23\% of the effect). All these trials focused on high-risk patients and secondary prevention. All studies operate under the assumption of a consistent statin effect (risk ratios constant) across different CVD risk groups, irrespective of the baseline CVD risk and LDL-cholesterol levels. This aligns with the outcomes of two meta-analyses which observed broadly similar effectiveness across risk levels \mbox{%DIFAUXCMD
-    \cite{brugts2009benefits}}\hspace{0pt}%DIFAUXCMD
+    \cite{brugts2009benefits}}\hskip0pt%DIFAUXCMD
   , but is challenged by another study in primary prevention \mbox{%DIFAUXCMD
-    \cite{byrne2019statins}}\hspace{0pt}%DIFAUXCMD
+    \cite{byrne2019statins}}\hskip0pt%DIFAUXCMD
   . Meanwhile the US Preventive Services Task Force concluded that the evidence is insufficient to determine the balance of benefits and harms of statin use for the primary prevention of CVD events and mortality in adults 76 years and older \mbox{%DIFAUXCMD
-    \cite{chou2022statin}}\hspace{0pt}%DIFAUXCMD
+    \cite{chou2022statin}}\hskip0pt%DIFAUXCMD
   .
-}\DIFaddend
+}\DIFdelend %DIF >  \paragraph{How lack of individual treatment model limits a cardiovascular risk score}
+%DIF >  The QRISK is a risk score widely used in the UK to assess 10-year and lifetime cardio-vascular risk \cite{hippisley2017development}. It is well calibrated, recommended by the national regulatory agency \cite{guideline2023cardiovascular}, and the National Institute for Health and Care Excellence (NICE) argues to use such a score to systematically screen cardio-vascular disease (CVD) risks and treat with statins individuals at risk \cite{guideline2023cardiovascular}, especially if 10-year CVD risk exceeds 10\% \cite{rabar2014lipid}.
+%DIF >  A cost-effectiveness analysis guided the choice of the 10\% threshold to optimize quality-adjusted life years at the population level \cite{guthrie2023competing}. The NICE analysis is based on evidence mostly from three trials, accounting for more than 70\% of the effect: LIPID \cite{long1998prevention} (32\% of the effect), PROSPER \cite{shepherd2002pravastatin} (22\% of the effect), ALLHAT-LLT \cite{antihypertensive2002major} (23\% of the effect). All these trials focused on high-risk patients and secondary prevention. All studies operate under the assumption of a consistent statin effect (risk ratios constant) across different CVD risk groups, irrespective of the baseline CVD risk and LDL-cholesterol levels. This aligns with the outcomes of two meta-analyses which observed broadly similar effectiveness across risk levels \cite{brugts2009benefits}, but is challenged by another study in primary prevention \cite{byrne2019statins}. Meanwhile the US Preventive Services Task Force concluded that the evidence is insufficient to determine the balance of benefits and harms of statin use for the primary prevention of CVD events and mortality in adults 76 years and older \cite{chou2022statin}.
 
-\DIFdelbegin \DIFdel{Epidemiologic literature emphasizes the }\DIFdelend \DIFaddbegin \paragraph{\DIFadd{Critics on the efficiency of systematic screening and treatment heterogeneity}}
-\DIFadd{Conversely, the World Health Organization (WHO) published a systematic review on screening for CVD risk in 2019 \mbox{%DIFAUXCMD
-    \cite{eriksen2021effectiveness} }\hspace{0pt}%DIFAUXCMD
-  asserting the limited effectiveness of such screenings, aligning with a Cochrane review that also reported poor effectiveness \mbox{%DIFAUXCMD
-    \cite{krogsboll2012general} }\hspace{0pt}%DIFAUXCMD
-  resulting in over-treatment. The surge in statin prescriptions has been linked to a divergence in statin prescriptions at specified risk score levels \mbox{%DIFAUXCMD
-    \cite{van2013efficiency}}\hspace{0pt}%DIFAUXCMD
-  . This leads to over-prescription for low-risk patients and under-prescription for high-risk patients, casting doubt on the overall efficacy as the constancy assumption of the statin treatment effect might be violated. Accounting for sources of heterogeneity in patient profiles would be instrumental in optimizing treatment allocation.
-}
+\paragraph{Critics on the efficiency of systematic screening and treatment heterogeneity}
+Conversely, the World Health Organization (WHO) published a systematic review on screening for CVD risk in 2019 \cite{eriksen2021effectiveness} asserting the limited effectiveness of such screenings, aligning with a Cochrane review that also reported poor effectiveness \cite{krogsboll2012general} resulting in over-treatment. The surge in statin prescriptions has been linked to a divergence in statin prescriptions at specified risk score levels \cite{van2013efficiency}. This leads to over-prescription for low-risk patients and under-prescription for high-risk patients, casting doubt on the overall efficacy as the constancy assumption of the statin treatment effect might be violated. Accounting for sources of heterogeneity in patient profiles would be instrumental in optimizing treatment allocation.
 
-\DIFadd{Moreover, the WHO report critiques suboptimal adoption leading to social biases in the screened populations. In the UK, there are instances of treatment heterogeneity at a given risk level \mbox{%DIFAUXCMD
-    \cite{van2013efficiency} }\hspace{0pt}%DIFAUXCMD
-  and documented evidence of social inequities in health checks \mbox{%DIFAUXCMD
-    \cite{krska2016implementation}}\hspace{0pt}%DIFAUXCMD
-  . Evidence suggests that predominantly socially advantaged patients undergo screening, consequently being offered statin treatment. This critique further emphasizes the presence of treatment heterogeneity.
-}
+Moreover, the WHO report critiques suboptimal adoption leading to social biases in the screened populations. In the UK, there are instances of treatment heterogeneity at a given risk level \cite{van2013efficiency} and documented evidence of social inequities in health checks \cite{krska2016implementation}. Evidence suggests that predominantly socially advantaged patients undergo screening, consequently being offered statin treatment. This critique further emphasizes the presence of treatment heterogeneity.
 
 
-\paragraph{\DIFadd{Multiple Perspectives on Evidence-based Decision Making}}
-\DIFadd{Across different fields, existing literature has emphasized different challenges associated
-  with estimating treatment effects using observational data. While epidemiologic
-  studies underscore the importance of the }\DIFaddend target trial approach
-\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
-    \cite{von2007strengthening,benchimol2015reporting,hernan2020causal,schneeweiss2021conducting, zeng2022uncovering}}\hspace{0pt}%DIFAUXCMD
-  ,
-  but focuses on biases due to
-  confounding variables and less so on those due to poor designs or }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
-    \cite{von2007strengthening,benchimol2015reporting,hernan2020causal,schneeweiss2021conducting,zeng2022uncovering}}\hspace{0pt}%DIFAUXCMD
-  ,
-  there emphasis primarily lies on biases that arise from temporal effects \mbox{%DIFAUXCMD
-    \cite{suissa2008immortal,Oke2021leadtimebias,fu2021timing,hernan2016specifying,wang2022understanding,Bankhead2017attritionbias} }\hspace{0pt}%DIFAUXCMD
-  or confounding variables \mbox{%DIFAUXCMD
-    \cite{greenland1999causal,vanderweele2019principles,loh2021confounder}}\hspace{0pt}%DIFAUXCMD
-  , with
-  relatively less attention to issues arising from }\DIFaddend estimator selection.
-\DIFdelbegin \DIFdel{Machine }\DIFdelend \DIFaddbegin \DIFadd{Recent replications of RCTs using observational data did not explore the impact
-  of modern machine learning methods on the robustness of the results
-  \mbox{%DIFAUXCMD
-    \cite{schneeweiss2021conducting,wang2023emulation}}\hspace{0pt}%DIFAUXCMD
-  .
-}
+\paragraph{Multiple Perspectives on Evidence-based Decision Making}
+Across different fields, existing literature has emphasized different challenges associated
+with estimating treatment effects using observational data. While epidemiologic
+studies underscore the importance of the target trial approach
+\cite{von2007strengthening,benchimol2015reporting,hernan2020causal,schneeweiss2021conducting,zeng2022uncovering},
+there emphasis primarily lies on biases that arise from temporal effects \cite{suissa2008immortal,Oke2021leadtimebias,fu2021timing,hernan2016specifying,wang2022understanding,Bankhead2017attritionbias} or confounding variables \cite{greenland1999causal,vanderweele2019principles,loh2021confounder}, with
+relatively less attention to issues arising from estimator selection.
+Recent replications of RCTs using observational data did not explore the impact
+of modern machine learning methods on the robustness of the results
+\cite{schneeweiss2021conducting,wang2023emulation}.
 
-\DIFadd{In contrast, machine }\DIFaddend learning and causal inference literature \DIFdelbegin \DIFdel{focuses on
-  estimators
-  \mbox{%DIFAUXCMD
-    \cite{belloni2014high, chernozhukov2018double,shalit2016tutorial,
-      sharma2018tutorial,moraffah2021causal}}\hspace{0pt}%DIFAUXCMD
-}\DIFdelend \DIFaddbegin \DIFadd{predominantly
-  studies estimators
-  \mbox{%DIFAUXCMD
-    \cite{belloni2014high,chernozhukov2018double,shalit2016tutorial,sharma2018tutorial,moraffah2021causal}
-  }\hspace{0pt}%DIFAUXCMD
-  : propensity score matching \mbox{%DIFAUXCMD
-    \cite{stuart2010matching}}\hspace{0pt}%DIFAUXCMD
-  , inverse probability
-  weighting \mbox{%DIFAUXCMD
-    \cite{austin2015moving}}\hspace{0pt}%DIFAUXCMD
-  , outcome models \mbox{%DIFAUXCMD
-    \cite{robins1986role}}\hspace{0pt}%DIFAUXCMD
-  , doubly
-  robust methods, \mbox{%DIFAUXCMD
-    \cite{chernozhukov2018double} }\hspace{0pt}%DIFAUXCMD
-  or deep learning based models
-  \mbox{%DIFAUXCMD
-    \cite{johansson2022generalization}}\hspace{0pt}%DIFAUXCMD
-  . This literature may be opaque for some due to intricate mathematical details and unverifiable assumptions}\DIFaddend . Guidelines seldom
-\DIFdelbegin \DIFdel{mention }\DIFdelend \DIFaddbegin \DIFadd{address }\DIFaddend time-related biases, \DIFdelbegin \DIFdel{frequent loopholes when data have }\DIFdelend \DIFaddbegin \DIFadd{or covariate aggregation which
-  frequently emerge in datasets with }\DIFaddend temporal dependencies
-\cite{suissa2008immortal,fu2021timing}. \DIFdelbegin \DIFdel{Here, putting all steps --choice of study design, confounders, estimator-- in a consistent framework (section
-}\DIFdelend \DIFaddbegin \DIFadd{Recently, the machine learning community
-  shifted its focus from EHR data to simulated data, which may not capture the
-  complexities of real-world data \mbox{%DIFAUXCMD
-    \cite{schuler2017targeted,dorie2019automated,
-      alaa2019validating, curth2021really}}\hspace{0pt}%DIFAUXCMD
-  .
-}
+In contrast, machine learning and causal inference literature predominantly
+studies estimators
+\cite{belloni2014high,chernozhukov2018double,shalit2016tutorial,sharma2018tutorial,moraffah2021causal}
+: propensity score matching \cite{stuart2010matching}, inverse probability
+weighting \cite{austin2015moving}, outcome models \cite{robins1986role}, doubly
+robust methods, \cite{chernozhukov2018double} or deep learning based models
+\cite{johansson2022generalization}. This literature may be opaque for some due to intricate mathematical details and unverifiable assumptions. Guidelines seldom
+address time-related biases, or covariate aggregation which
+frequently emerge in datasets with temporal dependencies
+\cite{suissa2008immortal,fu2021timing}. Recently, the machine learning community
+shifted its focus from EHR data to simulated data, which may not capture the
+complexities of real-world data \cite{schuler2017targeted,dorie2019automated,
+  alaa2019validating, curth2021really}.
 
-\DIFadd{In this work, we bring together epidemiological concepts and
-  principles from statistical and machine learning literature. We adopt
-  an empirical perspective to answer practical needs of applied researchers.
-  A study of choices spread out across the analysis
-  --study design, consideration of
-  confounders, and selection of estimators (refer to Section
-}\DIFaddend \nameref{sec:inference_flow})\DIFdelbegin \DIFdel{, we show they are equally important to ensure validity of the analysis. We compare the corresponding biasesby studying the effect }\DIFdelend \DIFaddbegin \DIFadd{-- highlights their equal importance in ensuring
-  the validity of results. To illustrate and compare biases, we investigate
-  the impact }\DIFaddend of albumin on sepsis mortality \DIFdelbegin \DIFdel{in }\DIFdelend \DIFaddbegin \DIFadd{using data from }\DIFaddend a publicly available
-intensive care database\DIFdelbegin \DIFdel{(}\DIFdelend \DIFaddbegin \DIFadd{, }\DIFaddend MIMIC-IV \DIFdelbegin \DIFdel{) }\DIFdelend \cite{johnson2020mimic} (section
+In this work, we bring together epidemiological concepts and
+principles from statistical and machine learning literature. We adopt
+an empirical perspective to answer practical needs of applied researchers.
+A study of choices spread out across the analysis
+--study design, consideration of
+confounders, and selection of estimators (refer to Section
+\nameref{sec:inference_flow})-- highlights their equal importance in ensuring
+the validity of results. To illustrate and compare biases, we investigate
+the impact of albumin on sepsis mortality using data from a publicly available
+intensive care database, MIMIC-IV \cite{johnson2020mimic} (section
 \nameref{sec:application_on_mimic_iv}).
-\DIFdelbegin \DIFdel{The main section's focus is on being accessible, while the appendices expand
-  technical
-  details .
-}\DIFdelend \DIFaddbegin
 
-\DIFadd{The primary focus of the main section is on accessibility, with technical
-  details expanded in the appendices.
-}
+The primary focus of the main section is on accessibility, with technical
+details expanded in the appendices.
 
-\DIFaddend %
-\DIFaddbegin \section*{\DIFadd{Step-by-step framework for robust decision-making from EHR data}}\label{sec:inference_flow}
-\DIFaddend
+%
+\section*{Step-by-step framework for robust decision-making from EHR data}\label{sec:inference_flow}
 
 \begin{figure*}[t!]
   \centering
-  \includegraphics[width=0.9\linewidth]{img/complete_inference_flow.pdf}
+  \includegraphics[width=0.9\linewidth]{img_main/complete_inference_flow.pdf}
   \caption{\textbf{Step-by-step analytic framework} -- The complete
     inference pipeline confronts the analyst with
     many choices, some guided by domain knowledge, others
@@ -636,12 +546,7 @@ intensive care database\DIFdelbegin \DIFdel{(}\DIFdelend \DIFaddbegin \DIFadd{, 
 
 
 
-\DIFdelbegin \section*{\DIFdel{Step-by-step framework for robust decision-making from EHR data}}%DIFAUXCMD
-%DIFDELCMD < \label{sec:inference_flow}
-%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-\DIFdelend Whether or not using machine learning, many pitfalls threaten an analysis'
+Whether or not using machine learning, many pitfalls threaten an analysis'
 value for decision-making. To avoid these pitfalls, we outline a simple
 step-by-step analytic framework illustrated in Figure
 \ref{fig:inference_framework} for retrospective case-control studies. We frame
@@ -653,10 +558,8 @@ achieve.
 \subsection*{Step 1: study design -- Frame the question to avoid biases}\label{sec:framing}
 
 
-\DIFdelbegin %DIFDELCMD < \begin{table*}[h!]
-%DIFDELCMD <     %%%
-\DIFdelendFL \DIFaddbeginFL \begin{table*}[b!]
-  \DIFaddendFL \resizebox{\linewidth}{!}{%
+\begin{table*}[b!]
+  \resizebox{\linewidth}{!}{%
     \begin{tabular}{|l|l|l|l|}
       \hline
       \multicolumn{1}{|c|}{\textbf{PICO component}} & \multicolumn{1}{c|}{\textbf{Description}}       & \multicolumn{1}{c|}{\textbf{Notation}}                 & \multicolumn{1}{c|}{\textbf{Example}}         \\ \hline
@@ -673,15 +576,20 @@ achieve.
 
 
 Grounding decisions on evidence needs well-framed questions, defined by their
-PICO(T) components. Population, Intervention, Control, and Outcome \cite{richardson1995well,riva2012your}, and
-in case of EHRs or claims data an additional time component, are necessary to
-concord with a (hypothetical) target randomized clinical trial \cite{hernan_using_2016,wang2023emulation} -- Table
-\ref{table:picot}.
+PICO(T) components. Population, Intervention, Control, and Outcome
+\cite{richardson1995well,riva2012your}, and in case of EHRs or claims data an
+additional time component, are necessary to concord with a (hypothetical) target
+randomized clinical trial \cite{hernan_using_2016,wang2023emulation} -- Table
+\ref{table:picot}. \DIFaddbegin \DIFadd{A selection flowchart such as in
+}\nameref{apd:selection_flowchart} \DIFadd{makes the inclusion and exclusion for the PICOT
+  choices explicit.
+}\DIFaddend
 
 Without care in defining these PICO(T) components, non-causal associations
-between treatment and outcomes can easily be introduced into an analysis \cite{catalogofbias}. The
-time-varying nature of EHR calls for checking systematically of the Population
-and Time components by addressing two commonly encountered types of bias.
+between treatment and outcomes can easily be introduced into an analysis
+\cite{catalogofbias}. The time-varying nature of EHR calls for checking
+systematically of the Population and Time components by addressing two commonly
+encountered types of bias.
 
 
 \paragraph{Selection Bias:} In EHRs, outcomes and treatments are often not
@@ -750,8 +658,18 @@ Regressing the outcome on instrumental and post-treatment variables (colliders
 and mediators) will lead to biased causal estimates
 \cite{vanderweele2019principles}. Drawing causal Directed Acyclic Graphs
 (DAGs) \cite{greenland1999causal}, \emph{eg} with a webtool such as DAGitty \cite{textor2011dagitty}, helps capturing the relevant
-variables and defining a suitable estimand or effect measure. The
-\emph{estimand} is the final statistical quantity estimated from the data.
+variables and defining a suitable estimand or effect measure. \DIFaddbegin \DIFadd{Unconfoundedness --inclusion of all confounders in the analysis--
+  is a strong hypothesis that can be hard to obtain in real applications. In these cases, sensitivity analyses for omited variable bias allow to test the robustness of the results to missing confounders \mbox{%DIFAUXCMD
+    \cite{cinelli2020making}}\hskip0pt%DIFAUXCMD
+  , proximal inference can be used to leverage proxy of unobserved confounders \mbox{%DIFAUXCMD
+    \cite{tchetgen2024introduction}}\hskip0pt%DIFAUXCMD
+  , and the presence of natural experiment might identify the desired causal effect without unconfoundedness \mbox{%DIFAUXCMD
+    \cite[Chapter 5, 9]{wager2020stats}}\hskip0pt%DIFAUXCMD
+  .
+}
+
+\DIFaddend The
+\emph{estimand} is the final \DIFdelbegin \DIFdel{statistical }\DIFdelend \DIFaddbegin \DIFadd{causal }\DIFaddend quantity estimated from the data.
 Depending on the question, different estimands are better suited to contrast
 the two potential outcomes E[Y(1)] and E[Y(0)] \cite{imbens_nonparametric_2004,colnet2023risk}. For continuous outcomes, risk
 difference is a natural estimand, while for binary outcomes (e.g. events) the
@@ -760,7 +678,26 @@ informative at the population level, e.g. for medico-economic decision-making,
 the risk ratio and the hazard ratio are more informative at the level of
 sub-groups or individuals \cite{colnet2023risk}.
 
-\subsection*{Step 3: Estimation -- Compute the causal effect of interest}\label{sec:estimation}
+\DIFaddbegin \paragraph{\DIFadd{Causal estimators}}
+
+\DIFadd{A given estimand can be estimated through different methods. One can model the
+  outcome with regression models also known as
+  G-formula, \mbox{%DIFAUXCMD
+    \cite{robins1986role} }\hskip0pt%DIFAUXCMD
+  and use it as a predictive counterfactual model
+  for all possible treatments for a given patient. Alternatively, one can model
+  the propensity of being treated use it for matching or Inverse Propensity
+  Weighting (IPW) \mbox{%DIFAUXCMD
+    \cite{austin2015moving}}\hskip0pt%DIFAUXCMD
+  . Finally, doubly robust methods model
+  both the outcome and the treatment, benefiting from the convergence of both
+  models \mbox{%DIFAUXCMD
+    \cite{wager2020stats}}\hskip0pt%DIFAUXCMD
+  . There is a variety of doubly robust models,
+  reviewed in }\nameref{apd:causal_estimators}\DIFadd{.
+}
+
+\DIFaddend \subsection*{Step 3: \DIFdelbegin \DIFdel{Estimation }\DIFdelend \DIFaddbegin \DIFadd{Statistical estimation }\DIFaddend -- Compute the causal effect of interest}\label{sec:estimation}
 
 %\paragraph{Confounder extraction}
 %
@@ -788,19 +725,33 @@ However, high-dimensional
 confounder space such as text may break the positivity assumption just as hourly
 aggregation choices for measurements.
 
-\paragraph{Causal estimators or statistical modeling}
+\DIFdelbegin \paragraph{\DIFdel{Causal estimators or statistical modeling}}
+%DIFAUXCMD
+\addtocounter{paragraph}{-1}%DIFAUXCMD
+%DIFDELCMD < 
 
-A given estimand can be estimated through different methods. One can model the
-outcome with regression models also known as
-G-formula, \cite{robins1986role} and use it as a predictive counterfactual model
-for all possible treatments for a given patient. Alternatively, one can model
-the propensity of being treated use it for matching or Inverse Propensity
-Weighting (IPW) \cite{austin2015moving}. Finally, doubly robust methods model
-both the outcome and the treatment, benefiting from the convergence of both
-models \cite{wager2020stats}. There is a variety of doubly robust models,
-reviewed in \nameref{apd:causal_estimators}.
+%DIFDELCMD < %%%
+\DIFdel{A given estimand can be estimated through different methods. One can model the
+  outcome with regression models also known as
+  G-formula, \mbox{%DIFAUXCMD
+    \cite{robins1986role} }\hskip0pt%DIFAUXCMD
+  and use it as a predictive counterfactual model
+  for all possible treatments for a given patient. Alternatively, one can model
+  the propensity of being treated use it for matching or Inverse Propensity
+  Weighting (IPW) \mbox{%DIFAUXCMD
+    \cite{austin2015moving}}\hskip0pt%DIFAUXCMD
+  . Finally, doubly robust methods model
+  both the outcome and the treatment, benefiting from the convergence of both
+  models \mbox{%DIFAUXCMD
+    \cite{wager2020stats}}\hskip0pt%DIFAUXCMD
+  . There is a variety of doubly robust models, reviewed in }%DIFDELCMD < \nameref{apd:causal_estimators}%%%
+\DIFdelend \DIFaddbegin \DIFadd{Missing covariate values might also be a source of confounding. Some statistical
+  estimators (such as forests) can directly incorporate them as supplementary
+  covariates. Others, such as linear models, require imputations.
+}\nameref{apd:statistical_considerations} \DIFadd{details general sanity check for
+  imputation strategies when using statistical estimators}\DIFaddend .
 
-\paragraph{Estimation models of outcome and treatment}
+\paragraph{\DIFdelbegin \DIFdel{Estimation }\DIFdelend \DIFaddbegin \DIFadd{Statistical estimation }\DIFaddend models of outcome and treatment}
 
 The causal estimators use models of the outcome or the treatment --called
 nuisances. There is currently no clear best practice to choose the corresponding
@@ -853,23 +804,25 @@ found that septic-shock patients do benefit from albumin.
 Multiple published RCTs can validate the analysis pipeline before
 investigating sub-population effects for individualized decisions. Using
 MIMIC-IV \cite{johnson2020mimic}, we compare the magnitude of biases introduced by reasonable
-choices in the different analytical steps \DIFaddbegin \DIFadd{recalled in Figure \ref{fig:study_summary}}\DIFaddend .
+choices in the different analytical steps recalled in Figure \ref{fig:study_summary}.
 
-\DIFaddbegin \begin{figure}[h!]
+\begin{figure}[h!]
   \centering
-  \includegraphics[width=\linewidth]{img/applied_inference_flow.pdf}
-  \caption{\textbf{\DIFaddFL{Application of the step-by-step framework on which resuscitation fluid to use.}}}\label{fig:study_summary}
+  \includegraphics[width=\linewidth]{img_main/applied_inference_flow.pdf}
+  \caption{\textbf{Application of the step-by-step framework on which resuscitation fluid to use.}}\label{fig:study_summary}
 \end{figure}
 
 
-\DIFaddend \subsection*{Study design: effect of crystalloids on mortality in sepsis}%
+\subsection*{Study design: effect of crystalloids on mortality in sepsis}%
 \label{sec:framing_mimic_iv}
 
 \begin{itemize}[leftmargin=2ex]
-  \item \textcolor{P}{Population}: Patients with sepsis in an ICU stay
-        according to the sepsis-3 definition. Other inclusion criteria:
-        sufficient follow-up of at least 24 hours, and age over 18 years
-        described in Appendix \ref{apd:table:albumin_for_sepsis:table1_complete}.
+  \item \textcolor{P}{Population}: Patients with sepsis in an ICU stay according
+        to the sepsis-3 definition. Other inclusion criteria: sufficient
+        follow-up of at least 24 hours, and age over 18 years\DIFdelbegin \DIFdel{described in Appendix \ref{apd:table:albumin_for_sepsis:table1_complete}}\DIFdelend \DIFaddbegin \DIFadd{.
+        }\nameref{apd:selection_flowchart} \DIFadd{details the selection flowchart and
+        }\nameref{apd:albumin_for_sepsis:table1_complete} \DIFadd{the population
+          characteristics}\DIFaddend .
 
   \item \textcolor{I}{Intervention}: Treatment with a combination of
         crystalloids and albumin during the first 24 hours of an ICU stay.
@@ -888,15 +841,16 @@ choices in the different analytical steps \DIFaddbegin \DIFadd{recalled in Figur
         this hypothesis in the vibration analysis step.
 \end{itemize}
 
-In MIMIC-IV, these inclusion criteria yield 18,121 patients of which 3,559 were treated with a combination of crystalloids and albumin\DIFdelbegin \DIFdel{(}\DIFdelend \DIFaddbegin \DIFadd{. While glycopeptide antibiotic therapy   was similar between both groups (51.8\% crystalloid vs 51.5\% crystalloids + albumin), aminoglycosides, carbapenems, and beta-lactams were more frequent in the crystalloid only group (2.0\% vs. 0.7\%, 4.3\% vs. 2.6\%, and 35.5\% vs. 13.8\%, respectively). The crystalloid only group was more frequently admitted as an emergency (57.3\% vs. 30.7\%). Vasopressors (80.2\% vs 41.7\%) and ventilation (96.8\% vs 87.0\%) were more prevalent in the treated populations, underlying the overall higher severity of patients receiving albumin (mean SOFA at admission 6.9 vs. 5.7).
-}\DIFaddend Table \ref{table:albumin_for_sepsis:table1_simple} details
-patient characteristics and \nameref{apd:selection_flowchart} details the selection flowchart\DIFdelbegin \DIFdel{)}\DIFdelend .
+In MIMIC-IV, these inclusion criteria yield 18,121 patients of which 3,559 were treated with a combination of crystalloids and albumin. While glycopeptide antibiotic therapy   was similar between both groups (51.8\% crystalloid vs 51.5\% crystalloids + albumin), aminoglycosides, carbapenems, and beta-lactams were more frequent in the crystalloid only group (2.0\% vs. 0.7\%, 4.3\% vs. 2.6\%, and 35.5\% vs. 13.8\%, respectively). The crystalloid only group was more frequently admitted as an emergency (57.3\% vs. 30.7\%). Vasopressors (80.2\% vs 41.7\%) and ventilation (96.8\% vs 87.0\%) were more prevalent in the treated populations, underlying the overall higher severity of patients receiving albumin (mean SOFA at admission 6.9 vs. 5.7).
+Table \ref{table:albumin_for_sepsis:table1_simple} details
+patient characteristics\DIFdelbegin \DIFdel{and }%DIFDELCMD < \nameref{apd:selection_flowchart} %%%
+\DIFdel{details the selection flowchart}\DIFdelend .
 
 
 \begin{table}[h!]
   \centering\small
   \resizebox{\columnwidth}{!}{
-    \input{img/albumin_for_sepsis__obs_1d__table1_24h.tex}%
+    \input{img_main/albumin_for_sepsis__obs_1d__table1_24h.tex}%
   }
   \\[.5ex]
 
@@ -909,7 +863,7 @@ patient characteristics and \nameref{apd:selection_flowchart} details the select
 \subsection*{Identification: listing confounders}\label{sec:identification_mimic_iv}
 
 For confounders selection we use a causal DAG shown in Figure
-\ref{fig:causal_diagram_albumin}. Gray confounders are not controlled for since
+\DIFdelbegin \DIFdel{\ref{fig:causal_diagram_albumin}}\DIFdelend \DIFaddbegin \nameref{apd:causal_diagram_albumin}\DIFaddend . Gray confounders are not controlled for since
 they are not available in the data. However, resulting confounding biases are
 captured by proxies such as comorbidity scores (SOFA or SAPS II) or other
 variables (eg. race, gender, age, weight).
@@ -917,16 +871,25 @@ variables (eg. race, gender, age, weight).
 \nameref{apd:albumin_for_sepsis:table1_complete} details confounders
 summary statistics for treated and controls.
 
-\subsection*{Estimation}\label{sec:estimation_mimic_iv}
 
+\DIFdelbegin \subsection*{\DIFdel{Estimation}}%DIFAUXCMD
+%DIFDELCMD < \label{sec:estimation_mimic_iv}
+%DIFDELCMD < 
 
-\paragraph{Confounder aggregation:}
+%DIFDELCMD < %%%
+\paragraph{\DIFdel{Confounder aggregation:}}
+%DIFAUXCMD
+\addtocounter{paragraph}{-1}%DIFAUXCMD
+%DIFDELCMD < 
 
-We tested multiple aggregations such as the last value before the start of the
-follow-up period, the first observed value, and both the first and last values as
-separated features.
+%DIFDELCMD < %%%
+\DIFdel{We tested multiple aggregations such as the last value before the start of the
+  follow-up period, the first observed value, and both the first and last values as
+  separated features.
+}%DIFDELCMD < 
 
-\paragraph{Causal estimators:}
+%DIFDELCMD < %%%
+\DIFdelend \paragraph{Causal estimators:}
 
 We implemented multiple estimation strategies, including Inverse Propensity
 Weighting (IPW), outcome modeling (G-formula) with T-Learner, Augmented Inverse
@@ -936,7 +899,20 @@ EconML \cite{battocchi2019econml} for all other estimation strategies.
 Confidence intervals were estimated by bootstrap (50 repetitions).
 \nameref{apd:causal_estimators} and
 \nameref{apd:packages} detail the estimators and the available Python
-implementations.
+implementations. \DIFaddbegin \nameref{apd:statistical_considerations} \DIFadd{details statistical considerations that we identify as important but missing in these packages, namely lack of cross fitting estimators, bad practices for imputation, lack of closed form confidence intervals.
+}
+
+\subsection*{\DIFadd{Estimation}}\label{sec:estimation_mimic_iv}
+
+
+\paragraph{\DIFadd{Confounder aggregation:}}
+
+\DIFadd{We tested multiple aggregations such as the last value before the start of the
+  follow-up period, the first observed value, and both the first and last values
+  as separated features. Missing values were median imputed for numerical
+  features, categorical variables were one-hot encoded (thus discarded missing values).
+}\DIFaddend
+
 
 \paragraph{Outcome and treatment estimators:}
 
@@ -960,24 +936,24 @@ explained in \autoref{sec:framing}, a longer eligibility period means that
 patients are more likely to be treated if they survived up to the intervention
 and hence the study is biased to overestimate the beneficial effect of the
 intervention. Figure \ref{fig:vibration:itb} shows that longer eligibility
-periods lead to albumin being markedly more efficient.
+periods lead to albumin being markedly more efficient \DIFaddbegin \DIFadd{(detailed results with causal forest and other choices of aggregation in }\nameref{apd:detailed_results_itb}\DIFadd{)}\DIFaddend .
 
 \begin{figure*}[h!]
   \begin{subfigure}[b]{\linewidth}
     \caption{\bfseries Framing -- Immortal Time Bias}\label{fig:vibration:itb}
-    \includegraphics[width=0.765\linewidth, right]{img/itb__dr_forest_agg_first_last__bs_30_shared_x_axis.pdf}
+    \includegraphics[width=0.765\linewidth, right]{img_main/itb__dr_forest_agg_first_last__bs_30_shared_x_axis.pdf}
   \end{subfigure}
   \vfill
   \begin{subfigure}[b]{\linewidth}
     \centering
     \caption{\bfseries Identification -- confounders choice}\label{fig:vibration:confounders}
-    \includegraphics[width=.9\linewidth, right]{img/sensitivity_confounders_main_shared_x_axis.pdf}
+    \includegraphics[width=.9\linewidth, right]{img_main/sensitivity_confounders_main_shared_x_axis.pdf}
   \end{subfigure}
   \vfill
   \begin{subfigure}[b]{\linewidth}
     \centering
     \caption{\bfseries Model selection}\label{fig:vibration:models}
-    \includegraphics[width=0.891\linewidth, right]{img/estimates_20230712__est_lr_rf__bs_50_shared_x_axis.pdf}
+    \includegraphics[width=0.891\linewidth, right]{img_main/estimates_20230712__est_lr_rf__bs_50_shared_x_axis.pdf}
   \end{subfigure}
   \vfill
   \caption{\textbf{The effect of choices on the three
@@ -1002,10 +978,14 @@ periods lead to albumin being markedly more efficient.
 
 \paragraph{Confounder choice} We consider other choice of confounding variables
 (\nameref{apd:vibration_analysis_for_confounders}). Figure
-\ref{fig:vibration:confounders} shows that a less thorough choice, neglecting the
-administrated drugs, makes little to no difference. Major errors, such as
+\ref{fig:vibration:confounders} shows that a less thorough choice, neglecting
+the administrated drugs, makes little to no difference. Major errors, such as
 omitting the biological measurements or using only socio-demographical
-variables, lead to sizeable bias.
+variables, lead to sizeable bias. \DIFaddbegin \DIFadd{This is consistent with the literature
+  enhancing the importance of a clinically valid DAG \mbox{%DIFAUXCMD
+    \cite{greenland1999causal}}\hskip0pt%DIFAUXCMD
+  .
+}\DIFaddend
 
 \paragraph{Estimation choices -- Confounder aggregation, causal and nuisance estimators:}
 
@@ -1015,7 +995,7 @@ whereas the outcome-regression methods have the largest CI. The estimates of the
 forest models are closer to the consensus across prior studies (no effect) than
 the logistic regression indicating a better fit of non-linear relationships. We
 only report the first and last pre-treatment feature aggregation strategy, since
-detailed analysis showed little differences for other aggregations (\nameref{apd:detailed_results}). Both methodological studies \cite{naimi2023challenges} and
+detailed analysis showed little differences for other aggregations (\nameref{apd:detailed_results} \DIFaddbegin \DIFadd{for complete results, and }\nameref{apd:vibration_analysis_for_aggregation} \DIFadd{for a detailed study on aggregation choices}\DIFaddend ). Both methodological studies \cite{naimi2023challenges} and
 consistency with published RCTs suggest to prefer doubly-robust approaches.
 
 \subsection*{Treatment heterogeneity: Which treatment for a sub-population?}%
@@ -1034,7 +1014,8 @@ decision-making. We explore
 heterogeneity along four binary patient characteristics, displayed in Figure
 \ref{fig:albumin_for_sepsis:cate_results}. We find that albumin is beneficial
 with patient with septic shock consistent with one
-RCT  \cite{caironi2014albumin}. It is also beneficial for older patients (age >=60) and males.
+RCT  \cite{caironi2014albumin}. It is also beneficial for older patients (age >=60) and males. \DIFaddbegin \nameref{apd:hte} \DIFadd{details the heterogeneity analysis.
+}\DIFaddend
 
 \begin{figure}[h!]
   \begin{minipage}{.4\linewidth}
@@ -1049,7 +1030,7 @@ RCT  \cite{caironi2014albumin}. It is also beneficial for older patients (age >=
   \end{minipage}%
   \hfill%
   \begin{minipage}{.6\linewidth}
-    \includegraphics[width=\linewidth]{img/boxplot_est__DML__nuisances__Forests__final_Ridge.pdf}
+    \includegraphics[width=\linewidth]{img_main/boxplot_est__DML__nuisances__Forests__final_Ridge.pdf}
   \end{minipage}%
 \end{figure}
 
@@ -1125,12 +1106,10 @@ Yet it is important to keep in mind that better prediction is not per se
 a goal in healthcare.
 %
 Establishing strong predictors might be less important than identifying
-moderately strong but modifiable risk factors as established \DIFdelbegin \DIFdel{on }\DIFdelend \DIFaddbegin \DIFadd{in }\DIFaddend the Framingham
-cohort \cite{brand1976multivariate}\DIFdelbegin \DIFdel{.
-  Cardio-vascular risk scores }\DIFdelend \DIFaddbegin \DIFadd{, while others }\DIFaddend such as the QRISK \DIFaddbegin \DIFadd{score }\DIFaddend are used to optimize population-wide \DIFdelbegin \DIFdel{cost
-  effectiveness, but do not inform which patient benefits most from a given
-  treatment (}%DIFDELCMD < \nameref{apd:risk_assessment_scores}%%%
-\DIFdel{)}\DIFdelend \DIFaddbegin \DIFadd{cost-effectiveness, but not individual treatment effect}\DIFaddend .
+moderately strong but modifiable risk factors as established in the Framingham
+cohort \cite{brand1976multivariate}, while others such as \DIFdelbegin \DIFdel{the QRISK }\DIFdelend \DIFaddbegin \DIFadd{predictive }\DIFaddend score are
+used to optimize population-wide cost-effectiveness, but not individual
+treatment effect.
 
 No sophisticated data-processing tool can safeguard against
 invalid study design or a major missing confounder, loopholes that can
@@ -1153,6 +1132,8 @@ The datasets are available on PhysioNet (
 \url{https://doi.org/10.13026/6mm1-ek67}). We used MIMIC-IV.v2.2 The code for
 data preprocessing and analyses are available on github
 \url{https://github.com/soda-inria/causal_ehr_mimic/}.
+\DIFaddbegin \DIFadd{The project was run on a laptop running Ubuntu 22.04.2 LTS with the following hardware: CPU 12th Gen Intel(R) Core(TM) i7-1270P with 16 threads and 15 GB of RAM.
+}\DIFaddend
 
 % \section*{Fundings}
 % This study was supported by an unrestricted educational grants to TS (Swiss
@@ -1165,11 +1146,20 @@ data preprocessing and analyses are available on github
 MD and TS designed the study, MD performed the analysis and wrote the manuscript.
 TS, JA, CM, LAC, GV reviewed and edited the manuscript.
 
-% \section*{Competing interests}
+%DIF <  \section*{Competing interests}
+\DIFaddbegin \section*{\DIFadd{Acknowledgments}}
+
+\DIFadd{We thank all the PhysioNet team for their encouragements and support. In
+  particular: Fredrik Willumsen Haug, João Matos, Luis Nakayama, Sicheng Hao, Alistair Johnson.
+}
+
+\nolinenumbers
+
+\bibliography{references}
+\DIFaddend
 
 % All authors declare no financial or non-financial competing interests.
-\DIFaddbegin \clearpage
-\DIFaddend
+\clearpage
 
 \section*{Supporting information}
 
@@ -1229,13 +1219,13 @@ statins at screening time.
 \begin{figure}[!h]
   \begin{subfigure}{\linewidth}
     \centering
-    \includegraphics[width=0.8\linewidth]{img/predictive_failure__pr_auc.pdf}
+    \includegraphics[width=0.8\linewidth]{img_supp/predictive_failure__pr_auc.pdf}
     \caption{Area under the Precision-Recall curve (PR\_AUC)}\label{apd:fig:motivating_example_pr_auc}
   \end{subfigure}
   \hfill
   \begin{subfigure}{\linewidth}
     \centering
-    \includegraphics[width=0.8\linewidth]{img/predictive_failure__roc_auc.pdf}
+    \includegraphics[width=0.8\linewidth]{img_supp/predictive_failure__roc_auc.pdf}
     \caption{Area under the Receiving Operator Characteristic (ROC\_AUC)}\label{apd:fig:motivating_example_roc_auc}
   \end{subfigure}
   \caption{Failure to predict 28-day mortality from a model fitted on
@@ -1245,8 +1235,7 @@ statins at screening time.
     (Pre-treatment only). The all-stay model performance markedly decreases in
     the pre-treatment only dataset.}\label{apd:fig:motivating_example}
 \end{figure}
-\DIFaddbegin \clearpage
-\DIFaddend
+\clearpage
 
 
 \paragraph*{S2 Fig.}
@@ -1259,7 +1248,7 @@ screening programs  \cite{bretthauer2013principles}.
 
 \begin{figure}[!h]
   % \begin{minipage}{.25\linewidth}
-  \includegraphics[width=0.7\linewidth]{img/catalog_of_bias_immortal_time_bias.png}
+  \includegraphics[width=0.7\linewidth]{img_supp/catalog_of_bias_immortal_time_bias.png}
   \caption{Poor experimental design can introduce Immortal time bias, which
     leads to a treated group with falsely longer longevity
     \cite{lee2020immortaltimebias}.}\label{apd:fig:immortal_time_bias}
@@ -1268,8 +1257,7 @@ screening programs  \cite{bretthauer2013principles}.
   % \begin{minipage}{.7\linewidth}
   % \end{minipage}
 \end{figure}
-\DIFaddbegin \clearpage
-\DIFaddend
+\clearpage
 
 
 \paragraph*{S3 Fig.}
@@ -1281,7 +1269,7 @@ prevent time-related biases.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\linewidth]{img/timeline_albumin_for_sepsis.pdf}
+  \includegraphics[width=\linewidth]{img_supp/timeline_albumin_for_sepsis.pdf}
   \caption{Defining the inclusion event, the starting time T0 for follow-up, the
     intervention's assignment time and the observation window for confounders is
     crucial to avoid time and selection biases. In our study, the gap
@@ -1289,8 +1277,7 @@ prevent time-related biases.
     compared to the occurrence of the outcome to limit immortal time bias: 6.7 hours vs 40
     days for mortality.\label{fig:cohort_timeline_albumin}}
 \end{figure}
-\DIFaddbegin \clearpage
-\DIFaddend
+\clearpage
 
 
 \paragraph*{S4 Fig.}
@@ -1302,32 +1289,32 @@ Figure \ref{fig:causal_variables} illustrates the different types of causal vari
 \begin{figure}[h!]
   \begin{minipage}[t]{0.32\linewidth}
     \centering
-    \includegraphics[width=0.72\linewidth]{img/confounder.pdf}
+    \includegraphics[width=0.72\linewidth]{img_supp/confounder.pdf}
     \small\sffamily Confounder
   \end{minipage}
   \hfill
   \begin{minipage}[t]{0.32\linewidth}
     \centering
-    \includegraphics[width=0.72\linewidth]{img/collider.pdf}
+    \includegraphics[width=0.72\linewidth]{img_supp/collider.pdf}
     \small\sffamily Collider
   \end{minipage}
   \hfill
   \begin{minipage}[t]{0.32\linewidth}
     \centering
-    \includegraphics[width=0.72\linewidth]{img/instrumental_variable.pdf}
+    \includegraphics[width=0.72\linewidth]{img_supp/instrumental_variable.pdf}
     \small\sffamily Instrumental \\variable
   \end{minipage}
   \vfill
   \begin{minipage}[t]{0.4\linewidth}
     \centering
-    \includegraphics[width=.9\linewidth]{img/mediator.pdf}%
+    \includegraphics[width=.9\linewidth]{img_supp/mediator.pdf}%
     \\
     \small\sffamily Mediator
   \end{minipage}
   \hfill
   \begin{minipage}[t]{0.4\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{img/effect_modifier.pdf}%
+    \includegraphics[width=\linewidth]{img_supp/effect_modifier.pdf}%
     % \llap{%
     %   \raisebox{.555\linewidth}{\colorbox{black!10}{\parbox{1.9\linewidth}{%
     %         \sffamily\small\hspace*{-1.3ex}%
@@ -1347,131 +1334,300 @@ Figure \ref{fig:causal_variables} illustrates the different types of causal vari
     Treatment, X: Confounder, IV: Instrumental variable, M: mediator, Y:
     Outcome, C: Collider, E: Effect modifier.}\label{fig:causal_variables}
 \end{figure}
-\DIFaddbegin \clearpage
-\DIFaddend
+\clearpage
 
 
 
-\paragraph*{S1 Appendix.}
-\label{apd:ate_on_mimic}
-{\bf Estimation of Treatment effect with MIMIC data.}
+\DIFdelbegin \paragraph*{\DIFdel{S1 Appendix.}}
+%DIFAUXCMD
+%DIFDELCMD < \label{apd:ate_on_mimic}
+%DIFDELCMD < {\bf %%%
+\DIFdel{Estimation of Treatment effect with MIMIC data.}%DIFDELCMD < }
+%DIFDELCMD < %%%
+\DIFdelend %DIF >  \paragraph*{S1 Appendix.}
+%DIF >  \label{apd:ate_on_mimic}
+%DIF >  {\bf Estimation of Treatment effect with MIMIC data.}
 
-We searched for causal inference studies in MIMIC using PubMed and Google
-scholar with the following search terms ((MIMIC-III OR MIMIC-IV) AND (causal
-inference OR treatment effect)). We retained eleven treatment effect studies
-clearly following the PICO framework:
+\DIFdelbegin \DIFdel{We searched for causal inference studies in MIMIC using PubMed and Google
+  scholar with the following search terms ((MIMIC-III OR MIMIC-IV) AND (causal
+  inference OR treatment effect)). We retained eleven treatment effect studies
+  clearly following the PICO framework:
+}\DIFdelend %DIF >  We searched for causal inference studies in MIMIC using PubMed and Google
+%DIF >  scholar with the following search terms ((MIMIC-III OR MIMIC-IV) AND (causal
+%DIF >  inference OR treatment effect)). We retained eleven treatment effect studies
+%DIF >  clearly following the PICO framework:
 
-\begin{itemize}[leftmargin=2ex]
-  \item \cite{liu2021effects} studied the effect of \textcolor{I}{High-flow
-          nasal cannula oxygen (HFNC)} against \textcolor{C}{noninvasive
-          mechanical ventilation} on \textcolor{P}{801 patients with hypoxemia
-          during ventilator weaning} on \textcolor{O}{28-day mortality}. They
-        used propensity score matching, and found non-negative effects as
-        previous RCTs reported --though those were focused on reintubation as the
-        main outcome \cite{stephan2015high,hernandez2016effect}.
+\DIFdelbegin %DIFDELCMD < \begin{itemize}[leftmargin=2ex]
+%DIFDELCMD <   \item %%%
+\DIFdel{\mbox{%DIFAUXCMD
+    \cite{liu2021effects} }\hskip0pt%DIFAUXCMD
+  studied the effect of \textcolor{I}{High-flow
+    nasal cannula oxygen (HFNC)} against \textcolor{C}{noninvasive
+    mechanical ventilation} on \textcolor{P}{801 patients with hypoxemia
+    during ventilator weaning} on \textcolor{O}{28-day mortality}. They
+  used propensity score matching, and found non-negative effects as
+  previous RCTs reported --though those were focused on reintubation as the
+  main outcome \mbox{%DIFAUXCMD
+    \cite{stephan2015high,hernandez2016effect}}\hskip0pt%DIFAUXCMD
+  .
+}\DIFdelend %DIF >  \begin{itemize}[leftmargin=2ex]
+%DIF >    \item \cite{liu2021effects} studied the effect of \textcolor{I}{High-flow
+%DIF >            nasal cannula oxygen (HFNC)} against \textcolor{C}{noninvasive
+%DIF >            mechanical ventilation} on \textcolor{P}{801 patients with hypoxemia
+%DIF >            during ventilator weaning} on \textcolor{O}{28-day mortality}. They
+%DIF >          used propensity score matching, and found non-negative effects as
+%DIF >          previous RCTs reported --though those were focused on reintubation as the
+%DIF >          main outcome \cite{stephan2015high,hernandez2016effect}.
 
-  \item \cite{yarnell2023oxygenation} studied the effect of \textcolor{I}{lower hypoxemia} vs \textcolor{C}{higher
-        hypoxemia thresholds for the initiation of invasive ventilation} (defined with saturation-to-inspired oxygen ratio (SF)) for
-        \textcolor{P}{3,357 patients from MIMIC receiving inspired oxygen fraction greater than 0.4} on \textcolor{O}{28-day
-          mortality}. Using bayesian G-computation (time-varying treatment model with
-        gaussian process and outcome-model with BART, taking the treatment model as
-        entry), they found protective effects for initialization at low hypoxemia.
-        However, when externally validation their findings in the AmsterdamUMCdb dataset,
-        they found the highest mortality probability for patients with low hypoxemia.
-        Authors concluded that their model was heavily dependent on clinical context
-        and baseline characteristics. There might be some starting-time bias in this study since it is really close
+\DIFdelbegin %DIFDELCMD < \item %%%
+\DIFdel{\mbox{%DIFAUXCMD
+  \cite{yarnell2023oxygenation} }\hskip0pt%DIFAUXCMD
+studied the effect of \textcolor{I}{lower hypoxemia} vs \textcolor{C}{higher
+  hypoxemia thresholds for the initiation of invasive ventilation} (defined with saturation-to-inspired oxygen ratio (SF)) for
+\textcolor{P}{3,357 patients from MIMIC receiving inspired oxygen fraction greater than 0.4} on \textcolor{O}{28-day
+  mortality}. Using bayesian G-computation (time-varying treatment model with
+gaussian process and outcome-model with BART, taking the treatment model as
+entry), they found protective effects for initialization at low hypoxemia.
+However, when externally validation their findings in the AmsterdamUMCdb dataset,
+they found the highest mortality probability for patients with low hypoxemia.
+Authors concluded that their model was heavily dependent on clinical context
+and baseline characteristics. There might be some starting-time bias in this study since it is really close
+}\DIFdelend %DIF >    \item \cite{yarnell2023oxygenation} studied the effect of \textcolor{I}{lower hypoxemia} vs \textcolor{C}{higher
+%DIF >          hypoxemia thresholds for the initiation of invasive ventilation} (defined with saturation-to-inspired oxygen ratio (SF)) for
+%DIF >          \textcolor{P}{3,357 patients from MIMIC receiving inspired oxygen fraction greater than 0.4} on \textcolor{O}{28-day
+%DIF >            mortality}. Using bayesian G-computation (time-varying treatment model with
+%DIF >          gaussian process and outcome-model with BART, taking the treatment model as
+%DIF >          entry), they found protective effects for initialization at low hypoxemia.
+%DIF >          However, when externally validation their findings in the AmsterdamUMCdb dataset,
+%DIF >          they found the highest mortality probability for patients with low hypoxemia.
+%DIF >          Authors concluded that their model was heavily dependent on clinical context
+%DIF >          and baseline characteristics. There might be some starting-time bias in this study since it is really close
 
-  \item \cite{hsu2015association} studied the effect of \textcolor{I}{indwelling
-          arterial catheters (IACs)} vs \textcolor{C}{non-IAC} for
-        \textcolor{P}{1,776 patients who are mechanically ventilated and did
-          not require vasopressor support} on \textcolor{O}{28-day mortality}.
-        They used propensity score matching and found no effect. A notebook based on google cloud access to MIMIC-IV
-        replicating the study is available \href{https://github.com/alistairewj/mimic-iv-aline-study/blob/main/mimic_iv_aline.ipynb}{here}.
+\DIFdelbegin %DIFDELCMD < \item %%%
+\DIFdel{\mbox{%DIFAUXCMD
+    \cite{hsu2015association} }\hskip0pt%DIFAUXCMD
+  studied the effect of \textcolor{I}{indwelling
+    arterial catheters (IACs)} vs \textcolor{C}{non-IAC} for
+  \textcolor{P}{1,776 patients who are mechanically ventilated and did
+    not require vasopressor support} on \textcolor{O}{28-day mortality}.
+  They used propensity score matching and found no effect. A notebook based on google cloud access to MIMIC-IV
+  replicating the study is available }\href{https://github.com/alistairewj/mimic-iv-aline-study/blob/main/mimic_iv_aline.ipynb}{\DIFdel{here}}%DIFAUXCMD
+\DIFdel{.
+}\DIFdelend %DIF >    \item \cite{hsu2015association} studied the effect of \textcolor{I}{indwelling
+%DIF >            arterial catheters (IACs)} vs \textcolor{C}{non-IAC} for
+%DIF >          \textcolor{P}{1,776 patients who are mechanically ventilated and did
+%DIF >            not require vasopressor support} on \textcolor{O}{28-day mortality}.
+%DIF >          They used propensity score matching and found no effect. A notebook based on google cloud access to MIMIC-IV
+%DIF >          replicating the study is available \href{https://github.com/alistairewj/mimic-iv-aline-study/blob/main/mimic_iv_aline.ipynb}{here}.
 
-  \item \cite{feng2018transthoracic} studied the effect of
-        \textcolor{I}{transthoracic echocardiography} vs \textcolor{C}{no
-          intervention} for \textcolor{P}{6,361 patients with sepsis} on
-        \textcolor{O}{28-day mortality}. They used IPW, PSM, g-formula and a
-        doubly robust estimation. The propensity score was modeled with boosting
-        and the outcome model with a logistic regression. They
-        found a significant positive reduction of mortality (odd ratio 0.78, 95\% CI 0.68-0.90).
-        \href{https://github.com/nus-mornin-lab/echo-mimiciii}{Study code is
-          open source}.
+\DIFdelbegin %DIFDELCMD < \item %%%
+\DIFdel{\mbox{%DIFAUXCMD
+    \cite{feng2018transthoracic} }\hskip0pt%DIFAUXCMD
+  studied the effect of
+  \textcolor{I}{transthoracic echocardiography} vs \textcolor{C}{no
+    intervention} for \textcolor{P}{6,361 patients with sepsis} on
+  \textcolor{O}{28-day mortality}. They used IPW, PSM, g-formula and a
+  doubly robust estimation. The propensity score was modeled with boosting
+  and the outcome model with a logistic regression. They
+  found a significant positive reduction of mortality (odd ratio 0.78, 95\% CI 0.68-0.90).
+}\href{https://github.com/nus-mornin-lab/echo-mimiciii}{\DIFdel{Study code is
+    open source}}%DIFAUXCMD
+\DIFdel{.
+}\DIFdelend %DIF >    \item \cite{feng2018transthoracic} studied the effect of
+%DIF >          \textcolor{I}{transthoracic echocardiography} vs \textcolor{C}{no
+%DIF >            intervention} for \textcolor{P}{6,361 patients with sepsis} on
+%DIF >          \textcolor{O}{28-day mortality}. They used IPW, PSM, g-formula and a
+%DIF >          doubly robust estimation. The propensity score was modeled with boosting
+%DIF >          and the outcome model with a logistic regression. They
+%DIF >          found a significant positive reduction of mortality (odd ratio 0.78, 95\% CI 0.68-0.90).
+%DIF >          \href{https://github.com/nus-mornin-lab/echo-mimiciii}{Study code is
+%DIF >            open source}.
 
-  \item \cite{gani2023structural} studied the effect of \textcolor{I}{liberal
-          --target SpO2 greater than 96\%--} vs \textcolor{C}{conservative
-          oxygenation --target SpO2 between 88-95\%--} in \textcolor{P}{4,062
-          mechanically ventilated patients} on \textcolor{O}{90-day mortality}.
-        They found an advantage of the liberal strategy over liberal
-        (ATE=0.13) by adjusting on age and apsii. This is not consistent with
-        previous RCTs where no effects have been reported \cite{panwar2016conservative, mackle2019conservative}.
+\DIFdelbegin %DIFDELCMD < \item %%%
+\DIFdel{\mbox{%DIFAUXCMD
+    \cite{gani2023structural} }\hskip0pt%DIFAUXCMD
+  studied the effect of \textcolor{I}{liberal
+    --target SpO2 greater than 96\%--} vs \textcolor{C}{conservative
+    oxygenation --target SpO2 between 88-95\%--} in \textcolor{P}{4,062
+    mechanically ventilated patients} on \textcolor{O}{90-day mortality}.
+  They found an advantage of the liberal strategy over liberal
+  (ATE=0.13) by adjusting on age and apsii. This is not consistent with
+  previous RCTs where no effects have been reported \mbox{%DIFAUXCMD
+    \cite{panwar2016conservative, mackle2019conservative}}\hskip0pt%DIFAUXCMD
+  .
+}\DIFdelend %DIF >    \item \cite{gani2023structural} studied the effect of \textcolor{I}{liberal
+%DIF >            --target SpO2 greater than 96\%--} vs \textcolor{C}{conservative
+%DIF >            oxygenation --target SpO2 between 88-95\%--} in \textcolor{P}{4,062
+%DIF >            mechanically ventilated patients} on \textcolor{O}{90-day mortality}.
+%DIF >          They found an advantage of the liberal strategy over liberal
+%DIF >          (ATE=0.13) by adjusting on age and apsii. This is not consistent with
+%DIF >          previous RCTs where no effects have been reported \cite{panwar2016conservative, mackle2019conservative}.
 
-  \item \cite{shahn2020fluid} studied the effect of \textcolor{I}{fluid-limiting
-          treatment --caped between 6 and 10 L--} vs \textcolor{C}{no cap on
-          fluid administration} strategies for \textcolor{P}{1,639 sepsis
-          patients} on \textcolor{O}{30 day-mortality}. Using a dynamic Marginal
-        Structural Model with IPW, they found a protective effect of
-        fluid-limitation on ATE -0.01 (95\%CI -0.016, -0.03). This is somehow
-        concordant with the RIFTS RCT that found no effect of fluid limitation
-        \cite{corl2019restrictive} and two previous meta-analyses
-        \cite{malbrain2014fluid,meyhoff2020lower}.
+\DIFdelbegin %DIFDELCMD < \item %%%
+\DIFdel{\mbox{%DIFAUXCMD
+    \cite{shahn2020fluid} }\hskip0pt%DIFAUXCMD
+  studied the effect of \textcolor{I}{fluid-limiting
+    treatment --caped between 6 and 10 L--} vs \textcolor{C}{no cap on
+    fluid administration} strategies for \textcolor{P}{1,639 sepsis
+    patients} on \textcolor{O}{30 day-mortality}. Using a dynamic Marginal
+  Structural Model with IPW, they found a protective effect of
+  fluid-limitation on ATE -0.01 (95\%CI -0.016, -0.03). This is somehow
+  concordant with the RIFTS RCT that found no effect of fluid limitation
+  \mbox{%DIFAUXCMD
+    \cite{corl2019restrictive} }\hskip0pt%DIFAUXCMD
+  and two previous meta-analyses
+  \mbox{%DIFAUXCMD
+    \cite{malbrain2014fluid,meyhoff2020lower}}\hskip0pt%DIFAUXCMD
+  .
+}\DIFdelend %DIF >    \item \cite{shahn2020fluid} studied the effect of \textcolor{I}{fluid-limiting
+%DIF >            treatment --caped between 6 and 10 L--} vs \textcolor{C}{no cap on
+%DIF >            fluid administration} strategies for \textcolor{P}{1,639 sepsis
+%DIF >            patients} on \textcolor{O}{30 day-mortality}. Using a dynamic Marginal
+%DIF >          Structural Model with IPW, they found a protective effect of
+%DIF >          fluid-limitation on ATE -0.01 (95\%CI -0.016, -0.03). This is somehow
+%DIF >          concordant with the RIFTS RCT that found no effect of fluid limitation
+%DIF >          \cite{corl2019restrictive} and two previous meta-analyses
+%DIF >          \cite{malbrain2014fluid,meyhoff2020lower}.
 
-  \item \cite{chinaeke2021impact} studied the effect of \textcolor{I}{statin use
-          prior to ICU admission} vs \textcolor{C}{absence of pre-ICU
-          prescription} for \textcolor{P}{8,200 patients with sepsis} on
-        \textcolor{O}{30-day mortality}. Using AIPW (no estimator reported)
-        and PSM (logistic regression), they found a decrease on mortality (ATE
-        -0.039, 95\%CI -0.084, -0.026). This partly supports previous
-        findings in Propensity Matching bases observational studies
-        \cite{lee2017preadmission,kyu2019preadmission}. But all RCTs
-        \cite{national2014rosuvastatin,singh2017effects} found no improvement for sepsis (not
-        pre-admission administration though). The \cite{wan2014effect}
-        meta-analysis concludes that there is lack of evidence for the use of
-        statins in sepsis with inconsistent results between RCTs (no effect)
-        and observational studies (protective effect).
-  \item \cite{adibuzzaman2019323} studied the effect of \textcolor{I}{higher} vs
-        \textcolor{C}{lower positive end-expiratory pressures (PEEP)} in
-        \textcolor{P}{1,411 patients with Acute Respiratory Distress Syndrome
-          (ARDS) syndrome} on \textcolor{O}{30 day mortality}. Very few details on
-        the methods were reported, but they found a protective effect for higher PEEP
-        consistent results from a target trial \cite{national2004higher}.
-  \item \cite{adibuzzaman2019323} also studied the effect of \textcolor{I}{early
-          use of a neuromuscular blocking agent } vs \textcolor{C}{placebo} in
-        \textcolor{P}{752 patients moderate-severe ARDS} on \textcolor{O}{30
-          day mortality}. Very few details on the methods were reported, but they found a
-        protective effect for the use of a neuromuscular blocking agent,
-        consistent with the results from a target trial
-        \cite{papazian2010neuromuscular}.
-  \item \cite{zhou2021early} studied the administration of \textcolor{I}{a
-          combination of albumin within the first 24-h after crystalloids} vs
-        \textcolor{C}{crystalloids alone} for \textcolor{P}{6,641 patients
-          with sepsis} on \textcolor{O}{28-day mortality}. Using PSM, they found
-        protective effect of combination on mortality, but insist on the
-        importance of initialization timing. This is consistent with \cite{xu2014comparison}, who
-        found a non-significant trend
-        in favor of albumin used for severe sepsis patients and a significant
-        reduction for septic shock patients, both on 90-day mortality. These
-        results are aligned with \cite{caironi2014albumin} that found no effect
-        for severe sepsis patient but positive effect for septic shock patients.
-  \item \cite{wang2023early} studied \textcolor{I}{early enteral nutrition (EN)
-          --<=53 ICU admission hours--} vs \textcolor{C}{delayed EN} for
-        \textcolor{P}{2,364 patients with sepsis and EN} on
-        \textcolor{O}{acute kidney injury}. With PSM, IPW and g-formula
-        (logistic estimator each time), they found a protective effect
-        (OR 0.319, 95\%CI 0.245, 0.413) of EEN.
-\end{itemize}
+\DIFdelbegin %DIFDELCMD < \item %%%
+\DIFdel{\mbox{%DIFAUXCMD
+    \cite{chinaeke2021impact} }\hskip0pt%DIFAUXCMD
+  studied the effect of \textcolor{I}{statin use
+    prior to ICU admission} vs \textcolor{C}{absence of pre-ICU
+    prescription} for \textcolor{P}{8,200 patients with sepsis} on
+  \textcolor{O}{30-day mortality}. Using AIPW (no estimator reported)
+  and PSM (logistic regression), they found a decrease on mortality (ATE
+  -0.039, 95\%CI -0.084, -0.026). This partly supports previous
+  findings in Propensity Matching bases observational studies
+  \mbox{%DIFAUXCMD
+    \cite{lee2017preadmission,kyu2019preadmission}}\hskip0pt%DIFAUXCMD
+  . But all RCTs
+  \mbox{%DIFAUXCMD
+    \cite{national2014rosuvastatin,singh2017effects} }\hskip0pt%DIFAUXCMD
+  found no improvement for sepsis (not
+  pre-admission administration though). The \mbox{%DIFAUXCMD
+    \cite{wan2014effect}
+  }\hskip0pt%DIFAUXCMD
+  meta-analysis concludes that there is lack of evidence for the use of
+  statins in sepsis with inconsistent results between RCTs (no effect)
+  and observational studies (protective effect).
+}%DIFDELCMD < \item %%%
+\DIFdel{\mbox{%DIFAUXCMD
+    \cite{adibuzzaman2019323} }\hskip0pt%DIFAUXCMD
+  studied the effect of \textcolor{I}{higher} vs
+  \textcolor{C}{lower positive end-expiratory pressures (PEEP)} in
+  \textcolor{P}{1,411 patients with Acute Respiratory Distress Syndrome
+    (ARDS) syndrome} on \textcolor{O}{30 day mortality}. Very few details on
+  the methods were reported, but they found a protective effect for higher PEEP
+  consistent results from a target trial \mbox{%DIFAUXCMD
+    \cite{national2004higher}}\hskip0pt%DIFAUXCMD
+  .
+}%DIFDELCMD < \item %%%
+\DIFdel{\mbox{%DIFAUXCMD
+    \cite{adibuzzaman2019323} }\hskip0pt%DIFAUXCMD
+  also studied the effect of \textcolor{I}{early
+    use of a neuromuscular blocking agent } vs \textcolor{C}{placebo} in
+  \textcolor{P}{752 patients moderate-severe ARDS} on \textcolor{O}{30
+    day mortality}. Very few details on the methods were reported, but they found a
+  protective effect for the use of a neuromuscular blocking agent,
+  consistent with the results from a target trial
+  \mbox{%DIFAUXCMD
+    \cite{papazian2010neuromuscular}}\hskip0pt%DIFAUXCMD
+  .
+}%DIFDELCMD < \item %%%
+\DIFdel{\mbox{%DIFAUXCMD
+    \cite{zhou2021early} }\hskip0pt%DIFAUXCMD
+  studied the administration of \textcolor{I}{a
+    combination of albumin within the first 24-h after crystalloids} vs
+  \textcolor{C}{crystalloids alone} for \textcolor{P}{6,641 patients
+    with sepsis} on \textcolor{O}{28-day mortality}. Using PSM, they found
+  protective effect of combination on mortality, but insist on the
+  importance of initialization timing. This is consistent with \mbox{%DIFAUXCMD
+    \cite{xu2014comparison}}\hskip0pt%DIFAUXCMD
+  , who
+  found a non-significant trend
+  in favor of albumin used for severe sepsis patients and a significant
+  reduction for septic shock patients, both on 90-day mortality. These
+  results are aligned with \mbox{%DIFAUXCMD
+    \cite{caironi2014albumin} }\hskip0pt%DIFAUXCMD
+  that found no effect
+  for severe sepsis patient but positive effect for septic shock patients.
+}%DIFDELCMD < \item %%%
+\DIFdel{\mbox{%DIFAUXCMD
+    \cite{wang2023early} }\hskip0pt%DIFAUXCMD
+  studied \textcolor{I}{early enteral nutrition (EN)
+    --<=53 ICU admission hours--} vs \textcolor{C}{delayed EN} for
+  \textcolor{P}{2,364 patients with sepsis and EN} on
+  \textcolor{O}{acute kidney injury}. With PSM, IPW and g-formula
+  (logistic estimator each time), they found a protective effect
+  (OR 0.319, 95\%CI 0.245, 0.413) of EEN.
+}%DIFDELCMD < \end{itemize}
+%DIFDELCMD < %%%
+\DIFdelend %DIF >    \item \cite{chinaeke2021impact} studied the effect of \textcolor{I}{statin use
+%DIF >            prior to ICU admission} vs \textcolor{C}{absence of pre-ICU
+%DIF >            prescription} for \textcolor{P}{8,200 patients with sepsis} on
+%DIF >          \textcolor{O}{30-day mortality}. Using AIPW (no estimator reported)
+%DIF >          and PSM (logistic regression), they found a decrease on mortality (ATE
+%DIF >          -0.039, 95\%CI -0.084, -0.026). This partly supports previous
+%DIF >          findings in Propensity Matching bases observational studies
+%DIF >          \cite{lee2017preadmission,kyu2019preadmission}. But all RCTs
+%DIF >          \cite{national2014rosuvastatin,singh2017effects} found no improvement for sepsis (not
+%DIF >          pre-admission administration though). The \cite{wan2014effect}
+%DIF >          meta-analysis concludes that there is lack of evidence for the use of
+%DIF >          statins in sepsis with inconsistent results between RCTs (no effect)
+%DIF >          and observational studies (protective effect).
+%DIF >    \item \cite{adibuzzaman2019323} studied the effect of \textcolor{I}{higher} vs
+%DIF >          \textcolor{C}{lower positive end-expiratory pressures (PEEP)} in
+%DIF >          \textcolor{P}{1,411 patients with Acute Respiratory Distress Syndrome
+%DIF >            (ARDS) syndrome} on \textcolor{O}{30 day mortality}. Very few details on
+%DIF >          the methods were reported, but they found a protective effect for higher PEEP
+%DIF >          consistent results from a target trial \cite{national2004higher}.
+%DIF >    \item \cite{adibuzzaman2019323} also studied the effect of \textcolor{I}{early
+%DIF >            use of a neuromuscular blocking agent } vs \textcolor{C}{placebo} in
+%DIF >          \textcolor{P}{752 patients moderate-severe ARDS} on \textcolor{O}{30
+%DIF >            day mortality}. Very few details on the methods were reported, but they found a
+%DIF >          protective effect for the use of a neuromuscular blocking agent,
+%DIF >          consistent with the results from a target trial
+%DIF >          \cite{papazian2010neuromuscular}.
+%DIF >    \item \cite{zhou2021early} studied the administration of \textcolor{I}{a
+%DIF >            combination of albumin within the first 24-h after crystalloids} vs
+%DIF >          \textcolor{C}{crystalloids alone} for \textcolor{P}{6,641 patients
+%DIF >            with sepsis} on \textcolor{O}{28-day mortality}. Using PSM, they found
+%DIF >          protective effect of combination on mortality, but insist on the
+%DIF >          importance of initialization timing. This is consistent with \cite{xu2014comparison}, who
+%DIF >          found a non-significant trend
+%DIF >          in favor of albumin used for severe sepsis patients and a significant
+%DIF >          reduction for septic shock patients, both on 90-day mortality. These
+%DIF >          results are aligned with \cite{caironi2014albumin} that found no effect
+%DIF >          for severe sepsis patient but positive effect for septic shock patients.
+%DIF >    \item \cite{wang2023early} studied \textcolor{I}{early enteral nutrition (EN)
+%DIF >            --<=53 ICU admission hours--} vs \textcolor{C}{delayed EN} for
+%DIF >          \textcolor{P}{2,364 patients with sepsis and EN} on
+%DIF >          \textcolor{O}{acute kidney injury}. With PSM, IPW and g-formula
+%DIF >          (logistic estimator each time), they found a protective effect
+%DIF >          (OR 0.319, 95\%CI 0.245, 0.413) of EEN.
+%DIF >  \end{itemize}
 
-These eleven studies mainly used propensity score matching (6) and IPW (4), two of
-them used doubly robust methods, and only one included a non-linear estimator in
-either the outcome or the treatment model. None of them performed a vibration
-analysis on confounder selection or feature transformations. They have a
-strong focus on patients with sepsis. Only four of them found concordant results with
-previous RCTs \cite{liu2021effects,shahn2020fluid,adibuzzaman2019323}.
-\DIFaddbegin \clearpage
-\DIFaddend
+\DIFdelbegin \DIFdel{These eleven studies mainly used propensity score matching (6) and IPW (4), two of
+  them used doubly robust methods, and only one included a non-linear estimator in
+  either the outcome or the treatment model. None of them performed a vibration
+  analysis on confounder selection or feature transformations. They have a
+  strong focus on patients with sepsis. Only four of them found concordant results with
+  previous RCTs \mbox{%DIFAUXCMD
+    \cite{liu2021effects,shahn2020fluid,adibuzzaman2019323}}\hskip0pt%DIFAUXCMD
+  .
+}%DIFDELCMD < \clearpage
+%DIFDELCMD < %%%
+\DIFdelend %DIF >  These eleven studies mainly used propensity score matching (6) and IPW (4), two of
+%DIF >  them used doubly robust methods, and only one included a non-linear estimator in
+%DIF >  either the outcome or the treatment model. None of them performed a vibration
+%DIF >  analysis on confounder selection or feature transformations. They have a
+%DIF >  strong focus on patients with sepsis. Only four of them found concordant results with
+%DIF >  previous RCTs \cite{liu2021effects,shahn2020fluid,adibuzzaman2019323}.
+%DIF >  \clearpage
 
 
-\paragraph*{S2 Appendix.}
+\paragraph*{\DIFdelbegin \DIFdel{S2 }\DIFdelend \DIFaddbegin \DIFadd{S1 }\DIFaddend Appendix.}
 \label{apd:causal_assumptions}
 {\bf Assumptions: what is needed for causal inference from observational studies.}
 
@@ -1489,8 +1645,20 @@ particular these we use:
   independence on the propensity score $e(X)=\mathbb P(A=1|X)$ \cite{rosenbaum1983central}: $\{Y(0), Y(1) \}\indep  A | e(X)$.
 \end{assumption}
 
+\DIFaddbegin \DIFadd{Unconfoundedness is a strong assumption that might be violated in practice. The existance of residual bias trough unobserved confounders can be mitigated with different strategies. The }\textit{\DIFadd{omitted variable bias}} \DIFadd{framework encourages sensitivity analyses allowing to derive bounds on the causal estimate by making assumptions on the strengh of association of the omitted variable with both the treatment and the outcome. We refer to \mbox{%DIFAUXCMD
+    \cite{cinelli2020making} }\hskip0pt%DIFAUXCMD
+  for a clear introduction under linear assumption and to \mbox{%DIFAUXCMD
+    \cite{chernozhukov2022long} }\hskip0pt%DIFAUXCMD
+  for an extension to general non-linear settings. In case of strong unobserved confounders for which proxy variables can be measured, }\textit{\DIFadd{proximal inference}} \DIFadd{can be used to obtain identifiability \mbox{%DIFAUXCMD
+    \cite{tchetgen2024introduction}}\hskip0pt%DIFAUXCMD
+  . These methods require expert knowledge to classify the proxy between treatment and outcome proxy, then run two-stage regression to recover the causal effect. Lastly, natural exeperiments, when available, should be exploited to estimate causal effects without the need of unconfoundedness. Instrumental variable methods exploit randomness influancing the treatment but unrelated to the outcome to simulate a randomized experiment \mbox{%DIFAUXCMD
+    \cite[chapter 9]{wager2020stats}}\hskip0pt%DIFAUXCMD
+  . Regression discontinuity designs leverage discontinuous treatment assignment mechanisms with the assumption of a continuous outcome \mbox{%DIFAUXCMD
+    \cite[chapter 5]{wager2020stats}}\hskip0pt%DIFAUXCMD
+  .
+}
 
-\begin{assumption}[Overlap, also known as Positivity]\label{assumption:overlap}
+\DIFaddend \begin{assumption}[Overlap, also known as Positivity]\label{assumption:overlap}
   \begin{equation}\label{eq:overlap}
     \eta < e(x) < 1 - \eta \quad \forall x \in \mathcal{X} \text{ and some }   \eta > 0
   \end{equation}
@@ -1505,6 +1673,7 @@ covariate set generally reinforces the ignorability assumption. In the
 contrary, overlap can be weakened by large $\mathcal{X}$ because of the
 potential inclusion of instrumental variables: variables only linked to the treatment which
 could lead to arbitrarily small propensity scores.
+
 
 % remark: There is a major counter example to these colliders (variables which
 % are caused by both the outcome and the treatment),
@@ -1525,12 +1694,11 @@ could lead to arbitrarily small propensity scores.
   estimation are drawn from the same distribution, also known as
   the ``no covariate shift'' assumption \cite{jesson2020identifying}.
 \end{assumption}
-\DIFaddbegin \clearpage
-\DIFaddend
+\clearpage
 
 
 
-\paragraph*{S3 Appendix.}
+\paragraph*{\DIFdelbegin \DIFdel{S3 }\DIFdelend \DIFaddbegin \DIFadd{S2 }\DIFaddend Appendix.}
 \label{apd:causal_estimators}
 {\bf Major causal-inference methods: When to use which estimator?}
 
@@ -1646,11 +1814,10 @@ the population.
 This estimator has also the doubly robust proprieties described for AIPW. it
 should have less variance than AIPW since it does not use the propensity score
 in the denominator.
-\DIFaddbegin \clearpage
-\DIFaddend
+\clearpage
 
 
-\paragraph*{S4 Appendix.}
+\paragraph*{\DIFdelbegin \DIFdel{S4 }\DIFdelend \DIFaddbegin \DIFadd{S3 }\DIFaddend Appendix.}
 \label{apd:statistical_considerations}
 {\bf Statistical considerations when implementing
   estimation.}
@@ -1699,16 +1866,15 @@ estimator). See Table \ref{apd:table:compute_times} for details.
 \begin{table}[]
   % \resizebox{\textwidth}{!}{%
   \centering\small
-  \input{img/compute_time_estimates_est_lr_rf_b_50.tex}
+  \input{img_supp/compute_time_estimates_est_lr_rf_b_50.tex}
   % }
   \\
   \caption{Compute times for the different estimation methods with 50 bootstrap replicates.}\label{apd:table:compute_times}
 \end{table}
-\DIFaddbegin \clearpage
-\DIFaddend
+\clearpage
 
 
-\paragraph*{S5 Appendix.}
+\paragraph*{\DIFdelbegin \DIFdel{S5 }\DIFdelend \DIFaddbegin \DIFadd{S4 }\DIFaddend Appendix.}
 \label{apd:packages}
 {\bf Packages for causal estimation in the python ecosystem.}
 We searched for causal inference packages in the python ecosystem. The focus
@@ -1796,7 +1962,7 @@ which makes it hard to install.
 
 
 
-\paragraph*{S6 Appendix.}
+\paragraph*{\DIFdelbegin \DIFdel{S6 }\DIFdelend \DIFaddbegin \DIFadd{S5 }\DIFaddend Appendix.}
 \label{apd:hyper_parameter_search}
 {\bf Hyper-parameter search for the nuisance models.}
 \begin{figure}[!b]
@@ -1805,7 +1971,7 @@ which makes it hard to install.
   \end{minipage}%
   \hfill
   \begin{minipage}{.6\linewidth}
-    \includegraphics[width=\linewidth]{img/hp_search_procedure.pdf}
+    \includegraphics[width=\linewidth]{img_supp/hp_search_procedure.pdf}
   \end{minipage}%
 \end{figure}
 We followed a two-step procedure to train the nuisance models (eg. ($\hat e,
@@ -1829,34 +1995,37 @@ the random search.
 
 \begin{table}[]
   \resizebox{\textwidth}{!}{%
-    \input{img/gridsearch.tex}
+    \input{img_supp/gridsearch.tex}
   }\\
   \caption{Hyper-parameter grid used during random search
     optimization.}\label{apd:table:hyper_parameter_search}
 \end{table}
-\DIFaddbegin \clearpage
-\DIFaddend
+\clearpage
 
-\paragraph*{S7 Appendix.}
-\label{apd:computing_resources}
-{\bf Computing resources.}
+\DIFdelbegin \paragraph*{\DIFdel{S7 Appendix.}}
+%DIFAUXCMD
+%DIFDELCMD < \label{apd:computing_resources}
+%DIFDELCMD < {\bf %%%
+\DIFdel{Computing resources.}%DIFDELCMD < }
+%DIFDELCMD < 
 
-The whole project was run on a laptop running Ubuntu 22.04.2 LTS with the following hardware:
-CPU 12th Gen Intel(R) Core(TM) i7-1270P with 16 threads and 15 GB of RAM.
-\DIFaddbegin \clearpage
-\DIFaddend
+%DIFDELCMD < %%%
+\DIFdel{The whole project was run on a laptop running Ubuntu 22.04.2 LTS with the following hardware:
+  CPU 12th Gen Intel(R) Core(TM) i7-1270P with 16 threads and 15 GB of RAM.
+}%DIFDELCMD < \clearpage
+%DIFDELCMD < 
 
-\paragraph*{S5 Fig.}
+%DIFDELCMD < %%%
+\DIFdelend \paragraph*{S5 Fig.}
 \label{apd:selection_flowchart}
 {\bf Selection flowchart.}
 
 \begin{figure}[!htb]
   \centering
-  \includegraphics[width=0.7\linewidth]{img/albumin_for_sepsis__obs_1d__flowchart_albumin_for_sepsis.pdf}
+  \includegraphics[width=0.7\linewidth]{img_supp/albumin_for_sepsis__obs_1d__flowchart_albumin_for_sepsis.pdf}
   \caption{Selection flowchart on MIMIC-IV for the emulated trial.}\label{fig:selection_flowchart}
 \end{figure}
-\DIFaddbegin \clearpage
-\DIFaddend
+\clearpage
 
 
 \paragraph*{S1 Table.}
@@ -1864,7 +2033,7 @@ CPU 12th Gen Intel(R) Core(TM) i7-1270P with 16 threads and 15 GB of RAM.
 {\bf Complete description of the confounders for the main analysis.}
 \begin{table}[h!]
   \resizebox{\textwidth}{!}{%
-    \input{img/albumin_for_sepsis__obs_1d__table1_24h_supplementary.tex}
+    \input{img_supp/albumin_for_sepsis__obs_1d__table1_24h_supplementary.tex}
   }\\
   \caption{Characteristics of the trial population measured on the first 24
     hours of ICU stay. \\
@@ -1873,8 +2042,7 @@ CPU 12th Gen Intel(R) Core(TM) i7-1270P with 16 threads and 15 GB of RAM.
     been computed. Other variables have been aggregated by taking mean during
     the 24 hour period.}\label{apd:table:albumin_for_sepsis:table1_complete}
 \end{table}
-\DIFaddbegin \clearpage
-\DIFaddend
+\clearpage
 
 \paragraph*{S6 Fig.}
 \label{apd:causal_diagram_albumin}
@@ -1885,7 +2053,7 @@ variables.
 
 \begin{figure}[h!]
   \centering%
-  \includegraphics[width=\linewidth]{img/dagitty_graph.pdf}
+  \includegraphics[width=\linewidth]{img_supp/dagitty_graph.pdf}
   \caption{\textbf{Causal graph for the Albumin vs crystalloids emulated
       trial} -- The
     green arrow indicates the effect studied. Black arrows show causal links
@@ -1894,8 +2062,7 @@ variables.
     expert point of view. All white nodes correspond to variables included in
     our study.}\label{fig:causal_diagram_albumin}
 \end{figure}
-\DIFaddbegin \clearpage
-\DIFaddend
+\clearpage
 
 
 \paragraph*{S7 Fig.}
@@ -1907,7 +2074,7 @@ Figure \ref{apd:fig:detailed_results} the estimates for Causal forest
 estimators and other choices of feature aggregation (first and last).
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\linewidth]{img/main_vibration_analysis_supp.pdf}
+  \includegraphics[width=\linewidth]{img_supp/main_vibration_analysis_supp.pdf}
   \caption{Full sensitivity analysis: The estimators with forest nuisances
     point to no effect for almost every causal estimator consistently with the
     RCT gold standard. Only matching with forest yields an unconvincingly high
@@ -1918,15 +2085,14 @@ estimators and other choices of feature aggregation (first and last).
     intervals obtained by 50 bootstrap
     repetitions.}\label{apd:fig:detailed_results}
 \end{figure}
-\DIFaddbegin \clearpage
-\DIFaddend
+\clearpage
 
 \paragraph*{S8 Fig.}
 \label{apd:detailed_results_itb}
 {\bf Complete results for the Immortal time bias.}
-\DIFaddbegin \clearpage
-\DIFaddend
-
+\DIFdelbegin %DIFDELCMD < \clearpage
+%DIFDELCMD < %%%
+\DIFdelend
 
 Compared to Figure \ref{fig:vibration:itb}, we also report in Figure
 \ref{apd:fig:detailed_results_itb} the estimates for Double Machine Learning,
@@ -1935,7 +2101,7 @@ Feature aggregation was concatenation of first and last for all estimates.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\linewidth]{img/itb__dr_forest_agg_first_last__bs_30_supp.pdf}
+  \includegraphics[width=\linewidth]{img_supp/itb__dr_forest_agg_first_last__bs_30_supp.pdf}
   \caption{Sensitivity analysis for immortal time bias: Every choice of
     estimates show an improvement of the albumin treatment when increasing the
     observation period, thus increasing the blank period between inclusion and
@@ -1944,10 +2110,9 @@ Feature aggregation was concatenation of first and last for all estimates.
     95\% confidence intervals obtained by 50 bootstrap
     repetitions.}\label{apd:fig:detailed_results_itb}
 \end{figure}
-\DIFaddbegin \clearpage
-\DIFaddend
+\clearpage
 
-\paragraph*{S8 Appendix.}
+\paragraph*{\DIFdelbegin \DIFdel{S8 }\DIFdelend \DIFaddbegin \DIFadd{S6 }\DIFaddend Appendix.}
 \label{apd:vibration_analysis_for_confounders}
 {\bf Deviating from expert ignorability -- Impact of smaller confounders sets.}
 
@@ -1964,15 +2129,14 @@ insurance--medicare, race).
 Figure \ref{fig:vibration:confounders} shows that small
 deviation from the ignorability assumptions is tolerable: for example, removing
 antibiotics does not impact the estimate. However, the larger the
-deviation from graph \ref{fig:causal_diagram_albumin}, the larger the bias
+deviation from graph \DIFdelbegin \DIFdel{\ref{fig:causal_diagram_albumin}}\DIFdelend \DIFaddbegin \nameref{apd:causal_diagram_albumin}\DIFaddend , the larger the bias
 compared to the gold-standard. Adjusting only for socio-demographics features
 is the closest from an unadjusted risk difference, indicating that we lack
 important confounders on the patient health state. This stability of the
 treatment effect estimator once sufficient confounders have been included has
 already been described and suggested as a confounder selection method
 \cite{loh2021confounder}.
-\DIFaddbegin \clearpage
-\DIFaddend
+\clearpage
 
 \paragraph*{S9 Fig.}
 \label{apd:vibration_analysis_for_aggregation}
@@ -1995,13 +2159,13 @@ when plotting graphically the distribution of the estimated propensity score.
   \centering
   \begin{subfigure}[b]{0.45\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{img/sensitivity__ps_distribution__first_last_median__Forests.pdf}
+    \includegraphics[width=\linewidth]{img_supp/sensitivity__ps_distribution__first_last_median__Forests.pdf}
     \caption{}\label{apd:fig:albumin_for_sepsis:overlap_measure_first_last_median}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.45\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{img/sensitivity__ps_distribution__first__Forests.pdf}
+    \includegraphics[width=\linewidth]{img_supp/sensitivity__ps_distribution__first__Forests.pdf}
     \caption{}\label{apd:fig:albumin_for_sepsis:overlap_measure_first}
   \end{subfigure}
   \caption{Different choices of aggregation yield qualitatively close
@@ -2024,7 +2188,7 @@ of first and last feature observed before inclusion time.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=1.0\linewidth]{img/sensitivity_feature_aggregation_albumin_for_sepsis__bs_50.pdf}
+  \includegraphics[width=1.0\linewidth]{img_supp/sensitivity_feature_aggregation_albumin_for_sepsis__bs_50.pdf}
   \caption{Vibration analysis dedicated to the aggregation choices. The
     choices of aggregation only marginally modify the results. When assessed
     with Normalized Total Variation, the overlap assumption is respected for all
@@ -2032,11 +2196,10 @@ of first and last feature observed before inclusion time.
     the bar are the 95\% confidence intervals obtained by 50 bootstrap
     repetitions.}\label{apd:fig:albumin_for_sepsis:vibration_analysis_for_aggregation}
 \end{figure}
-\DIFaddbegin \clearpage
-\DIFaddend
+\clearpage
 
 
-\paragraph*{S8 Appendix.}
+\paragraph*{\DIFdelbegin \DIFdel{S8 }\DIFdelend \DIFaddbegin \DIFadd{S7 }\DIFaddend Appendix.}
 \label{apd:hte}
 {\bf Details on treatment heterogeneity analysis.}
 \textbf{Detailed estimation procedure}
@@ -2094,7 +2257,7 @@ random forest model only for patients aged between 55 and 80.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.8\linewidth]{img/boxplot_est__DML__nuisances__Forests__final_RF.pdf}
+  \includegraphics[width=0.8\linewidth]{img_supp/boxplot_est__DML__nuisances__Forests__final_RF.pdf}
   \caption{Distribution of Conditional Average Treatment effects on sex, age,
     race and pre-treatment septic shock estimated with a final forest
     estimator. The CATE are positive for each subgroups, which is not
@@ -2107,7 +2270,7 @@ random forest model only for patients aged between 55 and 80.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{img/cate_all_category_random_forest.pdf}
+  \includegraphics[width=\linewidth]{img_supp/cate_all_category_random_forest.pdf}
   \caption{Distribution of Conditional Average Treatment effects on sex, age,
     race and pre-treatment septic shock plotted for different ages. On the top
     the final estimator is a linear model; on the bottom, it is a random
@@ -2118,7 +2281,7 @@ random forest model only for patients aged between 55 and 80.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{img/cate_shock_random_forest.pdf}
+  \includegraphics[width=\linewidth]{img_supp/cate_shock_random_forest.pdf}
   \caption{Figure \ref{apd:fig:albumin_for_sepsis:cate_age_forest_failure} on
     the subpopulation of white male patients without septic shock. Contrary to
     the ridge regression (on top) inducing a nicely interpretable trend, using
@@ -2127,130 +2290,264 @@ random forest model only for patients aged between 55 and 80.
     large effect sizes, suggesting data underfitting.
   }\label{apd:fig:albumin_for_sepsis:cate_failure}
 \end{figure}
-\DIFaddbegin \clearpage
+\clearpage
+
+\DIFdelbegin \paragraph*{\DIFdel{S9 Appendix.}}
+%DIFAUXCMD
+%DIFDELCMD < \label{apd:risk_assessment_scores}
+%DIFDELCMD < {\bf %%%
+\DIFdel{Risk assessment tools for prevention.}%DIFDELCMD < }
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\textbf{\DIFdel{An example of nationally deployed cardiovascular prevention tool: QRISK}}
+%DIFAUXCMD
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{The QRISK is a risk score widely used in the UK to assess 10-year
+  cardio-vascular risk \mbox{%DIFAUXCMD
+    \cite{hippisley2017development}}\hskip0pt%DIFAUXCMD
+  . It is well calibrated
+  and have satisfactory discriminative performances. As such, it is recommended
+  by the national regulatory agency to engage the patient into various
+  preventive interventions such as physical activity, cardio-protective diet,
+  statins initiation \mbox{%DIFAUXCMD
+    \cite{guideline2023cardiovascular}}\hskip0pt%DIFAUXCMD
+  . The NICE argues in favor
+  of systematic screening of cardio-vascular risks to increase the number of
+  people receiving statins \mbox{%DIFAUXCMD
+    \cite{guideline2023cardiovascular}}\hskip0pt%DIFAUXCMD
+  .
+}\DIFdelend %DIF >  \paragraph*{S9 Appendix.}
+%DIF >  \label{apd:risk_assessment_scores}
+%DIF >  {\bf Risk assessment tools for prevention.}
+
+
+\DIFdelbegin \DIFdel{The QRISK seems to mostly inform the initiation of statins for patients
+  exceeding 10\% 10-year CVD risk (as measured with QRISK) following the 2014
+  NICE guidelines \mbox{%DIFAUXCMD
+    \cite{rabar2014lipid}}\hskip0pt%DIFAUXCMD
+  .
+}\DIFdelend %DIF >  \textbf{An example of nationally deployed cardiovascular prevention tool: QRISK}
+
+\DIFdelbegin \DIFdel{They base their evidence on a cost-effectiveness analysis choosing the 10\%
+  threshold to optimize quality-adjusted life year at the population level based
+  on the cost of life-long statin treatments \mbox{%DIFAUXCMD
+    \cite{guthrie2023competing}}\hskip0pt%DIFAUXCMD
+  . This
+  study assumes constant statins effect among different CVD risk groups:
+}\emph{\DIFdel{It is assumed that the risk ratios given for treatment with each class
+    of statins are constant regardless of the baseline CV risk --that is, someone
+    with low CV risk will receive the same proportional reduction in that risk as
+    would someone with a high CV risk. This is unproven, but is consistent with
+    the results of meta-analysis carried out by the Cholesterol Treatment
+    Trialists, which found effectiveness to be broadly similar for those at
+    different risk levels.}} %DIFAUXCMD
+\DIFdel{This hypothesis is supported by the meta-analysis of
+  at least for the important risk factors of sex and age \mbox{%DIFAUXCMD
+    \cite{brugts2009benefits}}\hskip0pt%DIFAUXCMD
+  . It is also assumed that these risk ratios are constant regardless of
+  baseline LDL-cholesterol levels. More recent work showed that risk ratio
+  stratified by patient baseline CVD risk levels were not significant, raising
+  doubts about the overall efficacy of statins for primary prevention \mbox{%DIFAUXCMD
+    \cite{byrne2019statins}}\hskip0pt%DIFAUXCMD
+  .
+}\DIFdelend %DIF >  The QRISK is a risk score widely used in the UK to assess 10-year
+%DIF >  cardio-vascular risk \cite{hippisley2017development}. It is well calibrated
+%DIF >  and have satisfactory discriminative performances. As such, it is recommended
+%DIF >  by the national regulatory agency to engage the patient into various
+%DIF >  preventive interventions such as physical activity, cardio-protective diet,
+%DIF >  statins initiation \cite{guideline2023cardiovascular}. The NICE argues in favor
+%DIF >  of systematic screening of cardio-vascular risks to increase the number of
+%DIF >  people receiving statins \cite{guideline2023cardiovascular}.
+
+\DIFdelbegin \DIFdel{The updated guidelines from the US Preventive Services Task Force found
+  respectively moderate and small net benefice of statins for patients aged 40
+  to 75 with above 10\% CVD risk and from 7.5 to 10\% without history of CVD
+  \mbox{%DIFAUXCMD
+    \cite{chou2022statin}}\hskip0pt%DIFAUXCMD
+  . They conclude that the evidence is insufficient to
+  determine the balance of benefits and harms of statin use for the primary
+  prevention of CVD events and mortality in adults 76 years or older with no
+  history of CVD.
+}\DIFdelend %DIF >  The QRISK seems to mostly inform the initiation of statins for patients
+%DIF >  exceeding 10\% 10-year CVD risk (as measured with QRISK) following the 2014
+%DIF >  NICE guidelines \cite{rabar2014lipid}.
+
+\DIFdelbegin \textbf{\DIFdel{Critics on the efficiency of systematic screening points to treatment heterogeneity}}
+%DIFAUXCMD
+\DIFdelend %DIF >  They base their evidence on a cost-effectiveness analysis choosing the 10\%
+%DIF >  threshold to optimize quality-adjusted life year at the population level based
+%DIF >  on the cost of life-long statin treatments \cite{guthrie2023competing}. This
+%DIF >  study assumes constant statins effect among different CVD risk groups:
+%DIF >  \emph{It is assumed that the risk ratios given for treatment with each class
+%DIF >    of statins are constant regardless of the baseline CV risk --that is, someone
+%DIF >    with low CV risk will receive the same proportional reduction in that risk as
+%DIF >    would someone with a high CV risk. This is unproven, but is consistent with
+%DIF >    the results of meta-analysis carried out by the Cholesterol Treatment
+%DIF >    Trialists, which found effectiveness to be broadly similar for those at
+%DIF >    different risk levels.} This hypothesis is supported by the meta-analysis of
+%DIF >  at least for the important risk factors of sex and age \cite{brugts2009benefits}. It is also assumed that these risk ratios are constant regardless of
+%DIF >  baseline LDL-cholesterol levels. More recent work showed that risk ratio
+%DIF >  stratified by patient baseline CVD risk levels were not significant, raising
+%DIF >  doubts about the overall efficacy of statins for primary prevention \cite{byrne2019statins}.
+
+\DIFdelbegin \DIFdel{On the other side, the WHO systematic review on systematic screening for
+  cardio-vascular risks from 2019 \mbox{%DIFAUXCMD
+    \cite{eriksen2021effectiveness} }\hskip0pt%DIFAUXCMD
+  is
+  categorical on the poor effectiveness of systematic cardiovascular risk
+  screening, consistently with the Cochrane review on poor effectiveness
+  \mbox{%DIFAUXCMD
+    \cite{krogsboll2012general}}\hskip0pt%DIFAUXCMD
+  . For the WHO, systematic screening leads to
+  over-diagnosis and over-treatment. They mention in their argumentation no
+  positive effect of statins and even adverse effect for mild hypertension
+  \mbox{%DIFAUXCMD
+    \cite{diao2012pharmacotherapy}}\hskip0pt%DIFAUXCMD
+  . They also mention critics against poor
+  uptake of the systematic screening in UK or Albany leading to documented
+  social bias in the screened population: for example, in the UK, treatment
+  heterogeneity at a given risk level \mbox{%DIFAUXCMD
+    \cite{van2013efficiency} }\hskip0pt%DIFAUXCMD
+  or documentation
+  of social inequities of health checks \mbox{%DIFAUXCMD
+    \cite{krska2016implementation}}\hskip0pt%DIFAUXCMD
+  .
+}\DIFdelend %DIF >  The updated guidelines from the US Preventive Services Task Force found
+%DIF >  respectively moderate and small net benefice of statins for patients aged 40
+%DIF >  to 75 with above 10\% CVD risk and from 7.5 to 10\% without history of CVD
+%DIF >  \cite{chou2022statin}. They conclude that the evidence is insufficient to
+%DIF >  determine the balance of benefits and harms of statin use for the primary
+%DIF >  prevention of CVD events and mortality in adults 76 years or older with no
+%DIF >  history of CVD.
+
+
+\DIFdelbegin %DIFDELCMD < \begin{itemize}
+%DIFDELCMD <   \item %%%
+\DIFdel{The first critic shows that the augmentation of statin prescriptions
+  (up to 400\% increase for high risk patients), has been associated with
+  heterogeneity in statin prescriptions for given risk score levels
+  \mbox{%DIFAUXCMD
+    \cite{van2013efficiency}}\hskip0pt%DIFAUXCMD
+  . Low risk patients have been over-prescribed
+  and high risk patient under-prescribed, resulting in questionable overall
+  improvement. In this case, the constant effect
+  hypothesis of statin proposed by the NICE cost-effectiveness study is in doubt.
+  Having access to sources of heterogeneity would help to optimize
+  treatment allocation. The risk score might capture interesting
+  heterogeneity directions, but we lack data from RCTs to draw such conclusions.
+}\DIFdelend %DIF >  \textbf{Critics on the efficiency of systematic screening points to treatment heterogeneity}
+
+\DIFdelbegin %DIFDELCMD < \item  %%%
+\DIFdel{The second critic points to a treatment allocation bias for risk
+  assessment. It seems that mostly socially advantaged patients are
+  receiving risk assessment and thus the possibility to be treated with
+  statins. This critic also points to treatment heterogeneity.
+  Suppose that every patient benefits the same from statins, then even a
+  small part of the population --such as the socially advantaged at more
+  than 10\% risk-- would benefit from it and make the intervention
+  effective at the population level.
+}%DIFDELCMD < \end{itemize}
+%DIFDELCMD < %%%
+\DIFdelend %DIF >  On the other side, the WHO systematic review on systematic screening for
+%DIF >  cardio-vascular risks from 2019 \cite{eriksen2021effectiveness} is
+%DIF >  categorical on the poor effectiveness of systematic cardiovascular risk
+%DIF >  screening, consistently with the Cochrane review on poor effectiveness
+%DIF >  \cite{krogsboll2012general}. For the WHO, systematic screening leads to
+%DIF >  over-diagnosis and over-treatment. They mention in their argumentation no
+%DIF >  positive effect of statins and even adverse effect for mild hypertension
+%DIF >  \cite{diao2012pharmacotherapy}. They also mention critics against poor
+%DIF >  uptake of the systematic screening in UK or Albany leading to documented
+%DIF >  social bias in the screened population: for example, in the UK, treatment
+%DIF >  heterogeneity at a given risk level \cite{van2013efficiency} or documentation
+%DIF >  of social inequities of health checks \cite{krska2016implementation}.
+
+\DIFdelbegin \textbf{\DIFdel{NICE evidence for statin efficacy}}
+%DIFAUXCMD
+\DIFdelend %DIF >  \begin{itemize}
+%DIF >    \item The first critic shows that the augmentation of statin prescriptions
+%DIF >          (up to 400\% increase for high risk patients), has been associated with
+%DIF >          heterogeneity in statin prescriptions for given risk score levels
+%DIF >          \cite{van2013efficiency}. Low risk patients have been over-prescribed
+%DIF >          and high risk patient under-prescribed, resulting in questionable overall
+%DIF >          improvement. In this case, the constant effect
+%DIF >          hypothesis of statin proposed by the NICE cost-effectiveness study is in doubt.
+%DIF >          Having access to sources of heterogeneity would help to optimize
+%DIF >          treatment allocation. The risk score might capture interesting
+%DIF >          heterogeneity directions, but we lack data from RCTs to draw such conclusions.
+
+\DIFdelbegin \DIFdel{In the NICE analysis, three trials weight for more than 70\% of the effect. All
+  focus on high risk patients and secondary prevention. It is not clear if
+  those effects are used for the cost-effectiveness.
+}\DIFdelend %DIF >    \item  The second critic points to a treatment allocation bias for risk
+%DIF >          assessment. It seems that mostly socially advantaged patients are
+%DIF >          receiving risk assessment and thus the possibility to be treated with
+%DIF >          statins. This critic also points to treatment heterogeneity.
+%DIF >          Suppose that every patient benefits the same from statins, then even a
+%DIF >          small part of the population --such as the socially advantaged at more
+%DIF >          than 10\% risk-- would benefit from it and make the intervention
+%DIF >          effective at the population level.
+%DIF >  \end{itemize}
+
+
+
+\DIFdelbegin %DIFDELCMD < \begin{itemize}
+\begin{itemize}%DIFAUXCMD
+  %DIFDELCMD <   \item %%%
+  \item%DIFAUXCMD
+        \DIFdel{LIPID \mbox{%DIFAUXCMD
+            \cite{long1998prevention} }\hskip0pt%DIFAUXCMD
+          (32\% of the effect): 9,014 patients with a history of
+          myocardial infraction or hospitalization ie. secondary prevention.
+        }%DIFDELCMD < \item %%%
+  \item%DIFAUXCMD
+        \DIFdel{PROSPER \mbox{%DIFAUXCMD
+            \cite{shepherd2002pravastatin} }\hskip0pt%DIFAUXCMD
+          (22\% of the effect): an elderly cohort of
+          5,804 men and women with, or at high risk of developing, cardiovascular
+          disease and stroke.
+        }%DIFDELCMD < \item %%%
+  \item%DIFAUXCMD
+        \DIFdel{ALLHAT-LLT \mbox{%DIFAUXCMD
+            \cite{antihypertensive2002major} }\hskip0pt%DIFAUXCMD
+          (23\% of the effect): 10,355 patients age more than 55
+          years and stage 1 or 2 hypertension with at least 1 additional CHD risk
+          factor.
+        }
+\end{itemize}%DIFAUXCMD
+%DIFDELCMD < \end{itemize}
+%DIFDELCMD < \clearpage
+%DIFDELCMD < %%%
+\DIFdelend %DIF >  \textbf{NICE evidence for statin efficacy}
+
+\DIFdelbegin \section*{\DIFdel{Acknowledgments}}
+%DIFAUXCMD
+\DIFdelend %DIF >  In the NICE analysis, three trials weight for more than 70\% of the effect. All
+%DIF >  focus on high risk patients and secondary prevention. It is not clear if
+%DIF >  those effects are used for the cost-effectiveness.
+
+\DIFdelbegin \DIFdel{We thank all the PhysioNet team for their encouragements and support. In
+  particular: Fredrik Willumsen Haug, João Matos, Luis Nakayama, Sicheng Hao, Alistair Johnson.
+}\DIFdelend %DIF >  \begin{itemize}
+%DIF >    \item LIPID \cite{long1998prevention} (32\% of the effect): 9,014 patients with a history of
+%DIF >          myocardial infraction or hospitalization ie. secondary prevention.
+%DIF >    \item PROSPER \cite{shepherd2002pravastatin} (22\% of the effect): an elderly cohort of
+%DIF >          5,804 men and women with, or at high risk of developing, cardiovascular
+%DIF >          disease and stroke.
+%DIF >    \item ALLHAT-LLT \cite{antihypertensive2002major} (23\% of the effect): 10,355 patients age more than 55
+%DIF >          years and stage 1 or 2 hypertension with at least 1 additional CHD risk
+%DIF >          factor.
+%DIF >  \end{itemize}
+
+\DIFdelbegin %DIFDELCMD < \nolinenumbers
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \clearpage
 \DIFaddend
 
-\paragraph*{S9 Appendix.}
-\label{apd:risk_assessment_scores}
-{\bf Risk assessment tools for prevention.}
 
 
-\textbf{An example of nationally deployed cardiovascular prevention tool: QRISK}
-
-The QRISK is a risk score widely used in the UK to assess 10-year
-cardio-vascular risk \cite{hippisley2017development}. It is well calibrated
-and have satisfactory discriminative performances. As such, it is recommended
-by the national regulatory agency to engage the patient into various
-preventive interventions such as physical activity, cardio-protective diet,
-statins initiation \cite{guideline2023cardiovascular}. The NICE argues in favor
-of systematic screening of cardio-vascular risks to increase the number of
-people receiving statins \cite{guideline2023cardiovascular}.
-
-The QRISK seems to mostly inform the initiation of statins for patients
-exceeding 10\% 10-year CVD risk (as measured with QRISK) following the 2014
-NICE guidelines \cite{rabar2014lipid}.
-
-They base their evidence on a cost-effectiveness analysis choosing the 10\%
-threshold to optimize quality-adjusted life year at the population level based
-on the cost of life-long statin treatments \cite{guthrie2023competing}. This
-study assumes constant statins effect among different CVD risk groups:
-\emph{It is assumed that the risk ratios given for treatment with each class
-  of statins are constant regardless of the baseline CV risk --that is, someone
-  with low CV risk will receive the same proportional reduction in that risk as
-  would someone with a high CV risk. This is unproven, but is consistent with
-  the results of meta-analysis carried out by the Cholesterol Treatment
-  Trialists, which found effectiveness to be broadly similar for those at
-  different risk levels.} This hypothesis is supported by the meta-analysis of
-\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
-    \cite{brugts2009benefits} }\hspace{0pt}%DIFAUXCMD
-}\DIFdelend at least for the important risk factors of sex and age \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
-    \cite{brugts2009benefits}}\hspace{0pt}%DIFAUXCMD
-}\DIFaddend . It is also assumed that these risk ratios are constant regardless of
-baseline LDL-cholesterol levels. More recent work showed that risk ratio
-stratified by patient baseline CVD risk levels were not significant, raising
-doubts about the overall efficacy of statins for primary prevention \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
-    \cite[Table 1]{byrne2019statins}}\hspace{0pt}%DIFAUXCMD
-}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
-    \cite{byrne2019statins}}\hspace{0pt}%DIFAUXCMD
-}\DIFaddend .
-
-The updated guidelines from the US Preventive Services Task Force found
-respectively moderate and small net benefice of statins for patients aged 40
-to 75 with above 10\% CVD risk and from 7.5 to 10\% without history of CVD
-\cite{chou2022statin}. They conclude that the evidence is insufficient to
-determine the balance of benefits and harms of statin use for the primary
-prevention of CVD events and mortality in adults 76 years or older with no
-history of CVD.
-
-
-\textbf{Critics on the efficiency of systematic screening points to treatment heterogeneity}
-
-On the other side, the WHO systematic review on systematic screening for
-cardio-vascular risks from 2019 \cite{eriksen2021effectiveness} is
-categorical on the poor effectiveness of systematic cardiovascular risk
-screening, consistently with the Cochrane review on poor effectiveness
-\cite{krogsboll2012general}. For the WHO, systematic screening leads to
-over-diagnosis and over-treatment. They mention in their argumentation no
-positive effect of statins and even adverse effect for mild hypertension
-\cite{diao2012pharmacotherapy}. They also mention critics against poor
-uptake of the systematic screening in UK or Albany leading to documented
-social bias in the screened population: for example, in the UK, treatment
-heterogeneity at a given risk level \cite{van2013efficiency} or documentation
-of social inequities of health checks \cite{krska2016implementation}.
-
-\begin{itemize}
-  \item The first critic shows that the augmentation of statin prescriptions
-        (up to 400\% increase for high risk patients), has been associated with
-        heterogeneity in statin prescriptions for given risk score levels
-        \cite{van2013efficiency}. Low risk patients have been over-prescribed
-        and high risk patient under-prescribed, resulting in \DIFdelbegin \DIFdel{dubious }\DIFdelend \DIFaddbegin \DIFadd{questionable }\DIFaddend overall
-        improvement. \DIFdelbegin \DIFdel{That suggests that some patients are responders and
-          others are non-responders. }\DIFdelend In this case, the constant effect
-        hypothesis of statin \DIFdelbegin \DIFdel{taken by }\DIFdelend \DIFaddbegin \DIFadd{proposed by the }\DIFaddend NICE cost-effectiveness study is \DIFdelbegin \DIFdel{false}\DIFdelend \DIFaddbegin \DIFadd{in doubt}\DIFaddend .
-        Having access to sources of heterogeneity would help to optimize
-        treatment allocation. The risk score might capture interesting
-        heterogeneity directions\DIFdelbegin \DIFdel{but, we lack a RCT conducted on different
-          risk levels to conclude}\DIFdelend \DIFaddbegin \DIFadd{, but we lack data from RCTs to draw such conclusions}\DIFaddend .
-
-  \item  The second critic points to a treatment allocation bias for risk
-        assessment. It seems that mostly socially advantaged patients are
-        receiving risk assessment and thus the possibility to be treated with
-        statins. This critic also points to treatment heterogeneity.
-        Suppose that every patient benefits the same from statins, then even a
-        small part of the population --such as the socially advantaged at more
-        than 10\% risk-- would benefit from it and make the intervention
-        effective at the population level.
-\end{itemize}
-
-
-
-\textbf{NICE evidence for statin efficacy}
-
-In the NICE analysis, three trials weight for more than 70\% of the effect. All
-focus on high risk patients and secondary prevention. It is not clear if
-those effects are used for the cost-effectiveness.
-
-\begin{itemize}
-  \item LIPID \cite{long1998prevention} (32\% of the effect): 9,014 patients with a history of
-        myocardial infraction or hospitalization ie. secondary prevention.
-  \item PROSPER \cite{shepherd2002pravastatin} (22\% of the effect): an elderly cohort of
-        5,804 men and women with, or at high risk of developing, cardiovascular
-        disease and stroke.
-  \item ALLHAT-LLT \cite{antihypertensive2002major} (23\% of the effect): 10,355 patients age more than 55
-        years and stage 1 or 2 hypertension with at least 1 additional CHD risk
-        factor.
-\end{itemize}
-\DIFaddbegin \clearpage
-\DIFaddend
-
-
-
-\section*{Acknowledgments}
-
-We thank all the PhysioNet team for their encouragements and support. In
-particular: Fredrik Willumsen Haug, João Matos, Luis Nakayama, Sicheng Hao, Alistair Johnson.
-
-\nolinenumbers
 
 % Either type in your references using
 % \begin{thebibliography}{}
@@ -2266,8 +2563,9 @@ particular: Fredrik Willumsen Haug, João Matos, Luis Nakayama, Sicheng Hao, Ali
 % step-by-step instructions.
 % 
 %%% TODO: copy the content of .bst once all manuscript is ok
-\bibliography{references}
-% \begin{thebibliography}{10}
+\DIFdelbegin %DIFDELCMD < \bibliography{references}
+%DIFDELCMD < %%%
+\DIFdelend % \begin{thebibliography}{10}
 
 %   \bibitem{bib1}
 %   Conant GC, Wolfe KH.
