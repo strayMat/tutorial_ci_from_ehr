@@ -657,6 +657,16 @@ investigating sub-population effects for individualized decisions. Using
 MIMIC-IV \cite{johnson2020mimic}, we compare the magnitude of biases introduced by reasonable
 choices in the different analytical steps recalled in Figure \ref{fig:study_summary}.
 
+MIMIC-IV is a publicly available database that contains information from real
+ICU stays of patients admitted to one tertiary academic medical center, Beth
+Israel Deaconess Medical Center (BIDMC), in Boston, United States between 2008
+and 2019. The data in MIMIC-IV has been previously de-identified, and the
+institutional review boards of the Massachusetts Institute of Technology (No.
+0403000206) and BIDMC (2001-P-001699/14) both approved the use of the database
+for research. The database contains comprehensive information from ICU stays
+including vital signs, laboratory measurements, medications, and mortality data
+up to one year after discharge.
+
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\linewidth]{img_main/applied_inference_flow.pdf}
@@ -664,7 +674,7 @@ choices in the different analytical steps recalled in Figure \ref{fig:study_summ
 \end{figure}
 
 
-\subsection*{Study design: effect of crystalloids on mortality in sepsis}%
+\subsection*{Step 1: Study design -- effect of crystalloids on mortality in sepsis}%
 \label{sec:framing_mimic_iv}
 
 \begin{itemize}[leftmargin=2ex]
@@ -710,7 +720,7 @@ patient characteristics.
 \end{table}
 
 
-\subsection*{Identification: listing confounders}\label{sec:identification_mimic_iv}
+\subsection*{Step 2: Identification -- listing confounders}\label{sec:identification_mimic_iv}
 
 For confounders selection we use a causal DAG shown in Figure
 \nameref{apd:causal_diagram_albumin}. Gray confounders are not controlled for since
@@ -734,7 +744,7 @@ Confidence intervals were estimated by bootstrap (50 repetitions).
 \nameref{apd:packages} detail the estimators and the available Python
 implementations. \nameref{apd:statistical_considerations} details statistical considerations that we identify as important but missing in these packages, namely lack of cross fitting estimators, bad practices for imputation, lack of closed form confidence intervals.
 
-\subsection*{Estimation}\label{sec:estimation_mimic_iv}
+\subsection*{Step 3: Statistical estimation}\label{sec:estimation_mimic_iv}
 
 
 \paragraph{Confounder aggregation:}
@@ -755,11 +765,11 @@ predictors in a linear fashion, random forests bring the benefit of modeling
 non-linear relations.
 
 
-\subsection*{Vibration analysis: Comparing sources of systematic errors}%
+\subsection*{Step 4: Vibration analysis -- Comparing sources of systematic errors}%
 \label{sec:vibration_analysis_mimic_iv}
 
 
-\paragraph{Study design -- Illustration of immortal time bias:}
+\paragraph{Study design flaw -- Illustration of immortal time bias:}
 
 To illustrate the risk of immortal-time bias, we vary the eligibility period of
 treatment or control in a shorter or longer time window than 24 hours. As
@@ -807,7 +817,7 @@ periods lead to albumin being markedly more efficient (detailed results with cau
 \end{figure*}
 
 
-\paragraph{Confounder choice} We consider other choice of confounding variables
+\paragraph{Confounder choice flaw} We consider other choice of confounding variables
 (\nameref{apd:vibration_analysis_for_confounders}). Figure
 \ref{fig:vibration:confounders} shows that a less thorough choice, neglecting
 the administrated drugs, makes little to no difference. Major errors, such as
@@ -815,7 +825,7 @@ omitting the biological measurements or using only socio-demographical
 variables, lead to sizeable bias. This is consistent with the literature
 enhancing the importance of a clinically valid DAG \cite{greenland1999causal}.
 
-\paragraph{Estimation choices -- Confounder aggregation, causal and nuisance estimators:}
+\paragraph{Estimation choices flaw -- Confounder aggregation, causal and nuisance estimators:}
 
 Figure \ref{fig:vibration:models} shows varying confidence intervals (CI)
 depending on the method. Doubly-robust methods provide the narrowest CIs,
@@ -826,7 +836,7 @@ only report the first and last pre-treatment feature aggregation strategy, since
 detailed analysis showed little differences for other aggregations (\nameref{apd:detailed_results} for complete results, and \nameref{apd:vibration_analysis_for_aggregation} for a detailed study on aggregation choices). Both methodological studies \cite{naimi2023challenges} and
 consistency with published RCTs suggest to prefer doubly-robust approaches.
 
-\subsection*{Treatment heterogeneity: Which treatment for a sub-population?}%
+\subsection*{Step 5: Treatment heterogeneity -- Which treatment for a sub-population?}%
 \label{sec:treamtent_heterogeneity_mimic_iv}
 
 
@@ -871,7 +881,6 @@ RCT  \cite{caironi2014albumin}. It is also beneficial for older patients (age >=
 % o     Go back to decision-making
 % o	Conclusion: racial bias and equity
 
-
 Valid decision-making evidence from EHR data requires a clear causal framework.
 Indeed, machine-learning algorithms have often extracted non-causal associations
 between the intervention and the outcome, improper for decision-making
@@ -902,8 +911,6 @@ For instance, despite the emphasis often put on choice of confounders,
 minor deviations from the expert's causal graph did not introduce
 substantial bias (\nameref{apd:vibration_analysis_for_confounders}), no larger than a too
 rigid choice of estimator.
-
-
 % Importance of reference target trial
 To assert the validity of the analysis, we argue to relate as much as
 possible the average effect to a reference target trial, even when the
@@ -920,9 +927,22 @@ decision-making \cite{prosperi2020causal}: a sub-population analysis  (as in Fig
 of patients should receive a treatment. Beyond a sub-group perspective,
 patient-specific estimates facilitate a personalized approach
 to clinical decision-making \cite{kent2018personalized}.
-%
-% No magic bullet and its not all about ML
+% Focus on the medical question
+Since the early 1980ies, researcher investigated the use of colloid fluids in
+sepsis resuscitation due to their theoretical advantages. However, evidence has
+long been conflicting. The debate was sparked anew when new synthetic colloid
+solutions became available, but were later shown to have renal adverse effects
+\cite{xu2014comparison}. As even large RCTs left unanswered questions,
+researchers focused on meta-analyses. Here our analysis is in line with the
+latest two meta-analyses \cite{xu2014comparison,li2020resuscitation}, as we
+found no net benefit for resuscitation with albumin in septic patients overall,
+but a possible slight benefit for patients with septic shock (see Fig.
+\ref{fig:albumin_for_sepsis:cate_results}). While regular meta-analyses not
+utilizing patient-level data are restricted in their sensitivity analyses, our
+approach offers the benefit to investigate further potential effect modifiers
+such as age, sex, or race.
 
+% No magic bullet and its not all about ML
 Even without considering a specific intervention, anchoring
 machine-learning models on
 causal mechanisms can make them more robust to distributional shift \cite{scholkopf2021toward},
