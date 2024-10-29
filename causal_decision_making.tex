@@ -543,8 +543,16 @@ Regressing the outcome on instrumental and post-treatment variables (colliders
 and mediators) will lead to biased causal estimates
 \cite{vanderweele2019principles}. Drawing causal Directed Acyclic Graphs
 (DAGs) \cite{greenland1999causal}, \emph{eg} with a webtool such as DAGitty \cite{textor2011dagitty}, helps capturing the relevant
-variables and defining a suitable estimand or effect measure. Unconfoundedness --inclusion of all confounders in the analysis--
-is a strong hypothesis that can be hard to obtain in real applications. In these cases, sensitivity analyses for omited variable bias allow to test the robustness of the results to missing confounders \cite{cinelli2020making}, proximal inference can be used to leverage proxy of unobserved confounders \cite{tchetgen2024introduction}, and the presence of natural experiment might identify the desired causal effect without unconfoundedness \cite[Chapter 5, 9]{wager2020stats}.
+variables and defining a suitable estimand or effect measure.
+
+Unconfoundedness --inclusion of all confounders in the analysis-- is a strong
+hypothesis that can be hard to obtain in real applications. In these cases,
+sensitivity analyses for omitted variable bias allow to test the robustness of
+the results to missing confounders \cite{cinelli2020making}, proximal inference
+can be used to leverage proxy of unobserved confounders
+\cite{tchetgen2024introduction}, and the presence of natural experiment might
+identify the desired causal effect without unconfoundedness \cite[Chapter 5,
+  9]{wager2020stats}.
 
 The
 \emph{estimand} is the final causal quantity estimated from the data.
@@ -1317,7 +1325,25 @@ particular these we use:
   independence on the propensity score $e(X)=\mathbb P(A=1|X)$ \cite{rosenbaum1983central}: $\{Y(0), Y(1) \}\indep  A | e(X)$.
 \end{assumption}
 
-Unconfoundedness is a strong assumption that might be violated in practice. The existance of residual bias trough unobserved confounders can be mitigated with different strategies. The \textit{omitted variable bias} framework encourages sensitivity analyses allowing to derive bounds on the causal estimate by making assumptions on the strengh of association of the omitted variable with both the treatment and the outcome. We refer to \cite{cinelli2020making} for a clear introduction under linear assumption and to \cite{chernozhukov2022long} for an extension to general non-linear settings. In case of strong unobserved confounders for which proxy variables can be measured, \textit{proximal inference} can be used to obtain identifiability \cite{tchetgen2024introduction}. These methods require expert knowledge to classify the proxy between treatment and outcome proxy, then run two-stage regression to recover the causal effect. Lastly, natural exeperiments, when available, should be exploited to estimate causal effects without the need of unconfoundedness. Instrumental variable methods exploit randomness influancing the treatment but unrelated to the outcome to simulate a randomized experiment \cite[chapter 9]{wager2020stats}. Regression discontinuity designs leverage discontinuous treatment assignment mechanisms with the assumption of a continuous outcome \cite[chapter 5]{wager2020stats}.
+Unconfoundedness is a strong assumption that might be violated in practice. The
+existance of residual bias trough unobserved confounders can be mitigated with
+different strategies. The \textit{omitted variable bias} framework encourages
+sensitivity analyses allowing to derive bounds on the causal estimate by making
+assumptions on the strengh of association of the omitted variable with both the
+treatment and the outcome. We refer to \cite{cinelli2020making} for a clear
+introduction under linear assumption and to \cite{chernozhukov2022long} for an
+extension to general non-linear settings. In case of strong unobserved
+confounders for which proxy variables can be measured, \textit{proximal
+  inference} can be used to obtain identifiability
+\cite{tchetgen2024introduction}. These methods require expert knowledge to
+classify the proxy between treatment and outcome proxy, then run two-stage
+regression to recover the causal effect. Lastly, natural exeperiments, when
+available, should be exploited to estimate causal effects without the need of
+unconfoundedness. Instrumental variable methods exploit randomness influancing
+the treatment but unrelated to the outcome to simulate a randomized experiment
+\cite[chapter 9]{wager2020stats}. Regression discontinuity designs leverage
+discontinuous treatment assignment mechanisms with the assumption of a
+continuous outcome \cite[chapter 5]{wager2020stats}.
 
 \begin{assumption}[Overlap, also known as Positivity]\label{assumption:overlap}
   \begin{equation}\label{eq:overlap}
