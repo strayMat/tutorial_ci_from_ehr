@@ -1,7 +1,7 @@
 % Template for PLoS
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL manuscript_second_submission.tex   Fri Oct 25 18:45:38 2024
-%DIF ADD causal_decision_making.tex         Mon Oct 28 16:50:52 2024
+%DIF ADD causal_decision_making.tex         Tue Oct 29 18:00:08 2024
 % Version 3.6 Aug 2022
 %
 % % % % % % % % % % % % % % % % % % % % % %
@@ -658,13 +658,22 @@ Regressing the outcome on instrumental and post-treatment variables (colliders
 and mediators) will lead to biased causal estimates
 \cite{vanderweele2019principles}. Drawing causal Directed Acyclic Graphs
 (DAGs) \cite{greenland1999causal}, \emph{eg} with a webtool such as DAGitty \cite{textor2011dagitty}, helps capturing the relevant
-variables and defining a suitable estimand or effect measure. \DIFaddbegin \DIFadd{Unconfoundedness --inclusion of all confounders in the analysis--
-  is a strong hypothesis that can be hard to obtain in real applications. In these cases, sensitivity analyses for omited variable bias allow to test the robustness of the results to missing confounders \mbox{%DIFAUXCMD
+variables and defining a suitable estimand or effect measure.
+\DIFaddbegin
+
+\DIFadd{Unconfoundedness --inclusion of all confounders in the analysis-- is a strong
+  hypothesis that can be hard to obtain in real applications. In these cases,
+  sensitivity analyses for omitted variable bias allow to test the robustness of
+  the results to missing confounders \mbox{%DIFAUXCMD
     \cite{cinelli2020making}}\hskip0pt%DIFAUXCMD
-  , proximal inference can be used to leverage proxy of unobserved confounders \mbox{%DIFAUXCMD
+  , proximal inference
+  can be used to leverage proxy of unobserved confounders
+  \mbox{%DIFAUXCMD
     \cite{tchetgen2024introduction}}\hskip0pt%DIFAUXCMD
-  , and the presence of natural experiment might identify the desired causal effect without unconfoundedness \mbox{%DIFAUXCMD
-    \cite[Chapter 5, 9]{wager2020stats}}\hskip0pt%DIFAUXCMD
+  , and the presence of natural experiment might
+  identify the desired causal effect without unconfoundedness \mbox{%DIFAUXCMD
+    \cite[Chapter 5,
+      9]{wager2020stats}}\hskip0pt%DIFAUXCMD
   .
 }
 
@@ -806,14 +815,25 @@ investigating sub-population effects for individualized decisions. Using
 MIMIC-IV \cite{johnson2020mimic}, we compare the magnitude of biases introduced by reasonable
 choices in the different analytical steps recalled in Figure \ref{fig:study_summary}.
 
-\begin{figure}[h!]
+\DIFaddbegin \DIFadd{MIMIC-IV is a publicly available database that contains information from real
+  ICU stays of patients admitted to one tertiary academic medical center, Beth
+  Israel Deaconess Medical Center (BIDMC), in Boston, United States between 2008
+  and 2019. The data in MIMIC-IV has been previously de-identified, and the
+  institutional review boards of the Massachusetts Institute of Technology (No.
+  0403000206) and BIDMC (2001-P-001699/14) both approved the use of the database
+  for research. The database contains comprehensive information from ICU stays
+  including vital signs, laboratory measurements, medications, and mortality data
+  up to one year after discharge.
+}
+
+\DIFaddend \begin{figure}[h!]
   \centering
   \includegraphics[width=\linewidth]{img_main/applied_inference_flow.pdf}
   \caption{\textbf{Application of the step-by-step framework on which resuscitation fluid to use.}}\label{fig:study_summary}
 \end{figure}
 
 
-\subsection*{Study design: effect of crystalloids on mortality in sepsis}%
+\subsection*{\DIFaddbegin \DIFadd{Step 1: }\DIFaddend Study design \DIFdelbegin \DIFdel{: }\DIFdelend \DIFaddbegin \DIFadd{-- }\DIFaddend effect of crystalloids on mortality in sepsis}%
 \label{sec:framing_mimic_iv}
 
 \begin{itemize}[leftmargin=2ex]
@@ -860,7 +880,7 @@ patient characteristics\DIFdelbegin \DIFdel{and }%DIFDELCMD < \nameref{apd:selec
 \end{table}
 
 
-\subsection*{Identification: listing confounders}\label{sec:identification_mimic_iv}
+\subsection*{\DIFdelbegin \DIFdel{Identification}\DIFdelend \DIFaddbegin \DIFadd{Step 2}\DIFaddend : \DIFaddbegin \DIFadd{Identification -- }\DIFaddend listing confounders}\label{sec:identification_mimic_iv}
 
 For confounders selection we use a causal DAG shown in Figure
 \DIFdelbegin \DIFdel{\ref{fig:causal_diagram_albumin}}\DIFdelend \DIFaddbegin \nameref{apd:causal_diagram_albumin}\DIFaddend . Gray confounders are not controlled for since
@@ -902,7 +922,7 @@ Confidence intervals were estimated by bootstrap (50 repetitions).
 implementations. \DIFaddbegin \nameref{apd:statistical_considerations} \DIFadd{details statistical considerations that we identify as important but missing in these packages, namely lack of cross fitting estimators, bad practices for imputation, lack of closed form confidence intervals.
 }
 
-\subsection*{\DIFadd{Estimation}}\label{sec:estimation_mimic_iv}
+\subsection*{\DIFadd{Step 3: Statistical estimation}}\label{sec:estimation_mimic_iv}
 
 
 \paragraph{\DIFadd{Confounder aggregation:}}
@@ -924,11 +944,11 @@ predictors in a linear fashion, random forests bring the benefit of modeling
 non-linear relations.
 
 
-\subsection*{Vibration analysis: Comparing sources of systematic errors}%
+\subsection*{\DIFaddbegin \DIFadd{Step 4: }\DIFaddend Vibration analysis \DIFdelbegin \DIFdel{: }\DIFdelend \DIFaddbegin \DIFadd{-- }\DIFaddend Comparing sources of systematic errors}%
 \label{sec:vibration_analysis_mimic_iv}
 
 
-\paragraph{Study design -- Illustration of immortal time bias:}
+\paragraph{Study design \DIFaddbegin \DIFadd{flaw }\DIFaddend -- Illustration of immortal time bias:}
 
 To illustrate the risk of immortal-time bias, we vary the eligibility period of
 treatment or control in a shorter or longer time window than 24 hours. As
@@ -976,7 +996,7 @@ periods lead to albumin being markedly more efficient \DIFaddbegin \DIFadd{(deta
 \end{figure*}
 
 
-\paragraph{Confounder choice} We consider other choice of confounding variables
+\paragraph{Confounder choice \DIFaddbegin \DIFadd{flaw}\DIFaddend } We consider other choice of confounding variables
 (\nameref{apd:vibration_analysis_for_confounders}). Figure
 \ref{fig:vibration:confounders} shows that a less thorough choice, neglecting
 the administrated drugs, makes little to no difference. Major errors, such as
@@ -987,7 +1007,7 @@ variables, lead to sizeable bias. \DIFaddbegin \DIFadd{This is consistent with t
   .
 }\DIFaddend
 
-\paragraph{Estimation choices -- Confounder aggregation, causal and nuisance estimators:}
+\paragraph{Estimation choices \DIFaddbegin \DIFadd{flaw }\DIFaddend -- Confounder aggregation, causal and nuisance estimators:}
 
 Figure \ref{fig:vibration:models} shows varying confidence intervals (CI)
 depending on the method. Doubly-robust methods provide the narrowest CIs,
@@ -998,7 +1018,7 @@ only report the first and last pre-treatment feature aggregation strategy, since
 detailed analysis showed little differences for other aggregations (\nameref{apd:detailed_results} \DIFaddbegin \DIFadd{for complete results, and }\nameref{apd:vibration_analysis_for_aggregation} \DIFadd{for a detailed study on aggregation choices}\DIFaddend ). Both methodological studies \cite{naimi2023challenges} and
 consistency with published RCTs suggest to prefer doubly-robust approaches.
 
-\subsection*{Treatment heterogeneity: Which treatment for a sub-population?}%
+\subsection*{\DIFaddbegin \DIFadd{Step 5: }\DIFaddend Treatment heterogeneity \DIFdelbegin \DIFdel{: }\DIFdelend \DIFaddbegin \DIFadd{-- }\DIFaddend Which treatment for a sub-population?}%
 \label{sec:treamtent_heterogeneity_mimic_iv}
 
 
@@ -1044,7 +1064,6 @@ RCT  \cite{caironi2014albumin}. It is also beneficial for older patients (age >=
 % o     Go back to decision-making
 % o	Conclusion: racial bias and equity
 
-
 Valid decision-making evidence from EHR data requires a clear causal framework.
 Indeed, machine-learning algorithms have often extracted non-causal associations
 between the intervention and the outcome, improper for decision-making
@@ -1075,9 +1094,10 @@ For instance, despite the emphasis often put on choice of confounders,
 minor deviations from the expert's causal graph did not introduce
 substantial bias (\nameref{apd:vibration_analysis_for_confounders}), no larger than a too
 rigid choice of estimator.
+\DIFdelbegin %DIFDELCMD < 
 
-
-% Importance of reference target trial
+%DIFDELCMD < %%%
+\DIFdelend % Importance of reference target trial
 To assert the validity of the analysis, we argue to relate as much as
 possible the average effect to a reference target trial, even when the
 goal is to capture the heterogeneity of the effect to individualize
@@ -1093,9 +1113,29 @@ decision-making \cite{prosperi2020causal}: a sub-population analysis  (as in Fig
 of patients should receive a treatment. Beyond a sub-group perspective,
 patient-specific estimates facilitate a personalized approach
 to clinical decision-making \cite{kent2018personalized}.
-%
-% No magic bullet and its not all about ML
+%DIF < 
+%DIF <  No magic bullet and its not all about ML
+%DIF >  Focus on the medical question
+\DIFaddbegin \DIFadd{Since the early 1980ies, researcher investigated the use of colloid fluids in
+  sepsis resuscitation due to their theoretical advantages. However, evidence has
+  long been conflicting. The debate was sparked anew when new synthetic colloid
+  solutions became available, but were later shown to have renal adverse effects
+  \mbox{%DIFAUXCMD
+    \cite{xu2014comparison}}\hskip0pt%DIFAUXCMD
+  . As even large RCTs left unanswered questions,
+  researchers focused on meta-analyses. Here our analysis is in line with the
+  latest two meta-analyses \mbox{%DIFAUXCMD
+    \cite{xu2014comparison,li2020resuscitation}}\hskip0pt%DIFAUXCMD
+  , as we
+  found no net benefit for resuscitation with albumin in septic patients overall,
+  but a possible slight benefit for patients with septic shock (see Fig.
+  \ref{fig:albumin_for_sepsis:cate_results}). While regular meta-analyses not
+  utilizing patient-level data are restricted in their sensitivity analyses, our
+  approach offers the benefit to investigate further potential effect modifiers
+  such as age, sex, or race.
+}\DIFaddend
 
+%DIF >  No magic bullet and its not all about ML
 Even without considering a specific intervention, anchoring
 machine-learning models on
 causal mechanisms can make them more robust to distributional shift \cite{scholkopf2021toward},
@@ -1645,15 +1685,33 @@ particular these we use:
   independence on the propensity score $e(X)=\mathbb P(A=1|X)$ \cite{rosenbaum1983central}: $\{Y(0), Y(1) \}\indep  A | e(X)$.
 \end{assumption}
 
-\DIFaddbegin \DIFadd{Unconfoundedness is a strong assumption that might be violated in practice. The existance of residual bias trough unobserved confounders can be mitigated with different strategies. The }\textit{\DIFadd{omitted variable bias}} \DIFadd{framework encourages sensitivity analyses allowing to derive bounds on the causal estimate by making assumptions on the strengh of association of the omitted variable with both the treatment and the outcome. We refer to \mbox{%DIFAUXCMD
+\DIFaddbegin \DIFadd{Unconfoundedness is a strong assumption that might be violated in practice. The
+  existance of residual bias trough unobserved confounders can be mitigated with
+  different strategies. The }\textit{\DIFadd{omitted variable bias}} \DIFadd{framework encourages
+  sensitivity analyses allowing to derive bounds on the causal estimate by making
+  assumptions on the strengh of association of the omitted variable with both the
+  treatment and the outcome. We refer to \mbox{%DIFAUXCMD
     \cite{cinelli2020making} }\hskip0pt%DIFAUXCMD
-  for a clear introduction under linear assumption and to \mbox{%DIFAUXCMD
+  for a clear
+  introduction under linear assumption and to \mbox{%DIFAUXCMD
     \cite{chernozhukov2022long} }\hskip0pt%DIFAUXCMD
-  for an extension to general non-linear settings. In case of strong unobserved confounders for which proxy variables can be measured, }\textit{\DIFadd{proximal inference}} \DIFadd{can be used to obtain identifiability \mbox{%DIFAUXCMD
+  for an
+  extension to general non-linear settings. In case of strong unobserved
+  confounders for which proxy variables can be measured, }\textit{\DIFadd{proximal
+    inference}} \DIFadd{can be used to obtain identifiability
+  \mbox{%DIFAUXCMD
     \cite{tchetgen2024introduction}}\hskip0pt%DIFAUXCMD
-  . These methods require expert knowledge to classify the proxy between treatment and outcome proxy, then run two-stage regression to recover the causal effect. Lastly, natural exeperiments, when available, should be exploited to estimate causal effects without the need of unconfoundedness. Instrumental variable methods exploit randomness influancing the treatment but unrelated to the outcome to simulate a randomized experiment \mbox{%DIFAUXCMD
+  . These methods require expert knowledge to
+  classify the proxy between treatment and outcome proxy, then run two-stage
+  regression to recover the causal effect. Lastly, natural exeperiments, when
+  available, should be exploited to estimate causal effects without the need of
+  unconfoundedness. Instrumental variable methods exploit randomness influancing
+  the treatment but unrelated to the outcome to simulate a randomized experiment
+  \mbox{%DIFAUXCMD
     \cite[chapter 9]{wager2020stats}}\hskip0pt%DIFAUXCMD
-  . Regression discontinuity designs leverage discontinuous treatment assignment mechanisms with the assumption of a continuous outcome \mbox{%DIFAUXCMD
+  . Regression discontinuity designs leverage
+  discontinuous treatment assignment mechanisms with the assumption of a
+  continuous outcome \mbox{%DIFAUXCMD
     \cite[chapter 5]{wager2020stats}}\hskip0pt%DIFAUXCMD
   .
 }
