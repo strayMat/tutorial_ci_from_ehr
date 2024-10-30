@@ -285,15 +285,14 @@
 
 Causal inference enables machine learning methods to estimate treatment effects
 of medical interventions from electronic health records (EHRs). The prevalence
-of such observational data and the difficulty for randomized trial to cover all
+of such observational data and the difficulty for randomized controlled trials (RCT) to cover all
 population/treatment relationships make these methods increasingly attractive
-for the study of causal effects.
+for the study of causal effects. However, researchers should be wary of many
+pitfalls.
 
-Here we explain and study common methodological pitfalls and potential
-solutions. We illustrate our framework for causal inference estimating the
+We propose and illustrate a framework for causal inference estimating the
 effect of albumin on mortality in sepsis using an Intensive Care database
-(MIMIC-IV) and comparing credible analyses variations to results from randomized
-controlled trials (RCT) as gold-standard.
+(MIMIC-IV) and comparing credible analyses variations to results from RCTs as gold-standard.
 
 The first step is study design, using the target trial concept and the PICOT
 framework: Population (patients with sepsis), Intervention (combination of
@@ -302,8 +301,7 @@ Outcome (28-day mortality), Time (intervention start within 24h of admission).
 We show that too large treatment-initiation time induces immortal time bias.
 The second step is selection of the confounding variables based on expert
 knowledge. Increasingly adding confounders enables to recover the RCT results
-from observational data (0\%, 95\% CI -1\% to 1\%, and 0\%, 95\% -5\% to 5\%,
-respectively). As the third step, we assess the influence
+from observational data. As the third step, we assess the influence
 of multiple models with varying assumptions, showing that a doubly robust estimator (AIPW)
 with random forests proved to be the most reliable estimator. Results show that
 these steps are all important for valid causal estimates. A valid causal model
@@ -367,15 +365,52 @@ For instance, numerous machine learning algorithms rely on post-treatment inform
 \paragraph{The Importance of Causal Reasoning in Data-Driven Decision-Making} \cite{prosperi2020causal}
 While conventional machine learning relies on retrospective to generate predictions of future effects \cite{plecko2022causal}, truly informing decision-making needs a comparison of potential outcomes with and without the intervention. This involves estimating a causal effect, mirroring the methodology employed in RCTs \cite{prosperi2020causal}. However, RCTs encounter challenges such as selection biases \cite{travers2007external,averitt2020translating}, difficulties in recruiting diverse populations, and limited sample sizes for exploring treatment heterogeneity across subgroups. Routinely collected data presents a unique opportunity to assess real-life benefit-risk trade-offs associated with a decision \cite{desai2021broadening}, with reduced sampling bias and sufficient data to capture heterogeneity \cite{rekkas2023standardized}. Nevertheless, estimating causal effects from such data is challenging due to the confounding of the intervention by indication. Therefore, dedicated statistical techniques are imperative to emulate a "target trial" \cite{hernan2016specifying} from observational data.
 
-% \paragraph{How lack of individual treatment model limits a cardiovascular risk score}
-% The QRISK is a risk score widely used in the UK to assess 10-year and lifetime cardio-vascular risk \cite{hippisley2017development}. It is well calibrated, recommended by the national regulatory agency \cite{guideline2023cardiovascular}, and the National Institute for Health and Care Excellence (NICE) argues to use such a score to systematically screen cardio-vascular disease (CVD) risks and treat with statins individuals at risk \cite{guideline2023cardiovascular}, especially if 10-year CVD risk exceeds 10\% \cite{rabar2014lipid}.
-% A cost-effectiveness analysis guided the choice of the 10\% threshold to optimize quality-adjusted life years at the population level \cite{guthrie2023competing}. The NICE analysis is based on evidence mostly from three trials, accounting for more than 70\% of the effect: LIPID \cite{long1998prevention} (32\% of the effect), PROSPER \cite{shepherd2002pravastatin} (22\% of the effect), ALLHAT-LLT \cite{antihypertensive2002major} (23\% of the effect). All these trials focused on high-risk patients and secondary prevention. All studies operate under the assumption of a consistent statin effect (risk ratios constant) across different CVD risk groups, irrespective of the baseline CVD risk and LDL-cholesterol levels. This aligns with the outcomes of two meta-analyses which observed broadly similar effectiveness across risk levels \cite{brugts2009benefits}, but is challenged by another study in primary prevention \cite{byrne2019statins}. Meanwhile the US Preventive Services Task Force concluded that the evidence is insufficient to determine the balance of benefits and harms of statin use for the primary prevention of CVD events and mortality in adults 76 years and older \cite{chou2022statin}.
+% \paragraph{How lack of individual treatment model limits a cardiovascular risk
+% score} The QRISK is a risk score widely used in the UK to assess 10-year and
+% lifetime cardio-vascular risk \cite{hippisley2017development}. It is well
+% calibrated, recommended by the national regulatory agency
+% \cite{guideline2023cardiovascular}, and the National Institute for Health and
+% Care Excellence (NICE) argues to use such a score to systematically screen
+% cardio-vascular disease (CVD) risks and treat with statins individuals at risk
+% \cite{guideline2023cardiovascular}, especially if 10-year CVD risk exceeds
+% 10\% \cite{rabar2014lipid}.  A cost-effectiveness analysis guided the choice
+% of the 10\% threshold to optimize quality-adjusted life years at the
+% population level \cite{guthrie2023competing}. The NICE analysis is based on
+% evidence mostly from three trials, accounting for more than 70\% of the
+% effect: LIPID \cite{long1998prevention} (32\% of the effect), PROSPER
+% \cite{shepherd2002pravastatin} (22\% of the effect), ALLHAT-LLT
+% \cite{antihypertensive2002major} (23\% of the effect). All these trials
+% focused on high-risk patients and secondary prevention. All studies operate
+% under the assumption of a consistent statin effect (risk ratios constant)
+% across different CVD risk groups, irrespective of the baseline CVD risk and
+% LDL-cholesterol levels. This aligns with the outcomes of two meta-analyses
+% which observed broadly similar effectiveness across risk levels
+% \cite{brugts2009benefits}, but is challenged by another study in primary
+% prevention \cite{byrne2019statins}. Meanwhile the US Preventive Services Task
+% Force concluded that the evidence is insufficient to determine the balance of
+% benefits and harms of statin use for the primary prevention of CVD events and
+% mortality in adults 76 years and older \cite{chou2022statin}.
 
-\paragraph{Critics on the efficiency of systematic screening and treatment heterogeneity}
-Conversely, the World Health Organization (WHO) published a systematic review on screening for CVD risk in 2019 \cite{eriksen2021effectiveness} asserting the limited effectiveness of such screenings, aligning with a Cochrane review that also reported poor effectiveness \cite{krogsboll2012general} resulting in over-treatment. The surge in statin prescriptions has been linked to a divergence in statin prescriptions at specified risk score levels \cite{van2013efficiency}. This leads to over-prescription for low-risk patients and under-prescription for high-risk patients, casting doubt on the overall efficacy as the constancy assumption of the statin treatment effect might be violated. Accounting for sources of heterogeneity in patient profiles would be instrumental in optimizing treatment allocation.
+% \paragraph{Critics on the efficiency of systematic screening and treatment heterogeneity}
+% Conversely, the World Health Organization (WHO) published a systematic review on
+% screening for CVD risk in 2019 \cite{eriksen2021effectiveness} asserting the
+% limited effectiveness of such screenings, aligning with a Cochrane review that
+% also reported poor effectiveness \cite{krogsboll2012general} resulting in
+% over-treatment. The surge in statin prescriptions has been linked to a
+% divergence in statin prescriptions at specified risk score levels
+% \cite{van2013efficiency}. This leads to over-prescription for low-risk patients
+% and under-prescription for high-risk patients, casting doubt on the overall
+% efficacy as the constancy assumption of the statin treatment effect might be
+% violated. Accounting for sources of heterogeneity in patient profiles would be
+% instrumental in optimizing treatment allocation.
 
-Moreover, the WHO report critiques suboptimal adoption leading to social biases in the screened populations. In the UK, there are instances of treatment heterogeneity at a given risk level \cite{van2013efficiency} and documented evidence of social inequities in health checks \cite{krska2016implementation}. Evidence suggests that predominantly socially advantaged patients undergo screening, consequently being offered statin treatment. This critique further emphasizes the presence of treatment heterogeneity.
-
+% Moreover, the WHO report critiques suboptimal adoption leading to social biases
+% in the screened populations. In the UK, there are instances of treatment
+% heterogeneity at a given risk level \cite{van2013efficiency} and documented
+% evidence of social inequities in health checks \cite{krska2016implementation}.
+% Evidence suggests that predominantly socially advantaged patients undergo
+% screening, consequently being offered statin treatment. This critique further
+% emphasizes the presence of treatment heterogeneity.
 
 \paragraph{Multiple Perspectives on Evidence-based Decision Making}
 Across different fields, existing literature has emphasized different challenges associated
@@ -467,8 +502,7 @@ PICO(T) components. Population, Intervention, Control, and Outcome
 additional time component, are necessary to concord with a (hypothetical) target
 randomized clinical trial \cite{hernan_using_2016,wang2023emulation} -- Table
 \ref{table:picot}. A selection flowchart such as in
-\nameref{apd:selection_flowchart} makes the inclusion and exclusion for the PICOT
-choices explicit.
+\nameref{apd:selection_flowchart} makes inclusion and exclusion choices for PICOT explicit.
 
 Without care in defining these PICO(T) components, non-causal associations
 between treatment and outcomes can easily be introduced into an analysis
@@ -936,6 +970,7 @@ of patients should receive a treatment. Beyond a sub-group perspective,
 patient-specific estimates facilitate a personalized approach
 to clinical decision-making \cite{kent2018personalized}.
 % Focus on the medical question
+
 Since the early 1980ies, researcher investigated the use of colloid fluids in
 sepsis resuscitation due to their theoretical advantages. However, evidence has
 long been conflicting. The debate was sparked anew when new synthetic colloid
