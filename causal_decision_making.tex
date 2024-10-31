@@ -287,18 +287,18 @@ Causal inference enables machine learning methods to estimate treatment effects
 of medical interventions from electronic health records (EHRs). The prevalence
 of such observational data and the difficulty for randomized controlled trials (RCT) to cover all
 population/treatment relationships make these methods increasingly attractive
-for the study of causal effects. However, researchers should be wary of many
+for studying causal effects. However, researchers should be wary of many
 pitfalls.
 
 We propose and illustrate a framework for causal inference estimating the
 effect of albumin on mortality in sepsis using an Intensive Care database
-(MIMIC-IV) and comparing credible analyses variations to results from RCTs as gold-standard.
+(MIMIC-IV) and comparing various sensitivity analyses to results from RCTs as gold-standard.
 
 The first step is study design, using the target trial concept and the PICOT
 framework: Population (patients with sepsis), Intervention (combination of
 crystalloids and albumin for fluid resuscitation), Control (crystalloids only),
 Outcome (28-day mortality), Time (intervention start within 24h of admission).
-We show that too large treatment-initiation time induces immortal time bias.
+We show that too large treatment-initiation times induce immortal time bias.
 The second step is selection of the confounding variables based on expert
 knowledge. Increasingly adding confounders enables to recover the RCT results
 from observational data. As the third step, we assess the influence
@@ -310,9 +310,8 @@ treatment efficacy of albumin was better for patients >60 years old, males, and
 patients with septic shock.
 
 Without causal thinking, machine learning is not enough for optimal clinical
-decision making for each patient. Our step-by-step analytic framework helps the
-analyst avoid the many pitfalls of applying machine learning to EHR data and
-build models that avoid shortcuts and extract the best decision-making evidence.
+decision on an individual patient level. Our step-by-step analytic framework helps avoiding many pitfalls of applying machine learning to EHR data,
+building models that avoid shortcuts and extract the best decision-making evidence.
 
 % Please keep the Author Summary between 150 and 200 words
 % Use first person. PLOS ONE authors please skip this step. 
@@ -580,11 +579,11 @@ and mediators) will lead to biased causal estimates
 variables and defining a suitable estimand or effect measure.
 
 Unconfoundedness --inclusion of all confounders in the analysis-- is a strong
-hypothesis that can be hard to obtain in real applications. In these cases,
+assumption that can be difficult to ascertain in practice applications. In these cases,
 sensitivity analyses for omitted variable bias allow to test the robustness of
 the results to missing confounders \cite{cinelli2020making}, proximal inference
 can be used to leverage proxy of unobserved confounders
-\cite{tchetgen2024introduction}, and the presence of natural experiment might
+\cite{tchetgen2024introduction}, and the presence of a natural experiment or RCT might
 identify the desired causal effect without unconfoundedness \cite[Chapter 5,
   9]{wager2020stats}.
 
@@ -604,7 +603,7 @@ A given estimand can be estimated through different methods. One can model the
 outcome with regression models also known as
 G-formula, \cite{robins1986role} and use it as a predictive counterfactual model
 for all possible treatments for a given patient. Alternatively, one can model
-the propensity of being treated use it for matching or Inverse Propensity
+the propensity of being treated for use in matching or Inverse Propensity
 Weighting (IPW) \cite{austin2015moving}. Finally, doubly robust methods model
 both the outcome and the treatment, benefiting from the convergence of both
 models \cite{wager2020stats}. There is a variety of doubly robust models,
@@ -641,7 +640,7 @@ aggregation choices for measurements.
 Missing covariate values might also be a source of confounding. Some statistical
 estimators (such as forests) can directly incorporate them as supplementary
 covariates. Others, such as linear models, require imputations.
-\nameref{apd:statistical_considerations} details general sanity check for
+\nameref{apd:statistical_considerations} details general sanity checks for
 imputation strategies when using statistical estimators.
 
 \paragraph{Statistical estimation models of outcome and treatment}
@@ -784,7 +783,7 @@ EconML \cite{battocchi2019econml} for all other estimation strategies.
 Confidence intervals were estimated by bootstrap (50 repetitions).
 \nameref{apd:causal_estimators} and
 \nameref{apd:packages} detail the estimators and the available Python
-implementations. \nameref{apd:statistical_considerations} details statistical considerations that we identify as important but missing in these packages, namely lack of cross fitting estimators, bad practices for imputation, lack of closed form confidence intervals.
+implementations. \nameref{apd:statistical_considerations} details statistical considerations that we identified as important but missing in these packages, namely lack of cross fitting estimators, bad practices for imputation, or lack of closed form confidence intervals.
 
 \subsection*{Step 3: Statistical estimation}\label{sec:estimation_mimic_iv}
 
@@ -794,7 +793,7 @@ implementations. \nameref{apd:statistical_considerations} details statistical co
 We tested multiple aggregations such as the last value before the start of the
 follow-up period, the first observed value, and both the first and last values
 as separated features. Missing values were median imputed for numerical
-features, categorical variables were one-hot encoded (thus discarded missing values).
+features, categorical variables were one-hot encoded (thus discarding missing values).
 
 
 \paragraph{Outcome and treatment estimators:}
@@ -865,7 +864,7 @@ periods lead to albumin being markedly more efficient (detailed results with cau
 the administrated drugs, makes little to no difference. Major errors, such as
 omitting the biological measurements or using only socio-demographical
 variables, lead to sizeable bias. This is consistent with the literature
-enhancing the importance of a clinically valid DAG \cite{greenland1999causal}.
+highlighting the importance of a clinically valid DAG \cite{greenland1999causal}.
 
 \paragraph{Estimation choices flaw -- Confounder aggregation, causal and nuisance estimators:}
 
@@ -997,9 +996,7 @@ a goal in healthcare.
 %
 Establishing strong predictors might be less important than identifying
 moderately strong but modifiable risk factors as established in the Framingham
-cohort \cite{brand1976multivariate}, while others such as predictive score are
-used to optimize population-wide cost-effectiveness, but not individual
-treatment effect.
+cohort \cite{brand1976multivariate}, or optimizing population-wide cost-effectiveness instead of individual treatment effect.
 
 No sophisticated data-processing tool can safeguard against
 invalid study design or a major missing confounder, loopholes that can
@@ -1361,20 +1358,20 @@ particular these we use:
 \end{assumption}
 
 Unconfoundedness is a strong assumption that might be violated in practice. The
-existance of residual bias trough unobserved confounders can be mitigated with
+existence of residual bias trough unobserved confounders can be mitigated with
 different strategies. The \textit{omitted variable bias} framework encourages
 sensitivity analyses allowing to derive bounds on the causal estimate by making
-assumptions on the strengh of association of the omitted variable with both the
+assumptions on the strength of association of the omitted variable with both the
 treatment and the outcome. We refer to \cite{cinelli2020making} for a clear
 introduction under linear assumption and to \cite{chernozhukov2022long} for an
 extension to general non-linear settings. In case of strong unobserved
 confounders for which proxy variables can be measured, \textit{proximal
   inference} can be used to obtain identifiability
 \cite{tchetgen2024introduction}. These methods require expert knowledge to
-classify the proxy between treatment and outcome proxy, then run two-stage
-regression to recover the causal effect. Lastly, natural exeperiments, when
+classify the proxy between treatment and outcome proxy, after which a two-stage
+regression is run to recover the causal effect. Lastly, natural experiments, when
 available, should be exploited to estimate causal effects without the need of
-unconfoundedness. Instrumental variable methods exploit randomness influancing
+unconfoundedness. Instrumental variable methods exploit randomness influencing
 the treatment but unrelated to the outcome to simulate a randomized experiment
 \cite[chapter 9]{wager2020stats}. Regression discontinuity designs leverage
 discontinuous treatment assignment mechanisms with the assumption of a
