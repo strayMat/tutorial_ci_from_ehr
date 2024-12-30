@@ -32,10 +32,10 @@
 % Please include tables/figure captions directly after the paragraph where they are first cited in the text.
 %
 % DO NOT INCLUDE GRAPHICS IN YOUR MANUSCRIPT
-% - Figs should be uploaded separately from your manuscript file. 
-% - Figs generated using LaTeX should be extracted and removed from the PDF before submission. 
-% - Figs containing multiple panels/subfigures must be combined into one image file before submission.
-% For figure citations, please use "Fig" instead of "Fig".
+% - Figures should be uploaded separately from your manuscript file. 
+% - Figures generated using LaTeX should be extracted and removed from the PDF before submission. 
+% - Figures containing multiple panels/subfigures must be combined into one image file before submission.
+% For figure citations, please use "Fig" instead of "Figure".
 % See http://journals.plos.org/plosone/s/figures for PLOS figure guidelines.
 %
 % Tables should be cell-based and may not contain:
@@ -130,7 +130,7 @@
 \textwidth 5.25in 
 \textheight 8.75in
 
-% Bold the 'Fig #' in the caption and separate it from the title/caption with a period
+% Bold the 'Figure #' in the caption and separate it from the title/caption with a period
 % Captions will be left justified
 \usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
 \renewcommand{\figurename}{Fig}
@@ -235,20 +235,19 @@
   Leo Anthony Celi\textsuperscript{3,6,7},
   Gaël Varoquaux\textsuperscript{1}
   \bigskip
-  \\
-  \textbf{1} Soda Team, Inria Saclay, Palaiseau, France
+  \textbf{1} Inria, Soda, Saclay, France
   \\
   \textbf{2} Mission Data, Haute Autorité de Santé, Saint-Denis, France
   \\
-  \textbf{3} Laboratory for Computational Physiology, Massachusetts Institute of Technology, Cambridge, Massachusetts, United States of America
+  \textbf{3} Laboratory for Computational Physiology, Massachusetts Institute of Technology, Cambridge, MA 02139
   \\
   \textbf{4} Medical University Clinic, Division of Endocrinology, Diabetes \& Metabolism, Kantonsspital Aarau, Aarau, Switzerland
   \\
-  \textbf{5} Agence Régionale de Santé Ile-de-France, Saint-Denis, France
+  \textbf{5} Agence Régionale de Santé Ile-de-France, France
   \\
-  \textbf{6} Division of Pulmonary, Critical Care and Sleep Medicine, Beth Israel Deaconess Medical Center, Boston, Massachusetts, United States of America
+  \textbf{6} Division of Pulmonary, Critical Care and Sleep Medicine, Beth Israel Deaconess Medical Center, Boston, MA 02215
   \\
-  \textbf{7} Department of Biostatistics, Harvard T.H. Chan School of Public Health, Boston, Massachusetts, United States of America
+  \textbf{7} Department of Biostatistics, Harvard T.H. Chan School of Public Health, Boston, MA 02115
   \bigskip
 
 
@@ -360,7 +359,7 @@ Machine learning plays a pivotal role in individualized medicine  \cite{rajkomar
 demonstrated superior performance over traditional rule-based clinical scores in predicting a patient's readmission risk, mortality, or future comorbidities using Electronic Health Records (EHRs) \cite{rajkomar2018scalable,liu2019comparison,li2020behrt,beaulieu2021machine,aggarwal2021diagnostic}.
 However, mounting evidence suggests that machine-learning models can inadvertently perpetuate and exacerbate biases present in the data \cite{rajkomar2018ensuring}, including gender or racial biases \cite{singh2022generalizability,gichoya2022ai}, and the marginalization of under-served populations \cite{seyyed2021underdiagnosis}. These biases are typically encoded by capturing shortcuts—stereotypical or distorted features in the data \cite{geirhos2020shortcut,winkler2019association,degrave2021ai}.
 %
-For instance, numerous machine learning algorithms rely on post-treatment information \cite{badgeley2019deep,obermeyer2019dissecting,yuan2021temporal,wong2021external}, exemplified by a diagnostic model for skin cancer that depends on surgical marks \cite{winkler2019association}. For Intensive Care Unit data, focus of our study, such information markedly improves mortality prediction (S1 Fig), but cannot inform decisions.
+For instance, numerous machine learning algorithms rely on post-treatment information \cite{badgeley2019deep,obermeyer2019dissecting,yuan2021temporal,wong2021external}, exemplified by a diagnostic model for skin cancer that depends on surgical marks \cite{winkler2019association}. For Intensive Care Unit data, focus of our study, such information markedly improves mortality prediction (Figure S1 \ref{apd:fig:motivating_example}), but cannot inform decisions.
 
 \paragraph{The Importance of Causal Reasoning in Data-Driven Decision-Making} \cite{prosperi2020causal}
 While conventional machine learning relies on retrospective to generate predictions of future effects \cite{plecko2022causal}, truly informing decision-making needs a comparison of potential outcomes with and without the intervention. This involves estimating a causal effect, mirroring the methodology employed in RCTs \cite{prosperi2020causal}. However, RCTs encounter challenges such as selection biases \cite{travers2007external,averitt2020translating}, difficulties in recruiting diverse populations, and limited sample sizes for exploring treatment heterogeneity across subgroups. Routinely collected data presents a unique opportunity to assess real-life benefit-risk trade-offs associated with a decision \cite{desai2021broadening}, with reduced sampling bias and sufficient data to capture heterogeneity \cite{rekkas2023standardized}. Nevertheless, estimating causal effects from such data is challenging due to the confounding of the intervention by indication. Therefore, dedicated statistical techniques are imperative to emulate a "target trial" \cite{hernan2016specifying} from observational data.
@@ -457,8 +456,8 @@ details expanded in the appendices.
 
 \begin{figure*}[t!]
   \centering
-  \includegraphics[width=0.9\linewidth]{img_final/Fig1.pdf}
-  \caption{\textbf{Step-by-step analytic framework.}\\The complete
+  \includegraphics[width=0.9\linewidth]{img_main/complete_inference_flow.pdf}
+  \caption{\textbf{Step-by-step analytic framework} -- The complete
     inference pipeline confronts the analyst with
     many choices, some guided by domain knowledge, others
     by data insights. Making those choices explicit is necessary to ensure
@@ -469,7 +468,7 @@ details expanded in the appendices.
 
 Whether or not using machine learning, many pitfalls threaten an analysis'
 value for decision-making. To avoid these pitfalls, we outline a simple
-step-by-step analytic framework illustrated in Fig
+step-by-step analytic framework illustrated in Figure
 \ref{fig:inference_framework} for retrospective case-control studies. We frame
 the medical question as a target trial \cite{hernan2021methods} to match the
 design to an RCT giving the gold standard average effect. Then we probe for
@@ -491,8 +490,8 @@ achieve.
       \cellcolor{T}\textbf{Time}                    & \makecell[l]{Is the start of follow-up aligned                                                                                                           \\with intervention assignment?} & \makecell[l]{N/A}  & \makecell[l]{Intervention \\ within the first day} \\ \hline
     \end{tabular}%
   }\\
-  \caption{{\bf PICO(T) components help to clearly define the
-        medical question of interest.}}\label{table:picot}
+  \caption{PICO(T) components help to clearly define the
+    medical question of interest.}\label{table:picot}
 \end{table*}
 
 
@@ -502,7 +501,7 @@ PICO(T) components. Population, Intervention, Control, and Outcome
 additional time component, are necessary to concord with a (hypothetical) target
 randomized clinical trial \cite{hernan_using_2016,wang2023emulation} -- Table
 \ref{table:picot}. A selection flowchart such as in
-Fig \ref{apd:selection_flowchart} makes inclusion and exclusion choices for PICOT explicit.
+\nameref{apd:selection_flowchart} makes inclusion and exclusion choices for PICOT explicit.
 
 Without care in defining these PICO(T) components, non-causal associations
 between treatment and outcomes can easily be introduced into an analysis
@@ -525,7 +524,7 @@ effect of albumin.
 \paragraph{Immortal time bias:} Improper alignment of the inclusion defining
 event and the intervention time is a major source of bias in time-varying data
 \cite{suissa2008immortal,hernan2016specifying,wang2022understanding}. Immortal time bias (illustrated in
-\ref{apd:immortal_time_bias}) occurs when the follow-up period,
+Appendix \ref{apd:fig:immortal_time_bias}) occurs when the follow-up period,
 i.e. cohort entry, starts before the intervention, e.g. prescription for a
 second-line treatment. In this case, the treated group will be biased towards
 patients still alive at the time of assignment and thus overestimating the
@@ -697,7 +696,7 @@ found that septic-shock patients do benefit from albumin.
 Multiple published RCTs can validate the analysis pipeline before
 investigating sub-population effects for individualized decisions. Using
 MIMIC-IV \cite{johnson2020mimic}, we compare the magnitude of biases introduced by reasonable
-choices in the different analytical steps recalled in Fig \ref{fig:study_summary}.
+choices in the different analytical steps recalled in Figure \ref{fig:study_summary}.
 
 MIMIC-IV is a publicly available database that contains information from real
 ICU stays of patients admitted to one tertiary academic medical center, Beth
@@ -711,7 +710,7 @@ up to one year after discharge.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\linewidth]{img_final/Fig2.pdf}
+  \includegraphics[width=\linewidth]{img_main/applied_inference_flow.pdf}
   \caption{\textbf{Application of the step-by-step framework on which resuscitation fluid to use.}}\label{fig:study_summary}
 \end{figure}
 
@@ -752,32 +751,19 @@ patient characteristics.
 \begin{table}[h!]
   \centering\small
   \resizebox{\columnwidth}{!}{
-    \begin{tabular}{llllll}
-      \toprule
-      {}                          & Missing & Overall      & Cristalloids only & Cristalloids + Albumin & P-Value \\
-                                  &         &              &                   &                        &         \\
-      \midrule
-      n                           &         & 18421        & 14862             & 3559                   &         \\
-      Female, n (\%)              &         & 7653 (41.5)  & 6322 (42.5)       & 1331 (37.4)            &         \\
-      White, n (\%)               &         & 12366 (67.1) & 9808 (66.0)       & 2558 (71.9)            &         \\
-      Emergency admission, n (\%) &         & 9605 (52.1)  & 8512 (57.3)       & 1093 (30.7)            &         \\
-      admission\_age, mean (SD)   & 0       & 66.3 (16.2)  & 66.1 (16.8)       & 67.3 (13.1)            & <0.001  \\
-      SOFA, mean (SD)             & 0       & 6.0 (3.5)    & 5.7 (3.4)         & 6.9 (3.6)              & <0.001  \\
-      lactate, mean (SD)          & 4616    & 3.0 (2.5)    & 2.8 (2.4)         & 3.7 (2.6)              & <0.001  \\
-      \bottomrule
-    \end{tabular}
-
+    \input{img_main/albumin_for_sepsis__obs_1d__table1_24h.tex}%
   }
   \\[.5ex]
-  \caption{\textbf{Characteristics of the trial population measured on the first 24
-      hours of ICU stay.}\\ \nameref{apd:albumin_for_sepsis:table1_complete}
+
+  \caption{Characteristics of the trial population measured on the first 24
+    hours of ICU stay. Appendix \ref{apd:table:albumin_for_sepsis:table1_complete}
     describes all confounders used in the analysis.}\label{table:albumin_for_sepsis:table1_simple}
 \end{table}
 
 
 \subsection*{Step 2: Identification -- listing confounders}\label{sec:identification_mimic_iv}
 
-For confounders selection we use a causal DAG shown in Fig
+For confounders selection we use a causal DAG shown in Figure
 \nameref{apd:causal_diagram_albumin}. Gray confounders are not controlled for since
 they are not available in the data. However, resulting confounding biases are
 captured by proxies such as comorbidity scores (SOFA or SAPS II) or other
@@ -828,37 +814,37 @@ non-linear relations.
 
 To illustrate the risk of immortal-time bias, we vary the eligibility period of
 treatment or control in a shorter or longer time window than 24 hours. As
-explained in \nameref{sec:framing}, a longer eligibility period means that
+explained in \autoref{sec:framing}, a longer eligibility period means that
 patients are more likely to be treated if they survived up to the intervention
 and hence the study is biased to overestimate the beneficial effect of the
-intervention. Fig \ref{fig:vibration:itb} shows that longer eligibility
+intervention. Figure \ref{fig:vibration:itb} shows that longer eligibility
 periods lead to albumin being markedly more efficient (detailed results with causal forest and other choices of aggregation in \nameref{apd:detailed_results_itb}).
 
 \begin{figure*}[h!]
   \begin{subfigure}[b]{\linewidth}
     \caption{\bfseries Framing -- Immortal Time Bias}\label{fig:vibration:itb}
-    \includegraphics[width=0.765\linewidth, right]{img_final/Fig3a.pdf}
+    \includegraphics[width=0.765\linewidth, right]{img_main/itb__dr_forest_agg_first_last__bs_30_shared_x_axis.pdf}
   \end{subfigure}
   \vfill
   \begin{subfigure}[b]{\linewidth}
     \centering
     \caption{\bfseries Identification -- confounders choice}\label{fig:vibration:confounders}
-    \includegraphics[width=.9\linewidth, right]{img_final/Fig3b.pdf}
+    \includegraphics[width=.9\linewidth, right]{img_main/sensitivity_confounders_main_shared_x_axis.pdf}
   \end{subfigure}
   \vfill
   \begin{subfigure}[b]{\linewidth}
     \centering
     \caption{\bfseries Model selection}\label{fig:vibration:models}
-    \includegraphics[width=0.891\linewidth, right]{img_final/Fig3c.pdf}
+    \includegraphics[width=0.891\linewidth, right]{img_main/estimates_20230712__est_lr_rf__bs_50_shared_x_axis.pdf}
   \end{subfigure}
   \vfill
   \caption{\textbf{The effect of choices on the three
-      analytical steps.}\\ All three
+      analytical steps} -- All three
     analytical steps are equally important for the validity of the analysis.
-    Fig \ref{fig:vibration:itb}) Framing step: Poor framing introduces time bias: A longer
+    \ref{fig:vibration:itb}) Framing step: Poor framing introduces time bias: A longer
     observation period (72h) artificially favors the efficacy of Albumin.
-    Fig \ref{fig:vibration:confounders}) Identification step: Choosing less informed confounders set
-    introduces increasing bias in the results. Fig \ref{fig:vibration:models}) Model selection step:
+    \ref{fig:vibration:confounders}) Identification step: Choosing less informed confounders set
+    introduces increasing bias in the results. \ref{fig:vibration:models}) Model selection step:
     Different estimators give different results. Score matching yields
     unconvincingly high estimates, inconsistent with the published RCT. With
     other causal approaches, using linear estimators for nuisances suggest a
@@ -873,7 +859,7 @@ periods lead to albumin being markedly more efficient (detailed results with cau
 
 
 \paragraph{Confounder choice flaw} We consider other choice of confounding variables
-(\nameref{apd:vibration_analysis_for_confounders}). Fig
+(\nameref{apd:vibration_analysis_for_confounders}). Figure
 \ref{fig:vibration:confounders} shows that a less thorough choice, neglecting
 the administrated drugs, makes little to no difference. Major errors, such as
 omitting the biological measurements or using only socio-demographical
@@ -882,7 +868,7 @@ highlighting the importance of a clinically valid DAG \cite{greenland1999causal}
 
 \paragraph{Estimation choices flaw -- Confounder aggregation, causal and nuisance estimators:}
 
-Fig \ref{fig:vibration:models} shows varying confidence intervals (CI)
+Figure \ref{fig:vibration:models} shows varying confidence intervals (CI)
 depending on the method. Doubly-robust methods provide the narrowest CIs,
 whereas the outcome-regression methods have the largest CI. The estimates of the
 forest models are closer to the consensus across prior studies (no effect) than
@@ -904,7 +890,7 @@ sepsis was demonstrated for both 28-day mortality (odds ratio (OR) 0.93,
 %
 Having validated the analytical pipeline, we can use it to inform
 decision-making. We explore
-heterogeneity along four binary patient characteristics, displayed in Fig
+heterogeneity along four binary patient characteristics, displayed in Figure
 \ref{fig:albumin_for_sepsis:cate_results}. We find that albumin is beneficial
 with patient with septic shock consistent with one
 RCT  \cite{caironi2014albumin}. It is also beneficial for older patients (age >=60) and males. \nameref{apd:hte} details the heterogeneity analysis.
@@ -922,7 +908,7 @@ RCT  \cite{caironi2014albumin}. It is also beneficial for older patients (age >=
   \end{minipage}%
   \hfill%
   \begin{minipage}{.6\linewidth}
-    \includegraphics[width=\linewidth]{img_final/Fig4.pdf}
+    \includegraphics[width=\linewidth]{img_main/boxplot_est__DML__nuisances__Forests__final_Ridge.pdf}
   \end{minipage}%
 \end{figure}
 
@@ -977,7 +963,7 @@ subpopulations and local practices
 \cite{travers2007external,kennedy2015literature}. EHRs often cover many
 individuals, with the diversity needed to model treatment
 heterogeneity. The corresponding model can then inform better
-decision-making \cite{prosperi2020causal}: a sub-population analysis  (as in Fig
+decision-making \cite{prosperi2020causal}: a sub-population analysis  (as in Figure
 \ref{fig:albumin_for_sepsis:cate_results}) can distill rules on which groups
 of patients should receive a treatment. Beyond a sub-group perspective,
 patient-specific estimates facilitate a personalized approach
@@ -1074,11 +1060,11 @@ test set (20\%). The training set uses the last measurements from the first 24
 hours, whereas the validation set only uses the last measurements before the
 administration of crystalloids. We split the train set into a train and a
 validation set. We fit a HistGradientBoosting classifier
-(\url{https://scikit-learn.org/stable/modules/ensemble.html\#histogram-based-gradient-boosting})
+\footnote{\url{https://scikit-learn.org/stable/modules/ensemble.html\#histogram-based-gradient-boosting}}
 on the train set and evaluate the performance on the validation set and on the
 test set. We see good area under the Precision-recall curve (PR AUC) on the
-validation set, but a deterioration of 10 points on the test set (Fig
-\ref{apd:fig:motivating_example_pr_auc}). The same is seen in Fig
+validation set, but a deterioration of 10 points on the test set (Figure
+\ref{apd:fig:motivating_example_pr_auc}). The same is seen in Figure
 \ref{apd:fig:motivating_example_roc_auc} when measuring performances with Area
 Under the Curve of the Receiving Operator Characteristic (ROC AUC). On the
 contrary, a model trained on pre-treatment features yields competitive
@@ -1116,17 +1102,17 @@ statins at screening time.
 \begin{figure}[!h]
   \begin{subfigure}{\linewidth}
     \centering
-    \includegraphics[width=0.8\linewidth]{img_supp_final/predictive_failure__pr_auc.pdf}
+    \includegraphics[width=0.8\linewidth]{img_supp/predictive_failure__pr_auc.pdf}
     \caption{Area under the Precision-Recall curve (PR\_AUC)}\label{apd:fig:motivating_example_pr_auc}
   \end{subfigure}
   \hfill
   \begin{subfigure}{\linewidth}
     \centering
-    \includegraphics[width=0.8\linewidth]{img_supp_final/predictive_failure__roc_auc.pdf}
+    \includegraphics[width=0.8\linewidth]{img_supp/predictive_failure__roc_auc.pdf}
     \caption{Area under the Receiving Operator Characteristic (ROC\_AUC)}\label{apd:fig:motivating_example_roc_auc}
   \end{subfigure}
-  \caption{\textbf{Failure to predict 28-day mortality from a model fitted on
-      pre-treatment variables.}\\The model is trained on the last features from
+  \caption{Failure to predict 28-day mortality from a model fitted on
+    pre-treatment variables. The model is trained on the last features from
     the whole stay and tested on two validation sets: one with all stay
     features and one with last features before crystalloids administration
     (Pre-treatment only). The all-stay model performance markedly decreases in
@@ -1139,14 +1125,14 @@ statins at screening time.
 \label{apd:immortal_time_bias}
 {\bf Immortal time bias illustration.}
 
-Fig \ref{apd:fig:immortal_time_bias} illustrates the immortal time bias.
+Figure \ref{apd:fig:immortal_time_bias} illustrates the immortal time bias.
 This time bias is a major pitfall in the retrospective evaluation of
 screening programs  \cite{bretthauer2013principles}.
 
 \begin{figure}[!h]
   % \begin{minipage}{.25\linewidth}
-  \includegraphics[width=0.7\linewidth]{img_supp_final/catalog_of_bias_immortal_time_bias.png}
-  \caption{{\bf Immortal time bias illustration.}\\Poor experimental design can introduce Immortal time bias, which
+  \includegraphics[width=0.7\linewidth]{img_supp/catalog_of_bias_immortal_time_bias.png}
+  \caption{Poor experimental design can introduce Immortal time bias, which
     leads to a treated group with falsely longer longevity
     \cite{lee2020immortaltimebias}.}\label{apd:fig:immortal_time_bias}
   % \end{minipage}%
@@ -1160,14 +1146,14 @@ screening programs  \cite{bretthauer2013principles}.
 \paragraph*{S3 Fig.}
 \label{apd:graphical_timeline}
 {\bf Graphical timeline.}
-Drawing a graphical timeline as the one in Fig
+Drawing a graphical timeline as the one in Figure
 \ref{fig:cohort_timeline_albumin} during the study design helps to detect and
 prevent time-related biases.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\linewidth]{img_supp_final/timeline_albumin_for_sepsis.pdf}
-  \caption{{\bf Graphical timeline.}\\ Defining the inclusion event, the starting time T0 for follow-up, the
+  \includegraphics[width=\linewidth]{img_supp/timeline_albumin_for_sepsis.pdf}
+  \caption{Defining the inclusion event, the starting time T0 for follow-up, the
     intervention's assignment time and the observation window for confounders is
     crucial to avoid time and selection biases. In our study, the gap
     between the intervention and the inclusion is small
@@ -1181,37 +1167,37 @@ prevent time-related biases.
 \label{apd:causal_variables}
 {\bf Types of causal variables.}
 
-Fig \ref{fig:causal_variables} illustrates the different types of causal variables.
+Figure \ref{fig:causal_variables} illustrates the different types of causal variables.
 
 \begin{figure}[h!]
   \begin{minipage}[t]{0.32\linewidth}
     \centering
-    \includegraphics[width=0.72\linewidth]{img_supp_final/confounder.pdf}
+    \includegraphics[width=0.72\linewidth]{img_supp/confounder.pdf}
     \small\sffamily Confounder
   \end{minipage}
   \hfill
   \begin{minipage}[t]{0.32\linewidth}
     \centering
-    \includegraphics[width=0.72\linewidth]{img_supp_final/collider.pdf}
+    \includegraphics[width=0.72\linewidth]{img_supp/collider.pdf}
     \small\sffamily Collider
   \end{minipage}
   \hfill
   \begin{minipage}[t]{0.32\linewidth}
     \centering
-    \includegraphics[width=0.72\linewidth]{img_supp_final/instrumental_variable.pdf}
+    \includegraphics[width=0.72\linewidth]{img_supp/instrumental_variable.pdf}
     \small\sffamily Instrumental \\variable
   \end{minipage}
   \vfill
   \begin{minipage}[t]{0.4\linewidth}
     \centering
-    \includegraphics[width=.9\linewidth]{img_supp_final/mediator.pdf}%
+    \includegraphics[width=.9\linewidth]{img_supp/mediator.pdf}%
     \\
     \small\sffamily Mediator
   \end{minipage}
   \hfill
   \begin{minipage}[t]{0.4\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{img_supp_final/effect_modifier.pdf}%
+    \includegraphics[width=\linewidth]{img_supp/effect_modifier.pdf}%
     % \llap{%
     %   \raisebox{.555\linewidth}{\colorbox{black!10}{\parbox{1.9\linewidth}{%
     %         \sffamily\small\hspace*{-1.3ex}%
@@ -1227,7 +1213,7 @@ Fig \ref{fig:causal_variables} illustrates the different types of causal variabl
     \small\sffamily Effect modifier \scriptsize\\Represented
     following \cite{attia2022proposal}
   \end{minipage}
-  \caption{\textbf{The five categories of causal variables needed for our framework.}\\ A:
+  \caption{The five categories of causal variables needed for our framework: A:
     Treatment, X: Confounder, IV: Instrumental variable, M: mediator, Y:
     Outcome, C: Collider, E: Effect modifier.}\label{fig:causal_variables}
 \end{figure}
@@ -1353,7 +1339,7 @@ Fig \ref{fig:causal_variables} illustrates the different types of causal variabl
 % \clearpage
 
 
-\paragraph*{S1 Appendix}
+\paragraph*{S1 Appendix.}
 \label{apd:causal_assumptions}
 {\bf Assumptions: what is needed for causal inference from observational studies.}
 
@@ -1431,7 +1417,7 @@ could lead to arbitrarily small propensity scores.
 
 
 
-\paragraph*{S2 Appendix}
+\paragraph*{S2 Appendix.}
 \label{apd:causal_estimators}
 {\bf Major causal-inference methods: When to use which estimator?}
 
@@ -1550,7 +1536,7 @@ in the denominator.
 \clearpage
 
 
-\paragraph*{S3 Appendix}
+\paragraph*{S3 Appendix.}
 \label{apd:statistical_considerations}
 {\bf Statistical considerations when implementing
   estimation.}
@@ -1571,12 +1557,13 @@ the input data.
 \textbf{Good practices for imputation not implemented in EconML}
 
 Good practices in machine learning recommend to input distinctly each fold
-when performing cross-fitting (\url{https://scikit-learn.org/stable/modules/compose.html\#combining-estimators}).
+when performing cross-fitting
+\footnote{\url{https://scikit-learn.org/stable/modules/compose.html\#combining-estimators}}.
 However, EconML estimators test for missing data at instantiation
 preventing the use of scikit-learn imputation pipelines. We thus have been
 forced to transform the full dataset before feeding it to causal estimators.
 An issue mentioning the problem has been filed, so we can hope that future
-versions of the package will comply with best practices (\url{https://github.com/py-why/EconML/issues/664}).
+versions of the package will comply with best practices. \footnote{\url{https://github.com/py-why/EconML/issues/664}}
 
 \textbf{Bootstrap may not yield the most efficient confidence intervals}
 
@@ -1596,40 +1583,23 @@ estimators (from 10 to 47 min depending on the aggregation choice and the
 estimator). See Table \ref{apd:table:compute_times} for details.
 
 \begin{table}[]
-  \resizebox{\textwidth}{!}{
-    \centering\small
-    \begin{tabular}{llrll}
-      \toprule
-      {} & estimation method                     & compute time (seconds) & outcome model  & event aggregations \\
-      \midrule
-      2  & LinearDML                             & 1127.98                & Forests        & ['first', 'last']  \\
-      3  & backdoor.propensity\_score\_matching  & 199.77                 & Forests        & ['first', 'last']  \\
-      4  & backdoor.propensity\_score\_weighting & 86.15                  & Forests        & ['first', 'last']  \\
-      5  & TLearner                              & 284.07                 & Forests        & ['first', 'last']  \\
-      6  & LinearDRLearner                       & 2855.40                & Forests        & ['first', 'last']  \\
-      7  & LinearDML                             & 49.91                  & Regularized LR & ['first', 'last']  \\
-      8  & backdoor.propensity\_score\_matching  & 127.93                 & Regularized LR & ['first', 'last']  \\
-      9  & backdoor.propensity\_score\_weighting & 6.41                   & Regularized LR & ['first', 'last']  \\
-      10 & TLearner                              & 6.84                   & Regularized LR & ['first', 'last']  \\
-      11 & LinearDRLearner                       & 80.75                  & Regularized LR & ['first', 'last']  \\
-      \bottomrule
-    \end{tabular}
-
-  }
+  % \resizebox{\textwidth}{!}{%
+  \centering\small
+  \input{img_supp/compute_time_estimates_est_lr_rf_b_50.tex}
+  % }
   \\
-  \caption{\textbf{Compute times for the different estimation methods with 50 bootstrap replicates.}}\label{apd:table:compute_times}
+  \caption{Compute times for the different estimation methods with 50 bootstrap replicates.}\label{apd:table:compute_times}
 \end{table}
 \clearpage
 
 
-\paragraph*{S4 Appendix}
+\paragraph*{S4 Appendix.}
 \label{apd:packages}
 {\bf Packages for causal estimation in the python ecosystem.}
-
 We searched for causal inference packages in the python ecosystem. The focus
 was on the identification methods. Important features were ease of
 installation, sklearn estimator support, sklearn pipeline support, doubly
-robust estimators, confidence interva l computation, honest splitting
+robust estimators, confidence interval computation, honest splitting
 (cross-validation), Targeted Maximum Likelihood Estimation. These criteria are
 summarized in \ref{apd:table:causal_packages}. We finally chose EconML despite
 lacking \texttt{sklearn.\_BaseImputer} support through the
@@ -1706,22 +1676,21 @@ which makes it hard to install.
       \ding{51}                                                                                         &
       \begin{tabular}[c]{@{}l@{}}Only for doubly \\ robust estimators\end{tabular}                                 \\ \hline
     \end{tabular}%
-  }\caption{\textbf{Selection criteria for causal python packages.}}\label{apd:table:causal_packages}
+  }\caption{Selection criteria for causal python packages}\label{apd:table:causal_packages}
 \end{table}
 
 
 
-\paragraph*{S5 Appendix}
+\paragraph*{S5 Appendix.}
 \label{apd:hyper_parameter_search}
 {\bf Hyper-parameter search for the nuisance models.}
-
 \begin{figure}[!b]
   \begin{minipage}{.38\linewidth}
-    \caption{{\bf Hyper-parameter search procedure.}}\label{apd:fig:hyper_parameter_search}
+    \caption{Hyper-parameter search procedure.}\label{apd:fig:hyper_parameter_search}
   \end{minipage}%
   \hfill
   \begin{minipage}{.6\linewidth}
-    \includegraphics[width=\linewidth]{img_supp_final/hp_search_procedure.pdf}
+    \includegraphics[width=\linewidth]{img_supp/hp_search_procedure.pdf}
   \end{minipage}%
 \end{figure}
 We followed a two-step procedure to train the nuisance models (eg. ($\hat e,
@@ -1737,7 +1706,7 @@ all iterations. Then, we feed this parameters to the causal estimator. The
 single robust estimators (matching, IPW and TLearner) refit the
 corresponding estimator only once on the full dataset, then estimate the
 ATE. The doubly-robust estimators use a cross-fitting procedure (K=5) to fit
-the nuisances then estimate the ATE. Fig
+the nuisances then estimate the ATE. Figure
 \ref{apd:fig:hyper_parameter_search} illustrates the procedure and Table
 \ref{apd:table:hyper_parameter_search} details the hyper-parameters grid for
 the random search.
@@ -1745,93 +1714,34 @@ the random search.
 
 \begin{table}[]
   \resizebox{\textwidth}{!}{%
-    \begin{tabular}{llll}
-      \toprule
-      {}             & estimator              & nuisance  & Grid                                                                       \\
-      Estimator type &                        &           &                                                                            \\
-      \midrule
-      Linear         & LogisticRegression     & treatment & \{'C': logspace(-3, 2, 10)\}                                               \\
-      Linear         & Ridge                  & outcome   & \{'alpha': logspace(-3, 2, 10)\}                                           \\
-      Forest         & RandomForestClassifier & treatment & \{'n\_estimators': ['10', '100', '200'], 'max\_depth': ['3', '10', '50']\} \\
-      Forest         & RandomForestRegressor  & outcome   & \{'n\_estimators': ['10', '100', '200'], 'max\_depth': ['3', '10', '50']\} \\
-      \bottomrule
-    \end{tabular}
-
+    \input{img_supp/gridsearch.tex}
   }\\
-  \caption{\textbf{Hyper-parameter grid used during random search
-      optimization.}}\label{apd:table:hyper_parameter_search}
+  \caption{Hyper-parameter grid used during random search
+    optimization.}\label{apd:table:hyper_parameter_search}
 \end{table}
 \clearpage
 
-\paragraph*{S5 Fig}
+\paragraph*{S5 Fig.}
 \label{apd:selection_flowchart}
 {\bf Selection flowchart.}
 
 \begin{figure}[!htb]
   \centering
-  \includegraphics[width=0.7\linewidth]{img_supp_final/albumin_for_sepsis__obs_1d__flowchart_albumin_for_sepsis.pdf}
-  \caption{\textbf{Selection flowchart on MIMIC-IV for the emulated trial.}}\label{fig:selection_flowchart}
+  \includegraphics[width=0.7\linewidth]{img_supp/albumin_for_sepsis__obs_1d__flowchart_albumin_for_sepsis.pdf}
+  \caption{Selection flowchart on MIMIC-IV for the emulated trial.}\label{fig:selection_flowchart}
 \end{figure}
 \clearpage
 
 
-\paragraph*{S1 Table}
+\paragraph*{S1 Table.}
 \label{apd:albumin_for_sepsis:table1_complete}
 {\bf Complete description of the confounders for the main analysis.}
 \begin{table}[h!]
   \resizebox{\textwidth}{!}{%
-    \begin{tabular}{llllll}
-      \toprule
-      {}                                                & Missing & Overall       & Cristalloids only & Cristalloids + Albumin & P-Value \\
-                                                        &         &               &                   &                        &         \\
-      \midrule
-      n                                                 &         & 18421         & 14862             & 3559                   &         \\
-      Glycopeptide, n (\%)                              &         & 9492 (51.5)   & 7650 (51.5)       & 1842 (51.8)            &         \\
-      Beta-lactams, n (\%)                              &         & 5761 (31.3)   & 5271 (35.5)       & 490 (13.8)             &         \\
-      Carbapenems, n (\%)                               &         & 727 (3.9)     & 636 (4.3)         & 91 (2.6)               &         \\
-      Aminoglycosides, n (\%)                           &         & 314 (1.7)     & 290 (2.0)         & 24 (0.7)               &         \\
-      suspected\_infection\_blood, n (\%)               &         & 170 (0.9)     & 149 (1.0)         & 21 (0.6)               &         \\
-      RRT, n (\%)                                       &         & 229 (1.2)     & 205 (1.4)         & 24 (0.7)               &         \\
-      ventilation, n (\%)                               &         & 16376 (88.9)  & 12931 (87.0)      & 3445 (96.8)            &         \\
-      vasopressors, n (\%)                              &         & 9058 (49.2)   & 6204 (41.7)       & 2854 (80.2)            &         \\
-      Female, n (\%)                                    &         & 7653 (41.5)   & 6322 (42.5)       & 1331 (37.4)            &         \\
-      White, n (\%)                                     &         & 12366 (67.1)  & 9808 (66.0)       & 2558 (71.9)            &         \\
-      Emergency admission, n (\%)                       &         & 9605 (52.1)   & 8512 (57.3)       & 1093 (30.7)            &         \\
-      Insurance, Medicare, n (\%)                       &         & 9727 (52.8)   & 7958 (53.5)       & 1769 (49.7)            &         \\
-      myocardial\_infarct, n (\%)                       &         & 3135 (17.0)   & 2492 (16.8)       & 643 (18.1)             &         \\
-      malignant\_cancer, n (\%)                         &         & 2465 (13.4)   & 2128 (14.3)       & 337 (9.5)              &         \\
-      diabetes\_with\_cc, n (\%)                        &         & 1633 (8.9)    & 1362 (9.2)        & 271 (7.6)              &         \\
-      diabetes\_without\_cc, n (\%)                     &         & 4369 (23.7)   & 3532 (23.8)       & 837 (23.5)             &         \\
-      metastatic\_solid\_tumor, n (\%)                  &         & 1127 (6.1)    & 1016 (6.8)        & 111 (3.1)              &         \\
-      severe\_liver\_disease, n (\%)                    &         & 1289 (7.0)    & 880 (5.9)         & 409 (11.5)             &         \\
-      renal\_disease, n (\%)                            &         & 3765 (20.4)   & 3159 (21.3)       & 606 (17.0)             &         \\
-      aki\_stage\_0.0, n (\%)                           &         & 7368 (40.0)   & 6284 (42.3)       & 1084 (30.5)            &         \\
-      aki\_stage\_1.0, n (\%)                           &         & 4019 (21.8)   & 3222 (21.7)       & 797 (22.4)             &         \\
-      aki\_stage\_2.0, n (\%)                           &         & 6087 (33.0)   & 4605 (31.0)       & 1482 (41.6)            &         \\
-      aki\_stage\_3.0, n (\%)                           &         & 947 (5.1)     & 751 (5.1)         & 196 (5.5)              &         \\
-      SOFA, mean (SD)                                   & 0       & 6.0 (3.5)     & 5.7 (3.4)         & 6.9 (3.6)              & <0.001  \\
-      SAPSII, mean (SD)                                 & 0       & 40.3 (14.1)   & 39.8 (14.1)       & 42.8 (13.6)            & <0.001  \\
-      Weight, mean (SD)                                 & 97      & 83.3 (23.7)   & 82.5 (24.2)       & 86.4 (21.2)            & <0.001  \\
-      temperature, mean (SD)                            & 966     & 36.9 (0.6)    & 36.9 (0.6)        & 36.8 (0.6)             & <0.001  \\
-      mbp, mean (SD)                                    & 0       & 75.6 (10.2)   & 76.3 (10.7)       & 72.4 (7.2)             & <0.001  \\
-      resp\_rate, mean (SD)                             & 9       & 19.3 (4.3)    & 19.6 (4.4)        & 18.0 (3.8)             & <0.001  \\
-      heart\_rate, mean (SD)                            & 0       & 86.2 (16.3)   & 86.2 (16.8)       & 86.5 (14.3)            & 0.197   \\
-      spo2, mean (SD)                                   & 4       & 97.4 (2.2)    & 97.3 (2.3)        & 98.0 (2.1)             & <0.001  \\
-      lactate, mean (SD)                                & 4616    & 3.0 (2.5)     & 2.8 (2.4)         & 3.7 (2.6)              & <0.001  \\
-      urineoutput, mean (SD)                            & 301     & 24.0 (52.7)   & 24.7 (58.2)       & 21.1 (16.6)            & <0.001  \\
-      admission\_age, mean (SD)                         & 0       & 66.3 (16.2)   & 66.1 (16.8)       & 67.3 (13.1)            & <0.001  \\
-      delta mortality to inclusion, mean (SD)           & 11121   & 316.9 (640.2) & 309.6 (628.8)     & 365.0 (708.9)          & 0.022   \\
-      delta intervention to inclusion, mean (SD)        & 14862   & 0.3 (0.2)     & nan (nan)         & 0.3 (0.2)              & nan     \\
-      delta inclusion to intime, mean (SD)              & 0       & 0.1 (0.2)     & 0.1 (0.2)         & 0.1 (0.1)              & 0.041   \\
-      delta ICU intime to hospital admission, mean (SD) & 0       & 1.1 (3.7)     & 1.0 (3.7)         & 1.6 (3.4)              & <0.001  \\
-      los\_hospital, mean (SD)                          & 0       & 12.6 (12.5)   & 12.6 (12.5)       & 12.9 (12.4)            & 0.189   \\
-      los\_icu, mean (SD)                               & 0       & 5.5 (6.7)     & 5.5 (6.5)         & 5.5 (7.2)              & 0.605   \\
-      \bottomrule
-    \end{tabular}
-
+    \input{img_supp/albumin_for_sepsis__obs_1d__table1_24h_supplementary.tex}
   }\\
-  \caption{\textbf{Characteristics of the trial population measured on the first 24
-      hours of ICU stay.}\\
+  \caption{Characteristics of the trial population measured on the first 24
+    hours of ICU stay. \\
     Risk scores (AKI, SOFA, SAPSII) and lactates have been summarized as the
     maximum value during the 24 hour period for each stay. Total cumulative urine output has
     been computed. Other variables have been aggregated by taking mean during
@@ -1839,7 +1749,7 @@ the random search.
 \end{table}
 \clearpage
 
-\paragraph*{S6 Fig}
+\paragraph*{S6 Fig.}
 \label{apd:causal_diagram_albumin}
 {\bf Directed Acyclic Graph.}
 
@@ -1848,9 +1758,9 @@ variables.
 
 \begin{figure}[h!]
   \centering%
-  \includegraphics[width=\linewidth]{img_supp_final/dagitty_graph.pdf}
+  \includegraphics[width=\linewidth]{img_supp/dagitty_graph.pdf}
   \caption{\textbf{Causal graph for the Albumin vs crystalloids emulated
-      trial}\\ The
+      trial} -- The
     green arrow indicates the effect studied. Black arrows show causal links
     known to medical expertise. Dotted red arrows highlight confounders not directly
     observed. For readability, we draw only the most important edges from an
@@ -1860,17 +1770,17 @@ variables.
 \clearpage
 
 
-\paragraph*{S7 Fig}
+\paragraph*{S7 Fig.}
 \label{apd:detailed_results}
 {\bf Complete results for the main analysis.}
 
-Compared to Fig \ref{fig:vibration_analysis}, we also report in
-Fig \ref{apd:fig:detailed_results} the estimates for Causal forest
+Compared to Figure \ref{fig:vibration_analysis}, we also report in
+Figure \ref{apd:fig:detailed_results} the estimates for Causal forest
 estimators and other choices of feature aggregation (first and last).
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\linewidth]{img_supp_final/main_vibration_analysis_supp.pdf}
-  \caption{{\bf Full sensitivity analysis.}\\The estimators with forest nuisances
+  \includegraphics[width=\linewidth]{img_supp/main_vibration_analysis_supp.pdf}
+  \caption{Full sensitivity analysis: The estimators with forest nuisances
     point to no effect for almost every causal estimator consistently with the
     RCT gold standard. Only matching with forest yields an unconvincingly high
     estimate. Linear nuisance used with doubly robust methods suggest a
@@ -1882,19 +1792,19 @@ estimators and other choices of feature aggregation (first and last).
 \end{figure}
 \clearpage
 
-\paragraph*{S8 Fig}
+\paragraph*{S8 Fig.}
 \label{apd:detailed_results_itb}
 {\bf Complete results for the Immortal time bias.}
 
-Compared to Fig \ref{fig:vibration:itb}, we also report in Fig
+Compared to Figure \ref{fig:vibration:itb}, we also report in Figure
 \ref{apd:fig:detailed_results_itb} the estimates for Double Machine Learning,
 Inverse Propensity Weighting for both Random Forest and Ridge Regression.
 Feature aggregation was concatenation of first and last for all estimates.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\linewidth]{img_supp_final/itb__dr_forest_agg_first_last__bs_30_supp.pdf}
-  \caption{{\bf Sensitivity analysis for immortal time bias.}\\Every choice of
+  \includegraphics[width=\linewidth]{img_supp/itb__dr_forest_agg_first_last__bs_30_supp.pdf}
+  \caption{Sensitivity analysis for immortal time bias: Every choice of
     estimates show an improvement of the albumin treatment when increasing the
     observation period, thus increasing the blank period between inclusion and
     administration of albumin. Aggregation was concatenation of first and last
@@ -1904,7 +1814,7 @@ Feature aggregation was concatenation of first and last for all estimates.
 \end{figure}
 \clearpage
 
-\paragraph*{S6 Appendix}
+\paragraph*{S6 Appendix.}
 \label{apd:vibration_analysis_for_confounders}
 {\bf Deviating from expert ignorability -- Impact of smaller confounders sets.}
 
@@ -1918,7 +1828,7 @@ spo2, mbp, urine output, temperature, AKI stage, SAPSII, respiratory rate, SOFA)
 socio-demographics (admission age, female, emergency admission,
 insurance--medicare, race).
 
-Fig \ref{fig:vibration:confounders} shows that small
+Figure \ref{fig:vibration:confounders} shows that small
 deviation from the ignorability assumptions is tolerable: for example, removing
 antibiotics does not impact the estimate. However, the larger the
 deviation from graph \nameref{apd:causal_diagram_albumin}, the larger the bias
@@ -1930,7 +1840,7 @@ already been described and suggested as a confounder selection method
 \cite{loh2021confounder}.
 \clearpage
 
-\paragraph*{S9 Fig}
+\paragraph*{S9 Fig.}
 \label{apd:vibration_analysis_for_aggregation}
 {\bf Vibration analysis for aggregation.}
 
@@ -1944,26 +1854,26 @@ distribution of the estimated. The treatment model hyper-parameters were chosen
 by random search, then predicted propensity scores were obtained by refitting
 this estimator with cross-fitting on the full dataset.
 
-As shown in Fig \ref{apd:fig:albumin_for_sepsis:overlap_measure}, we did not find substantial differences between methods
+As shown in Figure \ref{apd:fig:albumin_for_sepsis:overlap_measure}, we did not find substantial differences between methods
 when plotting graphically the distribution of the estimated propensity score.
 
 \begin{figure}[h!]
   \centering
   \begin{subfigure}[b]{0.45\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{img_supp_final/sensitivity__ps_distribution__first_last_median__Forests.pdf}
+    \includegraphics[width=\linewidth]{img_supp/sensitivity__ps_distribution__first_last_median__Forests.pdf}
     \caption{}\label{apd:fig:albumin_for_sepsis:overlap_measure_first_last_median}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.45\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{img_supp_final/sensitivity__ps_distribution__first__Forests.pdf}
+    \includegraphics[width=\linewidth]{img_supp/sensitivity__ps_distribution__first__Forests.pdf}
     \caption{}\label{apd:fig:albumin_for_sepsis:overlap_measure_first}
   \end{subfigure}
-  \caption{{\bf Different choices of aggregation yield qualitatively close
-        distributions of the propensity score.}\\Fig
+  \caption{Different choices of aggregation yield qualitatively close
+    distributions of the propensity score: Figure
     \ref{apd:fig:albumin_for_sepsis:overlap_measure_first_last_median})a)
-    shows a concatenation of first, last and median measures whereas Fig
+    shows a concatenation of first, last and median measures whereas Figure
     \ref{apd:fig:albumin_for_sepsis:overlap_measure_first})b) shows an
     aggregation by taking the first measure only. The underlying treatment
     effect estimator is a random forest. }\label{apd:fig:albumin_for_sepsis:overlap_measure}
@@ -1980,8 +1890,8 @@ of first and last feature observed before inclusion time.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=1.0\linewidth]{img_supp_final/sensitivity_feature_aggregation_albumin_for_sepsis__bs_50.pdf}
-  \caption{{\bf Vibration analysis dedicated to the aggregation choices.}\\The
+  \includegraphics[width=1.0\linewidth]{img_supp/sensitivity_feature_aggregation_albumin_for_sepsis__bs_50.pdf}
+  \caption{Vibration analysis dedicated to the aggregation choices. The
     choices of aggregation only marginally modify the results. When assessed
     with Normalized Total Variation, the overlap assumption is respected for all
     our choices of aggregation. The green diamonds depict the mean effect and
@@ -1991,10 +1901,9 @@ of first and last feature observed before inclusion time.
 \clearpage
 
 
-\paragraph*{S7 Appendix}
+\paragraph*{S7 Appendix.}
 \label{apd:hte}
 {\bf Details on treatment heterogeneity analysis.}
-
 \textbf{Detailed estimation procedure}
 
 The estimation of heterogeneous effect based on Double Machine Learning adds
@@ -2035,14 +1944,14 @@ statistically significant.
 \textbf{Vibration analysis}\label{apd:cate_results}
 
 The choice of the final model for the CATE estimation should also be informed
-by statistical and clinical rationals. Fig
+by statistical and clinical rationals. Figure
 \ref{apd:fig:albumin_for_sepsis:cate_boxplot_forest} shows the distribution of
 the individual effects of a final random forest estimator, yielding CATE
-estimates that are not consistent with the main ATE analysis. Fig
+estimates that are not consistent with the main ATE analysis. Figure
 \ref{apd:fig:albumin_for_sepsis:cate_age_forest_failure} shows that the choice
 of this final model imposes an inductive bias on the form of the heterogeneity
 and different sources of noise depending of the nature of the model. A random
-forest is noisier than a linear model. Fig
+forest is noisier than a linear model. Figure
 \ref{apd:fig:albumin_for_sepsis:cate_age_forest_failure} shows the difference
 of modelization on the subpopulation of non-white male patients without septic
 shock. One can see that the decreasing linear trend is reflected by the
@@ -2050,10 +1959,10 @@ random forest model only for patients aged between 55 and 80.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.8\linewidth]{img_supp_final/boxplot_est__DML__nuisances__Forests__final_RF.pdf}
-  \caption{{\bf Values of Conditional Average Treatment effects on sex, age,
-        race and pre-treatment septic shock estimated with a final forest
-        estimator.}\\The CATE are positive for each subgroups, which is not
+  \includegraphics[width=0.8\linewidth]{img_supp/boxplot_est__DML__nuisances__Forests__final_RF.pdf}
+  \caption{Distribution of Conditional Average Treatment effects on sex, age,
+    race and pre-treatment septic shock estimated with a final forest
+    estimator. The CATE are positive for each subgroups, which is not
     consistent with the null treatment effect obtained in the main analysis.
     The boxes contain between the 25th and 75th percentiles of the CATE
     distributions with the median indicated by a vertical line. The whiskers
@@ -2063,9 +1972,9 @@ random forest model only for patients aged between 55 and 80.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{img_supp_final/cate_all_category_random_forest.pdf}
-  \caption{{\bf Values of Conditional Average Treatment effects on sex, age,
-        race and pre-treatment septic shock plotted for different ages.}\\On the top
+  \includegraphics[width=\linewidth]{img_supp/cate_all_category_random_forest.pdf}
+  \caption{Distribution of Conditional Average Treatment effects on sex, age,
+    race and pre-treatment septic shock plotted for different ages. On the top
     the final estimator is a linear model; on the bottom, it is a random
     forest. The forest-based CATE displays more noisy trends than the
     linear-based CATE. This suggest that the flexibility of the random forest
@@ -2074,8 +1983,9 @@ random forest model only for patients aged between 55 and 80.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{img_supp_final/cate_shock_random_forest.pdf}
-  \caption{{\bf Values of Conditional Average Treatment effects on age, for the subpopulation of white male patients without septic shock.}\\ It is a subset of Fig \ref{apd:fig:albumin_for_sepsis:cate_age_forest_failure}. Contrary to
+  \includegraphics[width=\linewidth]{img_supp/cate_shock_random_forest.pdf}
+  \caption{Figure \ref{apd:fig:albumin_for_sepsis:cate_age_forest_failure} on
+    the subpopulation of white male patients without septic shock. Contrary to
     the ridge regression (on top) inducing a nicely interpretable trend, using
     random forests as the final estimator failed to recover CATE on ages: the
     predicted estimates do not exhibit any trend and display inconsistently
