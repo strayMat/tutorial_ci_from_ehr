@@ -1,0 +1,232 @@
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+
+% amsmath and amssymb packages, useful for mathematical formulas and symbols
+\usepackage{amsmath,amssymb}
+
+% Use adjustwidth environment to exceed column width (see example table in text)
+\usepackage{changepage}
+
+% textcomp package and marvosym package for additional characters
+\usepackage{textcomp,marvosym}
+
+% cite package, to clean up citations in the main text. Do not remove.
+\usepackage{cite}
+
+% Use nameref to cite supporting information files (see Supporting Information section for more info)
+\usepackage{nameref,hyperref}
+
+% line numbers
+\usepackage[right]{lineno}
+
+% ligatures disabled
+\usepackage[nopatch=eqnum]{microtype}
+\DisableLigatures[f]{encoding = *, family = * }
+
+% color can be used to apply background shading to table cells only
+%\usepackage[table]{xcolor}
+
+% array package and thick rules for tables
+\usepackage{array}
+
+% create "+" rule type for thick vertical lines
+\newcolumntype{+}{!{\vrule width 2pt}}
+
+% create \thickcline for thick horizontal lines of variable length
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+  \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+  \cline{#1}%
+  \noalign{\vskip\arrayrulewidth}%
+  \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+% \thickhline command for thick horizontal lines that span the table
+\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+\hline
+\noalign{\global\arrayrulewidth\savedwidth}}
+
+
+% Remove comment for double spacing
+%\usepackage{setspace} 
+%\doublespacing
+
+% Text layout
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in 
+\textheight 8.75in
+
+% Bold the 'Fig #' in the caption and separate it from the title/caption with a period
+% Captions will be left justified
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+\renewcommand{\figurename}{Fig}
+
+% Use the PLoS provided BiBTeX style
+\bibliographystyle{plos2015}
+
+% Remove brackets from numbering in List of References
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+
+
+% Header and Footer with logo
+\usepackage{lastpage,fancyhdr,graphicx}
+\usepackage{epstopdf}
+\usepackage{lmodern}
+%\pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+%\setlength{\headheight}{27.023pt}
+%\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\today}
+
+%% Include all macros below
+
+\newcommand{\lorem}{{\bf LOREM}}
+\newcommand{\ipsum}{{\bf IPSUM}}
+
+%% END MACROS SECTION
+
+%% personal packages and macro
+%%% packages
+\usepackage[utf8]{inputenc}        % allow utf-8 input
+\usepackage[T1]{fontenc}           % use 8-bit T1 fonts
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{pifont}
+\usepackage{csvsimple}
+\usepackage[font={small},textfont={it},labelfont={bf}]{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{url}                   % simple URL typesetting
+\usepackage{booktabs}              % professional-quality tables
+\usepackage{makecell}
+\usepackage{amsfonts}              % blackboard math symbols
+\usepackage{amsmath}
+\usepackage{nicefrac}              % compact symbols for 1/2, etc.
+\usepackage{microtype}             % microtypography
+\usepackage{enumitem}
+\usepackage[export]{adjustbox}
+
+
+%not compatible with cite package
+%\usepackage[natbib=true,style=nature,maxnames=999,maxcitenames=2,backend=biber]{biblatex}
+%\addbibresource{references.bib}
+
+%%% macros
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand{\indep}{\perp \!\!\! \perp}
+\newtheorem{assumption}{Assumption}
+
+\definecolor{dark_blue}{rgb}{0,0,.65}
+\definecolor{dark_green}{rgb}{0,.5,.15}
+
+\hypersetup{pdftex,  % needed for pdflatex
+  breaklinks=true,  % so long urls are correctly broken across lines
+  colorlinks=true,
+  linkcolor=dark_blue,
+  citecolor=dark_green,
+}
+\colorlet{P}{ForestGreen}
+\colorlet{I}{MidnightBlue}
+\colorlet{C}{YellowOrange}
+\colorlet{O}{DarkOrchid}
+\colorlet{T}{Gray}
+
+
+
+\begin{document}
+\vspace*{0.2in}
+
+\section*{Supporting information}
+
+\paragraph*{S1 Appendix}
+\label{apd:causal_assumptions}
+{\bf Assumptions: what is needed for causal inference from observational studies.}
+
+
+The following four assumptions, referred as strong ignorability, are
+needed to assure identifiability of the causal estimands with observational
+data with most causal-inference methods \cite{rubin2005causal}, in
+particular these we use:
+
+\begin{assumption}[Unconfoundedness]\label{assumption:ignorability}
+    \begin{equation}\label{eq:ignorability}
+        \{Y(0), Y(1) \} \indep A | X
+    \end{equation}
+    This condition --also called ignorability-- is equivalent to the conditional
+    independence on the propensity score $e(X)=\mathbb P(A=1|X)$ \cite{rosenbaum1983central}: $\{Y(0), Y(1) \}\indep  A | e(X)$.
+\end{assumption}
+
+Unconfoundedness is a strong assumption that might be violated in practice. The
+existence of residual bias trough unobserved confounders can be mitigated with
+different strategies. The \textit{omitted variable bias} framework encourages
+sensitivity analyses allowing to derive bounds on the causal estimate by making
+assumptions on the strength of association of the omitted variable with both the
+treatment and the outcome. We refer to \cite{cinelli2020making} for a clear
+introduction under linear assumption and to \cite{chernozhukov2022long} for an
+extension to general non-linear settings. In case of strong unobserved
+confounders for which proxy variables can be measured, \textit{proximal
+    inference} can be used to obtain identifiability
+\cite{tchetgen2024introduction}. These methods require expert knowledge to
+classify the proxy between treatment and outcome proxy, after which a two-stage
+regression is run to recover the causal effect. Lastly, natural experiments, when
+available, should be exploited to estimate causal effects without the need of
+unconfoundedness. Instrumental variable methods exploit randomness influencing
+the treatment but unrelated to the outcome to simulate a randomized experiment
+\cite[chapter 9]{wager2020stats}. Regression discontinuity designs leverage
+discontinuous treatment assignment mechanisms with the assumption of a
+continuous outcome \cite[chapter 5]{wager2020stats}.
+
+\begin{assumption}[Overlap, also known as Positivity]\label{assumption:overlap}
+    \begin{equation}\label{eq:overlap}
+        \eta < e(x) < 1 - \eta \quad \forall x \in \mathcal{X} \text{ and some }   \eta > 0
+    \end{equation}
+    The treatment is not perfectly predictable. Or in other words, every
+    patient has a chance to be treated and not to be treated. For a given set of
+    covariates, we need examples of both to recover the ATE.
+\end{assumption}
+
+As noted by \cite{damour2020overlap}, the choice of covariates $X$ can
+be viewed as a trade-off between these two central assumptions. A bigger
+covariate set generally reinforces the ignorability assumption. In the
+contrary, overlap can be weakened by large $\mathcal{X}$ because of the
+potential inclusion of instrumental variables: variables only linked to the treatment which
+could lead to arbitrarily small propensity scores.
+
+
+% remark: There is a major counter example to these colliders (variables which
+% are caused by both the outcome and the treatment),
+
+\begin{assumption}[Consistency]\label{assumption:consistency} The observed
+    outcome is the potential outcome of the assigned treatment:
+    \begin{equation}\label{eq:consistancy}
+        Y = A \, Y(1) + (1-A) \, Y(0)
+    \end{equation}
+    Here, we assume that the intervention $A$ has been well defined. This
+    assumption focuses on the design of the experiment. It clearly states the link
+    between the observed outcome and the potential outcomes through the
+    intervention \cite{hernan2020causal}.
+\end{assumption}
+
+\begin{assumption}[Generalization]\label{assumption:generalization} The training
+    data on which we build the estimator and the test data on which we make the
+    estimation are drawn from the same distribution, also known as
+    the ``no covariate shift'' assumption \cite{jesson2020identifying}.
+\end{assumption}
+
+
+\bibliography{references}
+
+
+\end{document}

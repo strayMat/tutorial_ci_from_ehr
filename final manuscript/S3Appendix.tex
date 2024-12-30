@@ -1,0 +1,227 @@
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+
+% amsmath and amssymb packages, useful for mathematical formulas and symbols
+\usepackage{amsmath,amssymb}
+
+% Use adjustwidth environment to exceed column width (see example table in text)
+\usepackage{changepage}
+
+% textcomp package and marvosym package for additional characters
+\usepackage{textcomp,marvosym}
+
+% cite package, to clean up citations in the main text. Do not remove.
+\usepackage{cite}
+
+% Use nameref to cite supporting information files (see Supporting Information section for more info)
+\usepackage{nameref,hyperref}
+
+% line numbers
+\usepackage[right]{lineno}
+
+% ligatures disabled
+\usepackage[nopatch=eqnum]{microtype}
+\DisableLigatures[f]{encoding = *, family = * }
+
+% color can be used to apply background shading to table cells only
+%\usepackage[table]{xcolor}
+
+% array package and thick rules for tables
+\usepackage{array}
+
+% create "+" rule type for thick vertical lines
+\newcolumntype{+}{!{\vrule width 2pt}}
+
+% create \thickcline for thick horizontal lines of variable length
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+  \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+  \cline{#1}%
+  \noalign{\vskip\arrayrulewidth}%
+  \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+% \thickhline command for thick horizontal lines that span the table
+\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+\hline
+\noalign{\global\arrayrulewidth\savedwidth}}
+
+
+% Remove comment for double spacing
+%\usepackage{setspace} 
+%\doublespacing
+
+% Text layout
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in 
+\textheight 8.75in
+
+% Bold the 'Fig #' in the caption and separate it from the title/caption with a period
+% Captions will be left justified
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+\renewcommand{\figurename}{Fig}
+
+% Use the PLoS provided BiBTeX style
+\bibliographystyle{plos2015}
+
+% Remove brackets from numbering in List of References
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+
+
+% Header and Footer with logo
+\usepackage{lastpage,fancyhdr,graphicx}
+\usepackage{epstopdf}
+\usepackage{lmodern}
+%\pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+%\setlength{\headheight}{27.023pt}
+%\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\today}
+
+%% Include all macros below
+
+\newcommand{\lorem}{{\bf LOREM}}
+\newcommand{\ipsum}{{\bf IPSUM}}
+
+%% END MACROS SECTION
+
+%% personal packages and macro
+%%% packages
+\usepackage[utf8]{inputenc}        % allow utf-8 input
+\usepackage[T1]{fontenc}           % use 8-bit T1 fonts
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{pifont}
+\usepackage{csvsimple}
+\usepackage[font={small},textfont={it},labelfont={bf}]{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{url}                   % simple URL typesetting
+\usepackage{booktabs}              % professional-quality tables
+\usepackage{makecell}
+\usepackage{amsfonts}              % blackboard math symbols
+\usepackage{amsmath}
+\usepackage{nicefrac}              % compact symbols for 1/2, etc.
+\usepackage{microtype}             % microtypography
+\usepackage{enumitem}
+\usepackage[export]{adjustbox}
+
+
+%not compatible with cite package
+%\usepackage[natbib=true,style=nature,maxnames=999,maxcitenames=2,backend=biber]{biblatex}
+%\addbibresource{references.bib}
+
+%%% macros
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand{\indep}{\perp \!\!\! \perp}
+\newtheorem{assumption}{Assumption}
+
+\definecolor{dark_blue}{rgb}{0,0,.65}
+\definecolor{dark_green}{rgb}{0,.5,.15}
+
+\hypersetup{pdftex,  % needed for pdflatex
+  breaklinks=true,  % so long urls are correctly broken across lines
+  colorlinks=true,
+  linkcolor=dark_blue,
+  citecolor=dark_green,
+}
+\colorlet{P}{ForestGreen}
+\colorlet{I}{MidnightBlue}
+\colorlet{C}{YellowOrange}
+\colorlet{O}{DarkOrchid}
+\colorlet{T}{Gray}
+
+
+
+\begin{document}
+\vspace*{0.2in}
+
+\section*{Supporting information}
+
+\paragraph*{S3 Appendix}
+\label{apd:statistical_considerations}
+{\bf Statistical considerations when implementing
+    estimation.}
+
+\textbf{Counterfactual prediction lacks off-the-shelf cross-fitting estimators}
+
+Doubly robust methods use cross-fit estimation of the nuisance parameters,
+which is not available off-the-shelf for IPW and T-Learner estimators. For
+reproducibility purposes, we did not reimplement internal cross-fitting for
+treatment or outcome estimators. However, when flexible models such as
+random forests are used, a fairer comparison between single and double
+robust methods should use cross-fitting for both. This lack in the
+scikit-learn API \cite{pedregosa2011scikit} reflects different needs
+between purely predictive machine learning focused on generalization
+performances and counterfactual prediction aiming at unbiased inference on
+the input data.
+
+\textbf{Good practices for imputation not implemented in EconML}
+
+Good practices in machine learning recommend to input distinctly each fold
+when performing cross-fitting (\url{https://scikit-learn.org/stable/modules/compose.html\#combining-estimators}).
+However, EconML estimators test for missing data at instantiation
+preventing the use of scikit-learn imputation pipelines. We thus have been
+forced to transform the full dataset before feeding it to causal estimators.
+An issue mentioning the problem has been filed, so we can hope that future
+versions of the package will comply with best practices (\url{https://github.com/py-why/EconML/issues/664}).
+
+\textbf{Bootstrap may not yield the most efficient confidence intervals}
+
+To ensure a fair comparison between causal estimators, we always used
+bootstrap estimates for confidence intervals. However, closed form
+confidence intervals are available for some estimators -- see \cite{wager2020stats}
+for IPW and AIPW (DRLeaner) variance estimations. These formulas exploit the
+estimator properties, thus tend to have smaller confidence intervals. On the
+other hand, they usually do not include the variance of the outcome and
+treatment estimators, which is naturally dealt with in bootstrapped confidence
+intervals. Closed form confidence intervals are rarely implemented in any of the
+packages as Dowhy for the IPW estimator, or in EconML for AIPW.
+
+Bootstrap was particularly costly to run for the EconML doubly robust
+estimators (AIPW and Double ML), especially when combined with random forest nuisance
+estimators (from 10 to 47 min depending on the aggregation choice and the
+estimator). See Table \ref{apd:table:compute_times} for details.
+
+\begin{table}[b]
+    \resizebox{\textwidth}{!}{
+        \centering\small
+        \begin{tabular}{llrll}
+            \toprule
+            {} & estimation method                     & compute time (seconds) & outcome model  & event aggregations \\
+            \midrule
+            2  & LinearDML                             & 1127.98                & Forests        & ['first', 'last']  \\
+            3  & backdoor.propensity\_score\_matching  & 199.77                 & Forests        & ['first', 'last']  \\
+            4  & backdoor.propensity\_score\_weighting & 86.15                  & Forests        & ['first', 'last']  \\
+            5  & TLearner                              & 284.07                 & Forests        & ['first', 'last']  \\
+            6  & LinearDRLearner                       & 2855.40                & Forests        & ['first', 'last']  \\
+            7  & LinearDML                             & 49.91                  & Regularized LR & ['first', 'last']  \\
+            8  & backdoor.propensity\_score\_matching  & 127.93                 & Regularized LR & ['first', 'last']  \\
+            9  & backdoor.propensity\_score\_weighting & 6.41                   & Regularized LR & ['first', 'last']  \\
+            10 & TLearner                              & 6.84                   & Regularized LR & ['first', 'last']  \\
+            11 & LinearDRLearner                       & 80.75                  & Regularized LR & ['first', 'last']  \\
+            \bottomrule
+        \end{tabular}
+
+    }
+    \\
+    \caption{\textbf{Compute times for the different estimation methods with 50 bootstrap replicates.}}\label{apd:table:compute_times}
+\end{table}
+
+
+\bibliography{references}
+
+
+\end{document}

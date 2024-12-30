@@ -1,0 +1,246 @@
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+
+% amsmath and amssymb packages, useful for mathematical formulas and symbols
+\usepackage{amsmath,amssymb}
+
+% Use adjustwidth environment to exceed column width (see example table in text)
+\usepackage{changepage}
+
+% textcomp package and marvosym package for additional characters
+\usepackage{textcomp,marvosym}
+
+% cite package, to clean up citations in the main text. Do not remove.
+\usepackage{cite}
+
+% Use nameref to cite supporting information files (see Supporting Information section for more info)
+\usepackage{nameref,hyperref}
+
+% line numbers
+\usepackage[right]{lineno}
+
+% ligatures disabled
+\usepackage[nopatch=eqnum]{microtype}
+\DisableLigatures[f]{encoding = *, family = * }
+
+% color can be used to apply background shading to table cells only
+%\usepackage[table]{xcolor}
+
+% array package and thick rules for tables
+\usepackage{array}
+
+% create "+" rule type for thick vertical lines
+\newcolumntype{+}{!{\vrule width 2pt}}
+
+% create \thickcline for thick horizontal lines of variable length
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+  \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+  \cline{#1}%
+  \noalign{\vskip\arrayrulewidth}%
+  \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+% \thickhline command for thick horizontal lines that span the table
+\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+\hline
+\noalign{\global\arrayrulewidth\savedwidth}}
+
+
+% Remove comment for double spacing
+%\usepackage{setspace} 
+%\doublespacing
+
+% Text layout
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in 
+\textheight 8.75in
+
+% Bold the 'Fig #' in the caption and separate it from the title/caption with a period
+% Captions will be left justified
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+\renewcommand{\figurename}{Fig}
+
+% Use the PLoS provided BiBTeX style
+\bibliographystyle{plos2015}
+
+% Remove brackets from numbering in List of References
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+
+
+% Header and Footer with logo
+\usepackage{lastpage,fancyhdr,graphicx}
+\usepackage{epstopdf}
+\usepackage{lmodern}
+%\pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+%\setlength{\headheight}{27.023pt}
+%\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\today}
+
+%% Include all macros below
+
+\newcommand{\lorem}{{\bf LOREM}}
+\newcommand{\ipsum}{{\bf IPSUM}}
+
+%% END MACROS SECTION
+
+%% personal packages and macro
+%%% packages
+\usepackage[utf8]{inputenc}        % allow utf-8 input
+\usepackage[T1]{fontenc}           % use 8-bit T1 fonts
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{pifont}
+\usepackage{csvsimple}
+\usepackage[font={small},textfont={it},labelfont={bf}]{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{url}                   % simple URL typesetting
+\usepackage{booktabs}              % professional-quality tables
+\usepackage{makecell}
+\usepackage{amsfonts}              % blackboard math symbols
+\usepackage{amsmath}
+\usepackage{nicefrac}              % compact symbols for 1/2, etc.
+\usepackage{microtype}             % microtypography
+\usepackage{enumitem}
+\usepackage[export]{adjustbox}
+
+
+%not compatible with cite package
+%\usepackage[natbib=true,style=nature,maxnames=999,maxcitenames=2,backend=biber]{biblatex}
+%\addbibresource{references.bib}
+
+%%% macros
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand{\indep}{\perp \!\!\! \perp}
+\newtheorem{assumption}{Assumption}
+
+\definecolor{dark_blue}{rgb}{0,0,.65}
+\definecolor{dark_green}{rgb}{0,.5,.15}
+
+\hypersetup{pdftex,  % needed for pdflatex
+  breaklinks=true,  % so long urls are correctly broken across lines
+  colorlinks=true,
+  linkcolor=dark_blue,
+  citecolor=dark_green,
+}
+\colorlet{P}{ForestGreen}
+\colorlet{I}{MidnightBlue}
+\colorlet{C}{YellowOrange}
+\colorlet{O}{DarkOrchid}
+\colorlet{T}{Gray}
+
+
+
+\begin{document}
+\vspace*{0.2in}
+
+\section*{Supporting information}
+
+
+\paragraph*{S4 Appendix}
+\label{apd:packages}
+{\bf Packages for causal estimation in the python ecosystem.}
+We searched for causal inference packages in the python ecosystem. The focus
+was on the identification methods. Important features were ease of
+installation, sklearn estimator support, sklearn pipeline support, doubly
+robust estimators, confidence interva l computation, honest splitting
+(cross-validation), Targeted Maximum Likelihood Estimation. These criteria are
+summarized in \ref{apd:table:causal_packages}. We finally chose EconML despite
+lacking \texttt{sklearn.\_BaseImputer} support through the
+\texttt{sklearn.Pipeline} object as well as a TMLE implementation.
+
+The zEpid package is primarily intended for epidemiologists. It is well documented
+and provides pedagogical tutorials. It does not support sklearn estimators,
+pipelines and honest splitting.
+
+EconML \cite{battocchi2019econml} implements almost all estimators except propensity score methods. Despite
+focusing on Conditional Average Treatment Effect, it provides all. One downside
+is the lack of support for scikit-learn pipelines with missing value imputers.
+This opens the door to information leakage when imputing data before splitting
+into train/test folds.
+
+Dowhy \cite{sharma2020dowhy} focuses on graphical models and relies on EconML for most of the causal
+inference methods (identifications) and estimators. Despite, being interesting
+for complex inference --such as mediation analysis or instrumental variables--,
+we considered that it added an unnecessary layer of complexity for our use case
+where a backdoor criterion is the most standard adjustment methodology.
+
+Causalml implements all methods, but has a lot of package dependencies
+which makes it hard to install.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[h!]
+  \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+      \hline
+      \multicolumn{1}{|c|}{\textbf{Packages}}                                                           &
+      \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Simple \\ installation\end{tabular}}}      &
+      \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Confidence \\ Intervals\end{tabular}}}     &
+      \textbf{\begin{tabular}[c]{@{}l@{}}sklearn \\ estimator\end{tabular}}                             &
+      \textbf{\begin{tabular}[c]{@{}l@{}}sklearn \\ pipeline\end{tabular}}                              &
+      \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Propensity \\ estimators\end{tabular}}}    &
+      \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Doubly Robust \\ estimators\end{tabular}}} &
+      \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}TMLE\\ estimator\end{tabular}}}            &
+      \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Honest splitting \\ (cross validation)\end{tabular}}} \\ \hline
+      \textbf{\href{https://github.com/py-why/dowhy}{dowhy}}                                            &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{55}                                                                                         &
+      \ding{55}                                                                                         &
+      \ding{55}                                                                                                    \\ \hline
+      \textbf{\href{https://github.com/py-why/EconML}{EconML}}                                          &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \begin{tabular}[c]{@{}l@{}}Yes except\\ for imputers\end{tabular}                                 &
+      \ding{55}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{55}                                                                                         &
+      \begin{tabular}[c]{@{}l@{}}Only for doubly \\ robust estimators\end{tabular}                                 \\ \hline
+      \textbf{\href{https://github.com/pzivich/zEpid}{zEpid}}                                           &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{55}                                                                                         &
+      \ding{55}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      Only for TMLE                                                                                                \\ \hline
+      \textbf{\href{https://github.com/uber/causalml}{causalml}}                                        &
+      \ding{55}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \ding{51}                                                                                         &
+      \begin{tabular}[c]{@{}l@{}}Only for doubly \\ robust estimators\end{tabular}                                 \\ \hline
+    \end{tabular}%
+  }\caption{\textbf{Selection criteria for causal python packages.}}\label{apd:table:causal_packages}
+\end{table}
+
+
+
+
+\bibliography{references}
+
+
+\end{document}

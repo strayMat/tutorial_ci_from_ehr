@@ -1,0 +1,273 @@
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+
+% amsmath and amssymb packages, useful for mathematical formulas and symbols
+\usepackage{amsmath,amssymb}
+
+% Use adjustwidth environment to exceed column width (see example table in text)
+\usepackage{changepage}
+
+% textcomp package and marvosym package for additional characters
+\usepackage{textcomp,marvosym}
+
+% cite package, to clean up citations in the main text. Do not remove.
+\usepackage{cite}
+
+% Use nameref to cite supporting information files (see Supporting Information section for more info)
+\usepackage{nameref,hyperref}
+
+% line numbers
+\usepackage[right]{lineno}
+
+% ligatures disabled
+\usepackage[nopatch=eqnum]{microtype}
+\DisableLigatures[f]{encoding = *, family = * }
+
+% color can be used to apply background shading to table cells only
+%\usepackage[table]{xcolor}
+
+% array package and thick rules for tables
+\usepackage{array}
+
+% create "+" rule type for thick vertical lines
+\newcolumntype{+}{!{\vrule width 2pt}}
+
+% create \thickcline for thick horizontal lines of variable length
+\newlength\savedwidth
+\newcommand\thickcline[1]{%
+  \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+  \cline{#1}%
+  \noalign{\vskip\arrayrulewidth}%
+  \noalign{\global\arrayrulewidth\savedwidth}%
+}
+
+% \thickhline command for thick horizontal lines that span the table
+\newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+\hline
+\noalign{\global\arrayrulewidth\savedwidth}}
+
+
+% Remove comment for double spacing
+%\usepackage{setspace} 
+%\doublespacing
+
+% Text layout
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in 
+\textheight 8.75in
+
+% Bold the 'Fig #' in the caption and separate it from the title/caption with a period
+% Captions will be left justified
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+\renewcommand{\figurename}{Fig}
+
+% Use the PLoS provided BiBTeX style
+\bibliographystyle{plos2015}
+
+% Remove brackets from numbering in List of References
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+
+
+% Header and Footer with logo
+\usepackage{lastpage,fancyhdr,graphicx}
+\usepackage{epstopdf}
+\usepackage{lmodern}
+%\pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+%\setlength{\headheight}{27.023pt}
+%\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
+\fancyheadoffset[L]{2.25in}
+\fancyfootoffset[L]{2.25in}
+\lfoot{\today}
+
+%% Include all macros below
+
+\newcommand{\lorem}{{\bf LOREM}}
+\newcommand{\ipsum}{{\bf IPSUM}}
+
+%% END MACROS SECTION
+
+%% personal packages and macro
+%%% packages
+\usepackage[utf8]{inputenc}        % allow utf-8 input
+\usepackage[T1]{fontenc}           % use 8-bit T1 fonts
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{pifont}
+\usepackage{csvsimple}
+\usepackage[font={small},textfont={it},labelfont={bf}]{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{url}                   % simple URL typesetting
+\usepackage{booktabs}              % professional-quality tables
+\usepackage{makecell}
+\usepackage{amsfonts}              % blackboard math symbols
+\usepackage{amsmath}
+\usepackage{nicefrac}              % compact symbols for 1/2, etc.
+\usepackage{microtype}             % microtypography
+\usepackage{enumitem}
+\usepackage[export]{adjustbox}
+
+
+%not compatible with cite package
+%\usepackage[natbib=true,style=nature,maxnames=999,maxcitenames=2,backend=biber]{biblatex}
+%\addbibresource{references.bib}
+
+%%% macros
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand{\indep}{\perp \!\!\! \perp}
+\newtheorem{assumption}{Assumption}
+
+\definecolor{dark_blue}{rgb}{0,0,.65}
+\definecolor{dark_green}{rgb}{0,.5,.15}
+
+\hypersetup{pdftex,  % needed for pdflatex
+  breaklinks=true,  % so long urls are correctly broken across lines
+  colorlinks=true,
+  linkcolor=dark_blue,
+  citecolor=dark_green,
+}
+\colorlet{P}{ForestGreen}
+\colorlet{I}{MidnightBlue}
+\colorlet{C}{YellowOrange}
+\colorlet{O}{DarkOrchid}
+\colorlet{T}{Gray}
+
+
+
+\begin{document}
+\vspace*{0.2in}
+
+\section*{Supporting information}
+
+\paragraph*{S2 Appendix}
+\label{apd:causal_estimators}
+{\bf Major causal-inference methods: When to use which estimator?}
+
+
+\textbf{G-formula} also called conditional mean regression
+\cite{wendling2018comparing}, g-computation \cite{robins1986role}, or
+Q-model \cite{snowden2011implementation}. This approach is directly modeling
+the outcome, also referred to as the response surface: $\mu_{(a)}(x)
+    =\mathbb{E}\left(Y \mid A=a, \mathbf{X}=x\right)$
+
+Using an outcome estimator to learn a model for the response surface $\hat
+    \mu$ (eg. a linear model), the ATE estimator is an average over the n samples:
+\begin{equation}
+    \hat{\tau}_G(f) = \frac{1}{n} \sum_{i=1}^n \hat \mu(x_i, 1) - \hat \mu(x_i, 0) = \frac{1}{n} \sum_{i=1}^n \hat \mu_{(1)}(x_i) - \hat \mu_{(0)}(x_i)
+\end{equation}
+
+This estimator is unbiased if the model of the conditional response surface
+$\hat \mu_{(a)}$ is well-specified. This approach assumes than $Y(a) =
+    \mu_a(X) + \epsilon_a$ with $\mathbb E[\epsilon|X] = 0$. The main drawback is
+the extrapolation of the learned outcome estimator from samples with similar
+covariates X but different intervention A.\\
+
+\textbf{Propensity Score Matching (PSM)} To avoid confounding bias, the
+ignorability assumption (S2Appendix - Assumption 1) requires to contrast
+treated and control outcomes only between comparable patients with respect to
+treatment allocation probabilities. A simple way to do this is to group
+patients into bins, or subgroups, of similar confounders and contrast the two
+population's outcomes by matching patients inside these bins
+\cite{stuart2010matching}. However, the number of confounder bins grows
+exponentially with the number of variables. \cite{rosenbaum1983central} proved
+that matching patients on the individual probabilities to receive treatment
+--propensity scores-- is sufficient to verify ignorability. PSM is a
+conceptually simple method, but has delicate parameters to tune such as
+choosing a model for the propensity score, deciding what is the maximum
+distance between two potential matches (the caliper width), the number of
+matches by sample, and matching with or without replacement. It also prunes data
+not meeting the caliper width criteria, and suffers from high estimation
+variance in highly-dimensional data where extreme propensity weights are common.
+Finally, the simple bootstrap confidence intervals are not theoretically
+grounded \cite{abadie2008failure} making PSM more difficult
+to use for applied practitioners.\\
+
+\textbf{Inverse Propensity Weighting (IPW)}
+
+A simple alternative to propensity score matching is to weight the outcome by
+the inverse of the propensity score \cite{austin2015moving}. It relies on a
+similar idea as matching but automatically builds a balanced population by
+reweighting the outcomes with the propensity score model $\hat{e}$ to estimate
+the ATE:
+\begin{equation}
+    \hat \tau_{IPW}(\hat e) = \frac{1}{n} \sum_{i=1}^N \frac{A_i Y_i}{\hat e(X_i)} - \frac{(1-A_i)Y_i}{(1-\hat e(X_i))}
+\end{equation}
+
+This estimate is unbiased if $\hat e$ is well-specified. IPW suffers from high
+variance if some weights are too close to 0 or 1. In high dimensional cases
+where poor overlap between treated and control is common, one can clip extreme
+weights to limit estimation instability.\\
+
+
+\textbf{Doubly Robust Learning, DRL} also called Augmented Inverse
+Probability Weighting (AIPW) \cite{robins1994estimation}.
+
+The underlying idea of DRL is to combine the G-formula and IPW estimators to
+protect against a mis-specification of one of them. It first requires to
+estimate the two nuisance parameters: a model for the intervention $\hat{e}$
+and a model for the outcome $f$. If one of the two nuisance is unbiased, the
+following ATE estimator is as well:
+
+$$\begin{aligned} \widehat{\tau}_{A I P W}=\frac{1}{n}
+        \sum_{i=1}^{n}\left(\hat \mu_{(1)}\left(x_{i}\right)-\hat \mu_{(0)}\left(x_{i}\right)+a_{i}
+        \frac{y_{i}-\hat \mu_{(1)}\left(x_{i}\right)}{\hat{e}\left(x_{i}\right)}-\left(1-a_{i}\right)
+        \frac{y_{i}-\hat \mu_{(0)}\left(x_{i}\right)}{1-\hat{e}\left(x_{i}\right)}\right)
+    \end{aligned}$$
+
+Moreover, despite the need to estimate two models, this estimator is more
+efficient in the sense that it converges quicker than single model estimators
+\cite{wager2020stats}. For this propriety to hold, one need to fit and apply
+the two nuisance models in a cross-fitting manner. This means that we split
+the data into K folds. Then for each fold, we fit the nuisance models on the
+K-1 complementary folds, and predict on the remaining fold.
+
+To recover Conditional Treatment Effects from the AIPW estimator,
+\cite{foster2019orthogonal} suggested to regress the Individual Treatment
+Effect estimates from AIPW on potential sources of heterogeneity $X^{cate}$:
+$\hat tau = \argmin_{\tau \in \Theta} (\hat \tau_{AIPW}(X) - \tau(X^{cate}))$
+for $\Theta$ some class of model (eg. linear model).\\
+
+\textbf{Double Machine Learning} \cite{chernozhukov2018double} also known
+as the R-learner \cite{nie2021quasi}. It is based on the R-decomposition,
+\cite{robinson1988root}, and the modeling of the conditional mean outcome,
+$m(x)=\mathbb E[Y|X=x]$ and the propensity score, $e(x)=\mathbb E[A=1|X=x]$:
+\begin{equation}\label{eq:r_decomposition}
+    y_{i}-m\left(x_{i}\right)=\left(a_{i}-e\left(x_{i}\right)\right) \tau\left(x_{i}\right)+\varepsilon_{i} \quad \text{with} \; \varepsilon_{i}=y_{i}-\varepsilon\left[4_{i} \mid x_{i}, a_{i}\right]
+\end{equation}
+Note that we can impose that the conditional treatment effect $\tau(x)$ only
+relies on a subset of the features, $x^{cate}$ on which we want to study
+treatment heterogeneity.
+
+From this decomposition, we can derive an estimation of the ATE $\tau$, where
+the right hand-side term is the empirical R-Loss:
+\begin{align}\label{eq:r_loss}
+    \hat{\tau}(\cdot)=\operatorname{argmin}_{\tau}\left\{\frac{1}{n} \sum_{i=1}^{n}\left(\left(y_{i}-m\left(x_{i}\right)\right)-\left(a_{i}-e(x_{i})\right) \tau\left(x^{cate}_{i}\right)\right)^{2}\right\}
+\end{align}
+
+The full procedure for R-learning is first to fit the nuisances: $\hat m$ and
+$\hat e$. Then, minimize the estimated R-loss eq.\ref{eq:r_loss}, where
+the oracle nuisances $(e, m)$ have been replaced by their estimated
+counterparts $(\hat e, \hat m)$. Minimization can be done by regressing
+the outcome residuals weighted by the treatment residuals. Finally, get
+the ATE by averaging conditional treatment effect $\tau(x^{cate})$ over
+the population.
+
+This estimator has also the doubly robust proprieties described for AIPW. it
+should have less variance than AIPW since it does not use the propensity score
+in the denominator.
+
+\bibliography{references}
+
+
+\end{document}
