@@ -208,35 +208,7 @@
 % Please keep the abstract below 300 words --> 235
 \section*{Abstract}
 
-Causal inference enables machine learning methods to estimate treatment effects
-of medical interventions from electronic health records (EHRs). The prevalence
-of such observational data and the difficulty for randomized controlled trials (RCT) to cover all
-population/treatment relationships make these methods increasingly attractive
-for studying causal effects. However, researchers should be wary of many
-pitfalls.
-
-We propose and illustrate a framework for causal inference estimating the
-effect of albumin on mortality in sepsis using an Intensive Care database
-(MIMIC-IV) and comparing various sensitivity analyses to results from RCTs as gold-standard.
-
-The first step is study design, using the target trial concept and the PICOT
-framework: Population (patients with sepsis), Intervention (combination of
-crystalloids and albumin for fluid resuscitation), Control (crystalloids only),
-Outcome (28-day mortality), Time (intervention start within 24h of admission).
-We show that too large treatment-initiation times induce immortal time bias.
-The second step is selection of the confounding variables based on expert
-knowledge. Increasingly adding confounders enables to recover the RCT results
-from observational data. As the third step, we assess the influence
-of multiple models with varying assumptions, showing that a doubly robust estimator (AIPW)
-with random forests proved to be the most reliable estimator. Results show that
-these steps are all important for valid causal estimates. A valid causal model
-can then be used to individualize decision making: subgroup analyses showed that
-treatment efficacy of albumin was better for patients >60 years old, males, and
-patients with septic shock.
-
-Without causal thinking, machine learning is not enough for optimal clinical
-decision on an individual patient level. Our step-by-step analytic framework helps avoiding many pitfalls of applying machine learning to EHR data,
-building models that avoid shortcuts and extract the best decision-making evidence.
+Causal inference enables machine learning methods to estimate treatment effects of medical interventions from electronic health records (EHRs). The prevalence of such observational data and the difficulty for randomized controlled trials (RCT) to cover all population/treatment relationships make these methods increasingly attractive for studying causal effects. However, researchers should be wary of many pitfalls. We propose and illustrate a framework for causal inference estimating the effect of albumin on mortality in sepsis using an Intensive Care database (MIMIC-IV) and comparing various sensitivity analyses to results from RCTs as gold-standard. The first step is study design, using the target trial concept and the PICOT framework: Population (patients with sepsis), Intervention (combination of crystalloids and albumin for fluid resuscitation), Control (crystalloids only), Outcome (28-day mortality), Time (intervention start within 24h of admission). We show that too large treatment-initiation times induce immortal time bias. The second step is selection of the confounding variables based on expert knowledge. Increasingly adding confounders enables to recover the RCT results from observational data. As the third step, we assess the influence of multiple models with varying assumptions, showing that a doubly robust estimator (AIPW) with random forests proved to be the most reliable estimator. Results show that these steps are all important for valid causal estimates. A valid causal model can then be used to individualize decision making: subgroup analyses showed that treatment efficacy of albumin was better for patients >60 years old, males, and patients with septic shock. Without causal thinking, machine learning is not enough for  optimal clinical decision on an individual patient level. Our step-by-step analytic framework helps avoiding many pitfalls of applying machine learning to EHR data, building models that avoid shortcuts and extract the best decision-making evidence.
 
 % Please keep the Author Summary between 150 and 200 words
 % Use first person. PLOS ONE authors please skip this step. 
@@ -754,34 +726,35 @@ treatment or control in a shorter or longer time window than 24 hours. As
 explained in \nameref{sec:framing}, a longer eligibility period means that
 patients are more likely to be treated if they survived up to the intervention
 and hence the study is biased to overestimate the beneficial effect of the
-intervention. Fig \ref{fig:vibration:itb} shows that longer eligibility
+intervention. Fig \ref{fig:vibration_analysis}a) shows that longer eligibility
 periods lead to albumin being markedly more efficient (detailed results with causal forest and other choices of aggregation in S8 Fig).
 
 \begin{figure*}[h!]
-  \begin{subfigure}[b]{\linewidth}
-    \caption{\bfseries Framing -- Immortal Time Bias}\label{fig:vibration:itb}
-    \includegraphics[width=0.765\linewidth, right]{img_final/Fig3a.pdf}
-  \end{subfigure}
-  \vfill
-  \begin{subfigure}[b]{\linewidth}
-    \centering
-    \caption{\bfseries Identification -- confounders choice}\label{fig:vibration:confounders}
-    \includegraphics[width=.9\linewidth, right]{img_final/Fig3b.pdf}
-  \end{subfigure}
-  \vfill
-  \begin{subfigure}[b]{\linewidth}
-    \centering
-    \caption{\bfseries Model selection}\label{fig:vibration:models}
-    \includegraphics[width=0.891\linewidth, right]{img_final/Fig3c.pdf}
-  \end{subfigure}
+  % \begin{subfigure}[b]{\linewidth}
+  %   \caption{\bfseries Framing -- Immortal Time Bias}\label{fig:vibration:itb}
+  %   \includegraphics[width=0.765\linewidth, right]{img_final/Fig3a.pdf}
+  % \end{subfigure}
+  % \vfill
+  % \begin{subfigure}[b]{\linewidth}
+  %   \centering
+  %   \caption{\bfseries Identification -- confounders choice}\label{fig:vibration:confounders}
+  %   \includegraphics[width=.9\linewidth, right]{img_final/Fig3b.pdf}
+  % \end{subfigure}
+  % \vfill
+  % \begin{subfigure}[b]{\linewidth}
+  %   \centering
+  %   \caption{\bfseries Model selection}\label{fig:vibration:models}
+  %   \includegraphics[width=0.891\linewidth, right]{img_final/Fig3c.pdf}
+  % \end{subfigure}
+  \includegraphics[width=0.9\linewidth]{img_final/Fig3.png}
   \vfill
   \caption{\textbf{The effect of choices on the three
       analytical steps.}\\ All three
     analytical steps are equally important for the validity of the analysis.
-    Fig \ref{fig:vibration:itb}) Framing step: Poor framing introduces time bias: A longer
+    Fig 3a) Framing step: Poor framing introduces time bias: A longer
     observation period (72h) artificially favors the efficacy of Albumin.
-    Fig \ref{fig:vibration:confounders}) Identification step: Choosing less informed confounders set
-    introduces increasing bias in the results. Fig \ref{fig:vibration:models}) Model selection step:
+    Fig 3b) Identification step: Choosing less informed confounders set
+    introduces increasing bias in the results. Fig 3c) Model selection step:
     Different estimators give different results. Score matching yields
     unconvincingly high estimates, inconsistent with the published RCT. With
     other causal approaches, using linear estimators for nuisances suggest a
@@ -797,7 +770,7 @@ periods lead to albumin being markedly more efficient (detailed results with cau
 
 \paragraph{Confounder choice flaw} We consider other choice of confounding variables
 (detailled in S6 Appendix). Fig
-\ref{fig:vibration:confounders} shows that a less thorough choice, neglecting
+\ref{fig:vibration_analysis}b) shows that a less thorough choice, neglecting
 the administrated drugs, makes little to no difference. Major errors, such as
 omitting the biological measurements or using only socio-demographical
 variables, lead to sizeable bias. This is consistent with the literature
@@ -805,7 +778,7 @@ highlighting the importance of a clinically valid DAG \cite{greenland1999causal}
 
 \paragraph{Estimation choices flaw -- Confounder aggregation, causal and nuisance estimators:}
 
-Fig \ref{fig:vibration:models} shows varying confidence intervals (CI)
+Fig \ref{fig:vibration_analysis}c) shows varying confidence intervals (CI)
 depending on the method. Doubly-robust methods provide the narrowest CIs,
 whereas the outcome-regression methods have the largest CI. The estimates of the
 forest models are closer to the consensus across prior studies (no effect) than
@@ -887,7 +860,7 @@ order of magnitude for all steps.
 %
 For instance, despite the emphasis often put on choice of confounders,
 minor deviations from the expert's causal graph did not introduce
-substantial bias (\ref{fig:vibration:confounders}), no larger than a too
+substantial bias (\ref{fig:vibration_analysis}b)), no larger than a too
 rigid choice of estimator.
 % Importance of reference target trial
 To assert the validity of the analysis, we argue to relate as much as
@@ -963,11 +936,6 @@ The project was run on a laptop running Ubuntu 22.04.2 LTS with the following ha
 % National Science Foundation, P400PM\_194497 / 1) as well as an ERC grant to GV
 % (Intercept-T2D HORIZON-HLTH-2022-STAYHLTH-02-01). LAC is funded by the National
 % Institute of Health through NIBIB R01 EB017205.
-
-\section*{Authors contributions}
-
-MD and TS designed the study, MD performed the analysis and wrote the manuscript.
-TS, JA, CM, LAC, GV reviewed and edited the manuscript.
 
 \section*{Acknowledgments}
 
@@ -1430,80 +1398,6 @@ particular: Fredrik Willumsen Haug, João Matos, Luis Nakayama, Sicheng Hao, Ali
   Ehrmann DE, Joshi S, Goodfellow SD, Mazwi ML, Eytan D.
   \newblock Making machine learning matter to clinicians: model actionability in medical decision-making.
   \newblock NPJ Digital Medicine. 2023;6(1):7.
-
-  \bibitem{score22021score2}
-  working group S.
-  \newblock SCORE2 risk prediction algorithms: new models to estimate 10-year risk of cardiovascular disease in Europe.
-  \newblock European heart journal. 2021;42(25):2439--2454.
-
-  \bibitem{bretthauer2013principles}
-  Bretthauer M, Kalager M.
-  \newblock Principles, effectiveness and caveats in screening for cancer.
-  \newblock Journal of British Surgery. 2013;100(1):55--65.
-
-  \bibitem{lee2020immortaltimebias}
-  Lee H, Nunan D. Immortal time bias, Catalogue of Bias Collaboration.; 2020.
-  \newblock Available from: \url{https://catalogofbias.org/biases/immortaltimebias/}.
-
-  \bibitem{rosenbaum1983central}
-  Rosenbaum PR, Rubin DB.
-  \newblock The central role of the propensity score in observational studies for causal effects.
-  \newblock Biometrika;70:41--55.
-
-  \bibitem{chernozhukov2022long}
-  Chernozhukov V, Cinelli C, Newey W, Sharma A, Syrgkanis V.
-  \newblock Long story short: Omitted variable bias in causal machine learning.
-  \newblock National Bureau of Economic Research; 2022.
-
-  \bibitem{jesson2020identifying}
-  Jesson A, Mindermann S, Shalit U, Gal Y.
-  \newblock Identifying causal-effect inference failure with uncertainty-aware models.
-  \newblock Advances in Neural Information Processing Systems. 2020;33:11637--11649.
-
-  \bibitem{snowden2011implementation}
-  Snowden JM, Rose S, Mortimer KM.
-  \newblock Implementation of G-computation on a simulated data set: demonstration of a causal inference technique.
-  \newblock American journal of epidemiology. 2011;173(7):731--738.
-
-  \bibitem{abadie2008failure}
-  Abadie A, Imbens GW.
-  \newblock On the failure of the bootstrap for matching estimators.
-  \newblock Econometrica. 2008;76(6):1537--1557.
-
-  \bibitem{robins1994estimation}
-  Robins JM, Rotnitzky A, Zhao LP.
-  \newblock Estimation of regression coefficients when some regressors are not always observed.
-  \newblock Journal of the American statistical Association. 1994;89(427):846--866.
-
-  \bibitem{foster2019orthogonal}
-  Foster DJ, Syrgkanis V.
-  \newblock Orthogonal statistical learning.
-  \newblock arXiv preprint arXiv:190109036. 2019;.
-
-  \bibitem{nie2021quasi}
-  Nie X, Wager S.
-  \newblock Quasi-oracle estimation of heterogeneous treatment effects.
-  \newblock Biometrika. 2021;108(2):299--319.
-
-  \bibitem{robinson1988root}
-  Robinson PM.
-  \newblock Root-N-consistent semiparametric regression.
-  \newblock Econometrica: Journal of the Econometric Society. 1988; p. 931--954.
-
-  \bibitem{sharma2020dowhy}
-  Sharma A, Kiciman E.
-  \newblock DoWhy: An end-to-end library for causal inference.
-  \newblock arXiv preprint arXiv:201104216. 2020;.
-
-  \bibitem{bouthillier2021accounting}
-  Bouthillier X, Delaunay P, Bronzi M, Trofimov A, Nichyporuk B, Szeto J, et~al.
-  \newblock Accounting for variance in machine learning benchmarks.
-  \newblock Proceedings of Machine Learning and Systems. 2021;3:747--769.
-
-  \bibitem{safe2007saline}
-  Investigators SS.
-  \newblock Saline or albumin for fluid resuscitation in patients with traumatic brain injury.
-  \newblock New England Journal of Medicine. 2007;357(9):874--884.
 
 \end{thebibliography}
 
